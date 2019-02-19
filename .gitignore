@@ -1,0 +1,8 @@
+.emacs.desktop
+.emacs.desktop.lock
+.mc-lists.el
+elpa/
+forge-database.sqlite
+transient/
+custom.el
+
