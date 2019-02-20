@@ -13,6 +13,9 @@
 没办法，在英文面前，我又一次摔倒了。但是我对现在的 Emacs 配置有了一个
 新的想法，也许我不应该再过多的依赖别人的配置了。
 
+试用了一天的 Emacs 之后，感觉自己的小指要断了，看来，对于 Emacs 来说，
+小指的负担还是太重了。
+
 * 知道自己想要的功能
 
 在使用了一段时间之后，我发现我其实经常使用的功能就是几个。
@@ -29,20 +32,29 @@
 
 所以在这次从头开始的配置中，第一个需要的就是 Org Mode + Magit 。
 
-#+BEGIN_SRC lisp
-    lakdsfadfl(setq message "%s" afdafasf)
-#+END_SRC
-
-
 * 为自己想要的功能增加对应的快捷键
 
 也许这不是最好的方法，但确是对我来说最适合的配置。而且快捷键的配置也主
 要只针对比较重要的插件，其它的都放到 other 的配置中。
 
 ** Org mode
+
 - C-c a :: 打开 agenda
+- C-c o :: 启动 org-capture
 - C-c b :: 在 org buffer 间切换
 
 ** Magit
 
+- C-x g :: 启动 Magit
+           
 ** other
+
+*** emacs lisp mode 
+
+- C-x C-x :: ielm
+- C-c C-c :: eval defun
+- C-c C-b :: eval buffer
+
+*** elfeed
+
+- C-x w e :: 启动 elfeed
