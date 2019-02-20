@@ -46,3 +46,6 @@
 (require 'dylan-basic)
 (require 'dylan-org)
 (require 'dylan-magit)
+(require 'dylan-expansion)
+
+(provide 'init)

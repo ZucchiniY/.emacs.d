@@ -4,6 +4,7 @@
   :mode ("\\.\\(org\\|org_archive\\)$" . org-mode)
   :hook (org-indent-mode . (lambda() (diminish 'org-indent-mode)))
   :bind (("C-c a" . org-agenda)
+         ("C-c o" . org-capture)
          ("C-c b" . org-switchb))
   :config
   (setq org-agenda-files '("~/workspace/org/gtd/")

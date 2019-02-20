@@ -4,5 +4,6 @@
 elpa/
 forge-database.sqlite
 transient/
+.elfeed/
 custom.el
 
