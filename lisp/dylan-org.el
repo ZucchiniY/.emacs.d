@@ -3,36 +3,23 @@
   :functions hydra-org-template/body
   :mode ("\\.\\(org\\|org_archive\\)$" . org-mode)
   :hook (org-indent-mode . (lambda() (diminish 'org-indent-mode)))
+  :bind (("C-c a" . org-agenda)
+         ("C-c b" . org-switchb))
   :config
   (setq org-agenda-files '("~/workspace/org/gtd/")
         org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "HANGUP(h)"
-                                      "|" "DONE(d)" "CANCEL(c)")
-                            (sequence "MEETING(m)" "NOTE" "BLOG(b)"))
+                                      "|" "DONE(d)" "CANCEL(c)"))
         org-log-done 'time
         org-startup-indented t
-        ;; org-ellipsis "  "
-        org-ellipsis " ⤵ "
         org-pretty-entities t
         ;; 不经意的编辑了一些不可见内容的时候，可以帮助我们发现这些编辑的内容
+        org-hide-emphasis-markers nil        
         org-catch-invisible-edits 'smart
-        ;; 代码高亮
-        org-src-fontify-natively t
-        org-src-tab-acts-natively t
-        org-deadline-warning-days 4
-        org-todo-keywords-for-agenda t
-        org-hide-emphasis-markers nil
-        org-cycle-separator-lines 0
-        org-hide-leading-stars t
         org-log-into-drawer 'LOGBOOK
-        org-agenda-todo-ignore-scheduled 'past
-        org-agenda-span 'week
         org-agenda-text-search-extra-files 'agenda-archives
-        org-agenda-start-on-weekday 0
-        org-agenda-tags-todo-honor-ignore-options t
-        org-agenda-skip-deadline-if-done t
-        org-agenda-skip-deadline-prewarning-if-scheduled t)
+        org-agenda-skip-deadline-if-done t)
   
-  (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
+  (add-hook 'org-mode-hook 'toggle-truncate-lines)
 
   ;; configurations org keywords' faces
   (setq org-todo-keyword-faces `(("TODO" . (:foreground "SpringGreen2" :weight bold))
@@ -61,13 +48,13 @@
     :hook (org-mode . org-bullets-mode)
     :config (setq org-bullets-bullet-list '("☯" "☢" "♠" "♣" "♥" "♦")))
 
-  (unless sys/winntp
-    (use-package org-fancy-priorities
-      :diminish
-      :defines org-fancy-priorities-list
-      :hook (org-mode . org-fancy-priorities-mode)
-      :config (setq org-fancy-priorities-list '("⚡" "⬆" "⬇" "☕"))))
-
+  (use-package org-fancy-priorities
+    :diminish
+    :defines org-fnacy-priorities-list
+    :hook (org-mode . org-fancy-priorities-mode)
+    :config
+    (setq org-fancy-priorities-list '("HIGHT" "MID" "LOW" "OPTIONAL")))
+  
   ;; 替换对应的标记
   ;; 该段正则的意思是 “以0个或者多个空格开头，紧接着一个 ‘-’ ，紧接着是一个空格”
   ;; 将配置上面的情况的 “-” 替换为 “•”
@@ -108,9 +95,8 @@
   ;; Pomodoro
   (use-package org-pomodoro
     :after org-agenda
-    :config (setq org-pomodoro-long-break-length 15)
-    :bind (:map org-agenda-mode-map
-                ("P" . org-pomodoro)))
+    :bind ("C-c p" . org-pomodoro)
+    :config (setq org-pomodoro-long-break-length 15))
 
   )
 
@@ -120,8 +106,8 @@
   :commands (deft)
   :config
   (setq deft-directory "~/workspace/org"
-                deft-recursive t
-                deft-extensions '("md" "org")))
+        deft-recursive t
+        deft-extensions '("md" "org")))
 ;; ox-hugo to help us write blog with org mode and publish with markdown
 (use-package ox-hugo
   :after ox)
