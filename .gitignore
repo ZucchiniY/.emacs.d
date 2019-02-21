@@ -6,4 +6,5 @@ forge-database.sqlite
 transient/
 .elfeed/
 custom.el
-
+var/
+*/.DS_Store
