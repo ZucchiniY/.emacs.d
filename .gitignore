@@ -9,3 +9,4 @@ custom.el
 var/
 */.DS_Store
 README.html
+smex-items
