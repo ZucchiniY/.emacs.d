@@ -1,3 +1,11 @@
+;;; dylan-org.el --- summary -*- lexical-binding: t -*-
+
+;; Author: Dylan Yang
+;; Maintainer: Dylan Yang
+
+;;; Commentary:
+
+;;; Code:
 (use-package org
   :commands org-try-structure-completion
   :functions hydra-org-template/body
@@ -14,7 +22,7 @@
         org-startup-indented t
         org-pretty-entities t
         ;; 不经意的编辑了一些不可见内容的时候，可以帮助我们发现这些编辑的内容
-        org-hide-emphasis-markers nil        
+        org-hide-emphasis-markers nil
         org-catch-invisible-edits 'smart
         org-log-into-drawer 'LOGBOOK
         org-agenda-text-search-extra-files 'agenda-archives
@@ -138,6 +146,4 @@
                  (function org-hugo-new-subtree-post-capture-template))))
 
 (provide 'dylan-org)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-org.el ends here
+;;; dylan-org.el ends here

@@ -1,3 +1,11 @@
+;;; dylan-magit.el --- summary -*- lexical-binding: t -*-
+
+;; Author: Dylan Yang
+;; Maintainer: Dylan Yang
+
+;;; Commentary:
+;;; Code:
+
 (use-package magit
   :bind (("C-x g" . magit-status))
   :config
@@ -31,3 +39,4 @@
 (use-package gitignore-mode)
 
 (provide 'dylan-magit)
+;;; dylan-magit.el ends here

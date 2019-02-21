@@ -1,3 +1,12 @@
+;;; dylan-company.el --- summary -*- lexical-binding: t -*-
+
+;; Author: Dylan Yang
+;; Maintainer: Dylan Yang
+
+;;; Commentary:
+
+;;; Code:
+
 (use-package company
   :diminish company-mode
   :defines (company-dabbrev-ignore-case company-dabbrev-downcase)
@@ -22,3 +31,4 @@
         company-dabbrev-downcase nil))
 
 (provide 'dylan-company)
+;;; dylan-company.el ends here
