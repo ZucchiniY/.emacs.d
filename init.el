@@ -47,5 +47,6 @@
 (require 'dylan-org)
 (require 'dylan-magit)
 (require 'dylan-expansion)
+(require 'dylan-company)
 
 (provide 'init)

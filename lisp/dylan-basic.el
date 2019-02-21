@@ -17,14 +17,14 @@
 
 (when sys/winntp
   (setq w32-lwindow-modifier 'supper
-	w32-apps-modifier 'hyper)
+	    w32-apps-modifier 'hyper)
   (w32-register-hot-key [s-t]))
 
 (when sys/macp
   (setq mac-command-modifier 'meta
-	mac-option-modifier 'super
-	mac-control-modifier 'control
-	ns-function-modifier 'hyper))
+	    mac-option-modifier 'super
+	    mac-control-modifier 'control
+	    ns-function-modifier 'hyper))
 
 ;; UTF-8 as the default coding system
 (when (fboundp 'set-charset-priority)
@@ -42,8 +42,7 @@
 (use-package no-littering
   :init
   (setq no-littering-etc-directory (expand-file-name "config/" user-emacs-directory)
-	no-littering-var-directory (expand-file-name "data/" user-emacs-directory)))
-    
+	    no-littering-var-directory (expand-file-name "data/" user-emacs-directory)))
 
 (use-package desktop
   :ensure nil
@@ -62,8 +61,6 @@
   :hook (after-init . yas-global-mode)
   :config (use-package yasnippet-snippets))
 
-(menu-bar-mode nil)
-(tool-bar-mode nil)
 ;; 隐藏滚动条
 (set-scroll-bar-mode nil)
 
@@ -71,15 +68,15 @@
 
 ;; text-mode
 (add-hook 'text-mode-hook
-	  (lambda ()
-	    (turn-on-auto-fill)
-	    (diminish 'auto-fill-function)))
+	      (lambda ()
+	        (turn-on-auto-fill)
+	        (diminish 'auto-fill-function)))
 ;; abbrev-mode
 (add-hook 'abbrev-mode-hook (lambda () (diminish 'abbrev-mode)))
 
 (setq-default c-basic-offset 4
-	      tab-width 4
-	      indent-tabs-mode nil)
+	          tab-width 4
+	          indent-tabs-mode nil)
 
 (defun dylan//set-monospaced-font (english chinese english-size chinese-size)
   "Zty//set-monospaced-font to configuration the font.
@@ -108,7 +105,6 @@ CHINESE-SIZE is the chinese font size."
       (dylan//set-monospaced-font "Iosevka Term" "Microsoft YaHei" 14 14)))
 
 (fset 'yes-or-no-p 'y-or-n-p)
-
 
 ;; Toggle fullscreen
 (bind-keys ("C-s-f" . toggle-frame-fullscreen) ; Compatible with macOS
@@ -141,5 +137,18 @@ CHINESE-SIZE is the chinese font size."
 (use-package undo-tree
   :diminish undo-tree-mode
   :hook (after-init . global-undo-tree-mode))
+
+;; Multiple cursors
+(use-package multiple-cursors
+  :bind (("C-S-c C-S-c"   . mc/edit-lines)
+         ("C->"           . mc/mark-next-like-this)
+         ("C-<"           . mc/mark-previous-like-this)
+         ("C-c C-<"       . mc/mark-all-like-this)
+         ("C-M->"         . mc/skip-to-next-like-this)
+         ("C-M-<"         . mc/skip-to-previous-like-this)
+         ("s-<mouse-1>"   . mc/add-cursor-on-click)
+         ("C-S-<mouse-1>" . mc/add-cursor-on-click)
+         :map mc/keymap
+         ("C-|" . mc/vertical-align-with-space)))
 
 (provide 'dylan-basic)

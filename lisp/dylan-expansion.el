@@ -21,4 +21,12 @@
           "https://oremacs.com/atom.xml"
           "https://pinecast.com/feed/emacscast")))
 
+;; Flycheck
+(use-package flycheck
+  :diminish flycheck-mode
+  :hook (after-init . global-flycheck-mode)
+  :config
+  (setq flycheck-indication-mode 'right-fringe
+        flycheck-emacs-lisp-load-path 'inherit))
+
 (provide 'dylan-expansion)
