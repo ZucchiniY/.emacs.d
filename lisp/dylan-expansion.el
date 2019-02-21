@@ -1,3 +1,12 @@
+;;; dylan-expansion.el --- summary -*- lexical-binding: t -*-
+
+;; Author: Dylan Yang
+;; Maintainer: Dylan Yang
+
+;;; Commentary:
+
+;;; Code:
+
 ;; Emacs development
 (use-package elisp-mode
   :ensure nil
@@ -30,3 +39,4 @@
         flycheck-emacs-lisp-load-path 'inherit))
 
 (provide 'dylan-expansion)
+;;; dylan-expansion.el ends here

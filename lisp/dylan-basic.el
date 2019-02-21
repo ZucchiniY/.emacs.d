@@ -1,3 +1,11 @@
+;;; dylan-basic.el --- summary -*- lexical-binding: t -*-
+
+;; Author: Dylan Yang
+;; Maintainer: Dylan Yang
+
+;;; Commentary:
+
+;;; Code:
 (defconst sys/winntp
   (eq system-type 'windows-nt))
 
@@ -152,3 +160,4 @@ CHINESE-SIZE is the chinese font size."
          ("C-|" . mc/vertical-align-with-space)))
 
 (provide 'dylan-basic)
+;;; dylan-basic.el ends here
