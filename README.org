@@ -69,3 +69,23 @@
 - C-M-< :: mc/skip-to-previous-like-this
 
 - C-| :: mc/vertical-align-with-space
+
+*** company
+
+- M-/ :: company-complete
+- C-p :: company-select-previous
+- C-n :: company-select-next
+- <tab> :: company-complete-common-or-cycle
+
+*** toggle fullscreen
+
+- C-S-f
+- M-S-<return>
+
+*** counsel
+
+- C-S-s :: swiper-all
+- C-s :: swiper
+- C-c f :: counsel find file
+- C-c g :: counsel git
+- C-c j :: counsel git grep
