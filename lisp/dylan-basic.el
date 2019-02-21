@@ -71,14 +71,18 @@
 
 ;; 隐藏滚动条
 (set-scroll-bar-mode nil)
-
+(menu-bar-mode nil)
+;;(tool-bar-mode nil)
+(tooltip-mode nil)
 (setq make-backup-files nil)
 
 ;; text-mode
 (add-hook 'text-mode-hook
 	      (lambda ()
+            (set-fill-column 80)
 	        (turn-on-auto-fill)
 	        (diminish 'auto-fill-function)))
+
 ;; abbrev-mode
 (add-hook 'abbrev-mode-hook (lambda () (diminish 'abbrev-mode)))
 
