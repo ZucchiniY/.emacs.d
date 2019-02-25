@@ -122,12 +122,12 @@
   (defun org-hugo-new-subtree-post-capture-template ()
     "Return `org-capture' template string for new Hugo post."
     (let* ((date (format-time-string (org-time-stamp-format :long :inactive) (org-current-time)))
-           (title (read-from-minibuffer "Post Title: ")) ;Prompt to enter the post title
+           (title (read-from-minibuffer "Post Title: "))
            (file-name (read-from-minibuffer "File Name: "))
            (fname (org-hugo-slug file-name)))
       (mapconcat #'identity
                  `(
-                   ,(concat "* TODO " title "     :@??:")
+                   ,(concat "* TODO " title)
                    ":PROPERTIES:"
                    ,(concat ":EXPORT_FILE_NAME: " fname)
                    ,(concat ":EXPORT_DATE: " date)
