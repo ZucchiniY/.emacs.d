@@ -27,7 +27,7 @@
 
 (require 'dylan-python)
 (require 'dylan-web)
-;;(require 'dylan-evil)
+(require 'dylan-evil)
 
 (provide 'init)
 ;;; init.el ends here
