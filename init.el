@@ -17,11 +17,17 @@
 
 (require 'dylan-package)
 (require 'dylan-basic)
+
 (require 'dylan-org)
 (require 'dylan-magit)
+
 (require 'dylan-expansion)
 (require 'dylan-company)
 (require 'dylan-smex)
+
+(require 'dylan-python)
+(require 'dylan-web)
+;;(require 'dylan-evil)
 
 (provide 'init)
 ;;; init.el ends here

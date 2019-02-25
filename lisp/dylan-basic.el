@@ -69,10 +69,16 @@
   :hook (after-init . yas-global-mode)
   :config (use-package yasnippet-snippets))
 
-;; 隐藏滚动条
-(set-scroll-bar-mode nil)
-(menu-bar-mode nil)
-;;(tool-bar-mode nil)
+;; 隐藏滚动条、菜单栏
+(unless sys/winntp
+  (menu-bar-mode -1))
+(when (fboundp 'tool-bar-mode)
+  (tool-bar-mode -1))
+(when (fboundp 'scroll-bar-mode)
+  (scroll-bar-mode -1))
+(when (fboundp 'horizontal-scroll-bar-mode)
+  (horizontal-scroll-bar-mode -1))
+
 (tooltip-mode nil)
 (setq make-backup-files nil)
 

@@ -59,6 +59,12 @@
 
 - C-x w e :: 启动 elfeed
 
+其中有一些 elfeed 默认的快捷键：
+
+- g :: 刷新 feed 列表
+- G :: 从服务器更新
+- s :: 更新筛选条件
+
 *** meltiple-cursors
 
 - C-S-c C-S-c :: mc/edit-lines

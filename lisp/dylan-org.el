@@ -8,7 +8,6 @@
 ;;; Code:
 (use-package org
   :commands org-try-structure-completion
-  :functions hydra-org-template/body
   :mode ("\\.\\(org\\|org_archive\\)$" . org-mode)
   :hook (org-indent-mode . (lambda() (diminish 'org-indent-mode)))
   :bind (("C-c a" . org-agenda)
@@ -26,6 +25,7 @@
         org-catch-invisible-edits 'smart
         org-log-into-drawer 'LOGBOOK
         org-agenda-text-search-extra-files 'agenda-archives
+        org-agenda-skip-scheduled-if-done t
         org-agenda-skip-deadline-if-done t)
   
   (add-hook 'org-mode-hook 'toggle-truncate-lines)
@@ -105,9 +105,7 @@
   (use-package org-pomodoro
     :after org-agenda
     :bind ("C-c p" . org-pomodoro)
-    :config (setq org-pomodoro-long-break-length 15))
-
-  )
+    :config (setq org-pomodoro-long-break-length 15)))
 
 ;; deft
 (use-package deft
