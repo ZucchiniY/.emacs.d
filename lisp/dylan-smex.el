@@ -22,6 +22,7 @@
          ("C-s" . swiper)
          ("C-c f" . counsel-find-file)
          ("C-c g" . counsel-grep)
+         ("C-c r" . counsel-rg)
          ("C-c j" . counsel-git-grep))
   :hook ((after-init . ivy-mode)
          (ivy-mode . counsel-mode))
