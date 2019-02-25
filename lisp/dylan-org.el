@@ -59,7 +59,6 @@
 
   (use-package org-fancy-priorities
     :diminish
-    :defines org-fnacy-priorities-list
     :hook (org-mode . org-fancy-priorities-mode)
     :config
     (setq org-fancy-priorities-list '("HIGHT" "MID" "LOW" "OPTIONAL")))
