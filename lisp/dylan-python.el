@@ -18,7 +18,7 @@
     (setq python-shell-interpreter "python"
         python-shell-interpreter-args "-i"))
   (use-package py-autopep8
-    :hook (elpy-mode . py-autopop8-enable-on-save)))
+    :hook (elpy-mode . py-autopep8-enable-on-save)))
 
 (use-package quickrun
   :bind ("C-c x" . quickrun))

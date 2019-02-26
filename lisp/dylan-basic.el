@@ -78,14 +78,14 @@
   (scroll-bar-mode -1))
 (when (fboundp 'horizontal-scroll-bar-mode)
   (horizontal-scroll-bar-mode -1))
-
+(when sys/macp
+  (setq dired-use-ls-dired nil))
 (tooltip-mode nil)
 (setq make-backup-files nil)
 
 ;; text-mode
 (add-hook 'text-mode-hook
 	      (lambda ()
-            (set-fill-column 80)
 	        (turn-on-auto-fill)
 	        (diminish 'auto-fill-function)))
 

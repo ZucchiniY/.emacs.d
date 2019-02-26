@@ -12,6 +12,9 @@
   (setq evil-default-state 'normal)
   ;; 将不希望使用 Evil Mode 的内容，放在这里
   (evil-set-initial-state 'dired-mode 'emacs)
+  (evil-set-initial-state 'deft-mode 'emacs)
+  (evil-set-initial-state 'elfeed-search-mode 'emacs)
+  (evil-set-initial-state 'elfeed-show-mode 'emacs)
   ;; evil ex command `:W' to save all buffers.
   (evil-ex-define-cmd "W" 'evil-write-all)
   
