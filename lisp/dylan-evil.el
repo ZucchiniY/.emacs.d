@@ -34,22 +34,22 @@
   :after evil
   :init (global-evil-surround-mode))
 
-(use-package evil-matchit
-  :after evil
-  :diminish evil-matchit-mode
-  :init (setq evilmi-ignore-comments nil)
-  :config (global-evil-matchit-mode t))
+;; (use-package evil-matchit
+;;   :after evil
+;;   :diminish evil-matchit-mode
+;;   :init (setq evilmi-ignore-comments nil)
+;;   :config (global-evil-matchit-mode t))
 
-(use-package evil-mc
-  :after evil
-  :diminish evil-mc-mode
-  :hook (after-init . global-evil-mc-mode)
-  :commands (evil-mc-make-cursor-move-next-line
-             evil-mc-make-cursor-move-prev-line
-             evil-mc-mode
-             evil-mc-undo-all-cursors
-             global-evil-mc-mode)
-  :init (global-evil-mc-mode 1))
+;; (use-package evil-mc
+;;   :after evil
+;;   :diminish evil-mc-mode
+;;   :hook (after-init . global-evil-mc-mode)
+;;   :commands (evil-mc-make-cursor-move-next-line
+;;              evil-mc-make-cursor-move-prev-line
+;;              evil-mc-mode
+;;              evil-mc-undo-all-cursors
+;;              global-evil-mc-mode)
+;;   :init (global-evil-mc-mode 1))
 
 (provide 'dylan-evil)
 

@@ -100,3 +100,6 @@
 - C-x t M-t :: treemacs find tag
 
 
+*** projectile
+
+- C-c p :: projectile command map
