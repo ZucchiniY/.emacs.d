@@ -7,7 +7,6 @@
 ;;; Code:
 (defun update-load-path (&rest _)
   "Update `load-path'."
-  (push (expand-file-name "site-lisp" user-emacs-directory) load-path)
   (push (expand-file-name "lisp" user-emacs-directory) load-path))
 (advice-add #'package-initialize :after #'update-load-path)
 
