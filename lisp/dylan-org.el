@@ -7,6 +7,7 @@
 
 ;;; Code:
 (use-package org
+  :defines org-capture-templates
   :commands org-try-structure-completion
   :mode ("\\.\\(org\\|org_archive\\)$" . org-mode)
   :hook (org-indent-mode . (lambda() (diminish 'org-indent-mode)))
@@ -26,6 +27,8 @@
         org-log-into-drawer 'LOGBOOK
         org-agenda-text-search-extra-files 'agenda-archives
         org-agenda-skip-scheduled-if-done t
+        ;; `^' 和 `_' 是否转义，如果是 t 就转，nil 不转，{} 就 a_{a} 才转
+        ;; org-use-sub-superscripts '{}
         org-agenda-skip-deadline-if-done t)
   
   (add-hook 'org-mode-hook 'toggle-truncate-lines)
