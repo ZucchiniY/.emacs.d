@@ -24,7 +24,8 @@
       user-mail-address "banshiliuli1990@sina.com")
 
 (when sys/winntp
-  (setq w32-lwindow-modifier 'supper
+  ;; 经过测试，在 windows 下，window 键是不能修改的
+  (setq ;;w32-lwindow-modifier 'supper
 	    w32-apps-modifier 'hyper)
   (w32-register-hot-key [s-t]))
 

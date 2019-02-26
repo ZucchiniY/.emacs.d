@@ -28,5 +28,8 @@
 (require 'dylan-web)
 (require 'dylan-evil)
 
+(require 'dylan-treemacs)
+(require 'dylan-projectile)
+
 (provide 'init)
 ;;; init.el ends here
