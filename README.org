@@ -85,3 +85,7 @@
 - C-c g :: counsel git
 - C-c r :: counsel rg
 - C-c j :: counsel git grep
+
+*** deft
+
+- C-c C-q :: quit deft
