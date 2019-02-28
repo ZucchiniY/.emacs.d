@@ -14,3 +14,5 @@ recentf
 url/
 anaconda-mode/
 bookmarks
+.cache/
+projectile-bookmarks.eld
