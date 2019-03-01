@@ -12,8 +12,10 @@
   :mode ("\\.\\(org\\|org_archive\\)$" . org-mode)
   :hook (org-indent-mode . (lambda() (diminish 'org-indent-mode)))
   :bind (("C-c a" . org-agenda)
-         ("C-c o" . org-capture)
-         ("C-c b" . org-switchb))
+         ("C-c b" . org-switchb)
+         ("C-c c" . org-capture)
+         ("C-c o" . org-set-tags)
+         ("C-c t" . org-todo))
   :config
   (setq org-agenda-files '("~/workspace/org/gtd/")
         org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "HANGUP(h)"

@@ -40,8 +40,10 @@
 ** Org mode
 
 - C-c a :: 打开 agenda
-- C-c o :: 启动 org-capture
 - C-c b :: 在 org buffer 间切换
+- C-c c :: 启动 org-capture
+- C-c o :: 设置 org 的标签
+- C-c t :: 设置 TODO 状态
 
 ** Magit
 
