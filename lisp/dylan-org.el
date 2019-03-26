@@ -7,7 +7,7 @@
 
 ;;; Code:
 (use-package org
-  :defines org-capture-templates
+  :defines org-capture-templates org-plantuml-jar-path org-ditaa-jar-path
   :commands org-try-structure-completion
   :mode ("\\.\\(org\\|org_archive\\)$" . org-mode)
   :hook (org-indent-mode . (lambda() (diminish 'org-indent-mode)))
@@ -26,13 +26,13 @@
         ;; 不经意的编辑了一些不可见内容的时候，可以帮助我们发现这些编辑的内容
         org-hide-emphasis-markers nil
         org-catch-invisible-edits 'smart
-        org-log-into-drawer 'LOGBOOK
         org-agenda-text-search-extra-files 'agenda-archives
         org-agenda-skip-scheduled-if-done t
         org-plantuml-jar-path (expand-file-name "plantuml.jar" user-emacs-directory)
         org-ditaa-jar-path (expand-file-name "ditaa0_9.jar" user-emacs-directory)
         ;; `^' 和 `_' 是否转义，如果是 t 就转，nil 不转，{} 就 a_{a} 才转
-        ;; org-use-sub-superscripts '{}
+        org-use-sub-superscripts '{}
+        org-log-into-drawer 'LOGBOOK
         org-agenda-skip-deadline-if-done t)
   
   (add-hook 'org-mode-hook 'toggle-truncate-lines)
