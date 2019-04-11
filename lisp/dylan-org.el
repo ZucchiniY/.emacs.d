@@ -68,7 +68,7 @@
     :diminish
     :hook (org-mode . org-fancy-priorities-mode)
     :config
-    (setq org-fancy-priorities-list '("HIGHT" "MID" "LOW" "OPTIONAL")))
+    (setq org-fancy-priorities-list '("重要且紧急" "重要但不紧急" "不重要但紧急" "即不重要也不紧急")))
   
   ;; 替换对应的标记
   ;; 该段正则的意思是 “以0个或者多个空格开头，紧接着一个 ‘-’ ，紧接着是一个空格”
