@@ -6,10 +6,9 @@
 
 ;;; Code:
 
-(use-package python-mode
-  :mode ("\\.py\\'" . python-mode)
-  :defines python-indent-offset
-  :config (setq python-indent-offset 4))
+(use-package python
+  :ensure nil
+  :config (setq python-shell-completion-native-enable nil))
 
 (use-package elpy
   :after python
