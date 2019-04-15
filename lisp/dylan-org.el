@@ -33,7 +33,8 @@
         ;; `^' 和 `_' 是否转义，如果是 t 就转，nil 不转，{} 就 a_{a} 才转
         org-use-sub-superscripts '{}
         org-log-into-drawer 'LOGBOOK
-        org-agenda-skip-deadline-if-done t)
+        org-agenda-skip-deadline-if-done t
+        org-descriptive-links nil)
   
   (add-hook 'org-mode-hook 'toggle-truncate-lines)
 
@@ -149,6 +150,15 @@
                  entry
                  (file+olp "~/workspace/org/blog/hugo-posts.org" "Blog Ideas")
                  (function org-hugo-new-subtree-post-capture-template))))
+
+(use-package emojify
+  :hook ((markdown-mode . emojify-mode)
+         (org-mode . emojify-mode)
+         (git-commit-mode . emojify-mode)
+         (magit-status-mode . emojify-mode)
+         (magit-log-mode . emoify-mode))
+  :config
+  (setq emojify-emoji-styles '(github unicode)))
 
 (provide 'dylan-org)
 ;;; dylan-org.el ends here
