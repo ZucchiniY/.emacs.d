@@ -12,6 +12,7 @@
   :init (setq css-indent-offset 2))
 
 (use-package scss-mode
+  :defines scss-copile-at-save
   :mode (("\\.scss\\'" . scss-mode)
          ("\\.sass\\'" . scss-mode))
   :hook (scss-mode . rainbow-mode)
