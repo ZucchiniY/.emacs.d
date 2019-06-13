@@ -44,6 +44,10 @@
 - C-c c :: 启动 org-capture
 - C-c o :: 设置 org 的标签
 - C-c t :: 设置 TODO 状态
+- C-c C-x C-w :: refile 剪切
+- C-c C-x C-y :: refile 粘贴
+- C-c C-x C-y :: refile 剪切
+- C-c C-x C-r :: 生成 clockreport
 
 ** Magit
 
