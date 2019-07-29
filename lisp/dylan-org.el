@@ -122,7 +122,7 @@
   :config
   (setq deft-directory "~/workspace/org"
         deft-recursive t
-        deft-extensions '("md" "org")))
+        deft-extensions '("org")))
 ;; ox-hugo to help us write blog with org mode and publish with markdown
 (use-package ox-hugo
   :after ox)
@@ -148,7 +148,7 @@
                '("h"
                  "Hugo post"
                  entry
-                 (file+olp "~/workspace/org/blog/hugo-posts.org" "Blog Ideas")
+                 (file "~/workspace/org/blog/hugo-posts.org")
                  (function org-hugo-new-subtree-post-capture-template))))
 
 (use-package emojify
