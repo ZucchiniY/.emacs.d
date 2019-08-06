@@ -50,6 +50,10 @@
              global-evil-mc-mode)
   :init (global-evil-mc-mode 1))
 
+(use-package evil-mc-extras
+  :after evil-mc
+  :diminish evil-mc-extras-mode)
+
 (provide 'dylan-evil)
 
 ;;; dylan-evil.el ends here

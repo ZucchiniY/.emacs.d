@@ -90,6 +90,7 @@
                                (css . pt)
                                (sass . t)
                                (shell . t)
+                               (dot . t)
                                (C . t)
                                (java . t)
                                (ditaa .t)
@@ -151,14 +152,14 @@
                  (file "~/workspace/org/blog/hugo-posts.org")
                  (function org-hugo-new-subtree-post-capture-template))))
 
-(use-package emojify
-  :hook ((markdown-mode . emojify-mode)
-         (org-mode . emojify-mode)
-         (git-commit-mode . emojify-mode)
-         (magit-status-mode . emojify-mode)
-         (magit-log-mode . emoify-mode))
-  :config
-  (setq emojify-emoji-styles '(github unicode)))
+;; (use-package emojify
+;;   :hook ((markdown-mode . emojify-mode)
+;;          (org-mode . emojify-mode)
+;;          (git-commit-mode . emojify-mode)
+;;          (magit-status-mode . emojify-mode)
+;;          (magit-log-mode . emoify-mode))
+;;   :config
+;;   (setq emojify-emoji-styles '(github unicode)))
 
 (provide 'dylan-org)
 ;;; dylan-org.el ends here
