@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: python
+# key: <pyt_
+# --
+#+begin_src python :results ${1:file} :preamble "# -*- coding: utf-8 -*-" :python python3 :exports ${2:both}
+$0
+#+end_src
+[[file:${3:path}]]
