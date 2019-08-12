@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: digraph
+# key: dig_
+# --
+digraph ${1:name} {
+         label=${2:label}
+         rankdir=${3:LR}
+         node[shape=${4:box}]
+}

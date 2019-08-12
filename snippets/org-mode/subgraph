@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: subgraph
+# key: subg_
+# --
+
+subgraph ${1:name} {
+         label=${2:label}
+         node[shape=${3:box}]
+}
