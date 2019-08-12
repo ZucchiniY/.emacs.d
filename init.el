@@ -23,6 +23,7 @@
 (require 'dylan-expansion)
 (require 'dylan-company)
 (require 'dylan-smex)
+(require 'dylan-themes)
 
 (require 'dylan-python)
 (require 'dylan-web)

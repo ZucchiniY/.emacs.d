@@ -35,6 +35,8 @@
         org-log-into-drawer 'LOGBOOK
         org-agenda-skip-deadline-if-done t
         org-descriptive-links nil)
+  ;; 加载一些 org modules
+  (setq org-modules '(org-habit))
   
   (add-hook 'org-mode-hook 'toggle-truncate-lines)
 
@@ -51,13 +53,11 @@
         '(("t" "Todo" entry (file+headline "~/workspace/org/gtd/tasks.org" "Tasks")
            "* TODO %^{Title} %^g\n SCHEDULED: %^T"
            :empty-lines 1)
-          ("m" "Meeting" entry (file+headline "~/workspace/org/gtd/tasks.org" "Tasks")
-           "* TODO %^{Title} %^g\n  SCHEDULED: %^U\n  %?\n"
+          ("b" "Habits" entry (file+headline "~/workspace/org/gtd/tasks.org" "Habits")
+           "* TODO %^{Title} %^g\n SCHEDULED: %^T\n :PROPERTIES:\n :STYLE: habit\n :END:"
            :empty-lines 1)
           ("j" "Journal" entry (file+olp+datetree "~/workspace/org/journal/life.org")
-           "* %?\nEntered on %U\n %i\n")
-          ("d" "读书笔记" entry (file+datetree "~/workspace/org/journal/reading.org")
-           "* 书名: %?\n时间： %U\n** 摘抄: \n** 体会: \n  %i\n "
+           "* %?\nEntered on %U\n %i\n"
            :empty-lines 1)))
 
   ;; More fancy UI
