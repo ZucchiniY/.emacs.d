@@ -56,6 +56,9 @@
           ("b" "Habits" entry (file+headline "~/workspace/org/gtd/tasks.org" "Habits")
            "* TODO %^{Title} %^g\n SCHEDULED: %^T\n :PROPERTIES:\n :STYLE: habit\n :END:"
            :empty-lines 1)
+          ("l" "Learning" entry (file "~/workspace/code/HackerrankPractice/learning.org")
+           "* %?\n[[]]\nEntered on %U\n %i\n"
+           :empty-lines 1)
           ("j" "Journal" entry (file+olp+datetree "~/workspace/org/journal/life.org")
            "* %?\nEntered on %U\n %i\n"
            :empty-lines 1)))
@@ -87,7 +90,7 @@
                                (python . t)
                                (ruby . t)
                                (js . t)
-                               (css . pt)
+                               (css . t)
                                (sass . t)
                                (shell . t)
                                (dot . t)
