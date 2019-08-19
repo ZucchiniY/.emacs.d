@@ -47,7 +47,9 @@
 - C-c C-x C-w :: refile 剪切
 - C-c C-x C-y :: refile 粘贴
 - C-c C-x C-y :: refile 剪切
+- C-c C-x C-t :: 调整时间格式 =2019-08-19 Mon= 、 =<2019-08-19 Mon>=
 - C-c C-x C-r :: 生成 clockreport
+
 
 ** Magit
 
