@@ -17,8 +17,13 @@
   (when (require 'flycheck nil t)
     (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
     (add-hook 'elpy-mode-hook 'flycheck-mode))
-  (setq python-shell-interpreter "python"
-        python-shell-interpreter-args "-i"))
+  (setq elpy-rpc-python-command "python3")
+  (setq python-shell-interpreter "ipython"
+        python-shell-interpreter-args "--pylab=osx --pdb --nosep --classic"
+        python-shell-prompt-regexp ">>>"
+        python-shell-prompt-output-regexp ""
+        python-shell-completion-setup-code "from IPython.core.completerlib import module_completion"
+        python-shell-completion-string-code "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"))
 
 (use-package py-autopep8
   :after python
