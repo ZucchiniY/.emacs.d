@@ -18,7 +18,7 @@
     (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
     (add-hook 'elpy-mode-hook 'flycheck-mode))
   (setq elpy-rpc-python-command "python3")
-  (setq python-shell-interpreter "ipython"
+  (setq python-shell-interpreter "python3"
         python-shell-interpreter-args "--pylab=osx --pdb --nosep --classic"
         python-shell-prompt-regexp ">>>"
         python-shell-prompt-output-regexp ""
