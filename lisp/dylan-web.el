@@ -28,11 +28,11 @@
 
 (use-package web-mode
   :defines company-backends
-  :mode "\\.\\(html\\|vue\\|js\\)$"
+  :mode "\\.\\(jsx\\|html\\|vue\\|js\\)$"
   :config
-  (setq web-mode-markup-indent-offset 2
-        web-mode-css-indent-offset 2
-        web-mode-code-indent-offset 2))
+  (setq web-mode-markup-indent-offset 4
+        web-mode-css-indent-offset 4
+        web-mode-code-indent-offset 4))
 
 (use-package company-web
   :after web-mode
@@ -41,10 +41,6 @@
 (use-package emmet-mode
   :hook ((css-mode . emmet-mode)
          (js2-mode . emmet-mode)))
-
-(use-package vue-mode
-  :mode ("\\.vue\\'" . vue-mode)
-  :config (setq mmm-submode-decoration-level 0))
 
 (provide 'dylan-web)
 

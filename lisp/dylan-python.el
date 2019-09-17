@@ -8,7 +8,8 @@
 
 (use-package python
   :ensure nil
-  :config (setq python-shell-completion-native-enable nil))
+  :config (setq python-shell-completion-native-enable nil
+                python-indent-offset 4))
 
 (use-package elpy
   :after python

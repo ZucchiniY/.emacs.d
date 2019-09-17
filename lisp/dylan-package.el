@@ -29,6 +29,8 @@
 (eval-when-compile
   (require 'use-package))
 
+;; add all-the-icons package
+(use-package all-the-icons)
 (use-package diminish)
 (use-package bind-key)
 
