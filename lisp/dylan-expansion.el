@@ -36,7 +36,8 @@
   :hook (after-init . global-flycheck-mode)
   :config
   (setq flycheck-indication-mode 'right-fringe
-        flycheck-emacs-lisp-load-path 'inherit))
+        flycheck-emacs-lisp-load-path 'inherit)
+  (flycheck-add-mode 'javascript-eslint 'web-mode))
 
 (provide 'dylan-expansion)
 ;;; dylan-expansion.el ends here

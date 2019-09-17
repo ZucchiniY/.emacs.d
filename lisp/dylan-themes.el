@@ -6,17 +6,19 @@
 ;;; Commentary:
 
 ;;; Code:
-(use-package base16-theme)
-
 (use-package doom-themes
   :init
-  (setq doom-themes-enable-bold nil
-        doom-themes-enable-italic nil)
+  (setq doom-themes-enable-bold t 
+        doom-themes-enable-italic t
+        doom-one-brighter-comments t
+        doom-one-padded-modeline t)
   :config
+  (load-theme 'doom-one t)
   (doom-themes-visual-bell-config)
-  (doom-themes-treemacs-config)
-  (doom-themes-org-config))
+  (doom-themes-org-config)
+  (doom-themes-treemacs-config))
 
+(use-package base16-theme)
 ;; (use-package theme-changer
 ;;   :init
 ;;   (setq calendar-location-name "Beijing"
