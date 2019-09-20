@@ -1,10 +1,3 @@
-;;; dylan-package.el --- summary -*- lexical-binding: t -*-
-
-;; Author: Dylan Yang
-;; Maintainer: Dylan Yang
-
-;;; Commentary:
-;;; Code:
 ;; Set package archives
 (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
 			 ("melpa" . "http://elpa.emacs-china.org/melpa/")
@@ -34,6 +27,7 @@
 (use-package diminish)
 (use-package bind-key)
 
+;; use package-utils to update packages
 (use-package package-utils
 	     :init
 	     (defalias 'upgrade-packages 'package-utils-upgrade-all)
@@ -42,5 +36,4 @@
 (declare-function upgrade-packages-and-restart 'init-package)
 (defalias 'dylan-update-packages-and-restartup 'upgrade-packages-and-restart)
 
-(provide 'dylan-package)
-;;; dylan-package.el ends here
+(provide 'core-package)

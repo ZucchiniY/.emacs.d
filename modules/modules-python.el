@@ -1,11 +1,3 @@
-;;; dylan-python.el --- summary -*- lexical-binding: t -*-
-
-;; Author: Dylan Yang
-;; Maintainer: Dylan Yang
-;;; Commentary:
-
-;;; Code:
-
 (use-package python
   :ensure nil
   :config (setq python-shell-completion-native-enable nil
@@ -31,8 +23,8 @@
   :hook (elpy-mode . py-autopep8-enable-on-save))
 
 (use-package quickrun
-  :bind ("C-c x" . quickrun))
+  :general
+  (global-leader
+    "x" 'quickrun))
 
-(provide 'dylan-python)
-
-;;; dylan-python.el ends here
+(provide 'modules-python)

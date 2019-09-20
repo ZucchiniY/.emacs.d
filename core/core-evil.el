@@ -1,10 +1,3 @@
-;;; dylan-evil.el --- summary -*- lexical-binding: t -*-
-
-;; Author: Dylan Yang
-;; Maintainer: Dylan Yang
-;;; Commentary:
-
-;;; Code:
 (use-package evil
   :hook (after-init . evil-mode)
   :init (setq evil-want-keybinding nil)
@@ -54,6 +47,4 @@
   :after evil-mc
   :diminish evil-mc-extras-mode)
 
-(provide 'dylan-evil)
-
-;;; dylan-evil.el ends here
+(provide 'core-evil)

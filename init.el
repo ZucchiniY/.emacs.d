@@ -1,36 +1,30 @@
-;;; init.el --- summary -*- lexical-binding: t -*-
-
-;; Author: Dylan Yang
-;; Maintainer: Dylan Yang
-;;; Commentary:
-
-;;; Code:
 (defun update-load-path (&rest _)
   "Update `load-path'."
-  (push (expand-file-name "lisp" user-emacs-directory) load-path))
+  (push (expand-file-name "core" user-emacs-directory) load-path)
+  (push (expand-file-name "modules" user-emacs-directory) load-path))
 (advice-add #'package-initialize :after #'update-load-path)
 
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
 (update-load-path)
 
-(require 'dylan-package)
-(require 'dylan-basic)
+(require 'core-package)
+(require 'core-variable)
+(require 'core-basis)
+(require 'core-ui)
+(require 'core-company)
+(require 'core-counsel)
+(require 'core-treemacs)
 
-(require 'dylan-org)
-(require 'dylan-magit)
+(require 'core-evil)
+(require 'core-keybinds)
 
-(require 'dylan-expansion)
-(require 'dylan-company)
-(require 'dylan-smex)
-(require 'dylan-themes)
+(require 'core-org)
 
-(require 'dylan-python)
-(require 'dylan-web)
-(require 'dylan-evil)
+(require 'modules-magit)
 
-(require 'dylan-treemacs)
-(require 'dylan-projectile)
+(require 'modules-python)
+(require 'modules-web)
+(require 'modules-projectile)
 
 (provide 'init)
-;;; init.el ends here

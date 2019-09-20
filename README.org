@@ -37,77 +37,84 @@
 也许这不是最好的方法，但确是对我来说最适合的配置。而且快捷键的配置也主
 要只针对比较重要的插件，其它的都放到 other 的配置中。
 
+** basis
+
+- M-S-<return> :: 全屏界面
+- M-s-<return> :: 最大化窗口
+
+使用 =general= 定义 *leader key* =[SPC]= 和 =[SPC m]= 。
+
+- fs :: save-buffer
+- fd :: dired
+- bk :: kill-buffer
+- qq :: save-buffers-kill-emacs
+- wo :: other-window
+- wv :: split-window-vertically
+- w- :: split-window-horizontally
+- wl :: evil-window-right
+- wh :: evil-window-left
+- wk :: evil-window-up
+- wj :: evil-window-down
+- wq :: delete-window
+
+** counsel
+
+leader key *SPC* 
+
+- : :: counsel-M-x
+- sS :: swiper-all
+- ss :: swiper
+- ff :: counsel-find-file
+- fr :: counsel-recentf
+- bb :: counsel-switch-buffer
+- cg :: counsel-git-grep
+- cr :: counsel-rg
+
 ** Org mode
 
-- C-c a :: 打开 agenda
-- C-c b :: 在 org buffer 间切换
-- C-c c :: 启动 org-capture
-- C-c o :: 设置 org 的标签
-- C-c t :: 设置 TODO 状态
-- C-c C-x C-w :: refile 剪切
-- C-c C-x C-y :: refile 粘贴
-- C-c C-x C-y :: refile 剪切
-- C-c C-x C-t :: 调整时间格式 =2019-08-19 Mon= 、 =<2019-08-19 Mon>=
-- C-c C-x C-r :: 生成 clockreport
+leader key *SPC o* 
 
+- a :: 打开 agenda
+- b :: 在 org buffer 间切换
+- c :: 启动 org-capture
+- o :: 设置 org 的标签
+- t :: 设置 TODO 状态
+- g :: org-clock-goto
+- . :: org-clock-in
+- , :: org-clock-out
+- x :: counsel-org-clock-context
+- h :: counsel-org-clock-history
+- R :: org-clock-report
+- r :: org-refile
+- s :: org-schedule
+- e :: org-deadline
 
 ** Magit
 
-- C-x g :: 启动 Magit
+- SPC g :: 启动 Magit
            
-** other
-
-*** emacs lisp mode 
-
-- C-x C-x :: ielm
-- C-c C-c :: eval defun
-- C-c C-b :: eval buffer
-
-*** elfeed
-
-- C-x w e :: 启动 elfeed
-
-其中有一些 elfeed 默认的快捷键：
-
-- g :: 刷新 feed 列表
-- G :: 从服务器更新
-- s :: 更新筛选条件
-
-*** company
+** company
 
 - M-/ :: company-complete
 - C-p :: company-select-previous
 - C-n :: company-select-next
 - <tab> :: company-complete-common-or-cycle
 
-*** toggle fullscreen
+** treemacs
 
-- C-S-f
-- M-S-<return>
+leader key *SPC t*
 
-*** counsel
+- c :: treemacs select window
+- t :: treemacs
+- b :: treemacs bookmark
 
-- C-S-s :: swiper-all
-- C-s :: swiper
-- C-c f :: counsel find file
-- C-c g :: counsel git
-- C-c r :: counsel rg
-- C-c j :: counsel git grep
+** projectile
 
-*** deft
+- SPC p :: projectile command map
 
-- C-c C-q :: quit deft
+- SPC p p :: counsel-projectile-switch-project
+        
+- SPC p / :: counsel-projectile-grep
 
-*** treemacs
-
-- M-0 :: treemacs select window
-- C-x t 1 :: treemacs delete other windows
-- C-x t t :: treemacs
-- C-x t B :: treemacs bookmark
-- C-x t C-t :: treemacs find file
-- C-x t M-t :: treemacs find tag
-
-*** projectile
-
-- C-c p :: projectile command map
-           
+- SPC SPC :: counsel-projectile-find-file
+             

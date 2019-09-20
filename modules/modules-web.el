@@ -1,12 +1,3 @@
-;;; dylan-web.el --- summary -*- lexical-binding: t -*-
-
-;; Author: Dylan Yang
-;; Maintainer: Dylan Yang
-
-;;; Commentary:
-
-;;; Code:
-
 (use-package css-mode
   :ensure nil
   :init (setq css-indent-offset 2))
@@ -42,6 +33,4 @@
   :hook ((css-mode . emmet-mode)
          (js2-mode . emmet-mode)))
 
-(provide 'dylan-web)
-
-;;; dylan-web.el ends here
+(provide 'modules-web)

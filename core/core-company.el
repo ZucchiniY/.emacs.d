@@ -1,19 +1,9 @@
-;;; dylan-company.el --- summary -*- lexical-binding: t -*-
-
-;; Author: Dylan Yang
-;; Maintainer: Dylan Yang
-
-;;; Commentary:
-
-;;; Code:
-
 (use-package company
   :diminish company-mode
   :defines (company-dabbrev-ignore-case company-dabbrev-downcase)
   :commands company-abort
   :hook (after-init . global-company-mode)
-  :bind (("M-/" . company-complete)
-         :map company-active-map
+  :bind (:map company-active-map
          ("C-p" . company-select-previous)
          ("C-n" . company-select-next)
          ("<tab>" . company-complete-common-or-cycle)
@@ -30,5 +20,13 @@
         company-dabbrev-ignore-case nil
         company-dabbrev-downcase nil))
 
-(provide 'dylan-company)
-;;; dylan-company.el ends here
+;; Flycheck
+(use-package flycheck
+  :diminish flycheck-mode
+  :hook (after-init . global-flycheck-mode)
+  :config
+  (setq flycheck-indication-mode 'right-fringe
+        flycheck-emacs-lisp-load-path 'inherit)
+  (flycheck-add-mode 'javascript-eslint 'web-mode))
+
+(provide 'core-company)
