@@ -1,12 +1,3 @@
-;;; dylan-treemacs.el --- summary -*- lexical-binding: t -*-
-
-;; Author: Dylan Yang
-;; Maintainer: Dylan Yang
-
-;;; Commentary:
-
-;;; Code:
-
 (use-package treemacs
   :defer t
   :config
@@ -14,8 +5,7 @@
     (setq treemacs-collapse-dirs                 (if (executable-find "python") 3 0)
           treemacs-deferred-git-apply-delay      0.5
           treemacs-display-in-side-window        t
-          treemacs-file-event-delay              5000
-          treemacs-file-follow-delay             0.2
+          treemacs-file-event-delay              5000 treemacs-file-follow-delay             0.2
           treemacs-follow-after-init             t
           treemacs-git-command-pipe              ""
           treemacs-goto-tag-strategy             'refetch-index
@@ -55,14 +45,14 @@
        (treemacs-git-mode 'deferred))
       (`(t . _)
        (treemacs-git-mode 'simple))))
-  :bind
-  (:map global-map
-        ("M-0"       . treemacs-select-window)
-        ("C-x t 1"   . treemacs-delete-other-windows)
-        ("C-x t t"   . treemacs)
-        ("C-x t B"   . treemacs-bookmark)
-        ("C-x t C-t" . treemacs-find-file)
-        ("C-x t M-t" . treemacs-find-tag)))
+  :general
+  (general-define-key
+   :states 'normal
+   :keymaps 'override
+   :prefix "SPC t"
+   "t" 'treemacs
+   "b" 'treemacs-bookmark
+   "c" 'treemacs-select-window))
 
 (use-package treemacs-evil
   :after treemacs evil)
@@ -77,6 +67,4 @@
 (use-package treemacs-magit
   :after treemacs magit)
 
-(provide 'dylan-treemacs)
-
-;;; dylan-treemacs.el ends here
+(provide 'core-treemacs)

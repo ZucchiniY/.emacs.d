@@ -1,13 +1,7 @@
-;;; dylan-magit.el --- summary -*- lexical-binding: t -*-
-
-;; Author: Dylan Yang
-;; Maintainer: Dylan Yang
-
-;;; Commentary:
-;;; Code:
-
 (use-package magit
-  :bind (("C-x g" . magit-status))
+  :general
+  (global-leader
+    "g" 'magit-status)
   :config
   (when sys/winntp
     (setenv "GIT_ASKPASS" "git-gui--askpass"))
@@ -19,7 +13,14 @@
 
   ;; Show tasks
   (use-package magit-todos
-    :init (magit-todos-mode 1)))
+    :init (magit-todos-mode 1))
+
+  (use-package evil-magit
+    :after (magit evil)
+    :init
+    (setq evil-magit-state 'normal)
+    :config
+    (setq evil-magit-want-horizontal-movement t)))
 
 ;; Walk through git revisions of a file
 (use-package git-timemachine
@@ -38,5 +39,4 @@
 (use-package gitconfig-mode)
 (use-package gitignore-mode)
 
-(provide 'dylan-magit)
-;;; dylan-magit.el ends here
+(provide 'modules-magit)

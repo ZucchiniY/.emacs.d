@@ -1,14 +1,7 @@
-;;; dylan-projectile.el --- summary -*- lexical-binding: t -*-
-
-;; Author: Dylan Yang
-;; Maintainer: Dylan Yang
-;;; Commentary:
-
-;;; Code:
-
 (use-package projectile
-  :bind (:map projectile-mode-map
-              ("C-c p" . projectile-command-map))
+  :general
+  (global-leader
+    "p" 'projectile-command-map)
   :hook (after-init . projectile-mode)
   :init
   (setq projectile-mode-line-prefix ""
@@ -27,6 +20,12 @@
           projectile-enable-caching nil)
     (setq projectile-git-submodule-command nil)))
 
-(provide 'dylan-projectile)
+(use-package counsel-projectile
+  :after (projectile counsel)
+  :general
+  (global-leader
+    "pp" 'counsel-projectile-switch-project
+    "p/" 'counsel-projectile-grep
+    "SPC" 'counsel-projectile-find-file))
 
-;;; dylan-projectile.el ends here
+(provide 'modules-projectile)

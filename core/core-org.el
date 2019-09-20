@@ -1,21 +1,27 @@
-;;; dylan-org.el --- summary -*- lexical-binding: t -*-
-
-;; Author: Dylan Yang
-;; Maintainer: Dylan Yang
-
-;;; Commentary:
-
-;;; Code:
 (use-package org
   :defines org-capture-templates org-plantuml-jar-path org-ditaa-jar-path
   :commands org-try-structure-completion
   :mode ("\\.\\(org\\|org_archive\\)$" . org-mode)
   :hook (org-indent-mode . (lambda() (diminish 'org-indent-mode)))
-  :bind (("C-c a" . org-agenda)
-         ("C-c b" . org-switchb)
-         ("C-c c" . org-capture)
-         ("C-c o" . org-set-tags)
-         ("C-c t" . org-todo))
+  :general
+  (general-define-key
+   :states 'normal
+   :keymaps 'override
+   :prefix "SPC o"
+   "a" 'org-agenda
+   "b" 'org-switchb
+   "c" 'org-capture
+   "t" 'org-todo
+   "o" 'org-set-tags
+   "g" 'org-clock-goto
+   "." 'org-clock-in
+   "," 'org-clock-out
+   "x" 'counsel-org-clock-context
+   "h" 'counsel-org-clock-history
+   "R" 'org-clock-report
+   "r" 'org-refile
+   "s" 'org-schedule
+   "e" 'org-deadline)
   :config
   (setq org-agenda-files '("~/workspace/org/gtd/")
         org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "HANGUP(h)"
@@ -155,14 +161,4 @@
                  (file "~/workspace/org/blog/hugo-posts.org")
                  (function org-hugo-new-subtree-post-capture-template))))
 
-;; (use-package emojify
-;;   :hook ((markdown-mode . emojify-mode)
-;;          (org-mode . emojify-mode)
-;;          (git-commit-mode . emojify-mode)
-;;          (magit-status-mode . emojify-mode)
-;;          (magit-log-mode . emoify-mode))
-;;   :config
-;;   (setq emojify-emoji-styles '(github unicode)))
-
-(provide 'dylan-org)
-;;; dylan-org.el ends here
+(provide 'core-org)
