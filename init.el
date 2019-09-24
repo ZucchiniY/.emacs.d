@@ -11,9 +11,9 @@
 (require 'core-package)
 (require 'core-variable)
 (require 'core-basis)
-(require 'core-ui)
 (require 'core-company)
 (require 'core-counsel)
+(require 'core-ui)
 (require 'core-treemacs)
 
 (require 'core-evil)
@@ -22,9 +22,9 @@
 (require 'core-org)
 
 (require 'modules-magit)
+(require 'modules-projectile)
 
 (require 'modules-python)
 (require 'modules-web)
-(require 'modules-projectile)
 
 (provide 'init)

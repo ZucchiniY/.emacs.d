@@ -12,18 +12,6 @@
 (tooltip-mode nil)
 (setq make-backup-files nil)
 
-(use-package doom-themes
-  :init
-  (setq doom-themes-enable-bold t
-        doom-themes-enable-italic t
-        doom-one-brighter-comments t
-        doom-one-padded-modeline t)
-  :config
-  (load-theme 'doom-dracula t)
-  (doom-themes-visual-bell-config)
-  (doom-themes-org-config)
-  (doom-themes-treemacs-config))
-
 (defun dylan//set-monospaced-font (english chinese english-size chinese-size)
   "Zty//set-monospaced-font to configuration the font.
 ENGLISH is english font name
@@ -49,5 +37,23 @@ CHINESE-SIZE is the chinese font size."
     (if (or sys/mac-x-p sys/linux-x-p)
         (dylan//set-monospaced-font "Iosevka Term" "黑体-简" 14 14)
       (dylan//set-monospaced-font "Iosevka Term" "Microsoft YaHei" 14 14)))
+
+(use-package doom-themes
+  :init
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t)
+  ;; (load-theme 'doom-dracula t)
+  ;; (load-theme 'doom-nord t)
+  (load-theme 'doom-moonlight t)
+  :config
+  (doom-themes-visual-bell-config)
+  (doom-themes-org-config)
+  (doom-themes-treemacs-config))
+
+(use-package kaolin-themes
+  :init
+  ;; (load-theme 'kaolin-valley-dark t)
+  :config
+  (kaolin-treemacs-theme))
 
 (provide 'core-ui)

@@ -13,17 +13,30 @@
 	    ns-function-modifier 'hyper))
 
 ;; UTF-8 as the default coding system
-(when (fboundp 'set-charset-priority)
-  (set-charset-priority 'unicode))
+;; (when (fboundp 'set-charset-priority)
+;;   (set-charset-priority 'unicode))
+(set-language-environment 'Chinese-GB)
 (prefer-coding-system 'utf-8)
-(set-terminal-coding-system 'utf-8)
+(setq coding-system-for-read 'utf-8
+      coding-system-for-write 'utf-8)
+
+;; 设置键盘输入时的编码
 (set-keyboard-coding-system 'utf-8)
 (set-selection-coding-system 'utf-8)
-(setq locale-coding-system 'utf-8)
-(setq system-time-locale "C")
+;; 设置文件默认保存的编码
+(set-buffer-file-coding-system 'utf-8)
 (setq-default buffer-file-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+;; 解决粘贴中文出现乱码问题
+(set-clipboard-coding-system 'utf-8)
+;; 其它乱码问题
+(set-terminal-coding-system 'utf-8)
+(set-file-name-coding-system 'utf-8)
+(setq locale-coding-system 'utf-8)
+
 ;; fixed Invalid coding system: cp65001
 (when sys/winntp
+  (setq system-time-locale "C")
   (define-coding-system-alias 'cp65001 'utf-8))
 
 (setq-default c-basic-offset 4
