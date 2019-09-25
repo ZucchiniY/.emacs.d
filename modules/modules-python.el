@@ -18,6 +18,17 @@
         python-shell-completion-string-code "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
   (setq elpy-rpc-python-command "python3"))
 
+(use-package pipenv
+  :hook (python-mode . pipenv-mode)
+  :init (setq pipenv-projectile-after-switch-function #'pipenv-projectile-after-switch-extended))
+
+(use-package pyenv-mode
+  :hook (python-mode . pyenv-mode))
+(use-package py-isort
+  :hook (before-save . py-isort-before-save))
+(use-package blacken
+  :hook (python-mode . blacken-mode)
+  :config (setq blacken-skip-string-normallization t))
 (use-package py-autopep8
   :after python
   :hook (elpy-mode . py-autopep8-enable-on-save))

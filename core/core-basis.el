@@ -33,10 +33,10 @@
 (set-terminal-coding-system 'utf-8)
 (set-file-name-coding-system 'utf-8)
 (setq locale-coding-system 'utf-8)
-
+;; 保持星期使用英文
+(setq system-time-locale "C")
 ;; fixed Invalid coding system: cp65001
 (when sys/winntp
-  (setq system-time-locale "C")
   (define-coding-system-alias 'cp65001 'utf-8))
 
 (setq-default c-basic-offset 4
