@@ -4,8 +4,7 @@
   (global-leader
     "pd" 'anaconda-mode-find-definitions)
   :init
-  (add-hook 'python-mode-hook #'anaconda-mode)
-  (add-hook 'python-mode-hook #'anaconda-eldoc-mode))
+  (add-hook 'python-mode-hook #'anaconda-mode))
 
 (use-package company-anaconda
   :after company
