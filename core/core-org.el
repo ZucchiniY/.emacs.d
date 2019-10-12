@@ -1,4 +1,4 @@
-(use-package org
+ (use-package org
   :defines org-capture-templates org-plantuml-jar-path org-ditaa-jar-path
   :commands org-try-structure-completion
   :mode ("\\.\\(org\\|org_archive\\)$" . org-mode)
@@ -24,8 +24,6 @@
    "e" 'org-deadline)
   :config
   (setq org-agenda-files '("~/workspace/org/gtd/")
-        org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "HANGUP(h)"
-                                      "|" "DONE(d)" "CANCEL(c)"))
         org-log-done 'time
         org-startup-indented t
         org-pretty-entities t
@@ -46,13 +44,18 @@
   
   (add-hook 'org-mode-hook 'toggle-truncate-lines)
 
-  ;; configurations org keywords' faces
-  (setq org-todo-keyword-faces `(("TODO" . (:foreground "SpringGreen2" :weight bold))
-                                 ("NEXT" . (:foreground "yellow2" :weight bold))
-                                 ("HANGUP" . (:foreground "MediumPurple2" :weight bold :underline t))
-                                 ("DONE" . (:foreground "ForestGreen"))
-                                 ("CANCEL" . (:foreground "DarkGrey" :underline t))
-                                 ("MEETING" . ((:foreground "LightSeaGreen" :weight bold)))))
+  ;; configurations org keywords' name and faces
+  (setq org-todo-keywords '(;; Baseline sequence
+                            (sequence "☞ TODO(t)" "✰ Important(i)" "⚑ WAITING(w)"
+                                      "|" "✔ DONE(d!)" "✘ CANCELED(c@)" "⚔ STARTED(s)")
+                            ;; Note information
+                            (sequence "|" "✍ NOTE(N)" "☕ BREAK(b)" "FIXME"))
+        org-todo-keyword-faces '(("☞ TODO" . (:foreground "SpringGreen2" :weight bold))
+                                 ("⚔ STARTED"  . "gold")
+                                 ("✘ CANCELED" . (:foreground "white" :background "DarkGrey" :weight bold))
+                                 ("⚑ WAITING" . "chocolate")
+                                 ("✔ DONE" . "ForestGreen")
+                                 ("FIXME" . "firebrick")))
 
   ;; org capture-templates
   (setq org-capture-templates

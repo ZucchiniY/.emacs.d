@@ -44,7 +44,8 @@ CHINESE-SIZE is the chinese font size."
         doom-themes-enable-italic t)
   ;; (load-theme 'doom-dracula t)
   ;; (load-theme 'doom-nord t)
-  (load-theme 'doom-moonlight t)
+  (load-theme 'doom-opera-light t)
+  ;; (load-theme 'doom-moonlight t)
   :config
   (doom-themes-visual-bell-config)
   (doom-themes-org-config)
