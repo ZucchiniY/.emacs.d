@@ -11,6 +11,7 @@
   (setq dired-use-ls-dired nil))
 (tooltip-mode nil)
 (setq make-backup-files nil)
+(winner-mode t)
 
 (defun dylan//set-monospaced-font (english chinese english-size chinese-size)
   "Zty//set-monospaced-font to configuration the font.
@@ -56,5 +57,9 @@ CHINESE-SIZE is the chinese font size."
   ;; (load-theme 'kaolin-valley-dark t)
   :config
   (kaolin-treemacs-theme))
+
+;; winum
+(use-package winum
+  :config (winum-mode))
 
 (provide 'core-ui)
