@@ -121,6 +121,9 @@
     "bk" 'kill-buffer
     ;; quite emacs
     "qq" 'save-buffers-kill-emacs
+    ;; winner
+    "wu" 'winner-undo
+    "wr" 'winner-redo
     ;; window keybinds
     "wo" 'other-window
     "wv" 'split-window-vertically
@@ -129,6 +132,18 @@
     "wh" 'evil-window-left
     "wk" 'evil-window-up
     "wj" 'evil-window-down
-    "wq" 'delete-window))
+    "wq" 'delete-window
+    ;; windows select
+     "1" 'winum-select-window-1
+     "2" 'winum-select-window-2
+     "3" 'winum-select-window-3
+     "4" 'winum-select-window-4
+     "5" 'winum-select-window-5
+     "6" 'winum-select-window-6
+     "7" 'winum-select-window-7
+     "8" 'winum-select-window-8
+     "9" 'winum-select-window-9
+     "0" 'winum-select-window-0-or-10
+    ))
 
 (provide 'core-basis)
