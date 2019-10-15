@@ -60,10 +60,10 @@
   ;; org capture-templates
   (setq org-capture-templates
         '(("t" "Todo" entry (file+headline "~/workspace/org/gtd/tasks.org" "Tasks")
-           "* TODO %^{Title} %^g\n SCHEDULED: %^T"
+           "* ☞ TODO %^{Title} %^g\n SCHEDULED: %^T"
            :empty-lines 1)
           ("b" "Habits" entry (file+headline "~/workspace/org/gtd/tasks.org" "Habits")
-           "* TODO %^{Title} %^g\n SCHEDULED: %^T\n :PROPERTIES:\n :STYLE: habit\n :END:"
+           "* ☞ TODO %^{Title} %^g\n SCHEDULED: %^T\n :PROPERTIES:\n :STYLE: habit\n :END:"
            :empty-lines 1)
           ("l" "Learning" entry (file "~/workspace/code/HackerrankPractice/learning.org")
            "* %?\n[[]]\nEntered on %U\n %i\n"
