@@ -133,6 +133,7 @@
     "wk" 'evil-window-up
     "wj" 'evil-window-down
     "wq" 'delete-window
+    "wa" 'delete-other-windows
     ;; windows select
      "1" 'winum-select-window-1
      "2" 'winum-select-window-2
