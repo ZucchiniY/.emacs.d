@@ -19,6 +19,7 @@
    "x" 'counsel-org-clock-context
    "h" 'counsel-org-clock-history
    "R" 'org-clock-report
+   "E" 'org-export-dispatch
    "r" 'org-refile
    "s" 'org-schedule
    "e" 'org-deadline)

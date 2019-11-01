@@ -56,6 +56,7 @@
 - wk :: evil-window-up
 - wj :: evil-window-down
 - wq :: delete-window
+- wa :: delete-other-windows
 
 ** counsel
 
@@ -85,6 +86,7 @@ leader key *SPC o*
 - x :: counsel-org-clock-context
 - h :: counsel-org-clock-history
 - R :: org-clock-report
+- E :: org-export-dispatch
 - r :: org-refile
 - s :: org-schedule
 - e :: org-deadline
@@ -111,10 +113,6 @@ leader key *SPC t*
 ** projectile
 
 - SPC p :: projectile command map
-
 - SPC p p :: counsel-projectile-switch-project
-        
 - SPC p / :: counsel-projectile-grep
-
 - SPC SPC :: counsel-projectile-find-file
-             
