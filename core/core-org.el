@@ -21,6 +21,7 @@
    "R" 'org-clock-report
    "E" 'org-export-dispatch
    "r" 'org-refile
+   "$" 'org-archive-subtree
    "s" 'org-schedule
    "e" 'org-deadline)
   :config
