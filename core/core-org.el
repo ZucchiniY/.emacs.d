@@ -1,4 +1,4 @@
- (use-package org
+(use-package org
   :defines org-capture-templates org-plantuml-jar-path org-ditaa-jar-path
   :commands org-try-structure-completion
   :mode ("\\.\\(org\\|org_archive\\)$" . org-mode)
@@ -67,10 +67,10 @@
           ("b" "Habits" entry (file+headline "~/workspace/org/gtd/tasks.org" "Habits")
            "* ☞ TODO %^{Title} %^g\n SCHEDULED: %^T\n :PROPERTIES:\n :STYLE: habit\n :END:"
            :empty-lines 1)
-          ("l" "Learning" entry (file "~/workspace/code/HackerrankPractice/learning.org")
-           "* %?\n[[]]\nEntered on %U\n %i\n"
+          ("l" "Learning" entry (file+olp+datetree "~/workspace/org/journal/learning.org")
+           "* %?\nEntered on %U\n %i\n"
            :empty-lines 1)
-          ("j" "Journal" entry (file+olp+datetree "~/workspace/org/journal/life.org")
+          ("j" "Journal" entry (file+olp+datetree "~/workspace/org/journal/journal.org")
            "* %?\nEntered on %U\n %i\n"
            :empty-lines 1)))
 
