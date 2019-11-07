@@ -25,7 +25,7 @@
    "s" 'org-schedule
    "e" 'org-deadline)
   :config
-  (setq org-agenda-files '("~/workspace/org/gtd/")
+  (setq org-agenda-files '("~/workspace/gtd/")
         org-log-done 'time
         org-startup-indented t
         org-pretty-entities t
@@ -61,16 +61,16 @@
 
   ;; org capture-templates
   (setq org-capture-templates
-        '(("t" "Todo" entry (file+headline "~/workspace/org/gtd/tasks.org" "Tasks")
+        '(("t" "Todo" entry (file+headline (expand-file-name "tasks.org" org-agenda-files) "Tasks")
            "* ☞ TODO %^{Title} %^g\n SCHEDULED: %^T"
            :empty-lines 1)
-          ("b" "Habits" entry (file+headline "~/workspace/org/gtd/tasks.org" "Habits")
+          ("b" "Habits" entry (file+headline (expand-file-name "tasks.org" org-agenda-files) "Habits")
            "* ☞ TODO %^{Title} %^g\n SCHEDULED: %^T\n :PROPERTIES:\n :STYLE: habit\n :END:"
            :empty-lines 1)
-          ("l" "Learning" entry (file+olp+datetree "~/workspace/org/journal/learning.org")
+          ("l" "Learning" entry (file+olp+datetree (expand-file-name "learning.org" org-agenda-files))
            "* %?\nEntered on %U\n %i\n"
            :empty-lines 1)
-          ("j" "Journal" entry (file+olp+datetree "~/workspace/org/journal/journal.org")
+          ("j" "Journal" entry (file+olp+datetree (expand-file-name "journal.org" org-agenda-files))
            "* %?\nEntered on %U\n %i\n"
            :empty-lines 1)))
 
