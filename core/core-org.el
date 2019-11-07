@@ -61,16 +61,16 @@
 
   ;; org capture-templates
   (setq org-capture-templates
-        '(("t" "Todo" entry (file+headline (expand-file-name "tasks.org" org-agenda-files) "Tasks")
+        '(("t" "Todo" entry (file+headline "~/workspace/gtd/tasks.org" "Tasks")
            "* ☞ TODO %^{Title} %^g\n SCHEDULED: %^T"
            :empty-lines 1)
-          ("b" "Habits" entry (file+headline (expand-file-name "tasks.org" org-agenda-files) "Habits")
+          ("b" "Habits" entry (file+headline "~/workspace/gtd/tasks.org" "Habits")
            "* ☞ TODO %^{Title} %^g\n SCHEDULED: %^T\n :PROPERTIES:\n :STYLE: habit\n :END:"
            :empty-lines 1)
-          ("l" "Learning" entry (file+olp+datetree (expand-file-name "learning.org" org-agenda-files))
+          ("l" "Learning" entry (file+olp+datetree "~/workspace/journal/learning.org")
            "* %?\nEntered on %U\n %i\n"
            :empty-lines 1)
-          ("j" "Journal" entry (file+olp+datetree (expand-file-name "journal.org" org-agenda-files))
+          ("j" "Journal" entry (file+olp+datetree "~/workspace/journal/journal.org")
            "* %?\nEntered on %U\n %i\n"
            :empty-lines 1)))
 
@@ -131,13 +131,13 @@
     :config (setq org-pomodoro-long-break-length 15)))
 
 ;; deft
-(use-package deft
+ (use-package deft
   :defer t
   :commands (deft)
   :config
-  (setq deft-directory "~/workspace/org"
+  (setq deft-directory "~/workspace/"
         deft-recursive t
-        deft-extensions '("org")))
+        deft-extensions '("org" "md")))
 ;; ox-hugo to help us write blog with org mode and publish with markdown
 (use-package ox-hugo
   :after ox)
@@ -163,7 +163,7 @@
                '("h"
                  "Hugo post"
                  entry
-                 (file "~/workspace/org/blog/hugo-posts.org")
+                 (file "~/workspace/blog/hugo-posts.org")
                  (function org-hugo-new-subtree-post-capture-template))))
 
 (provide 'core-org)

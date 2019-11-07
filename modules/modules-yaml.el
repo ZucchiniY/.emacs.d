@@ -1,5 +1,5 @@
 (use-package yaml-mode
-  :ensure t
+  :commands (yaml-mode)
   :mode (("\\.yaml\\'" . yaml-mode)
          ("\\.yml\\'" . yaml-mode)))
 

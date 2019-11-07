@@ -19,7 +19,7 @@
 
 (use-package web-mode
   :defines company-backends
-  :mode "\\.\\(jsx\\|html\\|vue\\|js\\)$"
+  :mode "\\.\\(jsx\\|html\\|vue\\|js\\|ejs\\|ts\\)$"
   :config
   (setq web-mode-markup-indent-offset 4
         web-mode-css-indent-offset 4
