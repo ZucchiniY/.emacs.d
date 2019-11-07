@@ -26,6 +26,6 @@
 
 (require 'modules-python)
 (require 'modules-web)
-;; (require 'modules-yaml)
+(require 'modules-yaml)
 
 (provide 'init)
