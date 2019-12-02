@@ -28,4 +28,5 @@
 (require 'modules-web)
 (require 'modules-yaml)
 
+(require 'modules-mind-map)
 (provide 'init)
