@@ -32,4 +32,7 @@
 
 (require 'modules-wakatime)
 (require 'modules-super-agenda)
+
+(require 'modules-pyim)
+
 (provide 'init)
