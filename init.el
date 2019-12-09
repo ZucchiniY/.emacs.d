@@ -31,4 +31,5 @@
 (require 'modules-mind-map)
 
 (require 'modules-wakatime)
+(require 'modules-super-agenda)
 (provide 'init)
