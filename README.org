@@ -117,3 +117,8 @@ leader key *SPC t*
 - SPC p p :: counsel-projectile-switch-project
 - SPC p / :: counsel-projectile-grep
 - SPC SPC :: counsel-projectile-find-file
+
+** wakatime
+
+增加了 [[wakatime][https://wakatime.com/dashboard]] 配置，使用
+*wakatime* 进行工作统计，希望可以提升自己的效率。

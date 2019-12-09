@@ -29,4 +29,6 @@
 (require 'modules-yaml)
 
 (require 'modules-mind-map)
+
+(require 'modules-wakatime)
 (provide 'init)
