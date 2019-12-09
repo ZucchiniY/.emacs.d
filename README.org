@@ -122,3 +122,9 @@ leader key *SPC t*
 
 增加了 [[wakatime][https://wakatime.com/dashboard]] 配置，使用
 *wakatime* 进行工作统计，希望可以提升自己的效率。
+
+** org-super-agenda
+
+增加
+[[org-super-agenda][https://github.com/alphapapa/org-super-agenda]] 的
+功能，用来合理的显示任务的优先级和任务的类型。
