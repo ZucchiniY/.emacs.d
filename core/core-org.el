@@ -48,24 +48,24 @@
 
   ;; configurations org keywords' name and faces
   (setq org-todo-keywords '(;; Baseline sequence
-                            (sequence "☞ TODO(t)" "✰ Important(i)" "⚑ WAITING(w)"
-                                      "|" "✔ DONE(d!)" "✘ CANCELED(c@)" "⚔ STARTED(s)")
+                            (sequence "TODO(t)" "Important(i)" "WAITING(w)"
+                                      "|" "DONE(d!)" "CANCELED(c@)" "STARTED(s)")
                             ;; Note information
-                            (sequence "|" "✍ NOTE(N)" "☕ BREAK(b)" "FIXME"))
-        org-todo-keyword-faces '(("☞ TODO" . (:foreground "SpringGreen2" :weight bold))
-                                 ("⚔ STARTED"  . "gold")
-                                 ("✘ CANCELED" . (:foreground "white" :background "DarkGrey" :weight bold))
-                                 ("⚑ WAITING" . "chocolate")
-                                 ("✔ DONE" . "ForestGreen")
+                            (sequence "|" "NOTE(N)" "BREAK(b)" "FIXME"))
+        org-todo-keyword-faces '(("TODO" . (:foreground "SpringGreen2" :weight bold))
+                                 ("STARTED"  . "gold")
+                                 ("CANCELED" . (:foreground "white" :background "DarkGrey" :weight bold))
+                                 ("WAITING" . "chocolate")
+                                 ("DONE" . "ForestGreen")
                                  ("FIXME" . "firebrick")))
 
   ;; org capture-templates
   (setq org-capture-templates
         '(("t" "Todo" entry (file+headline "~/workspace/gtd/tasks.org" "Tasks")
-           "* ☞ TODO %^{Title} %^g\n SCHEDULED: %^T"
+           "* TODO %^{Title} %^g\n SCHEDULED: %^T"
            :empty-lines 1)
           ("b" "Habits" entry (file+headline "~/workspace/gtd/tasks.org" "Habits")
-           "* ☞ TODO %^{Title} %^g\n SCHEDULED: %^T\n :PROPERTIES:\n :STYLE: habit\n :END:"
+           "* TODO %^{Title} %^g\n SCHEDULED: %^T\n :PROPERTIES:\n :STYLE: habit\n :END:"
            :empty-lines 1)
           ("l" "Learning" entry (file+olp+datetree "~/workspace/journal/learning.org")
            "* %?\nEntered on %U\n %i\n"
@@ -79,11 +79,11 @@
     :hook (org-mode . org-bullets-mode)
     :config (setq org-bullets-bullet-list '("☯" "☢" "♠" "♣" "♥" "♦")))
 
-  (use-package org-fancy-priorities
-    :diminish
-    :hook (org-mode . org-fancy-priorities-mode)
-    :config
-    (setq org-fancy-priorities-list '("⚡" "⬆" "⬇" "☕")))
+  ;; (use-package org-fancy-priorities
+  ;;   :diminish
+  ;;   :hook (org-mode . org-fancy-priorities-mode)
+  ;;   :config
+  ;;   (setq org-fancy-priorities-list '("⚡" "⬆" "⬇" "☕")))
   
   ;; 替换对应的标记
   ;; 该段正则的意思是 “以0个或者多个空格开头，紧接着一个 ‘-’ ，紧接着是一个空格”

@@ -9,6 +9,7 @@
                  :todo "TODAY")
           (:name "Important"
                  :tag ("Develop" "Blog")
+                 :todo "Important"
                  :priority "A")
           (:name "Personal"
                  :habit t
