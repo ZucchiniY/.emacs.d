@@ -48,12 +48,15 @@
 
   ;; configurations org keywords' name and faces
   (setq org-todo-keywords '(;; Baseline sequence
-                            (sequence "TODO(t)" "IMPORTANT(i)" "WAITING(w)"
-                                      "|" "DONE(d!)" "CANCELED(c@)" "STARTED(s)")
+                            (sequence "TODO(t)"
+                                      "|" "DONE(d!)" "CANCELED(c@)")
+                            (sequence "WAITING(w)"
+                                      "|" "DONE(d!)" "CANCELED(c@)")
+                            (sequence "IMPORTANT(i)"
+                                      "|" "DONE(d!)" "CANCELED(c@)")
                             ;; Note information
-                            (sequence "|" "NOTE(N)" "BREAK(b)" "FIXME"))
+                            (sequence "|" "NOTE(N)" "BREAK(b)" "FIXME(f)"))
         org-todo-keyword-faces '(("TODO" . (:foreground "SpringGreen2" :weight bold))
-                                 ("STARTED"  . "gold")
                                  ("CANCELED" . (:foreground "white" :background "DarkGrey" :weight bold))
                                  ("WAITING" . "chocolate")
                                  ("DONE" . "ForestGreen")
@@ -65,7 +68,7 @@
            "* TODO %^{Title} %^g\n SCHEDULED: %^T"
            :empty-lines 1)
           ("b" "Habits" entry (file+headline "~/workspace/gtd/tasks.org" "Habits")
-           "* TODO %^{Title} %^g\n SCHEDULED: %^T\n :PROPERTIES:\n :STYLE: habit\n :END:"
+           "* IMPORTANT %^{Title} %^g\n SCHEDULED: %^T\n :PROPERTIES:\n :STYLE: habit\n :END:"
            :empty-lines 1)
           ("l" "Learning" entry (file+olp+datetree "~/workspace/journal/learning.org")
            "* %?\nEntered on %U\n %i\n"
