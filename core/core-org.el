@@ -48,7 +48,7 @@
 
   ;; configurations org keywords' name and faces
   (setq org-todo-keywords '(;; Baseline sequence
-                            (sequence "TODO(t)" "Important(i)" "WAITING(w)"
+                            (sequence "TODO(t)" "IMPORTANT(i)" "WAITING(w)"
                                       "|" "DONE(d!)" "CANCELED(c@)" "STARTED(s)")
                             ;; Note information
                             (sequence "|" "NOTE(N)" "BREAK(b)" "FIXME"))
@@ -79,12 +79,6 @@
     :hook (org-mode . org-bullets-mode)
     :config (setq org-bullets-bullet-list '("☯" "☢" "♠" "♣" "♥" "♦")))
 
-  ;; (use-package org-fancy-priorities
-  ;;   :diminish
-  ;;   :hook (org-mode . org-fancy-priorities-mode)
-  ;;   :config
-  ;;   (setq org-fancy-priorities-list '("⚡" "⬆" "⬇" "☕")))
-  
   ;; 替换对应的标记
   ;; 该段正则的意思是 “以0个或者多个空格开头，紧接着一个 ‘-’ ，紧接着是一个空格”
   ;; 将配置上面的情况的 “-” 替换为 “•”
