@@ -39,6 +39,7 @@
 (when sys/winntp
   (define-coding-system-alias 'cp65001 'utf-8))
 
+;; set default tab and space
 (setq-default c-basic-offset 4
 	          tab-width 4
 	          indent-tabs-mode nil)
@@ -64,12 +65,6 @@
   :diminish yas-minor-mode
   :hook (after-init . yas-global-mode)
   :config (use-package yasnippet-snippets))
-
-;; text-mode
-(add-hook 'text-mode-hook
-	      (lambda ()
-	        (turn-on-auto-fill)
-	        (diminish 'auto-fill-function)))
 
 ;; abbrev-mode
 (add-hook 'abbrev-mode-hook (lambda () (diminish 'abbrev-mode)))

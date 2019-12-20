@@ -94,9 +94,7 @@
         org-src-tab-acts-natively t)
 
   (defvar load-language-list '((emacs-lisp . t)
-                               (perl . t)
                                (python . t)
-                               (ruby . t)
                                (js . t)
                                (css . t)
                                (sass . t)
@@ -106,9 +104,6 @@
                                (java . t)
                                (ditaa .t)
                                (plantuml . t)))
-
-  (use-package ob-go
-    :init (cl-pushnew '(go . t) load-language-list))
 
   (use-package ob-ipython
     :if (executable-find "jupyter")     ; DO NOT remove
@@ -127,14 +122,6 @@
     :bind ("C-c p" . org-pomodoro)
     :config (setq org-pomodoro-long-break-length 15)))
 
-;; deft
- (use-package deft
-  :defer t
-  :commands (deft)
-  :config
-  (setq deft-directory "~/workspace/"
-        deft-recursive t
-        deft-extensions '("org" "md")))
 ;; ox-hugo to help us write blog with org mode and publish with markdown
 (use-package ox-hugo
   :after ox)
