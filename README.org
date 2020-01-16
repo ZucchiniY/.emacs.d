@@ -124,8 +124,7 @@ leader key *SPC t*
 
 ** org-super-agenda
 
-增加[[org-super-agenda][https://github.com/alphapapa/org-super-agenda]] 的
-功能，用来合理的显示任务的优先级和任务的类型。
+增加[[org-super-agenda][https://github.com/alphapapa/org-super-agenda]] 的功能，用来合理的显示任务的优先级和任务的类型。
 
 ** mind map
 
