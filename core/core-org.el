@@ -122,32 +122,4 @@
     :bind ("C-c p" . org-pomodoro)
     :config (setq org-pomodoro-long-break-length 15)))
 
-;; ox-hugo to help us write blog with org mode and publish with markdown
-(use-package ox-hugo
-  :after ox)
-
-(with-eval-after-load 'org-capture
-  (defun org-hugo-new-subtree-post-capture-template ()
-    "Return `org-capture' template string for new Hugo post."
-    (let* ((date (format-time-string (org-time-stamp-format :long :inactive) (org-current-time)))
-           (title (read-from-minibuffer "Post Title: "))
-           (file-name (read-from-minibuffer "File Name: "))
-           (fname (org-hugo-slug file-name)))
-      (mapconcat #'identity
-                 `(
-                   ,(concat "* TODO " title)
-                   ":PROPERTIES:"
-                   ,(concat ":EXPORT_FILE_NAME: " fname)
-                   ,(concat ":EXPORT_DATE: " date)
-                   ":END:"
-                   "%?\n")
-                 "\n")))
-
-  (add-to-list 'org-capture-templates
-               '("h"
-                 "Hugo post"
-                 entry
-                 (file "~/workspace/blog/hugo-posts.org")
-                 (function org-hugo-new-subtree-post-capture-template))))
-
 (provide 'core-org)
