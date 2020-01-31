@@ -1,5 +1,6 @@
 (use-package anaconda-mode
   :commands anaconda-mode
+  :diminish (anaconda-eldoc-mode anaconda-mode)
   :general
   (global-leader
     "pd" 'anaconda-mode-find-definitions)
