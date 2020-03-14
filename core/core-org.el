@@ -73,6 +73,9 @@
           ("l" "Learning" entry (file+olp+datetree "~/workspace/journal/learning.org")
            "* %?\nEntered on %U\n %i\n"
            :empty-lines 1)
+          ("f" "Fitness" entry (file+olp+datetree "~/workspace/journal/journal.org")
+           "* %?\nEntered on %U\n %i\n"
+           :empty-lines 1)
           ("j" "Journal" entry (file+olp+datetree "~/workspace/journal/journal.org")
            "* %?\nEntered on %U\n %i\n"
            :empty-lines 1)))
