@@ -30,9 +30,9 @@
 
 (require 'modules-mind-map)
 
-(require 'modules-wakatime)
+;; (require 'modules-wakatime)
 (require 'modules-super-agenda)
 
-(require 'modules-pyim)
+(require 'modules-rime)
 
 (provide 'init)
