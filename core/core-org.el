@@ -34,8 +34,8 @@
         org-catch-invisible-edits 'smart
         org-agenda-text-search-extra-files 'agenda-archives
         org-agenda-skip-scheduled-if-done t
-        org-plantuml-jar-path (expand-file-name "plantuml.jar" user-emacs-directory)
-        org-ditaa-jar-path (expand-file-name "ditaa0_9.jar" user-emacs-directory)
+        org-plantuml-jar-path (expand-file-name "extends/plantuml.jar" user-emacs-directory)
+        org-ditaa-jar-path (expand-file-name "extends/ditaa0_9.jar" user-emacs-directory)
         ;; `^' 和 `_' 是否转义，如果是 t 就转，nil 不转，{} 就 a_{a} 才转
         org-use-sub-superscripts '{}
         org-log-into-drawer 'LOGBOOK
