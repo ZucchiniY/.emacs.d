@@ -12,9 +12,4 @@
   :init
   (add-to-list 'company-backends '(company-anaconda :with company-capf)))
 
-(use-package quickrun
-  :general
-  (global-leader
-    "x" 'quickrun))
-
 (provide 'modules-python)
