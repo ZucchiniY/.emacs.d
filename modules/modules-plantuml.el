@@ -2,7 +2,8 @@
   :mode ("\\.plantuml\\'" . plantuml-mode)
   :defer t
   :config
-  (setq plantuml-jar-path (expand-file-name "extends/plantuml.jar" user-emacs-directory)))
+  (setq plantuml-jar-path (expand-file-name "extends/plantuml.jar" user-emacs-directory)
+        plantuml-default-exec-mode 'jar))
 
 (use-package flycheck-plantuml
   :after plantuml-mode
