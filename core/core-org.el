@@ -3,6 +3,8 @@
   :commands org-try-structure-completion
   :mode ("\\.\\(org\\|org_archive\\)$" . org-mode)
   :hook (org-indent-mode . (lambda() (diminish 'org-indent-mode)))
+  :ensure org-plus-contrib
+  :pin org
   :general
   (general-define-key
    :states 'normal
@@ -114,6 +116,8 @@
 
   (org-babel-do-load-languages 'org-babel-load-languages
                                load-language-list)
+
+  (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
 
   ;; Preview
   (use-package org-preview-html

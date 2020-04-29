@@ -73,6 +73,8 @@ leader key *SPC*
 
 ** Org mode
 
+增加引用最新版本的 org mode，不再是使用 Emacs 自带的版本。
+
 leader key *SPC o* 
 
 - a :: 打开 agenda
@@ -120,25 +122,31 @@ leader key *SPC t*
 
 ** +wakatime+
 
-移除 wakatime 功能，统计的有问题，而且使用较少。
++移除 wakatime 功能，统计的有问题，而且使用较少。+
 
-增加了 [[wakatime][https://wakatime.com/dashboard]] 配置，使用 *wakatime* 进行工作统计，希望可以提升自己的效率。
++增加了 [[wakatime][https://wakatime.com/dashboard]] 配置，使用 *wakatime* 进行工作统计，希望可以提升自己的效率。+
 
 ** org-super-agenda
 
 增加[[org-super-agenda][https://github.com/alphapapa/org-super-agenda]] 的功能，用来合理的显示任务的优先级和任务的类型。
 
-** mind map
+** +mind map+
 
-用来将 org 文档利用 graphviz-dot 生成 mind map 图。
++用来将 org 文档利用 graphviz-dot 生成 mind map 图。+
 
 ** +pyim+
 
-移除 pyim 功能。
-增加 emacs 中文输入法的支持。
++移除 pyim 功能。+
++增加 emacs 中文输入法的支持。+
 
-- M-j :: 在是英文的时间，将默认的输入变成中文。
++- M-j :: 在是英文的时间，将默认的输入变成中文。+
          
 ** emacs-rime
 
 输入法使用 emacs-rime 功能，不再需要复杂的 pyim 的配置，简单的几行设置就可以使用中文件输入的功能有，经过测试与 evil 模式结合使用非常方便，唯一的就是缺少临时输入英文的更好的方案，但是可以直接输入英文，通过回车的方法直接上屏。
+
+** plantuml
+
+增加专门为 plantuml 所使用有配置。
+
+Plantuml 主要用来绘制流程图、思维导图等许多图例。
