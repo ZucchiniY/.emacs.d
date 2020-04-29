@@ -28,11 +28,11 @@
 (require 'modules-web)
 (require 'modules-yaml)
 
-(require 'modules-mind-map)
-
-;; (require 'modules-wakatime)
 (require 'modules-super-agenda)
 
 (require 'modules-rime)
+
+; 新增 plantuml 配置功能
+(require 'modules-plantuml)
 
 (provide 'init)
