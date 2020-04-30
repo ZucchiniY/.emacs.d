@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: plantuml
+# key: <uml
+# --
+#+begin_src plantuml :file $1 :results ${2:output} :cmdline -charset utf-8 :exports ${3:both}
+$0
+#+end_src
