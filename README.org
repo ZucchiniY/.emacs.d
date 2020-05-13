@@ -150,3 +150,10 @@ leader key *SPC t*
 增加专门为 plantuml 所使用有配置。
 
 Plantuml 主要用来绘制流程图、思维导图等许多图例。
+
+** writeroom
+
+增加 writeroom 的配置，用来专注于写作。
+
+- SPC r r :: 启动和关闭专注写作模式
+

@@ -35,4 +35,7 @@
 ; 新增 plantuml 配置功能
 (require 'modules-plantuml)
 
+; 新增 writeroom-mode
+(require 'modules-writer)
+
 (provide 'init)
