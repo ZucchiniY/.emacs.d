@@ -23,6 +23,7 @@
    "R" 'org-clock-report
    "E" 'org-export-dispatch
    "r" 'org-refile
+   "p" 'org-pomodoro
    "$" 'org-archive-subtree
    "s" 'org-schedule
    "e" 'org-deadline)
@@ -126,7 +127,6 @@
   ;; Pomodoro
   (use-package org-pomodoro
     :after org-agenda
-    :bind ("C-c p" . org-pomodoro)
     :config (setq org-pomodoro-long-break-length 15)))
 
 (provide 'core-org)

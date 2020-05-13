@@ -93,6 +93,7 @@ leader key *SPC o*
 - $ :: org-archive-subtree
 - s :: org-schedule
 - e :: org-deadline
+- p :: org-pomodoro
 
 ** Magit
 
