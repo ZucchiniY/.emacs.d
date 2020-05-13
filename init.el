@@ -24,7 +24,7 @@
 (require 'modules-magit)
 (require 'modules-projectile)
 
-(require 'modules-python)
+;; (require 'modules-python)
 (require 'modules-web)
 (require 'modules-yaml)
 
