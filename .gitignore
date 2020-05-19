@@ -23,3 +23,6 @@ list/
 eshell/
 pyim/
 rime/
+.lsp-session-v1
+extends/mspyls/
+extends/Python-Language-Server-osx-x64.0.5.45.nupkg

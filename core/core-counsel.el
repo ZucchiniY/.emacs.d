@@ -10,7 +10,12 @@
         enable-recursive-minibuffers t)
   (ivy-mode 1))
 
+(use-package swiper
+  :diminish swiper
+  :config (setq search-default-mode nil))
+
 (use-package counsel
+  :after (ivy swiper)
   :init (counsel-mode 1)
   :diminish ivy-mode counsel-mode
   :general

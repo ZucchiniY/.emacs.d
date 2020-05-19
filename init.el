@@ -38,4 +38,8 @@
 ;; 新增 writeroom-mode
 (require 'modules-writer)
 
+;; 新增 lsp-mode 作为 python 后台
+(require 'modules-lsp)
+(require 'modules-python)
+
 (provide 'init)

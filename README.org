@@ -158,3 +158,7 @@ Plantuml 主要用来绘制流程图、思维导图等许多图例。
 
 - SPC r r :: 启动和关闭专注写作模式
 
+** python + lsp mode
+
+将原来的 Python 相关的后台，调整为 lsp-mode + lsp-python-ms 。
+
