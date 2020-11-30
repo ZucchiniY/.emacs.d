@@ -36,7 +36,7 @@ CHINESE-SIZE is the chinese font size."
 
 (if (display-graphic-p)
     (if (or sys/mac-x-p sys/linux-x-p)
-        (dylan//set-monospaced-font "Iosevka Term" "黑体-简" 14 14)
+        (dylan//set-monospaced-font "Iosevka SS14" "黑体-简" 14 14)
       (dylan//set-monospaced-font "Iosevka Term" "Microsoft YaHei" 14 14)))
 
 (use-package doom-themes
