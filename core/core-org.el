@@ -14,7 +14,7 @@
    "b" 'org-switchb
    "c" 'org-capture
    "t" 'org-todo
-   "o" 'org-set-tags
+   "o" 'org-set-tags-command
    "g" 'org-clock-goto
    "." 'org-clock-in
    "," 'org-clock-out
