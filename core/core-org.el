@@ -125,6 +125,10 @@
   ;; Pomodoro
   (use-package org-pomodoro
     :after org-agenda
-    :config (setq org-pomodoro-long-break-length 15)))
+    :config (setq org-pomodoro-long-break-length 15))
+
+  (use-package gnuplot :ensure t)
+  (use-package gnuplot-mode
+    :ensure t))
 
 (provide 'core-org)
