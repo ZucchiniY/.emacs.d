@@ -23,16 +23,17 @@
   (add-hook 'python-mode-hook
             (lambda () (add-hook 'before-save-hook #'+python/python-sort-imports))))
 
-(use-package lsp-python-ms
-  :hook (python-mode . (lambda ()
-                        (require 'lsp-python-ms) (lsp-deferred)))
-  :after lsp-mode python
-  :custom
-  (lsp-python-ms-dir (expand-file-name "extends/mspyls/" user-emacs-directory))
-  ;; :init
-  ;; (setq lsp-python-ms-executable (expand-file-name "extends/mspyls/Microsoft.Python.LanguageServer" user-emacs-directory))
-  ;; (executable-find lsp-python-ms-executable)
-  )
+(use-package anaconda-mode
+  :commands anaconda-mode
+  :diminish anaconda-mode
+  :hook ((python-mode . anaconda-mode)
+         (python-mode . anaconda-eldoc-mode)
+         ))
 
+(defun python/python-mode-hook ()
+  "python module hook."
+  (anaconda-mode 1)
+  (anaconda-eldoc-mode 1))
 
+(add-hook 'python-mode-hook 'python/python-mode-hook)
 (provide 'modules-python)

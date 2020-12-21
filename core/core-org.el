@@ -43,7 +43,8 @@
         org-use-sub-superscripts '{}
         org-log-into-drawer 'LOGBOOK
         org-agenda-skip-deadline-if-done t
-        org-descriptive-links nil)
+        org-descriptive-links nil
+        org-babel-python-command "python3")
   ;; 加载一些 org modules
   (setq org-modules '(org-habit))
   
@@ -126,9 +127,6 @@
   (use-package org-pomodoro
     :after org-agenda
     :config (setq org-pomodoro-long-break-length 15))
-
-  (use-package gnuplot :ensure t)
-  (use-package gnuplot-mode
-    :ensure t))
+  )
 
 (provide 'core-org)
