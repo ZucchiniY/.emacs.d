@@ -46,6 +46,7 @@ CHINESE-SIZE is the chinese font size."
   ;; (load-theme 'doom-dracula t)
   ;; (load-theme 'doom-nord t)
   ;;(load-theme 'doom-opera-light t)
+  ;; (load 'doom-acario-light t)
   ;; (load-theme 'doom-moonlight t)
   :config
   (doom-themes-visual-bell-config)
@@ -54,7 +55,8 @@ CHINESE-SIZE is the chinese font size."
 
 (use-package kaolin-themes
   :init
-  (load-theme 'kaolin-valley-dark t)
+  ;; (load-theme 'kaolin-valley-dark t)
+  (load-theme 'kaolin-valley-light t)
   :config
   (kaolin-treemacs-theme))
 
