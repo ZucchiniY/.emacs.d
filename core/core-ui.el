@@ -36,7 +36,7 @@ CHINESE-SIZE is the chinese font size."
 
 (if (display-graphic-p)
     (if (or sys/mac-x-p sys/linux-x-p)
-        (dylan//set-monospaced-font "Iosevka SS14" "黑体-简" 14 14)
+        (dylan//set-monospaced-font "Iosevka" "黑体-简" 14 14)
       (dylan//set-monospaced-font "Iosevka Term" "Microsoft YaHei" 14 14)))
 
 (use-package doom-themes
@@ -45,7 +45,7 @@ CHINESE-SIZE is the chinese font size."
         doom-themes-enable-italic t)
   ;; (load-theme 'doom-dracula t)
   ;; (load-theme 'doom-nord t)
-  (load-theme 'doom-opera-light t)
+  ;;(load-theme 'doom-opera-light t)
   ;; (load-theme 'doom-moonlight t)
   :config
   (doom-themes-visual-bell-config)
@@ -54,7 +54,7 @@ CHINESE-SIZE is the chinese font size."
 
 (use-package kaolin-themes
   :init
-  ;; (load-theme 'kaolin-valley-dark t)
+  (load-theme 'kaolin-valley-dark t)
   :config
   (kaolin-treemacs-theme))
 
