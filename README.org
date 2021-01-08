@@ -162,3 +162,6 @@ Plantuml 主要用来绘制流程图、思维导图等许多图例。
 
 将原来的 Python 相关的后台，调整为 lsp-mode + lsp-python-ms 。
 
+** stock 股票功能
+- SPC k :: 启动之后，可以从中获取对应的股票数据
+

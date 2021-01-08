@@ -41,5 +41,7 @@
 ;; 新增 lsp-mode 作为 python 后台
 ;; (require 'modules-lsp)
 (require 'modules-python)
+;; 新增支持查看股票
+(require 'modules-stock)
 
 (provide 'init)
