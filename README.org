@@ -158,9 +158,17 @@ Plantuml 主要用来绘制流程图、思维导图等许多图例。
 
 - SPC r r :: 启动和关闭专注写作模式
 
-** python + lsp mode
+** +python + lsp mode+
 
-将原来的 Python 相关的后台，调整为 lsp-mode + lsp-python-ms 。
++将原来的 Python 相关的后台，调整为 lsp-mode + lsp-python-ms 。+
+
+** Python + anaconda or miniconda
+
+切换使用 anaconda-mode 替换 lsp mode 作为 Python 的开发环境。
+
+1. anaconda 的开发环境设置比较方便，特别是在 Mac 下，如果直接使用 /local/bin/python3 来作为环境，使用 venv 的方式管理，会有一些使用上的问题，而且不易迁移，所以就使用 conda 来管理 Python 环境。
+2. anaconda 与 PyCharm 可以直接使用，而对于 pyenv 和 pipenv 、 poetry 等环境工具，使用起来都不是特别方便。
+
 
 ** stock 股票功能
 - SPC k :: 启动之后，可以从中获取对应的股票数据
