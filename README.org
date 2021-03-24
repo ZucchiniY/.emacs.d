@@ -142,7 +142,9 @@ leader key *SPC t*
 
 +- M-j :: 在是英文的时间，将默认的输入变成中文。+
          
-** emacs-rime
+** +emacs-rime+
+
+不再使用。
 
 输入法使用 emacs-rime 功能，不再需要复杂的 pyim 的配置，简单的几行设置就可以使用中文件输入的功能有，经过测试与 evil 模式结合使用非常方便，唯一的就是缺少临时输入英文的更好的方案，但是可以直接输入英文，通过回车的方法直接上屏。
 
@@ -158,9 +160,15 @@ Plantuml 主要用来绘制流程图、思维导图等许多图例。
 
 - SPC r r :: 启动和关闭专注写作模式
 
-** +python + lsp mode+
+** lsp mode
 
-+将原来的 Python 相关的后台，调整为 lsp-mode + lsp-python-ms 。+
+使用 lsp 作为开发的后台，主要支持 JavaScript / Vue / Python 几门语言。
+
+- python :: =pip install 'python-language-server[all]'=
+- JavaScript :: =brew install deno=
+- css :: =npm install -g vscode-css-languageserver-bin'=
+- html :: =npm install -g vscode-html-languageserver-bin'=
+- vue :: =npm install -g vls=
 
 ** Python + anaconda or miniconda
 
@@ -170,6 +178,6 @@ Plantuml 主要用来绘制流程图、思维导图等许多图例。
 2. anaconda 与 PyCharm 可以直接使用，而对于 pyenv 和 pipenv 、 poetry 等环境工具，使用起来都不是特别方便。
 
 
-** stock 股票功能
+** +stock 股票功能+
 - SPC k :: 启动之后，可以从中获取对应的股票数据
 

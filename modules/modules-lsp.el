@@ -1,34 +1,58 @@
+;;; package --- Summary
+;;; Commentary:
+;;; Use lsp-mode for Emacs client
+;;; Code:
 (use-package lsp-mode
-  :commands (lsp lsp-deferred)
-  :custom
-  (lsp-idle-delay 0.5)
-  (lsp-flycheck-live-reporting nil)
-  (lsp-perfer-flymake nil)
-  (lsp-enable-eldoc nil)
-  (lsp-message-project-root-warning t)
-  :hook ((python-mode . lsp-deferred)
-         (lsp-mode . lsp-enable-which-key-integration)))
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :hook (
+         (python-mode . lsp-deferred)
+         (vue-mode .lsp-deferred)
+         (lsp-mode . lsp-enable-which-key-integration)
+         )
+  :commands (lsp lsp-deferred))
 
 (use-package lsp-ui
   :diminish lsp-ui-mode
   :commands lsp-ui-mode
-  :hook (lsp . lsp-ui)
-  :custom-face
-  (lsp-ui-doc-background ((t (:background nil))))
-  (lsp-ui-doc-header ((t (:inherit (font-lock-string-face italic)))))
-  :config
-  (setq lsp-ui-sideline-enable nil
-        lsp-enable-completion-at-point t
-        lsp-ui-doc-position 'at-point
-        lsp-ui-doc-header t
-        lsp-ui-doc-border (face-foreground 'default)
-        lsp-ui-doc-include-signature t))
+  :bind (("C-c u" . lsp-ui-mode)
+         :map lsp-ui-mode-map
+         ("M-<f6>" . lsp-ui-hydra/body)
+         ("M-RET" . lsp-ui-sideline-apply-code-actions))
+  :hook (lsp-mode . lsp-ui-mode))
 
-(use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
-(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+(use-package lsp-ivy
+  :commands lsp-ivy-workspace-symbol)
+(use-package lsp-treemacs
+  :commands lsp-treemacs-errors-list)
 
 (use-package dap-mode
-  :config
-  (use-package dap-python))
+  :defines dap-python-executable
+  :functions dap-hydra/nil
+  :diminish
+  :bind (:map lsp-mode-map
+              ("<f5>" . dap-debug)
+              ("M-<f5>" . dap-hydra))
+  :hook ((after-init . dap-auto-configure-mode)
+         (dap-stopped . (lambda (_args) (dap-hydra)))
+         (python-mode . (lambda () (require 'dap-python)))
+         (vue-mode . (lambda () (require 'dap-vue)))
+         )
+  :init
+  (when (executable-find "python3")
+    (setq dap-python-executable "python3")))
+                         
+
+(use-package lsp-pyright
+  :preface
+  (defun lsp-pyright-format-buffer ()
+    (interactive)
+    (when (and (executable-find "yapf") buffer-file-name)
+      (call-process "yapf" nil nil nil "-i" buffer-file-name)))
+  :hook (python-mode . (lambda ()
+                         (require 'lsp-pyright)
+                         (add-hook 'after-save-hook #'lsp-pyright-format-buffer t t)))
+  :init (when (executable-find "python3")
+          (setq lsp-pyright-python-executable-cmd "python3")))
 
 (provide 'modules-lsp)

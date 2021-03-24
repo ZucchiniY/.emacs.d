@@ -30,7 +30,7 @@
 
 (require 'modules-super-agenda)
 
-(require 'modules-rime)
+;; (require 'modules-rime)
 
 ;; 新增 plantuml 配置功能
 (require 'modules-plantuml)
@@ -38,10 +38,12 @@
 ;; 新增 writeroom-mode
 (require 'modules-writer)
 
-;; 新增 lsp-mode 作为 python 后台
-;; (require 'modules-lsp)
+;; 语言上要增加 Python，Vue 的支持，所以重新引入 `lsp-mode` 进行使用。
+(require 'modules-lsp)
+
+;;
 (require 'modules-python)
 ;; 新增支持查看股票
-(require 'modules-stock)
+;; (require 'modules-stock)
 
 (provide 'init)
