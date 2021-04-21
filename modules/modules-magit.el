@@ -1,7 +1,12 @@
+(use-package transient
+  :ensure t
+  :commands (transient-setup transient-prefix))
+
 (use-package magit
   :general
   (global-leader
-    "g" 'magit-status)
+    "g g" 'magit-status
+    "g ." 'magit-dispatch)
   :config
   (when sys/winntp
     (setenv "GIT_ASKPASS" "git-gui--askpass"))
@@ -13,10 +18,11 @@
 
   ;; Show tasks
   (use-package magit-todos
+    :hook (magit-status-mode . magit-todos-mode)
     :init (magit-todos-mode 1))
 
   (use-package evil-magit
-    :after (magit evil)
+    :after (magit evil transient)
     :init
     (setq evil-magit-state 'normal)
     :config
