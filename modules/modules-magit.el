@@ -19,7 +19,7 @@
   ;; Show tasks
   (use-package magit-todos
     :hook (magit-status-mode . magit-todos-mode)
-    :init (magit-todos-mode 1))
+    :init (magit-todos-mode 1)))
 
 ;; Walk through git revisions of a file
 (use-package git-timemachine
