@@ -1,3 +1,16 @@
+;; core-basis.el --- Define basis config.	-*- lexical-binding: t -*-
+
+;; Copyright (C) 2019-2021 Dylan Yang
+
+;; Author: Dylan Yang <banshiliuli1990@sina.com>
+;; URL: https://github.com/zucchiniy/.emacs.d
+
+;;; Commentary:
+;;
+
+;;; Code:
+(require 'core-variable)
+
 (setq user-full-name "Dylan Yang")
 
 (when sys/winntp
@@ -145,3 +158,5 @@
     ))
 
 (provide 'core-basis)
+;;; core-basis.el ends here
+
