@@ -14,6 +14,11 @@
   ;; evil normal state keybinds
   (define-key evil-normal-state-map "Y" (kbd "y$")))
 
+;; add package evil-collection
+(use-package evil-collection
+  :after evil
+  :config (evil-collection-init))
+
 ;; gcc comments out a line
 ;; gc comments out the target of a motion
 ;; gcap comments out a paragraph

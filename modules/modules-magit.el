@@ -21,13 +21,6 @@
     :hook (magit-status-mode . magit-todos-mode)
     :init (magit-todos-mode 1))
 
-  (use-package evil-magit
-    :after (magit evil transient)
-    :init
-    (setq evil-magit-state 'normal)
-    :config
-    (setq evil-magit-want-horizontal-movement t)))
-
 ;; Walk through git revisions of a file
 (use-package git-timemachine
   :bind (:map vc-prefix-map
