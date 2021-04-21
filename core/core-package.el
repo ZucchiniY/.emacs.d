@@ -1,7 +1,18 @@
+;; core-package.el --- Define Package config.	-*- lexical-binding: t -*-
+
+;; Copyright (C) 2019-2021 Dylan Yang
+
+;; Author: Dylan Yang <banshiliuli1990@sina.com>
+;; URL: https://github.com/zucchiniy/.emacs.d
+
+;;; Commentary:
+;;
+
+;;; Code:
 ;; Set package archives
-(setq package-archives '(("gnu"   . "http://mirrors.cloud.tencent.com/elpa/gnu/")
-                         ("melpa" . "http://mirrors.cloud.tencent.com/elpa/melpa/")
-                         ("org" . "http://mirrors.cloud.tencent.com/elpa/org/")))
+(require 'core-variable)
+
+(setq package-archives ustc-elpa)
 
 ;; Initialize packages
 (unless (bound-and-true-p package--initialized)
@@ -37,3 +48,4 @@
 (defalias 'dylan-update-packages-and-restartup 'upgrade-packages-and-restart)
 
 (provide 'core-package)
+;;; core-package.el ends here
