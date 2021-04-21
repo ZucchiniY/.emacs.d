@@ -45,5 +45,7 @@
 (require 'modules-python)
 ;; 新增支持查看股票
 ;; (require 'modules-stock)
+;; 节日提醒
+(require 'modules-calendar)
 
 (provide 'init)
