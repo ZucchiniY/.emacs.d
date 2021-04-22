@@ -1,6 +1,8 @@
 (use-package evil
   :hook (after-init . evil-mode)
-  :init (setq evil-want-keybinding nil)
+  :init
+  (setq evil-want-keybinding nil
+        evil-want-integration t)
   :config
   (setq evil-default-state 'normal)
   ;; 将不希望使用 Evil Mode 的内容，放在这里
