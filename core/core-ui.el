@@ -56,7 +56,7 @@ CHINESE-SIZE is the chinese font size."
 (use-package kaolin-themes
   :init
   ;; (load-theme 'kaolin-valley-dark t)
-  (load-theme 'kaolin-valley-light t)
+  (load-theme 'kaolin-mono-dark t)
   :config
   (kaolin-treemacs-theme))
 
