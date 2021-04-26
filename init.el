@@ -17,7 +17,7 @@
 (require 'core-treemacs)
 
 (require 'core-evil)
-(require 'core-keybinds)
+;; (require 'core-keybinds)
 
 (require 'core-org)
 

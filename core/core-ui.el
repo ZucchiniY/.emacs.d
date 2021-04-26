@@ -1,3 +1,14 @@
+;; core-ui.el --- Define ui config.	-*- lexical-binding: t -*-
+
+;; Copyright (C) 2019-2021 Dylan Yang
+
+;; Author: Dylan Yang <banshiliuli1990@sina.com>
+;; URL: https://github.com/zucchiniy/.emacs.d
+
+;;; Commentary:
+;;
+
+;;; Code:
 ;; 隐藏滚动条、菜单栏
 (unless sys/winntp
   (menu-bar-mode -1))
@@ -65,3 +76,4 @@ CHINESE-SIZE is the chinese font size."
   :config (winum-mode))
 
 (provide 'core-ui)
+;;; core-ui.el ends here

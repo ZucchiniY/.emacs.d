@@ -1,3 +1,14 @@
+;; core-company.el --- Define company config.	-*- lexical-binding: t -*-
+
+;; Copyright (C) 2019-2021 Dylan Yang
+
+;; Author: Dylan Yang <banshiliuli1990@sina.com>
+;; URL: https://github.com/zucchiniy/.emacs.d
+
+;;; Commentary:
+;;
+
+;;; Code:
 (use-package company
   :diminish company-mode
   :defines (company-dabbrev-ignore-case company-dabbrev-downcase)
@@ -30,3 +41,5 @@
   (flycheck-add-mode 'javascript-eslint 'web-mode))
 
 (provide 'core-company)
+;;; core-company.el ends here
+

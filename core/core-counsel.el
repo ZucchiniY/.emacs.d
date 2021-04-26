@@ -1,3 +1,14 @@
+;; core-counsel.el --- config counsel and ivy , swiper.	-*- lexical-binding: t -*-
+
+;; Copyright (C) 2019-2021 Dylan Yang
+
+;; Author: Dylan Yang <banshiliuli1990@sina.com>
+;; URL: https://github.com/zucchiniy/.emacs.d
+
+;;; Commentary:
+;;
+
+;;; Code:
 (use-package smex
   :commands (smex smex-major-mode-commands)
   :config (smex-initialize))
@@ -44,3 +55,4 @@
   (counsel-org-clock-default-action 'counsel-org-clock-clock-dwim-action))
 
 (provide 'core-counsel)
+;;; core-counsel.el ends here
