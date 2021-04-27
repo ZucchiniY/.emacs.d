@@ -14,8 +14,7 @@
   (menu-bar-mode -1))
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
-(when (fboundp 'scroll-bar-mode)
-  (scroll-bar-mode -1))
+(when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (when (fboundp 'horizontal-scroll-bar-mode)
   (horizontal-scroll-bar-mode -1))
 (when sys/macp
@@ -27,8 +26,7 @@
 (defun dylan//set-monospaced-font (english chinese english-size chinese-size)
   "Zty//set-monospaced-font to configuration the font.
 ENGLISH is english font name
-CHINESE is chinese font name
-ENGLISH-SIZE is the english fond size
+CHINESE is chinese font name ENGLISH-SIZE is the english fond size
 CHINESE-SIZE is the chinese font size."
   (set-face-attribute 'default nil
                       :font (font-spec
@@ -66,7 +64,6 @@ CHINESE-SIZE is the chinese font size."
 
 (use-package kaolin-themes
   :init
-  ;; (load-theme 'kaolin-valley-dark t)
   (load-theme 'kaolin-mono-dark t)
   :config
   (kaolin-treemacs-theme))

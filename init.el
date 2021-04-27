@@ -47,5 +47,8 @@
 ;; (require 'modules-stock)
 ;; 节日提醒
 (require 'modules-calendar)
+;; calfw
+(require 'modules-calfw)
 
 (provide 'init)
+;;; init.el ends here

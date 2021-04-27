@@ -74,9 +74,6 @@
           ("b" "Habits" entry (file+headline "~/workspace/org/tasks.org" "Habits")
            "* IMPORTANT %^{Title} %^g\n SCHEDULED: %^T\n :PROPERTIES:\n :STYLE: habit\n :END:"
            :empty-lines 1)
-          ("k" "Stocks" entry (file+olp+datetree "~/workspace/org/stocks.org")
-           "* %?\nEntered on %U\n %i\n"
-           :empty-lines 1)
           ("f" "Fitness" entry (file+olp+datetree "~/workspace/org/journal.org")
            "* %?\nEntered on %U\n %i\n"
            :empty-lines 1)
@@ -107,8 +104,6 @@
                                (sass . t)
                                (shell . t)
                                (dot . t)
-                               (C . t)
-                               (java . t)
                                (ditaa .t)
                                (plantuml . t)))
 
@@ -130,3 +125,4 @@
   )
 
 (provide 'core-org)
+;;; core-org.el ends here
