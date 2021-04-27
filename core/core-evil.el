@@ -64,7 +64,8 @@
 
 (use-package evil-mc-extras
   :after evil-mc
-  :diminish evil-mc-extras-mode)
+  :diminish evil-mc-extras-mode
+  :init (global-evil-mc-extras-mode 1))
 
 (provide 'core-evil)
 ;;; core-evil.el ends here
