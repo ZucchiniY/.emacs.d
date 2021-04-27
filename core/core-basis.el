@@ -155,6 +155,8 @@
      "0" 'winum-select-window-0-or-10
      ;; writeroom
      "rw" 'writeroom-mode
+     ;; cfw::open-org-calendar
+     "ov" 'cfw:open-org-calendar
     ))
 
 (provide 'core-basis)
