@@ -158,7 +158,7 @@ Plantuml 主要用来绘制流程图、思维导图等许多图例。
 
 增加 writeroom 的配置，用来专注于写作。
 
-- SPC r r :: 启动和关闭专注写作模式
+- SPC r w :: 启动和关闭专注写作模式
 
 ** lsp mode
 
@@ -177,7 +177,13 @@ Plantuml 主要用来绘制流程图、思维导图等许多图例。
 1. anaconda 的开发环境设置比较方便，特别是在 Mac 下，如果直接使用 /local/bin/python3 来作为环境，使用 venv 的方式管理，会有一些使用上的问题，而且不易迁移，所以就使用 conda 来管理 Python 环境。
 2. anaconda 与 PyCharm 可以直接使用，而对于 pyenv 和 pipenv 、 poetry 等环境工具，使用起来都不是特别方便。
 
-
 ** +stock 股票功能+
 - SPC k :: 启动之后，可以从中获取对应的股票数据
+
+** calendar + cal-china-x + calfw
+
+使用 Calendar 和 cal-china-x 来设置需要提醒的日期，防止自己忘记。
+
+引入 calfw 包来展示相关的日历，除了具体的日期外，还可以增加展示 org-agenda 中的内容。
+
 

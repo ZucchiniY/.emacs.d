@@ -32,5 +32,19 @@
                                   cal-china-x-general-holidays
                                   holiday-other-holidays)))
 
+(use-package calfw
+  :defer t
+  :commands (cfw:open-calendar-buffer))
+
+(use-package calfw-org
+  :defer t
+  :after (calfw org-agenda)
+  :commands (cfw:open-org-calendar cfw:org-create-source)
+  :config
+  (setq cfw:org-face-agenda-item-foreground-color "#ecccc3"))
+
+(use-package calfw-cal
+  :ensure t)
+
 (provide 'modules-calendar)
 ;;; modules-calendar.el ends here
