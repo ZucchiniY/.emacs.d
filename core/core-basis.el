@@ -154,7 +154,7 @@
      "9" 'winum-select-window-9
      "0" 'winum-select-window-0-or-10
      ;; writeroom
-     "rr" 'writeroom-mode
+     "rw" 'writeroom-mode
     ))
 
 (provide 'core-basis)
