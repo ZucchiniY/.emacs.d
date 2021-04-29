@@ -48,5 +48,11 @@
 ;; 节日提醒
 (require 'modules-calendar)
 
+;; dashboard
+(require 'modules-dashboard)
+
+;; add ox-hugo
+(require 'modules-hugo)
+
 (provide 'init)
 ;;; init.el ends here

@@ -79,7 +79,8 @@
            :empty-lines 1)
           ("j" "Journal" entry (file+olp+datetree "~/workspace/org/journal.org")
            "* %?\nEntered on %U\n %i\n"
-           :empty-lines 1)))
+           :empty-lines 1)
+           ))
 
   ;; More fancy UI
   (use-package org-bullets

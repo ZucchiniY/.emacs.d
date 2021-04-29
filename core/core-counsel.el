@@ -14,6 +14,7 @@
   :config (smex-initialize))
 
 (use-package ivy
+  :ensure t
   :diminish ivy-mode
   :demand t
   :config
@@ -22,6 +23,7 @@
   (ivy-mode 1))
 
 (use-package swiper
+  :ensure t
   :diminish swiper
   :config (setq search-default-mode nil))
 
