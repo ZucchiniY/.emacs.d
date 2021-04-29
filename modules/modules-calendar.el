@@ -25,8 +25,9 @@
                                  (holiday-lunar 1 7 "父亲生日")
                                  (holiday-lunar 3 3 "母亲生日")
                                  (holiday-fixed 10 18 "老婆生日")
-                                 (holiday-fixed 4 6 "可可生日")
+                                 (holiday-fixed 4 6 "女儿生日")
                                  (holiday-fixed 5 1 "岳父生日")
+                                 (holiday-fixed 6 15 "岳母生日")
                                 )
         calendar-holidays (append cal-china-x-important-holidays
                                   cal-china-x-general-holidays
