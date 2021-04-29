@@ -54,6 +54,7 @@
 
 ;; set default tab and space
 (setq-default c-basic-offset 4
+              python-indent-offset 4
 	          tab-width 4
 	          indent-tabs-mode nil)
 
@@ -62,11 +63,11 @@
   (setq no-littering-etc-directory (expand-file-name "config/" user-emacs-directory)
 	    no-littering-var-directory (expand-file-name "data/" user-emacs-directory)))
 
-(use-package desktop
-  :ensure nil
-  :init (desktop-save-mode 1)
-  :config
-  (setq desktop-restore-in-current-display nil))
+;; (use-package desktop
+;;   :ensure nil
+;;   :init (desktop-save-mode 1)
+;;   :config
+;;   (setq desktop-restore-in-current-display nil))
 
 (use-package which-key
   :diminish which-key-mode
@@ -101,6 +102,7 @@
 
 
 (use-package general
+  :defer 1
   :commands general-override-states
   :init
   (setq general-override-states '(insert

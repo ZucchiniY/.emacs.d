@@ -34,9 +34,9 @@
   (require 'use-package))
 
 ;; add all-the-icons package
-(use-package all-the-icons)
-(use-package diminish)
-(use-package bind-key)
+(use-package all-the-icons :defer t)
+(use-package diminish :defer t)
+(use-package bind-key :defer t)
 
 ;; use package-utils to update packages
 (use-package package-utils

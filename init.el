@@ -17,20 +17,17 @@
 (require 'core-treemacs)
 
 (require 'core-evil)
-;; (require 'core-keybinds)
 
 (require 'core-org)
 
 (require 'modules-magit)
 (require 'modules-projectile)
 
-;; (require 'modules-python)
+(require 'modules-python)
 (require 'modules-web)
 (require 'modules-yaml)
 
 (require 'modules-super-agenda)
-
-;; (require 'modules-rime)
 
 ;; 新增 plantuml 配置功能
 (require 'modules-plantuml)
@@ -38,21 +35,18 @@
 ;; 新增 writeroom-mode
 (require 'modules-writer)
 
-;; 语言上要增加 Python，Vue 的支持，所以重新引入 `lsp-mode` 进行使用。
+;; 重新引入 `lsp-mode`
 (require 'modules-lsp)
 
-;;
-(require 'modules-python)
-;; 新增支持查看股票
-;; (require 'modules-stock)
 ;; 节日提醒
 (require 'modules-calendar)
 
 ;; dashboard
-(require 'modules-dashboard)
+;; (require 'modules-dashboard)
 
 ;; add ox-hugo
 (require 'modules-hugo)
 
+(require 'modules-dashboard)
 (provide 'init)
 ;;; init.el ends here

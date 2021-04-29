@@ -1,5 +1,16 @@
+;; core-treemacs.el --- use treemace.	-*- lexical-binding: t -*-
+
+;; Copyright (C) 2019-2021 Dylan Yang
+
+;; Author: Dylan Yang <banshiliuli1990@sina.com>
+;; URL: https://github.com/zucchiniy/.emacs.d
+
+;;; Commentary:
+;;
+
+;;; Code:
 (use-package treemacs
-  :defer t
+  :defer 2
   :config
   (progn
     (setq treemacs-collapse-dirs                 (if (executable-find "python") 3 0)
@@ -68,3 +79,4 @@
   :after treemacs magit)
 
 (provide 'core-treemacs)
+;;; core-treemacs.el ends here

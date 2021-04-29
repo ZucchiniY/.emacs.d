@@ -1,4 +1,5 @@
 (use-package org-super-agenda
+  :defer 2
   :diminish
   :hook (org-agenda-mode . org-super-agenda-mode)
   :config

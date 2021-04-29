@@ -10,6 +10,7 @@
 
 ;;; Code:
 ;; 隐藏滚动条、菜单栏
+(require 'core-variable)
 (unless sys/winntp
   (menu-bar-mode -1))
 (when (fboundp 'tool-bar-mode)
@@ -50,21 +51,18 @@ CHINESE-SIZE is the chinese font size."
 
 (use-package doom-themes
   :init
+  (load-theme 'doom-acario-light t)
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
-  ;; (load-theme 'doom-dracula t)
-  ;; (load-theme 'doom-nord t)
-  ;;(load-theme 'doom-opera-light t)
-  ;; (load 'doom-acario-light t)
-  ;; (load-theme 'doom-moonlight t)
   :config
   (doom-themes-visual-bell-config)
   (doom-themes-org-config)
   (doom-themes-treemacs-config))
 
 (use-package kaolin-themes
+  :defer 1
   :init
-  (load-theme 'kaolin-mono-dark t)
+  ;; (load-theme 'kaolin-mono-light t)
   :config
   (kaolin-treemacs-theme))
 

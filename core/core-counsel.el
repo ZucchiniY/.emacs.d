@@ -10,24 +10,25 @@
 
 ;;; Code:
 (use-package smex
+  :defer 1
   :commands (smex smex-major-mode-commands)
   :config (smex-initialize))
 
 (use-package ivy
-  :ensure t
+  :defer 1
   :diminish ivy-mode
-  :demand t
   :config
   (setq ivy-use-virtual-buffers t
         enable-recursive-minibuffers t)
   (ivy-mode 1))
 
 (use-package swiper
-  :ensure t
+  :defer 1
   :diminish swiper
   :config (setq search-default-mode nil))
 
 (use-package counsel
+  :defer 1
   :after (ivy swiper)
   :init (counsel-mode 1)
   :diminish ivy-mode counsel-mode

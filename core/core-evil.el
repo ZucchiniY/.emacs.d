@@ -10,6 +10,7 @@
 
 ;;; Code:
 (use-package evil
+  :defer 1
   :hook (after-init . evil-mode)
   :init
   (setq evil-want-keybinding nil
@@ -29,6 +30,7 @@
 
 ;; add package evil-collection
 (use-package evil-collection
+  :defer 1
   :after evil
   :config (evil-collection-init)
   :custom (evil-collection-setup-minibuffer t))
@@ -61,35 +63,36 @@
              evil-mc-undo-all-cursors
              global-evil-mc-mode)
   :init (global-evil-mc-mode 1)
-  :general
-  (general-define-key
-   :states 'normal
-   :keymaps 'override
-   :prefix "SPC r"
-    "m" 'evil-mc-make-all-cursors
-    "u" 'evil-mc-undo-last-added-cursor
-    "q" 'evil-mc-undo-all-cursors
-    "s" 'evil-mc-pause-cursors
-    "r" 'evil-mc-resume-cursors
-    "f" 'evil-mc-make-and-goto-first-cursor
-    "l" 'evil-mc-make-and-goto-last-cursor
-    "h" 'evil-mc-make-cursor-here
-    "j" 'evil-mc-make-cursor-move-next-line
-    "k" 'evil-mc-make-cursor-move-prev-line
-    "N" 'evil-mc-skip-and-goto-next-cursor
-    "P" 'evil-mc-skip-and-goto-prev-cursor
-    "n" 'evil-mc-skip-and-goto-next-match
-    "p" 'evil-mc-skip-and-goto-prev-match
-    "I" 'evil-mc-make-cursor-in-visual-selection-beg
-    "A" 'evil-mc-make-cursor-in-visual-selection-end
-    "M-n" 'evil-mc-make-and-goto-next-cursor
-    "M-p" 'evil-mc-make-and-goto-prev-cursor
-    "C-n" 'evil-mc-make-and-goto-next-match
-    "C-t" 'evil-mc-skip-and-goto-next-match
-    "C-p" 'evil-mc-make-and-goto-prev-match
-    "+" 'evil-mc-inc-num-at-each-cursor
-    "-" 'evil-mc-dec-num-at-each-cursor
-   ))
+  ;; :general
+  ;; (general-define-key
+  ;;  :states 'normal
+  ;;  :keymaps 'override
+  ;;  :prefix "SPC r"
+  ;;   "m" 'evil-mc-make-all-cursors
+  ;;   "u" 'evil-mc-undo-last-added-cursor
+  ;;   "q" 'evil-mc-undo-all-cursors
+  ;;   "s" 'evil-mc-pause-cursors
+  ;;   "r" 'evil-mc-resume-cursors
+  ;;   "f" 'evil-mc-make-and-goto-first-cursor
+  ;;   "l" 'evil-mc-make-and-goto-last-cursor
+  ;;   "h" 'evil-mc-make-cursor-here
+  ;;   "j" 'evil-mc-make-cursor-move-next-line
+  ;;   "k" 'evil-mc-make-cursor-move-prev-line
+  ;;   "N" 'evil-mc-skip-and-goto-next-cursor
+  ;;   "P" 'evil-mc-skip-and-goto-prev-cursor
+  ;;   "n" 'evil-mc-skip-and-goto-next-match
+  ;;   "p" 'evil-mc-skip-and-goto-prev-match
+  ;;   "I" 'evil-mc-make-cursor-in-visual-selection-beg
+  ;;   "A" 'evil-mc-make-cursor-in-visual-selection-end
+  ;;   "M-n" 'evil-mc-make-and-goto-next-cursor
+  ;;   "M-p" 'evil-mc-make-and-goto-prev-cursor
+  ;;   "C-n" 'evil-mc-make-and-goto-next-match
+  ;;   "C-t" 'evil-mc-skip-and-goto-next-match
+  ;;   "C-p" 'evil-mc-make-and-goto-prev-match
+  ;;   "+" 'evil-mc-inc-num-at-each-cursor
+  ;;   "-" 'evil-mc-dec-num-at-each-cursor
+  ;;  )
+  )
 
 (use-package evil-mc-extras
   :after evil-mc
