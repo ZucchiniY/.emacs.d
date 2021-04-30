@@ -30,4 +30,5 @@ extends/plantuml.jar
 extends/ditaa0_9.jar
 librime/
 auto-save-list/
-
+.dap-breakpoints
+recentf~
