@@ -7,7 +7,7 @@ transient/
 .elfeed/
 custom.el
 var/
-*/.DS_Store
+**/.DS_Store
 README.html
 smex-items
 recentf
