@@ -26,7 +26,10 @@
    "p" 'org-pomodoro
    "$" 'org-archive-subtree
    "s" 'org-schedule
-   "e" 'org-deadline)
+   "e" 'org-deadline
+   "C-o" 'org-open-at-point
+   "&" 'org-mark-ring-goto
+   )
   :config
   (setq org-agenda-files '("~/workspace/org/")
         org-log-done 'time
