@@ -39,7 +39,6 @@
 
 (use-package calfw-org
   :defer t
-  :after (calfw org-agenda)
   :commands (cfw:open-org-calendar cfw:org-create-source)
   :config
   (setq cfw:org-face-agenda-item-foreground-color "#ecccc3"))
