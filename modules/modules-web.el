@@ -1,3 +1,14 @@
+;; modules-web.el --- Define web config.	-*- lexical-binding: t -*-
+
+;; Copyright (C) 2019-2021 Dylan Yang
+
+;; Author: Dylan Yang <banshiliuli1990@sina.com>
+;; URL: https://github.com/zucchiniy/.emacs.d
+
+;;; Commentary:
+;;
+
+;;; Code:
 (use-package css-mode
   :ensure nil
   :init (setq css-indent-offset 2))
@@ -37,8 +48,37 @@
   :after web-mode
   :hook (web-mode . company-mode))
 
+(use-package rjsx-mode
+  :ensure t
+  :mode ("\\.js?\\'" . rjsx-mode)
+  :config
+  (setq js2-mode-show-parse-errors nil
+        js2-mode-show-strict-warnings nil))
+
+(use-package add-node-modules-path
+  :ensure t
+  :defer t
+  :hook ((rjsx-mode . add-node-modules-path)
+         (js2-mode . add-node-modules-paht)))
+
+(use-package typescript-mode
+  :hook (typescript-mode . lsp-defferred)
+  :mode ("\\.tx?\\'" . typescript-mode))
+
+(use-package prettier-js
+  :ensure t
+  :defer t
+  :hook ((rjsx-mode . prettier-js-mode)
+         (js2-mode . prettier-js-mode)
+         (typescript-mode . prettier-js-mode))):w
+
 (use-package emmet-mode
+  :ensure t
+  :defer t
   :hook ((css-mode . emmet-mode)
-         (js2-mode . emmet-mode)))
+         (js2-mode . emmet-mode)
+         (rjsx-mode .emmet-mode)
+         ))
 
 (provide 'modules-web)
+;;; modules-web.el ends here
