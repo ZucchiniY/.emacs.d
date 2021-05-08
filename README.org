@@ -186,4 +186,27 @@ Plantuml 主要用来绘制流程图、思维导图等许多图例。
 
 引入 calfw 包来展示相关的日历，除了具体的日期外，还可以增加展示 org-agenda 中的内容。
 
+** django (pony-mode)
+
+*** 基础管理
+
+- SPC mjm :: 启动 pony-mode 管理会话
+
+*** 文件管理
+
+- SPC mjfs :: 打开项目的 settings.py 文件
+
+*** 服务管理
+
+- SPC mjrd :: 停止开发服务
+- SPC mjru :: 启动或者打开开发服务
+- SPC mjrt :: 启动一个秒级的服务
+
+*** 测试管理
+  
+- SPC mjtd :: Move down the traceback one level
+- SPC mjte :: Go to the file and line of the last stack trace in a test buffer
+- SPC mjto :: Open the file in a traceback at the line specified
+- SPC mjtt :: Run the test(s) given by command
+- SPC mjtu :: Move up the traceback one level
 

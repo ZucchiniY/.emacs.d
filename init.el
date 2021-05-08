@@ -46,7 +46,10 @@
 
 ;; add ox-hugo
 (require 'modules-hugo)
-
+;; dashboard
 (require 'modules-dashboard)
+;; django mode
+(require 'modules-django)
+
 (provide 'init)
 ;;; init.el ends here

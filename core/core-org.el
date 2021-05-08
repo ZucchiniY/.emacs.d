@@ -1,3 +1,13 @@
+;; core-org.el --- Define org config.	-*- lexical-binding: t -*-
+
+;; Copyright (C) 2019-2021 Dylan Yang
+
+;; Author: Dylan Yang <banshiliuli1990@sina.com>
+;; URL: https://github.com/zucchiniy/.emacs.d
+
+;;; Commentary:
+;;
+;;; Code:
 (use-package org
   :defines org-capture-templates org-plantuml-jar-path org-ditaa-jar-path
   :commands org-try-structure-completion

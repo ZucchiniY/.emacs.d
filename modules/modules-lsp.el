@@ -10,7 +10,11 @@
          (vue-mode .lsp-deferred)
          (lsp-mode . lsp-enable-which-key-integration)
          )
-  :commands (lsp lsp-deferred))
+  :commands (lsp lsp-deferred)
+  :config
+  (setq lsp-enable-file-watchers nil
+        lsp-file-watch-threshold 2000))
+
 
 (use-package lsp-ui
   :diminish lsp-ui-mode
