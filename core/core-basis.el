@@ -100,6 +100,11 @@
 (bind-keys ("M-S-<return>" . toggle-frame-fullscreen)
            ("M-s-<return>" . toggle-frame-maximized))
 
+(use-package recentf
+  :defer t
+  :config
+  (recentf-mode t))
+
 
 (use-package general
   :defer 1

@@ -210,3 +210,7 @@ Plantuml 主要用来绘制流程图、思维导图等许多图例。
 - SPC mjtt :: Run the test(s) given by command
 - SPC mjtu :: Move up the traceback one level
 
+** recentf
+
+发现最大化 Emacs 之后，dashboard 中的 recent 中的文件记录发生改变，翻看代码发现 dashboard 中引入了 recentf 。在 basis.el 中增加 recentf 的引入后，问题解决。
+

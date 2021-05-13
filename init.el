@@ -41,13 +41,12 @@
 ;; 节日提醒
 (require 'modules-calendar)
 
-;; dashboard
-;; (require 'modules-dashboard)
-
 ;; add ox-hugo
 (require 'modules-hugo)
+
 ;; dashboard
 (require 'modules-dashboard)
+
 ;; django mode
 (require 'modules-django)
 
