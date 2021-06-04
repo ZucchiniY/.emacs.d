@@ -116,7 +116,7 @@
                                (js . t)
                                (css . t)
                                (sass . t)
-                               (shell . t)
+                               (sh . t)
                                (dot . t)
                                (ditaa .t)
                                (plantuml . t)))
