@@ -59,7 +59,7 @@
   :ensure t
   :defer t
   :hook ((rjsx-mode . add-node-modules-path)
-         (js2-mode . add-node-modules-paht)))
+         (js2-mode . add-node-modules-path)))
 
 (use-package typescript-mode
   :hook (typescript-mode . lsp-defferred)
