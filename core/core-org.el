@@ -84,12 +84,6 @@
         '(("t" "Todo" entry (file+headline "~/workspace/org/tasks.org" "Tasks")
            "* TODO %^{Title} %^g\n SCHEDULED: %^T"
            :empty-lines 1)
-          ("b" "Habits" entry (file+headline "~/workspace/org/tasks.org" "Habits")
-           "* IMPORTANT %^{Title} %^g\n SCHEDULED: %^T\n :PROPERTIES:\n :STYLE: habit\n :END:"
-           :empty-lines 1)
-          ("f" "Fitness" entry (file+olp+datetree "~/workspace/org/journal.org")
-           "* %?\nEntered on %U\n %i\n"
-           :empty-lines 1)
           ("j" "Journal" entry (file+olp+datetree "~/workspace/org/journal.org")
            "* %?\nEntered on %U\n %i\n"
            :empty-lines 1)
