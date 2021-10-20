@@ -14,9 +14,9 @@
   :hook (after-init . evil-mode)
   :init
   (setq evil-want-keybinding nil
+        evil-want-C-i-jump nil
         evil-want-integration t)
   :config
-  (setq evil-want-C-i-jump nil)
   (setq evil-default-state 'normal)
   ;; 将不希望使用 Evil Mode 的内容，放在这里
   (evil-set-initial-state 'dired-mode 'emacs)

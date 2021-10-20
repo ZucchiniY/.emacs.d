@@ -14,6 +14,7 @@
   :mode ("\\.\\(org\\|org_archive\\)$" . org-mode)
   :hook (org-indent-mode . (lambda() (diminish 'org-indent-mode)))
   :ensure org-plus-contrib
+  :after evil
   :pin org
   :general
   (general-define-key
