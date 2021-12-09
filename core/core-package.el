@@ -12,7 +12,7 @@
 ;; Set package archives
 (require 'core-variable)
 
-(setq package-archives ustc-elpa)
+(setq package-archives tencent-elpa)
 
 ;; Initialize packages
 (unless (bound-and-true-p package--initialized)
