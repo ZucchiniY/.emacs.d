@@ -10,8 +10,9 @@
 
 ;;; Code:
 (use-package ox-hugo
-  :after (ox org)
-  :config
+  :ensure t
+  :defer 1
+  :init
   (with-eval-after-load 'org-capture
     (defun org-hugo-new-subtree-post-capture-template ()
       "Return `org-capture' template string for new Hugo post."

@@ -50,5 +50,8 @@
 ;; django mode
 (require 'modules-django)
 
+;; open ox-hugo
+(require 'modules-hugo)
+
 (provide 'init)
 ;;; init.el ends here
