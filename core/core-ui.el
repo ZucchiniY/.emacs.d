@@ -57,7 +57,13 @@ CHINESE-SIZE is the chinese font size."
   :config
   (doom-themes-visual-bell-config)
   (doom-themes-org-config)
-  (doom-themes-treemacs-config))
+  (doom-themes-treemacs-config)
+  (doom-themes-org-config))
+
+(use-package doom-modeline
+  :ensure t
+  :hook (after-init . doom-modeline-mode))
+
 
 (use-package kaolin-themes
   :defer 1

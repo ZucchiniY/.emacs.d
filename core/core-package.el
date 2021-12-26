@@ -23,6 +23,7 @@
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
+
 ;; Should set before loading `use-package'
 
 (setq use-package-always-ensure t)
