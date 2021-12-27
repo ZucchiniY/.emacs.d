@@ -5,9 +5,12 @@
 #+HUGO_BASE_DIR: ../
 #+TITLE: $1
 #+DATE: `(format-time-string "%Y-%m-%d")`
-#+HUGO_AUTO_SET_LASTMOD: t
 #+HUGO_TAGS: $2
 #+HUGO_CATEGORIES: $3
 #+HUGO_DRAFT: false
+#+HUGO_AUTO_SET_LASTMOD: false
+#+HUGO_DRAFT: false
+#+author: $4
+#+hugo_front_matter_format: yaml
 
 $0
