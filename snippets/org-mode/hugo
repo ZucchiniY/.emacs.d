@@ -9,8 +9,7 @@
 #+HUGO_CATEGORIES: $3
 #+HUGO_DRAFT: false
 #+HUGO_AUTO_SET_LASTMOD: false
-#+HUGO_DRAFT: false
-#+author: $4
+#+author: "夏南瓜"
 #+hugo_front_matter_format: yaml
 
 $0

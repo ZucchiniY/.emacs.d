@@ -70,7 +70,7 @@
   :defer t
   :hook ((rjsx-mode . prettier-js-mode)
          (js2-mode . prettier-js-mode)
-         (typescript-mode . prettier-js-mode))):w
+         (typescript-mode . prettier-js-mode)))
 
 (use-package emmet-mode
   :ensure t
