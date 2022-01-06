@@ -83,7 +83,22 @@
 
   ;; org capture-templates
   (setq org-capture-templates
-        '(("t" "Todo" entry (file+headline "~/workspace/org/tasks.org" "Tasks")
+        '(("t" "Todo")
+          ("td" "Project" entry (file+headline "~/workspace/org/tasks.org" "Project")
+           "* TODO %^{Title} %^g\n SCHEDULED: %^T"
+           :empty-lines 1)
+          ("tr" "Reading" entry (file+headline "~/workspace/org/tasks.org" "Reading")
+           "* TODO %^{book name}\n%t\n"
+           :clock-in t
+           :clock-resume t
+           :empty-lines 1)
+          ("ti" "Investment" entry (file+headline "~/workspace/org/tasks.org" "Investment")
+           "* TODO %^{Title} %^g\n SCHEDULED: %^T"
+           :empty-lines 1)
+          ("tt" "Technology" entry (file+headline "~/workspace/org/tasks.org" "Technology")
+           "* TODO %^{Title} %^g\n SCHEDULED: %^T"
+           :empty-lines 1)
+          ("ts" "Summary" entry (file+headline "~/workspace/org/tasks.org" "Summary")
            "* TODO %^{Title} %^g\n SCHEDULED: %^T"
            :empty-lines 1)
           ("j" "Journal" entry (file+olp+datetree "~/workspace/org/journal.org")
