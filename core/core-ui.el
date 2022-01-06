@@ -51,7 +51,7 @@ CHINESE-SIZE is the chinese font size."
 
 (use-package doom-themes
   :init
-  (load-theme 'doom-acario-light t)
+  (load-theme 'doom-one-light t)
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
   :config

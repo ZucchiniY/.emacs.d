@@ -16,28 +16,35 @@
   (with-eval-after-load 'org-capture
     (defun org-hugo-new-subtree-post-capture-template ()
       "Return `org-capture' template string for new Hugo post."
-      (let* ((date
-              (format-time-string
-               (org-time-stamp-format :long :inactive)
-               (org-current-time)))
+      (let* ((date (format-time-string (org-time-stamp-format :long :inactive) (org-current-time)))
              (title (read-from-minibuffer "Post Title: "))
              (file-name (read-from-minibuffer "File Name: "))
              (fname (org-hugo-slug file-name)))
         (mapconcat #'identity
                    `(
-                     ,(concat "* TODO " title)
+                     ,(concat "* TODO " title " %^g")
                      ":PROPERTIES:"
                      ,(concat ":EXPORT_FILE_NAME: " fname)
                      ,(concat ":EXPORT_DATE: " date)
+                     ,(concat ":EXPORT_HUGO_MENU: ")
+                     ,(concat ":EXPORT_HUGO_CUSTOM_FRONT_MATTER: ")
                      ":END:"
                      "%?\n")
                    "\n")))
-
+    (add-to-list 'org-capture-templates '("h" "Hugo Blog Post"))
     (add-to-list 'org-capture-templates
-                 '("h"
-                   "Hugo post"
+                 '("hi"
+                   "Investment in Hugo post"
                    entry
-                   (file+olp "~/workspace/org/blog/hugo-posts.org" "Blog Ideas")
-                   (function org-hugo-new-subtree-post-capture-template)))))
+                   (file "~/workspace/blog/content-org/invest-posts.org")
+                   (function org-hugo-new-subtree-post-capture-template)))
+    (add-to-list 'org-capture-templates
+                 '("ht"
+                   "Technology in Hugo post"
+                   entry
+                   (file "~/workspace/blog/content-org/tech-posts.org")
+                   (function org-hugo-new-subtree-post-capture-template)))
+    )
+  )
 (provide 'modules-hugo)
 ;;; modules-hugo.el ends here
