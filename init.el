@@ -50,7 +50,7 @@
 ;; django mode
 (require 'modules-django)
 
-;; open ox-hugo
+;; add ox-hugo
 (require 'modules-hugo)
 
 (provide 'init)

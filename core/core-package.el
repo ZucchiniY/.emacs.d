@@ -12,7 +12,7 @@
 ;; Set package archives
 (require 'core-variable)
 
-(setq package-archives tencent-elpa)
+(setq package-archives tuna-elpa)
 
 ;; Initialize packages
 (unless (bound-and-true-p package--initialized)

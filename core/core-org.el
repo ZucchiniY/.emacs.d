@@ -1,21 +1,40 @@
-;; core-org.el --- Define org config.	-*- lexical-binding: t -*-
+;;; core-org.el --- summary -*- lexical-binding: t -*-
 
-;; Copyright (C) 2019-2021 Dylan Yang
+;; Author: Dylan Yang
+;; Maintainer: Dylan Yang
+;; Version: 20220209
+;; Package-Requires: ()
+;; Homepage: https://github.com/zucchiniy/.emacs.d/
 
-;; Author: Dylan Yang <banshiliuli1990@sina.com>
-;; URL: https://github.com/zucchiniy/.emacs.d
+;; This file is not part of GNU Emacs
+
+;; This program is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 
 ;;; Commentary:
-;;
+;; org configurations
+;; commentary
+
 ;;; Code:
 (use-package org
   :defines org-capture-templates org-plantuml-jar-path org-ditaa-jar-path
   :commands org-try-structure-completion
   :mode ("\\.\\(org\\|org_archive\\)$" . org-mode)
   :hook (org-indent-mode . (lambda() (diminish 'org-indent-mode)))
-  :ensure org-plus-contrib
+  :ensure org-contrib
   :after evil
-  :pin org
+  :pin gnu
   :general
   (general-define-key
    :states 'normal
@@ -43,7 +62,7 @@
    )
   :config
   (setq org-agenda-files '("~/workspace/org/")
-        org-directory '"~/workspace/org"
+        org-directory "~/workspace/org"
         org-log-done 'time
         org-startup-indented t
         org-pretty-entities t
@@ -59,9 +78,15 @@
         org-log-into-drawer 'LOGBOOK
         org-agenda-skip-deadline-if-done t
         org-descriptive-links nil
-        org-babel-python-command "python3")
+        org-babel-python-command "python3"
+        ;; auto-clockout-timer
+        org-clock-auto-clockout-timer 200
+        )
   ;; 加载一些 org modules
   (setq org-modules '(org-habit))
+
+  ;; When the clock is running and Emacs is idle for more than this number of seconds, the clock will be clocked out automatically
+  (org-clock-auto-clockout-insinuate)
   
   (add-hook 'org-mode-hook 'toggle-truncate-lines)
 
@@ -146,8 +171,6 @@
   ;; Pomodoro
   (use-package org-pomodoro
     :after org-agenda
-    :config (setq org-pomodoro-long-break-length 15))
-
-  )
+    :config (setq org-pomodoro-long-break-length 15)))
 (provide 'core-org)
 ;;; core-org.el ends here

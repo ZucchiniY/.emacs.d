@@ -24,14 +24,14 @@
   (and (display-graphic-p) sys/macp))
 
 (setf
- tencent-elpa
-  '(("gnu"   . "http://mirrors.cloud.tencent.com/elpa/gnu/")
-    ("melpa" . "http://mirrors.cloud.tencent.com/elpa/melpa/")
-    ("org" . "http://mirrors.cloud.tencent.com/elpa/org/"))
+ tuna-elpa
+  '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+    ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+    ("no-gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/nongnu/"))
   ustc-elpa
   '(("gnu"   . "http://mirrors.ustc.edu.cn/elpa/gnu/")
     ("melpa" . "http://mirrors.ustc.edu.cn/elpa/melpa/")
-    ("org" . "http://mirrors.ustc.edu.cn/elpa/org/")))
+    ("melpa-stable" . "http://mirrors.ustc.edu.cn/elpa/melpa-stable/")))
 
 (provide 'core-variable)
 ;;; core-variable.el ends here
