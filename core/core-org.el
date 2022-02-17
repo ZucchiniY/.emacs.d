@@ -28,7 +28,9 @@
 
 ;;; Code:
 (use-package org
-  :defines org-capture-templates org-plantuml-jar-path org-ditaa-jar-path
+  :defines (org-capture-templates
+            org-plantuml-jar-path
+            org-ditaa-jar-path)
   :commands org-try-structure-completion
   :mode ("\\.\\(org\\|org_archive\\)$" . org-mode)
   :hook (org-indent-mode . (lambda() (diminish 'org-indent-mode)))
@@ -67,6 +69,7 @@
         org-startup-indented t
         org-pretty-entities t
         ;; 不经意的编辑了一些不可见内容的时候，可以帮助我们发现这些编辑的内容
+        ;; org-hide-emphasis-markers t => 不显示相关的标示符号，显示经过优化的样式
         org-hide-emphasis-markers nil
         org-catch-invisible-edits 'smart
         org-agenda-text-search-extra-files 'agenda-archives
