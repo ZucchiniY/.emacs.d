@@ -62,7 +62,7 @@
    )
   :config
   (setq org-agenda-files '("~/workspace/org/")
-        org-directory "~/workspace/org"
+        org-directory "~/workspace/org/"
         org-log-done 'time
         org-startup-indented t
         org-pretty-entities t

@@ -53,5 +53,8 @@
 ;; add ox-hugo
 (require 'modules-hugo)
 
+;; add org-roam config
+(require 'modules-roam)
+
 (provide 'init)
 ;;; init.el ends here
