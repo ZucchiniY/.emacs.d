@@ -33,7 +33,9 @@
 (use-package evil-collection
   :defer 1
   :after evil
-  :config (evil-collection-init)
+  :config
+  (evil-collection-init)
+  (setq forge-add-default-bindings nil)
   :custom (evil-collection-setup-minibuffer t))
 
 ;; gcc comments out a line
