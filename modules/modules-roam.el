@@ -47,8 +47,9 @@
         org-roam-capture-templates
         '(("d" "default" plain "%?"
            :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
-                              "#+title: ${title}\n#+roam_alias:\n#+roam_key:\n#+roam_tags:\n\n")
-           :unnarrowed t))
+                              "#+title: ${title}")
+           :unnarrowed t)
+          ("h" "headline" ))
         )
   (setq org-roam-node-display-template
         (concat "${title:*} "
@@ -74,14 +75,6 @@
   (deft-use-filter-string-for-filename t)
   (deft-default-extension "org")
   (deft-directory org-roam-directory))
-
-;; org download
-(use-package org-download
-  :after org
-  :bind
-  (:map org-mode-map
-        (("s-Y" . org-download-screenshot)
-         ("s-y" . org-download-yank))))
 
 (provide 'modules-roam)
 
