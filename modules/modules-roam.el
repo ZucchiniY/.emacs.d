@@ -28,8 +28,12 @@
          ("C-c n i" . org-roam-node-insert)
          ("C-c n c" . org-roam-capture)
          ;; references
-         ("C-c n a" . org-roam-ref-add)
-         ("C-c n r" . org-roam-ref-remove)
+         ("C-c n r" . org-roam-ref-add)
+         ;; alias
+         ("C-c n a" . org-roam-alias-add)
+         ;; ID create
+         ("C-c o g" . org-id-get-create)
+         ("C-c n t" . org-roam-tag-add)
          ;; Dailies
          ("C-c n j" . org-roam-dailies-capture-today))
 
@@ -42,7 +46,8 @@
         '(("d" "default" entry
            "* %?"
            :target (file+head "%<%Y-%m-%d>.org"
-                              "#+title: %<%Y-%m-%d>\n"))
+                              "#+title: %<%Y-%m-%d>\n")
+           :unnarrowed t)
           )
         org-roam-capture-templates
         '(("d" "default" plain "%?"
@@ -61,7 +66,7 @@
 (use-package org-roam-ui
   :after org-roam
   :config
-  (setq org-roam-ui-sync-theme t
+  (setq org-roam-ui-sync-theme nil
         org-roam-ui-follow t
         org-roam-ui-update-on-save t
         org-roam-ui-open-on-start t))
