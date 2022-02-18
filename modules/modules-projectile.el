@@ -1,3 +1,12 @@
+;;; modules-projectile.el --- summary -*- lexical-binding: t -*-
+
+;; Author: Dylan Yang
+;; Maintainer: Dylan Yang
+;; Version: 1.0.0
+
+;;; Commentary:
+
+;;; Code:
 (use-package projectile
   :general
   (global-leader
@@ -29,3 +38,5 @@
     "SPC" 'counsel-projectile-find-file))
 
 (provide 'modules-projectile)
+
+;;; modules-projectile.el ends here

@@ -1,3 +1,19 @@
+;;; modules-python.el --- summary -*- lexical-binding: t -*-
+
+;; Author: Dylan Yang
+;; Maintainer: Dylan Yang
+;; Version: 1.0.0
+;; Package-Requires: ( )
+;; Homepage: 
+;; Keywords: 
+
+
+
+;;; Commentary:
+
+;; 
+
+;;; Code:
 (use-package exec-path-from-shell :defer t)
 
 (use-package python
@@ -36,4 +52,7 @@
   (anaconda-eldoc-mode 1))
 
 (add-hook 'python-mode-hook 'python/python-mode-hook)
+
 (provide 'modules-python)
+
+;;; modules-python.el ends here

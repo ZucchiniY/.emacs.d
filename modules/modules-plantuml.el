@@ -1,3 +1,12 @@
+;;; modules-plantuml.el --- summary -*- lexical-binding: t -*-
+
+;; Author: Dylan Yang
+;; Maintainer: Dylan Yang
+;; Version: 1.0.0
+
+;;; Commentary:
+
+;;; Code:
 (use-package plantuml-mode
   :mode ("\\.plantuml\\'" . plantuml-mode)
   :defer t
@@ -10,3 +19,5 @@
   :config (flycheck-plantuml-setup))
 
 (provide 'modules-plantuml)
+
+;;; modules-plantuml.el ends here

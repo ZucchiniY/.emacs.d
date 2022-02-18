@@ -1,3 +1,14 @@
+;;; modules-super-agenda.el --- summary -*- lexical-binding: t -*-
+
+;; Author: Dylan Yang
+;; Maintainer: Dylan Yang
+;; Version: 1.0.0
+;; Package-Requires: ()
+
+;;; Commentary:
+
+;;; Code:
+
 (use-package org-super-agenda
   :defer 2
   :diminish
@@ -23,3 +34,5 @@
           (:discard (:anything t)))))
 
 (provide 'modules-super-agenda)
+
+;;; modules-super-agenda.el ends here
