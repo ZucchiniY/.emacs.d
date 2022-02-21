@@ -35,8 +35,9 @@
          ("C-c o g" . org-id-get-create)
          ("C-c n t" . org-roam-tag-add)
          ;; Dailies
-         ("C-c n j" . org-roam-dailies-capture-today))
-
+         ("C-c n j" . org-roam-dailies-capture-today)
+         ("C-c n k" . org-roam-dailies-goto-today)
+         )
   :config
   (setq org-roam-directory (expand-file-name (concat org-directory "roam/"))
         org-roam-db-gc-threshold most-positive-fixnum
@@ -53,8 +54,7 @@
         '(("d" "default" plain "%?"
            :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
                               "#+title: ${title}")
-           :unnarrowed t)
-          ("h" "headline" ))
+           :unnarrowed t))
         )
   (setq org-roam-node-display-template
         (concat "${title:*} "
