@@ -48,8 +48,8 @@
    "&" 'org-mark-ring-goto
    )
   :config
-  (setq org-agenda-files '("~/workspace/org/")
-        org-directory "~/workspace/org/"
+  (setq org-directory "~/workspace/org"
+        org-agenda-files (list "~/workspace/org/roam/daily")
         org-log-done 'time
         org-startup-indented t
         org-pretty-entities t
@@ -70,6 +70,8 @@
         org-babel-python-command "python3"
         ;; auto-clockout-timer
         org-clock-auto-clockout-timer 200
+        ;; include entries from diary into agenda
+        org-agenda-include-diary t
         )
   ;; 加载一些 org modules
   (setq org-modules '(org-habit))
