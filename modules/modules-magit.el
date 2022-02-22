@@ -66,9 +66,9 @@
 ;;               ("R" . smeargle-clear)))
 
 ;; Git related modes
-(use-package gitattributes-mode)
-(use-package gitconfig-mode)
-(use-package gitignore-mode)
+;; (use-package gitattributes-mode)
+;; (use-package gitconfig-mode)
+;; (use-package gitignore-mode)
 
 (provide 'modules-magit)
 
