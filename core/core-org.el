@@ -74,7 +74,8 @@
         org-agenda-include-diary t
         )
   ;; 加载一些 org modules
-  (setq org-modules '(org-habit))
+  (setq org-modules '(org-habit
+                      org-id))
 
   ;; When the clock is running and Emacs is idle for more than this number of seconds, the clock will be clocked out automatically
   (org-clock-auto-clockout-insinuate)

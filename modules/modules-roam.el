@@ -13,8 +13,12 @@
 ;;
 ;; 利用 orgmode 非常强大的链接功能，配置 org-roam 构建笔记模板。
 
+;; fix: org-id-locations-file save to roam path
+;; (org-id-locations-file (expand-file-name (concat org-directory "/roam/.org-id-locations")))
+
 ;;; Code:
 (require 'core-org)
+(require 'org-id)
 
 (use-package org-roam
   :defines (org-roam-dailies-directory
@@ -74,6 +78,8 @@
         (concat "${title:*} "
                 (propertize "${tags:10}" 'face 'org-tag)))
   (org-roam-db-autosync-mode)
+  (setq org-id-track-globally t)
+  (setq org-id-locations-file (expand-file-name (concat org-directory "/roam/.org-id-locations")))
   (require 'org-roam-protocol))
 
 ;; org-roam-ui
