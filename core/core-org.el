@@ -49,7 +49,7 @@
    )
   :config
   (setq org-directory "~/workspace/org"
-        org-agenda-files (list "~/workspace/org/roam/daily")
+        org-agenda-files (directory-files-recursively org-directory "\\.org$")
         org-log-done 'time
         org-startup-indented t
         org-pretty-entities t
@@ -57,7 +57,7 @@
         ;; org-hide-emphasis-markers t => 不显示相关的标示符号，显示经过优化的样式
         org-hide-emphasis-markers nil
         org-catch-invisible-edits 'smart
-        org-agenda-text-search-extra-files 'agenda-archives
+        org-agenda-text-search-extra-files nil ;'agenda-archives
         org-agenda-skip-scheduled-if-done t
         org-plantuml-jar-path (expand-file-name "extends/plantuml.jar" user-emacs-directory)
         org-ditaa-jar-path (expand-file-name "extends/ditaa0_9.jar" user-emacs-directory)
