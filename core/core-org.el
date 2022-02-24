@@ -32,16 +32,16 @@
    "c" 'org-capture
    "t" 'org-todo
    "o" 'org-set-tags-command
-   "g" 'org-clock-goto
+   ;; "g" 'org-clock-goto
    "." 'org-clock-in
    "," 'org-clock-out
    "x" 'counsel-org-clock-context
    "h" 'counsel-org-clock-history
    "R" 'org-clock-report
    "E" 'org-export-dispatch
-   "r" 'org-refile
+   ;; "r" 'org-refile
    "p" 'org-pomodoro
-   "$" 'org-archive-subtree
+   ;; "$" 'org-archive-subtree
    "s" 'org-schedule
    "e" 'org-deadline
    "C-o" 'org-open-at-point
