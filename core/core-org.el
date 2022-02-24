@@ -86,39 +86,22 @@
 
   ;; configurations org keywords' name and faces
   (setq org-todo-keywords '(;; Baseline sequence
-                            (sequence "TODO(t)"
-                                      "|" "DONE(d!)" "CANCELED(c@)")
-                            (sequence "WAITING(w)"
-                                      "|" "DONE(d!)" "CANCELED(c@)")
-                            (sequence "IMPORTANT(i)"
-                                      "|" "DONE(d!)" "CANCELED(c@)")
-                            ;; Note information
-                            (sequence "|" "NOTE(N)" "BREAK(b)" "FIXME(f)"))
+                            (sequence "TODO(t)" "WAITING(w)" "IMPORTANT(i)"
+                                      "|" "DONE(d!)" "CANCELED(c@)"))
         org-todo-keyword-faces '(("TODO" . (:foreground "SpringGreen2" :weight bold))
-                                 ("CANCELED" . (:foreground "white" :background "DarkGrey" :weight bold))
+                                 ("CANCELED" . (:foreground "white" :background "DarkGrey"))
+                                 ("IMPORTANT" . "orange red")
                                  ("WAITING" . "chocolate")
                                  ("DONE" . "ForestGreen")
-                                 ("FIXME" . "firebrick")))
+                                 ))
 
   ;; org capture-templates
   (setq org-capture-templates
-        '(("t" "Todo")
-          ("td" "Project" entry (file+headline "~/workspace/org/tasks.org" "Project")
-           "* TODO %^{Title} %^g\n SCHEDULED: %^T"
-           :empty-lines 1)
-          ("tr" "Reading" entry (file+headline "~/workspace/org/tasks.org" "Reading")
+        '(
+          ("r" "Reading" entry (file+headline "~/workspace/org/tasks.org" "Reading")
            "* TODO %^{book name}\n%t\n"
            :clock-in t
            :clock-resume t
-           :empty-lines 1)
-          ("ti" "Investment" entry (file+headline "~/workspace/org/tasks.org" "Investment")
-           "* TODO %^{Title} %^g\n SCHEDULED: %^T"
-           :empty-lines 1)
-          ("tt" "Technology" entry (file+headline "~/workspace/org/tasks.org" "Technology")
-           "* TODO %^{Title} %^g\n SCHEDULED: %^T"
-           :empty-lines 1)
-          ("ts" "Summary" entry (file+headline "~/workspace/org/tasks.org" "Summary")
-           "* TODO %^{Title} %^g\n SCHEDULED: %^T"
            :empty-lines 1)
           ("j" "Journal" entry (file+olp+datetree "~/workspace/org/journal.org")
            "* %?\nEntered on %U\n %i\n"
