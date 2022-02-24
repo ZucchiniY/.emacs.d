@@ -30,21 +30,23 @@
    "a" 'org-agenda
    "b" 'org-switchb
    "c" 'org-capture
-   "t" 'org-todo
-   "o" 'org-set-tags-command
+   "d" 'org-insert-subheading
+   "e" 'org-deadline
    ;; "g" 'org-clock-goto
+   "h" 'counsel-org-clock-history
+   "o" 'org-set-tags-command
+   "p" 'org-pomodoro
+   ;; "r" 'org-refile
+   "s" 'org-schedule
+   "t" 'org-todo
+   "x" 'counsel-org-clock-context
+   "E" 'org-export-dispatch
+   "R" 'org-clock-report
+   "C-o" 'org-open-at-point
+   ;; clock start and stop
    "." 'org-clock-in
    "," 'org-clock-out
-   "x" 'counsel-org-clock-context
-   "h" 'counsel-org-clock-history
-   "R" 'org-clock-report
-   "E" 'org-export-dispatch
-   ;; "r" 'org-refile
-   "p" 'org-pomodoro
    ;; "$" 'org-archive-subtree
-   "s" 'org-schedule
-   "e" 'org-deadline
-   "C-o" 'org-open-at-point
    "&" 'org-mark-ring-goto
    )
   :config

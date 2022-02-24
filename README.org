@@ -80,24 +80,27 @@ leader key *SPC o*
 - a :: 打开 agenda
 - b :: 在 org buffer 间切换
 - c :: 启动 org-capture
+- d :: 在当前位置插入子标题
+- e :: org-deadline
+# - g :: org-clock-goto
+- h :: counsel-org-clock-history
 - o :: 设置 org 的标签
+- p :: org-pomodoro
+# - r :: org-refile
+- s :: org-schedule
 - t :: 设置 TODO 状态
-- g :: org-clock-goto
+- x :: counsel-org-clock-context
+- E :: org-export-dispatch
+- R :: org-clock-report
+- C-o :: org-open-at-point 打开当前位置的链接
 - . :: org-clock-in
 - , :: org-clock-out
-- x :: counsel-org-clock-context
-- h :: counsel-org-clock-history
-- R :: org-clock-report
-- E :: org-export-dispatch
-- r :: org-refile
-- $ :: org-archive-subtree
-- s :: org-schedule
-- e :: org-deadline
-- p :: org-pomodoro
+# - $ :: org-archive-subtree
+- & :: org-mark-ring-goto ，从链接跳转回原来的位置
 
 ** Magit
 
-- SPC g :: 启动 Magit
+- SPC g g :: 启动 Magit
            
 ** company
 
