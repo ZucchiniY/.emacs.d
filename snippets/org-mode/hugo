@@ -2,14 +2,17 @@
 # name: hugo
 # key: h
 # --
-#+HUGO_BASE_DIR: ~/workspace/blog/content-org/src/pages
-#+TITLE: $1
+
 #+DATE: `(format-time-string "%Y-%m-%d")`
-#+HUGO_TAGS: $2
-#+HUGO_CATEGORIES: $3
+#+HUGO_BASE_DIR: ~/workspace/blog/
+#+HUGO_SECTION: $0
+#+HUGO_SERIES: $1
+#+HUGO_CATEGORIES: $2
+#+HUGO_TAGS: $3
 #+HUGO_DRAFT: false
-#+HUGO_AUTO_SET_LASTMOD: false
 #+AUTHOR: "夏南瓜"
 #+HUGO_FRONT_MATTER_FORMAT: yaml
+#+HUGO_WEIGHT: auto
+#+HUGO_AUTO_SET_LASTMOD: false
 
-$0
+$4
