@@ -72,7 +72,20 @@
            :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
                               "#+title: ${title}")
            :empty-lines 1
-           :unnarrowed t))
+           :unnarrowed t)
+          ("r" "Reading List" table-lines
+           "|%?|%^{书名}|"
+           :target (file+head "%<%Y年>阅读清单.org"
+                              "#+title: %<%Y年>阅读清单\n")
+           :empty-lines 1
+           :unnarrowed t)
+          ("h" "Habit List" entry
+           "* %? :Habit:\n:PROPERTIES:\n:STYLE:    habit\n:END:"
+           :target (file+head "%Habits.org"
+                              "#+title: 习惯清单\n")
+           :empty-lines 1
+           :unnarrowed t)
+          )
         )
   (setq org-roam-node-display-template
         (concat "${title:*} "
