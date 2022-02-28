@@ -51,7 +51,8 @@
    )
   :config
   (setq org-directory "~/workspace/org"
-        org-agenda-files (directory-files-recursively org-directory "\\.org$")
+        org-agenda-files (directory-files-recursively
+                          (expand-file-name "roam/daily/" org-directory) "\\.org$")
         org-log-done 'time
         org-startup-indented t
         org-pretty-entities t

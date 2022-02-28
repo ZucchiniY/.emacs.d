@@ -73,14 +73,14 @@
                               "#+title: ${title}")
            :empty-lines 1
            :unnarrowed t)
-          ("r" "Reading List" table-lines
-           "|%?|%^{书名}|"
+          ("r" "Reading List" entry
+           "* %?"
            :target (file+head "%<%Y年>阅读清单.org"
                               "#+title: %<%Y年>阅读清单\n")
            :empty-lines 1
            :unnarrowed t)
           ("h" "Habit List" entry
-           "* %? :Habit:\n:PROPERTIES:\n:STYLE:    habit\n:END:"
+           "* TODO %^{Habit} %^G\n:PROPERTIES:\n:STYLE:    habit\n:END:"
            :target (file+head "%Habits.org"
                               "#+title: 习惯清单\n")
            :empty-lines 1
