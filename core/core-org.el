@@ -2,7 +2,7 @@
 
 ;; Author: Dylan Yang
 ;; Maintainer: Dylan Yang
-;; Version: 20220209
+;; Version: 1.1.0
 ;; Package-Requires: ()
 ;; Homepage: https://github.com/zucchiniy/.emacs.d/
 
@@ -10,6 +10,16 @@
 
 ;; org configurations
 ;; commentary
+
+;; recycle: 重构代码，将 org-id 配置迁移到 org 配置下。
+;; fix: org-id-locations-file save to roam path
+;; (setq org-id-locations-file (expand-file-name (concat org-directory "/roam/.org-id-locations")))
+
+;; fix: org-id-update-id-locations 只能扫描 agenda 路径下的文件
+;; (setq org-id-files (file-expand-wildcards (expand-file-name "roam/*.org" org-directory)))
+
+;; fix: 调整 agenda 对应的路径，遍历所有 org 文件
+;; (setq org-agenda-files (directory-files-recursively (expand-file-name "roam/daily/" org-directory) "\\.org$"))
 
 ;;; Code:
 (use-package org
@@ -79,6 +89,12 @@
   ;; 加载一些 org modules
   (setq org-modules '(org-habit
                       org-id))
+
+  ;; org-id 相关配置
+  (setq org-id-track-globally t)
+  (setq org-id-locations-file (expand-file-name (concat org-directory "/roam/.org-id-locations")))
+  ;; config org-id-files
+  (setq org-id-files (file-expand-wildcards (expand-file-name "roam/*.org" org-directory)))
 
   ;; When the clock is running and Emacs is idle for more than this number of seconds, the clock will be clocked out automatically
   (org-clock-auto-clockout-insinuate)

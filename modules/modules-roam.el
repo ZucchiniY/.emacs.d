@@ -2,7 +2,7 @@
 
 ;; Author: Dylan Yang
 ;; Maintainer: Dylan Yang
-;; Version: 1.0.0
+;; Version: 1.1.0
 ;; Package-Requires: (org-mode)
 ;; Homepage: https://github.com/zucchiniy
 ;; Keywords: org mode, roam, notes
@@ -13,8 +13,7 @@
 ;;
 ;; 利用 orgmode 非常强大的链接功能，配置 org-roam 构建笔记模板。
 
-;; fix: org-id-locations-file save to roam path
-;; (org-id-locations-file (expand-file-name (concat org-directory "/roam/.org-id-locations")))
+;; recyle: 将 org-id 相关配置迁移到 core-rog.el 配置下
 
 ;;; Code:
 (require 'core-org)
@@ -91,8 +90,7 @@
         (concat "${title:*} "
                 (propertize "${tags:10}" 'face 'org-tag)))
   (org-roam-db-autosync-mode)
-  (setq org-id-track-globally t)
-  (setq org-id-locations-file (expand-file-name (concat org-directory "/roam/.org-id-locations")))
+
   (require 'org-roam-protocol))
 
 ;; org-roam-ui
