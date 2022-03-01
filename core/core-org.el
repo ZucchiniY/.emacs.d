@@ -21,6 +21,10 @@
 ;; fix: 调整 agenda 对应的路径，遍历所有 org 文件
 ;; (setq org-agenda-files (directory-files-recursively (expand-file-name "roam/daily/" org-directory) "\\.org$"))
 
+;; feature: org-mode 9.4 新增参数 org-startup-folded 'show2levels => 显示 2 层 headline 如果不设置，则为 showeverything，
+;; 默认显示所有内容，设置为 t or fold 则只显示 top level
+;; (setq org-startup-folded 'show2levels)
+
 ;;; Code:
 (use-package org
   :defines (org-capture-templates
@@ -65,6 +69,8 @@
                           (expand-file-name "roam/daily/" org-directory) "\\.org$")
         org-log-done 'time
         org-startup-indented t
+        ;; org-startup-folded 文档默认只显示最顶层
+        org-startup-folded 'show2levels
         org-pretty-entities t
         ;; 不经意的编辑了一些不可见内容的时候，可以帮助我们发现这些编辑的内容
         ;; org-hide-emphasis-markers t => 不显示相关的标示符号，显示经过优化的样式
