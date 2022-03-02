@@ -101,7 +101,8 @@
   (setq org-id-track-globally t)
   (setq org-id-locations-file (expand-file-name (concat org-directory "/roam/.org-id-locations")))
   ;; config org-id-files
-  (setq org-id-files (file-expand-wildcards (expand-file-name "roam/*.org" org-directory)))
+  ;; (setq org-id-files (file-expand-wildcards (expand-file-name "roam/*.org" org-directory)))
+  (setq org-id-files (directory-files-recursively (expand-file-name "roam/" org-directory) "\\.org$"))
 
   ;; When the clock is running and Emacs is idle for more than this number of seconds, the clock will be clocked out automatically
   (org-clock-auto-clockout-insinuate)
