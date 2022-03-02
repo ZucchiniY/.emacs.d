@@ -43,7 +43,8 @@
    :prefix "SPC o"
    "a" 'org-agenda
    "b" 'org-switchb
-   "c" 'org-capture
+   ;; "c" 'org-capture
+   "c" 'org-clock-goto
    "d" 'org-insert-subheading
    "e" 'org-deadline
    ;; "g" 'org-clock-goto
@@ -137,7 +138,7 @@
     :config (setq org-bullets-bullet-list '("☯" "☢" "♠" "♣" "♥" "♦")))
 
   ;; 替换对应的标记
-  ;; 该段正则的意思是 “以0个或者多个空格开头，紧接着一个 ‘-’ ，紧接着是一个空格”
+  ;; 该段正则的意思是 “以 0 个或者多个空格开头，紧接着一个 ‘-’ ，紧接着是一个空格”
   ;; 将配置上面的情况的 “-” 替换为 “•”
   (font-lock-add-keywords 'org-mode
                           '(("^ *\\([-]\\) "
