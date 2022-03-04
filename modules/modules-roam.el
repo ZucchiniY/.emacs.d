@@ -40,6 +40,8 @@
          ;; Dailies
          ("C-c n j" . org-roam-dailies-capture-today)
          ("C-c n k" . org-roam-dailies-goto-today)
+         ;; sync
+         ("C-c n s" . org-roam-db-sync)
          )
   :config
   (setq org-roam-directory (expand-file-name (concat org-directory "/roam"))
@@ -62,7 +64,7 @@
           ("m" "Monthly Journal" entry
            "* TODO %^{Title} %^G\nSCHEDULED: %^T %?"
            :target (file+head "%<%Y-%m>.org"
-                              "#+title: %<%Y年%m月>\n")
+                              "#+title: %<%Y 年%m 月>\n")
            :empty-lines 1
            :unnarrowed t)
           )
@@ -74,8 +76,8 @@
            :unnarrowed t)
           ("r" "Reading List" entry
            "* %?"
-           :target (file+head "%<%Y年>阅读清单.org"
-                              "#+title: %<%Y年>阅读清单\n")
+           :target (file+head "%<%Y 年>阅读清单.org"
+                              "#+title: %<%Y 年>阅读清单\n")
            :empty-lines 1
            :unnarrowed t)
           ("h" "Habit List" entry
