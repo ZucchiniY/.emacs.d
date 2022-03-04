@@ -8,7 +8,7 @@
 不像许多大神据说的， Emacs 让工作和开发效率提高？
 
 这一切的原因都是因为对 Emacs 的理解太少了，但是按照大神的方案来看的貌
-似有点难，毕竟是1241页英文文档。
+似有点难，毕竟是 1241 页英文文档。
 
 没办法，在英文面前，我又一次摔倒了。但是我对现在的 Emacs 配置有了一个
 新的想法，也许我不应该再过多的依赖别人的配置了。
@@ -97,6 +97,8 @@ leader key *SPC o*
 - , :: org-clock-out
 # - $ :: org-archive-subtree
 - & :: org-mark-ring-goto ，从链接跳转回原来的位置
+- ` :: org-time-stamp，插入一个「激活」时间戳，可在 Agengda 中看到
+- ! :: org-time-stamp-inactive，插入一个「非激活」时间戳
 
 ** Magit
 

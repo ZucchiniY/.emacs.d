@@ -25,6 +25,11 @@
 ;; 默认显示所有内容，设置为 t or fold 则只显示 top level
 ;; (setq org-startup-folded 'show2levels)
 
+;; fix: 调整几个快捷键
+;; 移除 `org-clock-goto` 对应的快捷键，查找最近的工作内容时，利用 <SPC o h> 对应的 `counsel-org-clock-history`
+;; 增加 <SPC o !> 对应 `org-time-stamp`
+;; 增加 <SPC o `> 对应 `org-time-stamp-inactive`
+
 ;;; Code:
 (use-package org
   :defines (org-capture-templates
@@ -44,7 +49,6 @@
    "a" 'org-agenda
    "b" 'org-switchb
    ;; "c" 'org-capture
-   "c" 'org-clock-goto
    "d" 'org-insert-subheading
    "e" 'org-deadline
    ;; "g" 'org-clock-goto
@@ -63,6 +67,8 @@
    "," 'org-clock-out
    ;; "$" 'org-archive-subtree
    "&" 'org-mark-ring-goto
+   "!" 'org-time-stamp-inactive
+   "`" 'org-time-stamp
    )
   :config
   (setq org-directory "~/workspace/org"
