@@ -30,6 +30,8 @@
 ;; 增加 <SPC o !> 对应 `org-time-stamp`
 ;; 增加 <SPC o `> 对应 `org-time-stamp-inactive`
 
+;; keymaps: 增加 <SPC o g> 对应 `counsel-org-clock-goto`
+
 ;;; Code:
 (use-package org
   :defines (org-capture-templates
@@ -51,7 +53,7 @@
    ;; "c" 'org-capture
    "d" 'org-insert-subheading
    "e" 'org-deadline
-   ;; "g" 'org-clock-goto
+   "g" 'counsel-org-clock-goto
    "h" 'counsel-org-clock-history
    "o" 'org-set-tags-command
    "p" 'org-pomodoro

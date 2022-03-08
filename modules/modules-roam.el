@@ -40,6 +40,8 @@
          ;; Dailies
          ("C-c n j" . org-roam-dailies-capture-today)
          ("C-c n k" . org-roam-dailies-goto-today)
+         ("C-c n n" . org-roam-dailies-goto-next-note)
+         ("C-c n p" . org-roam-dailies-goto-previous-note)
          ;; sync
          ("C-c n s" . org-roam-db-sync)
          )

@@ -219,3 +219,24 @@ Plantuml 主要用来绘制流程图、思维导图等许多图例。
 
 发现最大化 Emacs 之后，dashboard 中的 recent 中的文件记录发生改变，翻看代码发现 dashboard 中引入了 recentf 。在 basis.el 中增加 recentf 的引入后，问题解决。
 
+** org roam
+
+配置 Org Roam 用来进行任务规划、记录笔记等内容，替换部分 org capture 的内容。
+
+
+- C-c n l :: org-roam-buffer-toggle 查看对应的反向链接的文章
+- C-c n f :: org-roam-node-find 查找所有 roam 中的文件，可以查看文章的标题（title）和 Alias 的内容
+- C-c n g :: org-roam-ui-mode 打开查看生成的文章关系网
+- C-c n i :: org-roam-node-insert 将某段内容更新为关联关系
+- C-c n c :: org-roam-capture 新增文件或者继续插入内容
+- C-c n r :: org-roam-ref-add 增加对应的参考
+- C-c n a :: org-roam-alias-add 增加别名
+- C-c o g :: org-id-get-create 增加 Org ID
+- C-c n t :: org-roam-tag-add 增加标签
+- C-c n j :: org-roam-dailies-capture-today 新增本日、本周、本月对应的内容，用来增加任务单
+- C-c n k :: org-roam-dailies-goto-today 跳转到本日、本周、本月的文件
+- C-c n n :: org-roam-dailies-goto-next-note 跳转到下一篇内容，如果是日则是下一天，周则是下一周
+- C-c n p :: org-roam-dailies-goto-previous-note 返回上一篇内容，如果是日则是上一天，周则是上一周
+- C-c n s :: org-roam-db-sync 刷新存储的关系，解决 =org-roam-ui-mode= 生成的关系图不同步问题
+
+
