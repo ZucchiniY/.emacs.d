@@ -1,20 +1,15 @@
 #+title: Emacs 从头开始
 #+author: Dylan Yang
 
-今天读了一篇文章 怎么学习 Emacs ?
-如何达到真正融汇贯通的境界?
+今天读了一篇文章 怎么学习 Emacs ?如何达到真正融汇贯通的境界?
 
-为什么我一直都不能利用 Emacs 让我的工作变得更快速？
-不像许多大神据说的， Emacs 让工作和开发效率提高？
+为什么我一直都不能利用 Emacs 让我的工作变得更快速？不像许多大神据说的， Emacs 让工作和开发效率提高？
 
-这一切的原因都是因为对 Emacs 的理解太少了，但是按照大神的方案来看的貌
-似有点难，毕竟是 1241 页英文文档。
+这一切的原因都是因为对 Emacs 的理解太少了，但是按照大神的方案来看的貌似有点难，毕竟是 1241 页英文文档。
 
-没办法，在英文面前，我又一次摔倒了。但是我对现在的 Emacs 配置有了一个
-新的想法，也许我不应该再过多的依赖别人的配置了。
+没办法，在英文面前，我又一次摔倒了。但是我对现在的 Emacs 配置有了一个新的想法，也许我不应该再过多的依赖别人的配置了。
 
-试用了一天的 Emacs 之后，感觉自己的小指要断了，看来，对于 Emacs 来说，
-小指的负担还是太重了。
+试用了一天的 Emacs 之后，感觉自己的小指要断了，看来，对于 Emacs 来说，小指的负担还是太重了。
 
 * 知道自己想要的功能
 
@@ -27,15 +22,15 @@
 
 再经过一段时间的使用之后，对于我来说，最需要的 package 就是：
 
-1. Org Mode : 记笔记，做计划，写博客 (配合 ox-hugo) ，等所有的内容，都可以使用。
-2. Magit : 开发的时候做代码管理，可以说是非常好用的一个功能，几乎是 Emacs 神器。
+- Org Mode :: 记笔记，做计划，写博客 (配合 ox-hugo) ，等所有的内容，都可以使用。
+- Magit :: 开发的时候做代码管理，可以说是非常好用的一个功能，几乎是 Emacs 神器。
+- Org Roam :: 快捷笔记方式，用来更好的规划自己的任务。从这一刻起，真正将 Emacs 用为自己的工具。
 
-所以在这次从头开始的配置中，第一个需要的就是 Org Mode + Magit 。
+所以在这次从头开始的配置中，第一个需要的就是 Org Mode + Org Roam + Magit。
 
 * 为自己想要的功能增加对应的快捷键
 
-也许这不是最好的方法，但确是对我来说最适合的配置。而且快捷键的配置也主
-要只针对比较重要的插件，其它的都放到 other 的配置中。
+也许这不是最好的方法，但确是对我来说最适合的配置。而且快捷键的配置也主要只针对比较重要的插件，其它的都放到 other 的配置中。
 
 ** basis
 
@@ -224,19 +219,19 @@ Plantuml 主要用来绘制流程图、思维导图等许多图例。
 配置 Org Roam 用来进行任务规划、记录笔记等内容，替换部分 org capture 的内容。
 
 
-- C-c n l :: org-roam-buffer-toggle 查看对应的反向链接的文章
-- C-c n f :: org-roam-node-find 查找所有 roam 中的文件，可以查看文章的标题（title）和 Alias 的内容
-- C-c n g :: org-roam-ui-mode 打开查看生成的文章关系网
-- C-c n i :: org-roam-node-insert 将某段内容更新为关联关系
-- C-c n c :: org-roam-capture 新增文件或者继续插入内容
-- C-c n r :: org-roam-ref-add 增加对应的参考
-- C-c n a :: org-roam-alias-add 增加别名
-- C-c o g :: org-id-get-create 增加 Org ID
-- C-c n t :: org-roam-tag-add 增加标签
-- C-c n j :: org-roam-dailies-capture-today 新增本日、本周、本月对应的内容，用来增加任务单
-- C-c n k :: org-roam-dailies-goto-today 跳转到本日、本周、本月的文件
-- C-c n n :: org-roam-dailies-goto-next-note 跳转到下一篇内容，如果是日则是下一天，周则是下一周
-- C-c n p :: org-roam-dailies-goto-previous-note 返回上一篇内容，如果是日则是上一天，周则是上一周
-- C-c n s :: org-roam-db-sync 刷新存储的关系，解决 =org-roam-ui-mode= 生成的关系图不同步问题
+- SPC n l :: org-roam-buffer-toggle 查看对应的反向链接的文章
+- SPC n f :: org-roam-node-find 查找所有 roam 中的文件，可以查看文章的标题（title）和 Alias 的内容
+- SPC n g :: org-roam-ui-mode 打开查看生成的文章关系网
+- SPC n i :: org-roam-node-insert 将某段内容更新为关联关系
+- SPC n c :: org-roam-capture 新增文件或者继续插入内容
+- SPC n r :: org-roam-ref-add 增加对应的参考
+- SPC n a :: org-roam-alias-add 增加别名
+- SPC o g :: org-id-get-create 增加 Org ID
+- SPC n t :: org-roam-tag-add 增加标签
+- SPC n j :: org-roam-dailies-capture-today 新增本日、本周、本月对应的内容，用来增加任务单
+- SPC n k :: org-roam-dailies-goto-today 跳转到本日、本周、本月的文件
+- SPC n n :: org-roam-dailies-goto-next-note 跳转到下一篇内容，如果是日则是下一天，周则是下一周
+- SPC n p :: org-roam-dailies-goto-previous-note 返回上一篇内容，如果是日则是上一天，周则是上一周
+- SPC n s :: org-roam-db-sync 刷新存储的关系，解决 =org-roam-ui-mode= 生成的关系图不同步问题
 
 

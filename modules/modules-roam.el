@@ -25,26 +25,26 @@
             org-roam-capture-ref-templates)
   :ensure t
   :diminish org-roam-mode
-  :bind (("C-c n l" . org-roam-buffer-toggle)
-         ("C-c n f" . org-roam-node-find)
-         ("C-c n g" . org-roam-ui-mode)
-         ("C-c n i" . org-roam-node-insert)
-         ("C-c n c" . org-roam-capture)
-         ;; references
-         ("C-c n r" . org-roam-ref-add)
-         ;; alias
-         ("C-c n a" . org-roam-alias-add)
-         ;; ID create
-         ("C-c o g" . org-id-get-create)
-         ("C-c n t" . org-roam-tag-add)
-         ;; Dailies
-         ("C-c n j" . org-roam-dailies-capture-today)
-         ("C-c n k" . org-roam-dailies-goto-today)
-         ("C-c n n" . org-roam-dailies-goto-next-note)
-         ("C-c n p" . org-roam-dailies-goto-previous-note)
-         ;; sync
-         ("C-c n s" . org-roam-db-sync)
-         )
+  :general
+  (general-define-key
+   :states 'normal
+   :keymaps 'override
+   :prefix "SPC n"
+   "l" 'org-roam-buffer-toggle
+   "f" 'org-roam-node-find
+   "g" 'org-roam-ui-mode
+   "i" 'org-roam-node-insert
+   "c" 'org-roam-capture
+   "r" 'org-roam-ref-add
+   "a" 'org-roam-alias-add
+   "g" 'org-id-get-create
+   "t" 'org-roam-tag-add
+   "j" 'org-roam-dailies-capture-today
+   "k" 'org-roam-dailies-goto-today
+   "n" 'org-roam-dailies-goto-next-note
+   "p" 'org-roam-dailies-goto-previous-note
+   "s" 'org-roam-db-sync
+   )
   :config
   (setq org-roam-directory (expand-file-name (concat org-directory "/roam"))
         org-roam-db-gc-threshold most-positive-fixnum
