@@ -32,6 +32,9 @@
 
 ;; keymaps: 增加 <SPC o g> 对应 `counsel-org-clock-goto`
 
+;; feature: 新增参数，用来扩展 <SPC o R> 生成的时间报告格式，直接统计上周的内容
+;; `(setq org-clock-clocktable-default-properties '(:scope agenda :maxlevel 1 :block lastweek :compact t :formula % :hidefiles t :fileskip0 t))`
+
 ;;; Code:
 (use-package org
   :defines (org-capture-templates
@@ -100,6 +103,8 @@
         org-clock-auto-clockout-timer 200
         ;; include entries from diary into agenda
         org-agenda-include-diary t
+        ;; 扩展 org-clock-clocktable-default-properties 参数
+        org-clock-clocktable-default-properties '(:scope agenda :maxlevel 1 :block lastweek :compact t :formula % :hidefiles t :fileskip0 t)
         )
   ;; 加载一些 org modules
   (setq org-modules '(org-habit
