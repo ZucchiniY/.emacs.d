@@ -35,6 +35,7 @@
 ;; feature: 新增参数，用来扩展 <SPC o R> 生成的时间报告格式，直接统计上周的内容
 ;; `(setq org-clock-clocktable-default-properties '(:scope agenda :maxlevel 1 :block lastweek :compact t :formula % :hidefiles t :fileskip0 t))`
 
+;; keymaps: 修改 `org-insert-subheading` 为 <SPC o i>
 ;;; Code:
 (use-package org
   :defines (org-capture-templates
@@ -54,10 +55,10 @@
    "a" 'org-agenda
    "b" 'org-switchb
    ;; "c" 'org-capture
-   "d" 'org-insert-subheading
    "e" 'org-deadline
    "g" 'counsel-org-clock-goto
    "h" 'counsel-org-clock-history
+   "i" 'org-insert-subheading
    "o" 'org-set-tags-command
    "p" 'org-pomodoro
    ;; "r" 'org-refile

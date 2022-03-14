@@ -27,23 +27,23 @@
   :diminish org-roam-mode
   :general
   (general-define-key
-   :states 'normal
+   :states '(normal visual)
    :keymaps 'override
    :prefix "SPC n"
-   "l" 'org-roam-buffer-toggle
-   "f" 'org-roam-node-find
-   "g" 'org-roam-ui-mode
-   "i" 'org-roam-node-insert
-   "c" 'org-roam-capture
-   "r" 'org-roam-ref-add
    "a" 'org-roam-alias-add
+   "c" 'org-roam-capture
+   "f" 'org-roam-node-find
    "g" 'org-id-get-create
-   "t" 'org-roam-tag-add
+   "i" 'org-roam-node-insert
    "j" 'org-roam-dailies-capture-today
    "k" 'org-roam-dailies-goto-today
+   "l" 'org-roam-buffer-toggle
    "n" 'org-roam-dailies-goto-next-note
    "p" 'org-roam-dailies-goto-previous-note
+   "r" 'org-roam-ref-add
    "s" 'org-roam-db-sync
+   "t" 'org-roam-tag-add
+   "u" 'org-roam-ui-mode
    )
   :config
   (setq org-roam-directory (expand-file-name (concat org-directory "/roam"))
