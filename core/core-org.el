@@ -106,6 +106,7 @@
         org-agenda-include-diary t
         ;; 扩展 org-clock-clocktable-default-properties 参数
         org-clock-clocktable-default-properties '(:scope agenda :maxlevel 1 :block lastweek :compact t :formula % :hidefiles t :fileskip0 t)
+        org-image-actual-width nil
         )
   ;; 加载一些 org modules
   (setq org-modules '(org-habit
