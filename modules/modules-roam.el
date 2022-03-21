@@ -25,6 +25,12 @@
             org-roam-capture-ref-templates)
   :ensure t
   :diminish org-roam-mode
+  :init
+
+  (defun my-dailies-goto-today ()
+    (interactive)
+    (org-roam-dailies-capture-today t "w"))
+
   :general
   (general-define-key
    :states '(normal visual)
@@ -51,25 +57,39 @@
         org-roam-completion-everywhere t
         org-roam-dailies-directory "daily/"
         org-roam-dailies-capture-templates
-        '(("d" "Daily Journal" entry
-           "* TODO %^{Title} %^G\nSCHEDULED: %^T %?"
+        '(("d" "Daily" entry
+           "* %?"
            :target (file+head "%<%Y-%m-%d>.org"
                               "#+title: %<%Y-%m-%d>\n")
            :empty-lines 1
            :unnarrowed t)
-          ("w" "Weekly Journal" entry
-           "* TODO %^{Title} %^G\nSCHEDULED: %^T %?"
+          ("w" "Weekly" entry
+           "* TODO %? %^g \nSCHEDULED: %T"
            :target (file+head "%<%Y-W%W>.org"
                               "#+title: %<%Y-W%W>\n")
            :empty-lines 1
            :unnarrowed t)
-          ("m" "Monthly Journal" entry
-           "* TODO %^{Title} %^G\nSCHEDULED: %^T %?"
-           :target (file+head "%<%Y-%m>.org"
-                              "#+title: %<%Y 年%m 月>\n")
-           :empty-lines 1
-           :unnarrowed t)
-          )
+           )
+        ;; org-roam-dailies-capture-templates
+        ;; '(("d" "Daily Journal" entry
+        ;;    "* TODO %^{Title} %^G\nSCHEDULED: %^T %?"
+        ;;    :target (file+head "%<%Y-%m-%d>.org"
+        ;;                       "#+title: %<%Y-%m-%d>\n")
+        ;;    :empty-lines 1
+        ;;    :unnarrowed t)
+        ;;   ("w" "Weekly Journal" entry
+        ;;    "* TODO %^{Title} %^G\nSCHEDULED: %^T %?"
+        ;;    :target (file+head "%<%Y-W%W>.org"
+        ;;                       "#+title: %<%Y-W%W>\n")
+        ;;    :empty-lines 1
+        ;;    :unnarrowed t)
+        ;;   ("m" "Monthly Journal" entry
+        ;;    "* TODO %^{Title} %^G\nSCHEDULED: %^T %?"
+        ;;    :target (file+head "%<%Y-%m>.org"
+        ;;                       "#+title: %<%Y 年%m 月>\n")
+        ;;    :empty-lines 1
+        ;;    :unnarrowed t)
+        ;;   )
         org-roam-capture-templates
         '(("d" "default" plain "%?"
            :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
