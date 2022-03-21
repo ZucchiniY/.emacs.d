@@ -93,7 +93,10 @@
 
 (use-package undo-tree
   :diminish undo-tree-mode
-  :hook (after-init . global-undo-tree-mode))
+  :hook (after-init . global-undo-tree-mode)
+  :config
+  (setq undo-tree-auto-save-history t
+        undo-tree-history-directory-alist `(("." . ,(concat user-emacs-directory "/undo-tree")))))
 
 ;; add keybind maximized screen to atl+return
 ;; add keybind fullscreen to atl+shift+return
