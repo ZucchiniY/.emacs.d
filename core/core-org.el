@@ -54,7 +54,7 @@
    :prefix "SPC o"
    "a" 'org-agenda
    "b" 'org-switchb
-   ;; "c" 'org-capture
+   "c" 'org-capture
    "e" 'org-deadline
    "g" 'counsel-org-clock-goto
    "h" 'counsel-org-clock-history
@@ -138,14 +138,17 @@
   ;; org capture-templates
   (setq org-capture-templates
         '(
-          ("r" "Reading" entry (file+headline "~/workspace/org/tasks.org" "Reading")
+          ("r" "Reading" entry
+           (file+headline "~/workspace/org/tasks.org" "Reading")
            "* TODO %^{book name}\n%t\n"
            :clock-in t
            :clock-resume t
            :empty-lines 1)
-          ("j" "Journal" entry (file+olp+datetree "~/workspace/org/journal.org")
+          ("e" "Emotion Notes" entry
+           (file+olp+datetree "~/workspace/org/roam/daily/Emotion.org")
            "* %?\nEntered on %U\n %i\n"
-           :empty-lines 1)
+           :empty-lines 1
+           :jump-to-captured t)
            ))
 
   ;; More fancy UI
