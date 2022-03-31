@@ -56,13 +56,15 @@
            :target (file+head "%<%Y-%m-%d>.org"
                               "#+title: %<%Y-%m-%d>\n")
            :empty-lines 1
-           :unnarrowed t)
+           :unnarrowed t
+           :jump-to-captured t)
           ("w" "Weekly Journal" entry
            "* TODO %^{Title} %^G\nSCHEDULED: %^T %?"
            :target (file+head "%<%Y-W%W>.org"
                               "#+title: %<%Y-W%W>\n")
            :empty-lines 1
-           :unnarrowed t)
+           :unnarrowed t
+           :jump-to-captured t)
           ("m" "Monthly Journal" entry
            "* TODO %^{Title} %^G\nSCHEDULED: %^T %?"
            :target (file+head "%<%Y-%m>.org"
@@ -75,20 +77,21 @@
            :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
                               "#+title: ${title}")
            :empty-lines 1
-           :unnarrowed t)
+           :unnarrowed t
+           :jump-to-captured t)
           ("r" "Reading List" entry
            "* %?"
            :target (file+head "%<%Y 年>阅读清单.org"
                               "#+title: %<%Y 年>阅读清单\n")
            :empty-lines 1
-           :unnarrowed t)
+           :unnarrowed t
+           :jump-to-capture t)
           ("h" "Habit List" entry
            "* TODO %^{Habit} %^G\n:PROPERTIES:\n:STYLE:    habit\n:END:"
            :target (file+head "%Habits.org"
                               "#+title: 习惯清单\n")
            :empty-lines 1
-           :unnarrowed t)
-          )
+           :unnarrowed t))
         )
   (setq org-roam-node-display-template
         (concat "${title:*} "
