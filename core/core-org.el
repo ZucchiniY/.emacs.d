@@ -11,31 +11,6 @@
 ;; org configurations
 ;; commentary
 
-;; recycle: 重构代码，将 org-id 配置迁移到 org 配置下。
-;; fix: org-id-locations-file save to roam path
-;; (setq org-id-locations-file (expand-file-name (concat org-directory "/roam/.org-id-locations")))
-
-;; fix: org-id-update-id-locations 只能扫描 agenda 路径下的文件
-;; (setq org-id-files (file-expand-wildcards (expand-file-name "roam/*.org" org-directory)))
-
-;; fix: 调整 agenda 对应的路径，遍历所有 org 文件
-;; (setq org-agenda-files (directory-files-recursively (expand-file-name "roam/daily/" org-directory) "\\.org$"))
-
-;; feature: org-mode 9.4 新增参数 org-startup-folded 'show2levels => 显示 2 层 headline 如果不设置，则为 showeverything，
-;; 默认显示所有内容，设置为 t or fold 则只显示 top level
-;; (setq org-startup-folded 'show2levels)
-
-;; fix: 调整几个快捷键
-;; 移除 `org-clock-goto` 对应的快捷键，查找最近的工作内容时，利用 <SPC o h> 对应的 `counsel-org-clock-history`
-;; 增加 <SPC o !> 对应 `org-time-stamp`
-;; 增加 <SPC o `> 对应 `org-time-stamp-inactive`
-
-;; keymaps: 增加 <SPC o g> 对应 `counsel-org-clock-goto`
-
-;; feature: 新增参数，用来扩展 <SPC o R> 生成的时间报告格式，直接统计上周的内容
-;; `(setq org-clock-clocktable-default-properties '(:scope agenda :maxlevel 1 :block lastweek :compact t :formula % :hidefiles t :fileskip0 t))`
-
-;; keymaps: 修改 `org-insert-subheading` 为 <SPC o i>
 ;;; Code:
 (use-package org
   :defines (org-capture-templates
@@ -90,7 +65,7 @@
         org-hide-emphasis-markers nil
         org-catch-invisible-edits 'smart
         org-agenda-text-search-extra-files nil ;'agenda-archives
-        org-agenda-skip-scheduled-if-done t
+        org-agenda-skip-scheduled-if-done nil
         org-plantuml-jar-path (expand-file-name "extends/plantuml.jar" user-emacs-directory)
         org-ditaa-jar-path (expand-file-name "extends/ditaa0_9.jar" user-emacs-directory)
         ;; `^' 和 `_' 是否转义，如果是 t 就转，nil 不转，{} 就 a_{a} 才转
