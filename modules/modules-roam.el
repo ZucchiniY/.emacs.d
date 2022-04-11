@@ -111,7 +111,6 @@
 
 ;; deft
 (use-package deft
-  :after org
   :bind ("C-c n d" . deft)
   :custom
   (deft-recursive t)
