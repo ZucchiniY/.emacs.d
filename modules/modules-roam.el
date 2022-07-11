@@ -19,13 +19,18 @@
 (require 'core-org)
 (require 'org-id)
 
+(use-package emacsql-sqlite-builtin
+  :ensure t)
+
 (use-package org-roam
   :load-path "site-lisp/org-roam"
   :defines (org-roam-dailies-directory
             org-roam-dailies-capture-templates
             org-roam-capture-ref-templates)
+  :defer 1
   :ensure t
   :diminish org-roam-mode
+  :custom (org-roam-database-connector 'sqlite-builtin)
   :general
   (general-define-key
    :states '(normal visual)
