@@ -35,7 +35,10 @@
   (require 'use-package))
 
 ;; add all-the-icons package
-(use-package all-the-icons :defer t)
+(use-package all-the-icons
+  :load-path "site-lisp/all-the-icons"
+  :defer t)
+
 (use-package diminish :defer t)
 (use-package bind-key :defer t)
 

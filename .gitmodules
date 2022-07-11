@@ -2,3 +2,7 @@
 	path = site-lisp/org-roam
 	url = git@github.com:ZucchiniY/org-roam.git
 	branch = master
+[submodule "site-lisp/all-the-icons"]
+	path = site-lisp/all-the-icons
+	url = https://github.com/domtronn/all-the-icons.el.git
+	branch = master
