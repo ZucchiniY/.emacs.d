@@ -79,10 +79,13 @@
         org-clock-auto-clockout-timer 200
         ;; include entries from diary into agenda
         org-agenda-include-diary t
-        ;; 扩展 org-clock-clocktable-default-properties 参数
-        org-clock-clocktable-default-properties '(:scope agenda :maxlevel 1 :block lastweek :compact t :formula % :hidefiles t :fileskip0 t :match "-Habit-Health" :tags t)
+        ;; 调整 org 中图片的大小
         org-image-actual-width nil
         )
+  ;; 配置 clock table 中的 block 选项
+        ;; 扩展 org-clock-clocktable-default-properties 参数
+  (setq org-clock-clocktable-default-properties '(:scope agenda :maxlevel 1 :compact t :formula % :hidefiles t :fileskip0 t :match "-Habit-Health" :tags t))
+  (plist-put org-clock-clocktable-default-properties :block (format-time-string "%Y-W%V"))
   ;; 加载一些 org modules
   (setq org-modules '(org-habit
                       org-id))

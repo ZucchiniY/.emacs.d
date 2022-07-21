@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: habit
-# key: ha
+# key: habit
 # --
 
 * TODO 轻断食方案                                                      :修身:
@@ -12,3 +12,4 @@ SCHEDULED: <`(format-time-string "%Y-%m-%d %a")` 09:00>
 - [ ] 19:00 后不再吃有热量的食物
 - [ ] 23:00 前睡觉
 - [ ] 不吃零食
+
