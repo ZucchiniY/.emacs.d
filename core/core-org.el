@@ -86,6 +86,12 @@
         ;; 扩展 org-clock-clocktable-default-properties 参数
   (setq org-clock-clocktable-default-properties '(:scope agenda :maxlevel 1 :compact t :formula % :hidefiles t :fileskip0 t :match "-Habit-Health" :tags t))
   (plist-put org-clock-clocktable-default-properties :block (format-time-string "%Y-W%V"))
+  ;; 增加自动变成完成状态
+  (defun org-summary-todo (n-done n-not-done)
+    "Switch entry to DONE when all subentries are done, to TODO otherwise."
+    (let (org-log-done org-log-states)   ; turn off logging
+      (org-todo (if (= n-not-done 0) "DONE" "TODO"))))
+  (add-hook 'org-after-todo-statistics-hook #'org-summary-todo)
   ;; 加载一些 org modules
   (setq org-modules '(org-habit
                       org-id))
