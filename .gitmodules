@@ -1,10 +1,10 @@
 [submodule "site-lisp/org-roam"]
 	path = site-lisp/org-roam
-	url = https://ghproxy.com/https://github.com/ZucchiniY/org-roam.git
+	url = https://github.com/ZucchiniY/org-roam.git
 	branch = goto-today
 	depth = 1
 [submodule "site-lisp/all-the-icons"]
 	path = site-lisp/all-the-icons
-	url = https://ghproxy.com/https://github.com/domtronn/all-the-icons.el.git
+	url = https://github.com/domtronn/all-the-icons.el.git
 	branch = master
 	depth = 1
