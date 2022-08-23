@@ -22,8 +22,8 @@
   (setq pangu-spacing-real-insert-separtor t)
   :config
   (add-hook 'org-mode-hook
-            '(lambda ()
-               (set (make-local-variable 'pangu-spacing-real-insert-separtor) t))))
+            (lambda ()
+              (set (make-local-variable 'pangu-spacing-real-insert-separtor) t))))
 
 (provide 'modules-writer)
 
