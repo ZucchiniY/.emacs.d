@@ -12,6 +12,7 @@
 (require 'core-variable)
 
 (setq user-full-name "Dylan Yang")
+(set-default 'truncate-lines t)
 
 (when sys/winntp
   ;; 经过测试，在 windows 下，window 键是不能修改的
@@ -91,12 +92,13 @@
 (use-package smart-region
   :hook (after-init . smart-region-on))
 
-(use-package undo-tree
-  :diminish undo-tree-mode
-  :hook (after-init . global-undo-tree-mode)
-  :config
-  (setq undo-tree-auto-save-history t
-        undo-tree-history-directory-alist `(("." . ,(concat user-emacs-directory "/undo-tree")))))
+;; not used
+;; (use-package undo-tree
+;;   :diminish undo-tree-mode
+;;   :hook (after-init . global-undo-tree-mode)
+;;   :config
+;;   (setq undo-tree-auto-save-history t
+;;         undo-tree-history-directory-alist `(("." . ,(concat user-emacs-directory "/undo-tree")))))
 
 ;; add keybind maximized screen to atl+return
 ;; add keybind fullscreen to atl+shift+return

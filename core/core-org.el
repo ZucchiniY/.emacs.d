@@ -84,7 +84,7 @@
         )
   ;; 配置 clock table 中的 block 选项
         ;; 扩展 org-clock-clocktable-default-properties 参数
-  (setq org-clock-clocktable-default-properties '(:scope agenda :maxlevel 1 :compact t :formula % :hidefiles t :fileskip0 t :match "-Habit-Health" :tags t))
+  (setq org-clock-clocktable-default-properties '(:scope agenda :maxlevel 1 :compact t :formula % :hidefiles t :fileskip0 t :tags t))
   (plist-put org-clock-clocktable-default-properties :block (format-time-string "%Y-W%V"))
   ;; 增加自动变成完成状态
   (defun org-summary-todo (n-done n-not-done)
@@ -106,7 +106,7 @@
   ;; When the clock is running and Emacs is idle for more than this number of seconds, the clock will be clocked out automatically
   (org-clock-auto-clockout-insinuate)
   
-  (add-hook 'org-mode-hook 'toggle-truncate-lines)
+  ;; (add-hook 'org-mode-hook 'toggle-truncate-lines)
 
   ;; configurations org keywords' name and faces
   (setq org-todo-keywords '(;; Baseline sequence
