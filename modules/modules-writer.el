@@ -16,14 +16,14 @@
         writeroom-width 0.5)
   (advice-add 'writeroom--calculate-width :before #'redisplay))
 
-(use-package pangu-spacing
-  :init
-  (global-pangu-spacing-mode t)
-  (setq pangu-spacing-real-insert-separtor t)
-  :config
-  (add-hook 'org-mode-hook
-            (lambda ()
-              (set (make-local-variable 'pangu-spacing-real-insert-separtor) t))))
+;; (use-package pangu-spacing
+;;   :init
+;;   (global-pangu-spacing-mode t)
+;;   (setq pangu-spacing-real-insert-separtor t)
+;;   :config
+;;   (add-hook 'org-mode-hook
+;;             (lambda ()
+;;               (set (make-local-variable 'pangu-spacing-real-insert-separtor) t))))
 
 (provide 'modules-writer)
 
