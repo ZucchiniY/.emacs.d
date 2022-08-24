@@ -106,7 +106,7 @@
   ;; When the clock is running and Emacs is idle for more than this number of seconds, the clock will be clocked out automatically
   (org-clock-auto-clockout-insinuate)
   
-  ;; (add-hook 'org-mode-hook 'toggle-truncate-lines)
+  (add-hook 'org-mode-hook 'toggle-truncate-lines)
 
   ;; configurations org keywords' name and faces
   (setq org-todo-keywords '(;; Baseline sequence
