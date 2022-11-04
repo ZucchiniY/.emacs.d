@@ -41,35 +41,22 @@
 
 (update-load-path)
 
-(require 'core-package)
-(require 'core-variable)
 (require 'core-basis)
+(require 'core-package)
+(require 'core-keybind)
+
 (require 'core-company)
 (require 'core-counsel)
 (require 'core-ui)
 (require 'core-treemacs)
-
-(require 'core-evil)
 
 (require 'core-org)
 
 (require 'modules-magit)
 (require 'modules-projectile)
 
-(require 'modules-python)
-(require 'modules-web)
-(require 'modules-yaml)
-
-(require 'modules-super-agenda)
-
 ;; 新增 plantuml 配置功能
 (require 'modules-plantuml)
-
-;; 新增 writeroom-mode
-(require 'modules-writer)
-
-;; 重新引入 `lsp-mode`
-(require 'modules-lsp)
 
 ;; 节日提醒
 (require 'modules-calendar)
@@ -79,9 +66,6 @@
 
 ;; dashboard
 (require 'modules-dashboard)
-
-;; django mode
-(require 'modules-django)
 
 ;; add ox-hugo
 (require 'modules-hugo)

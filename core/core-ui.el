@@ -10,7 +10,8 @@
 
 ;;; Code:
 ;; 隐藏滚动条、菜单栏
-(require 'core-variable)
+(require 'core-basis)
+
 (unless sys/winntp
   (menu-bar-mode -1))
 (when (fboundp 'tool-bar-mode)

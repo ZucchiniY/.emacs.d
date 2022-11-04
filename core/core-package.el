@@ -24,31 +24,31 @@
   (add-to-list 'load-path "site-lisp/use-package")
   (require 'use-package))
 
+(use-package diminish :defer t)
+(use-package bind-key :defer t)
+
 ;; abbrev-mode abbreviation file-name
 (use-package abbrev
   :diminish abbrev-mode
   :config
   (if (file-exists-p abbrev-file-name)
       (quietly-read-abbrev-file)))
-                     
+
 ;; add all-the-icons package
 (use-package all-the-icons
   :load-path "site-lisp/all-the-icons"
   :defer t)
 
-(use-package diminish :defer t)
-(use-package bind-key :defer t)
-
 ;; use package-utils to update packages
 (use-package package-utils
-	     :init
-	     (defalias 'upgrade-packages 'package-utils-upgrade-all)
-	     (defalias 'upgrade-packages-and-restart 'package-utils-upgrade-all-and-restart))
+  :init
+  (defalias 'upgrade-packages 'package-utils-upgrade-all)
+  (defalias 'upgrade-packages-and-restart 'package-utils-upgrade-all-and-restart))
 
 (use-package no-littering
   :init
   (setq no-littering-etc-directory (expand-file-name "config/" user-emacs-directory)
-	    no-littering-var-directory (expand-file-name "data/" user-emacs-directory)))
+        no-littering-var-directory (expand-file-name "data/" user-emacs-directory)))
 
 (use-package which-key
   :diminish which-key-mode

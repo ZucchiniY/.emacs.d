@@ -1,4 +1,4 @@
-;; core-evil.el --- config evil and evil keybind.	-*- lexical-binding: t -*-
+;; core-keybind.el --- config evil and evil keybind.	-*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019-2021 Dylan Yang
 
@@ -9,6 +9,55 @@
 ;;
 
 ;;; Code:
+(use-package general
+  :defer 1
+  :commands general-override-states
+  :config
+  (general-evil-setup t)
+  (general-create-definer global-leader
+    :states '(normal visual motion)
+    :prefix "SPC"
+    :keymaps 'override)
+  (general-create-definer local-leader
+    :states '(normal visual motion)
+    :prefix "SPC m"
+    :keymaps 'override)
+  (global-leader
+    ;; files keybinds
+    "fs" 'save-buffer
+    "fd" 'dired
+    ;; buffer keybinds
+    "bq" 'kill-buffer
+    ;; quite emacs
+    "qq" 'save-buffers-kill-emacs
+    ;; winner
+    "wu" 'winner-undo
+    "wr" 'winner-redo
+    ;; window keybinds
+    "wo" 'other-window
+    "wv" 'split-window-vertically
+    "w-" 'split-window-horizontally
+    "wl" 'evil-window-right
+    "wh" 'evil-window-left
+    "wk" 'evil-window-up
+    "wj" 'evil-window-down
+    "wq" 'delete-window
+    "wa" 'delete-other-windows
+    ;; windows select
+     "1" 'winum-select-window-1
+     "2" 'winum-select-window-2
+     "3" 'winum-select-window-3
+     "4" 'winum-select-window-4
+     "5" 'winum-select-window-5
+     "6" 'winum-select-window-6
+     "7" 'winum-select-window-7
+     "8" 'winum-select-window-8
+     "9" 'winum-select-window-9
+     "0" 'winum-select-window-0-or-10
+     ;; cfw::open-org-calendar
+     "ov" 'cfw:open-org-calendar
+    ))
+
 (use-package evil
   :defer 1
   :hook (after-init . evil-mode)
@@ -21,8 +70,6 @@
   ;; 将不希望使用 Evil Mode 的内容，放在这里
   (evil-set-initial-state 'dired-mode 'emacs)
   (evil-set-initial-state 'deft-mode 'emacs)
-  (evil-set-initial-state 'elfeed-search-mode 'emacs)
-  (evil-set-initial-state 'elfeed-show-mode 'emacs)
   ;; evil ex command `:W' to save all buffers.
   (evil-ex-define-cmd "W" 'evil-write-all)
   
@@ -74,6 +121,6 @@
   :diminish evil-mc-extras-mode
   :init (global-evil-mc-extras-mode 1))
 
-(provide 'core-evil)
-;;; core-evil.el ends here
+(provide 'core-keybind)
+;;; core-keybind.el ends here
 
