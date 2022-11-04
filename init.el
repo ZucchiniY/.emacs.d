@@ -51,12 +51,11 @@
 (require 'core-treemacs)
 
 (require 'core-org)
+;; add org-roam config
+(require 'core-roam)
 
 (require 'modules-magit)
 (require 'modules-projectile)
-
-;; 新增 plantuml 配置功能
-(require 'modules-plantuml)
 
 ;; 节日提醒
 (require 'modules-calendar)
@@ -70,8 +69,6 @@
 ;; add ox-hugo
 (require 'modules-hugo)
 
-;; add org-roam config
-(require 'modules-roam)
 
 (provide 'init)
 ;;; init.el ends here
