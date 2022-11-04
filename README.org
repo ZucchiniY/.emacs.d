@@ -25,24 +25,46 @@
 - Org Mode :: 记笔记，做计划，写博客 (配合 ox-hugo) ，等所有的内容，都可以使用。
 - Magit :: 开发的时候做代码管理，可以说是非常好用的一个功能，几乎是 Emacs 神器。
 - Org Roam :: 快捷笔记方式，用来更好的规划自己的任务。从这一刻起，真正将 Emacs 用为自己的工具。
+- projectile :: 项目快速切换，修改配置、开发工具时使用都非常频繁。
 
 所以在这次从头开始的配置中，第一个需要的就是 Org Mode + Org Roam + Magit。
 
-* 为自己想要的功能增加对应的快捷键
+* 所有使用到的配置和快捷键
 
-也许这不是最好的方法，但确是对我来说最适合的配置。而且快捷键的配置也主要只针对比较重要的插件，其它的都放到 other 的配置中。
+删除一些长时间未使用、非基础的配置，同时调整一些配置代码的位置，整合一些配置文件中的内容。
 
-** basis
+** core
 
-- M-S-<return> :: 全屏界面
-- M-s-<return> :: 最大化窗口
+此配置下主要是一些必须的设置、工具配置和许多个人比较喜欢使用的工具。
 
-使用 =general= 定义 *leader key* =[SPC]= 和 =[SPC m]= 。
+*** basis
+
+将 core-variable 的内容合并到 core-basis 中。basis 仅用来配置公共变量和基础设置的内容。
+
+- M-S-<return> :: toggle-frame-fullscreen 全屏界面
+- M-s-<return> :: toggle-frame-maximized 最大化窗口
+- C-= :: er/expand-region 扩展选择区域
+
+*** package
+
+配置 use-package 包，并增加一些基础包引入，同时将 general 调整到此配置下，用来配置基础的快捷键。
+
+*** keybind
+
+合并 evil 和 general 配置方案。
+
+使用 =general= 定义 *leader key* =[SPC]= 。
 
 - fs :: save-buffer
 - fd :: dired
-- bk :: kill-buffer
+
+- bq :: kill-buffer
 - qq :: save-buffers-kill-emacs
+- wq :: delete-window
+
+- wu :: winner-undo
+- wr :: winner-redo
+  
 - wo :: other-window
 - wv :: split-window-vertically
 - w- :: split-window-horizontally
@@ -50,10 +72,13 @@
 - wh :: evil-window-left
 - wk :: evil-window-up
 - wj :: evil-window-down
-- wq :: delete-window
 - wa :: delete-other-windows
 
-** counsel
+- 1~0 :: winum-select-window-[1~0]
+
+- ov :: cfw:open-org-calendar
+
+*** counsel
 
 leader key *SPC* 
 
@@ -66,7 +91,7 @@ leader key *SPC*
 - cg :: counsel-git-grep
 - cr :: counsel-rg
 
-** Org mode
+*** org mode
 
 增加引用最新版本的 org mode，不再是使用 Emacs 自带的版本。
 
@@ -95,129 +120,11 @@ leader key *SPC o*
 - ` :: org-time-stamp，插入一个「激活」时间戳，可在 Agengda 中看到
 - ! :: org-time-stamp-inactive，插入一个「非激活」时间戳
 
-** Magit
+*** org roam
 
-- SPC g g :: 启动 Magit
-           
-** company
+org-roam 工具调整到 core/ 下，作为常用的工具，一直启用。
 
-- M-/ :: company-complete
-- C-p :: company-select-previous
-- C-n :: company-select-next
-- <tab> :: company-complete-common-or-cycle
-
-** treemacs
-
-leader key *SPC t*
-
-- c :: treemacs select window
-- t :: treemacs
-- b :: treemacs bookmark
-
-** projectile
-
-- SPC p :: projectile command map
-- SPC p p :: counsel-projectile-switch-project
-- SPC p / :: counsel-projectile-grep
-- SPC SPC :: counsel-projectile-find-file
-
-** +wakatime+
-
-+移除 wakatime 功能，统计的有问题，而且使用较少。+
-
-+增加了 [[wakatime][https://wakatime.com/dashboard]] 配置，使用 *wakatime* 进行工作统计，希望可以提升自己的效率。+
-
-** org-super-agenda
-
-增加[[org-super-agenda][https://github.com/alphapapa/org-super-agenda]] 的功能，用来合理的显示任务的优先级和任务的类型。
-
-** +mind map+
-
-+用来将 org 文档利用 graphviz-dot 生成 mind map 图。+
-
-** +pyim+
-
-+移除 pyim 功能。+
-+增加 emacs 中文输入法的支持。+
-
-+- M-j :: 在是英文的时间，将默认的输入变成中文。+
-         
-** +emacs-rime+
-
-不再使用。
-
-输入法使用 emacs-rime 功能，不再需要复杂的 pyim 的配置，简单的几行设置就可以使用中文件输入的功能有，经过测试与 evil 模式结合使用非常方便，唯一的就是缺少临时输入英文的更好的方案，但是可以直接输入英文，通过回车的方法直接上屏。
-
-** plantuml
-
-增加专门为 plantuml 所使用有配置。
-
-Plantuml 主要用来绘制流程图、思维导图等许多图例。
-
-** writeroom
-
-增加 writeroom 的配置，用来专注于写作。
-
-- SPC r w :: 启动和关闭专注写作模式
-
-** lsp mode
-
-使用 lsp 作为开发的后台，主要支持 JavaScript / Vue / Python 几门语言。
-
-- python :: =pip install 'python-language-server[all]'=
-- JavaScript :: =brew install deno=
-- css :: =npm install -g vscode-css-languageserver-bin'=
-- html :: =npm install -g vscode-html-languageserver-bin'=
-- vue :: =npm install -g vls=
-
-** Python + anaconda or miniconda
-
-切换使用 anaconda-mode 替换 lsp mode 作为 Python 的开发环境。
-
-1. anaconda 的开发环境设置比较方便，特别是在 Mac 下，如果直接使用 /local/bin/python3 来作为环境，使用 venv 的方式管理，会有一些使用上的问题，而且不易迁移，所以就使用 conda 来管理 Python 环境。
-2. anaconda 与 PyCharm 可以直接使用，而对于 pyenv 和 pipenv 、 poetry 等环境工具，使用起来都不是特别方便。
-
-** +stock 股票功能+
-- SPC k :: 启动之后，可以从中获取对应的股票数据
-
-** calendar + cal-china-x + calfw
-
-使用 Calendar 和 cal-china-x 来设置需要提醒的日期，防止自己忘记。
-
-引入 calfw 包来展示相关的日历，除了具体的日期外，还可以增加展示 org-agenda 中的内容。
-
-** django (pony-mode)
-
-*** 基础管理
-
-- SPC mjm :: 启动 pony-mode 管理会话
-
-*** 文件管理
-
-- SPC mjfs :: 打开项目的 settings.py 文件
-
-*** 服务管理
-
-- SPC mjrd :: 停止开发服务
-- SPC mjru :: 启动或者打开开发服务
-- SPC mjrt :: 启动一个秒级的服务
-
-*** 测试管理
-  
-- SPC mjtd :: Move down the traceback one level
-- SPC mjte :: Go to the file and line of the last stack trace in a test buffer
-- SPC mjto :: Open the file in a traceback at the line specified
-- SPC mjtt :: Run the test(s) given by command
-- SPC mjtu :: Move up the traceback one level
-
-** recentf
-
-发现最大化 Emacs 之后，dashboard 中的 recent 中的文件记录发生改变，翻看代码发现 dashboard 中引入了 recentf 。在 basis.el 中增加 recentf 的引入后，问题解决。
-
-** org roam
-
-配置 Org Roam 用来进行任务规划、记录笔记等内容，替换部分 org capture 的内容。
-
+使用 Org Roam 进行任务规划、记录笔记等内容，替换部分 org capture 的内容。
 
 - SPC n l :: org-roam-buffer-toggle 查看对应的反向链接的文章
 - SPC n f :: org-roam-node-find 查找所有 roam 中的文件，可以查看文章的标题（title）和 Alias 的内容
@@ -233,5 +140,44 @@ Plantuml 主要用来绘制流程图、思维导图等许多图例。
 - SPC n n :: org-roam-dailies-goto-next-note 跳转到下一篇内容，如果是日则是下一天，周则是下一周
 - SPC n p :: org-roam-dailies-goto-previous-note 返回上一篇内容，如果是日则是上一天，周则是上一周
 - SPC n s :: org-roam-db-sync 刷新存储的关系，解决 =org-roam-ui-mode= 生成的关系图不同步问题
+
+** modules
+*** Magit
+
+- SPC g g :: 启动 Magit
+           
+*** company
+
+- M-/ :: company-complete
+- C-p :: company-select-previous
+- C-n :: company-select-next
+- <tab> :: company-complete-common-or-cycle
+
+*** treemacs
+
+leader key *SPC t*
+
+- c :: treemacs select window
+- t :: treemacs
+- b :: treemacs bookmark
+
+*** projectile
+
+- SPC p :: projectile command map
+- SPC p p :: counsel-projectile-switch-project
+- SPC p / :: counsel-projectile-grep
+- SPC SPC :: counsel-projectile-find-file
+
+*** plantuml
+
+增加专门为 plantuml 所使用有配置。
+
+Plantuml 主要用来绘制流程图、思维导图等许多图例。
+
+*** calendar + cal-china-x + calfw
+
+使用 Calendar 和 cal-china-x 来设置需要提醒的日期，防止自己忘记。
+
+引入 calfw 包来展示相关的日历，除了具体的日期外，还可以增加展示 org-agenda 中的内容。
 
 

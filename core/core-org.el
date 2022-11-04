@@ -176,5 +176,13 @@
   (use-package org-pomodoro
     :after org-agenda
     :config (setq org-pomodoro-long-break-length 15)))
+
+(use-package plantuml-mode
+  :mode ("\\.plantuml\\'" . plantuml-mode)
+  :defer t
+  :config
+  (setq plantuml-jar-path (expand-file-name "extends/plantuml.jar" user-emacs-directory)
+        plantuml-default-exec-mode 'jar))
+
 (provide 'core-org)
 ;;; core-org.el ends here
