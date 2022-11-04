@@ -2,6 +2,7 @@
 .emacs.desktop.lock
 .mc-lists.el
 elpa/
+data/
 forge-database.sqlite
 transient/
 .elfeed/
