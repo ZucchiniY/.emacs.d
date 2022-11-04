@@ -8,3 +8,8 @@
 	url = https://github.com/domtronn/all-the-icons.el.git
 	branch = master
 	depth = 1
+[submodule "site-lisp/use-package"]
+	path = site-lisp/use-package
+	url = https://github.com/jwiegley/use-package.git
+	branch = master
+	depth = 1
