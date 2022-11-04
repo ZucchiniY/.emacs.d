@@ -1,4 +1,4 @@
-;;; modules-roam.el --- summary -*- lexical-binding: t -*-
+;;; core-roam.el --- summary -*- lexical-binding: t -*-
 
 ;; Author: Dylan Yang
 ;; Maintainer: Dylan Yang
@@ -120,6 +120,5 @@
   (deft-default-extension "org")
   (deft-directory org-roam-directory))
 
-(provide 'modules-roam)
-
-;;; modules-roam.el ends here
+(provide 'core-roam)
+;;; core-roam.el ends here
