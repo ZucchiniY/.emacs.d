@@ -45,15 +45,16 @@
 (require 'core-package)
 (require 'core-keybind)
 
-(require 'core-company)
+;; (require 'core-company)
 (require 'core-counsel)
 (require 'core-ui)
-(require 'core-treemacs)
+;; (require 'core-treemacs)
 
 (require 'core-org)
 ;; add org-roam config
 (require 'core-roam)
 
+(require 'modules-lsp-bridge)
 (require 'modules-magit)
 (require 'modules-projectile)
 
