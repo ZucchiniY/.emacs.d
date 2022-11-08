@@ -24,7 +24,7 @@
 (defconst sys/mac-x-p
   (and (display-graphic-p) sys/macp))
 
-;; (setf
+
 (defconst tuna-elpa
   '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
     ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
@@ -86,8 +86,8 @@
 
 ;; add keybind maximized screen to atl+return
 ;; add keybind fullscreen to atl+shift+return
-(bind-keys ("M-S-<return>" . toggle-frame-fullscreen)
-           ("M-s-<return>" . toggle-frame-maximized))
+(global-set-key (kbd "M-S-<return>") 'toggle-frame-fullscreen)
+(global-set-key (kbd "M-s-<return>") 'toggle-frame-maximized)
 
 (provide 'core-basis)
 ;;; core-basis.el ends here
