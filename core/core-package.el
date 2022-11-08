@@ -41,30 +41,37 @@
 
 ;; use package-utils to update packages
 (use-package package-utils
+  :defer t
   :init
   (defalias 'upgrade-packages 'package-utils-upgrade-all)
   (defalias 'upgrade-packages-and-restart 'package-utils-upgrade-all-and-restart))
 
 (use-package no-littering
+  :ensure t
   :init
   (setq no-littering-etc-directory (expand-file-name "config/" user-emacs-directory)
         no-littering-var-directory (expand-file-name "data/" user-emacs-directory)))
 
 (use-package which-key
+  :ensure t
   :diminish which-key-mode
   :hook (after-init . which-key-mode))
 
-(use-package htmlize)
+(use-package htmlize :defer t)
 
 (use-package yasnippet
+  :ensure t
   :diminish yas-minor-mode
   :hook (after-init . yas-global-mode)
-  :config (use-package yasnippet-snippets))
+  :config
+  (use-package yasnippet-snippets
+    :ensure t))
 
 (use-package expand-region
   :bind ("C-=" . er/expand-region))
 
 (use-package smart-region
+  :ensure t
   :hook (after-init . smart-region-on))
 
 (declare-function upgrade-packages-and-restart 'init-package)
