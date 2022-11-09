@@ -48,15 +48,17 @@
 ;; (require 'core-company)
 (require 'core-counsel)
 (require 'core-ui)
-;; (require 'core-treemacs)
+(require 'core-treemacs)
 
 (require 'core-org)
 ;; add org-roam config
 (require 'core-roam)
 
-(require 'modules-lsp-bridge)
+;; dashboard
+(require 'modules-dashboard)
 (require 'modules-magit)
 (require 'modules-projectile)
+(require 'modules-lsp-bridge)
 
 ;; 节日提醒
 (require 'modules-calendar)
@@ -64,8 +66,6 @@
 ;; add ox-hugo
 (require 'modules-hugo)
 
-;; dashboard
-(require 'modules-dashboard)
 
 ;; add ox-hugo
 (require 'modules-hugo)

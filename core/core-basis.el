@@ -86,7 +86,7 @@
 
 ;; add keybind maximized screen to atl+return
 ;; add keybind fullscreen to atl+shift+return
-(global-set-key (kbd "M-S-<return>") 'toggle-frame-fullscreen)
+;; (global-set-key (kbd "M-S-<return>") 'toggle-frame-fullscreen)
 (global-set-key (kbd "M-s-<return>") 'toggle-frame-maximized)
 
 (provide 'core-basis)
