@@ -88,12 +88,7 @@
            :empty-lines 1
            :unnarrowed t
            :jump-to-capture t)
-          ("h" "Habit List" entry
-           "* TODO %^{Habit} %^G\n:PROPERTIES:\n:STYLE:    habit\n:END:"
-           :target (file+head "%Habits.org"
-                              "#+title: 习惯清单\n")
-           :empty-lines 1
-           :unnarrowed t))
+          )
         )
   (setq org-roam-node-display-template
         (concat "${title:*} "
