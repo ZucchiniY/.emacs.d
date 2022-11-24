@@ -31,6 +31,10 @@
         company-dabbrev-ignore-case nil
         company-dabbrev-downcase nil))
 
+;; company-box
+(use-package company-box
+  :hook (company-mode . company-box-mode))
+
 ;; Flycheck
 (use-package flycheck
   :diminish flycheck-mode

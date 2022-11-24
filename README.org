@@ -120,6 +120,10 @@ leader key *SPC o*
 - ` :: org-time-stamp，插入一个「激活」时间戳，可在 Agengda 中看到
 - ! :: org-time-stamp-inactive，插入一个「非激活」时间戳
 
+**** plantuml
+
+增加专门为 plantuml 所使用有配置。Plantuml 主要用来绘制流程图、思维导图等许多图例。
+
 *** org roam
 
 org-roam 工具调整到 core/ 下，作为常用的工具，一直启用。
@@ -168,16 +172,26 @@ leader key *SPC t*
 - SPC p / :: counsel-projectile-grep
 - SPC SPC :: counsel-projectile-find-file
 
-*** plantuml
-
-增加专门为 plantuml 所使用有配置。
-
-Plantuml 主要用来绘制流程图、思维导图等许多图例。
-
 *** calendar + cal-china-x + calfw
 
 使用 Calendar 和 cal-china-x 来设置需要提醒的日期，防止自己忘记。
 
 引入 calfw 包来展示相关的日历，除了具体的日期外，还可以增加展示 org-agenda 中的内容。
 
+*** lsp-mode + dap-mode + lsp-ui + lsp-language-server
+
+使用 lsp-mode 作为程序补全的工具，主要使用 =Python= 、 =JavaScript/TypeScript= 开发项目。
+
+**** 开发语言后台
+
+目前仅使用 =pyright= 语言。后续增加前端相关配置。
+
+- Python :: =npm install -g pyright=
+- JavaScript/TypeScript :: =npm install -g typescript-language-server typescript=
+  启动后台： =typescript-language-server --stdio=
+- HTML/CSS :: =npm install -g vscode-langservers-extracted=
+
+**** debug
+
+使用 dap-mode 对开发做测试和 debug 。
 

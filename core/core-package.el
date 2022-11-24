@@ -60,7 +60,8 @@
 
 (use-package which-key
   :diminish which-key-mode
-  :hook (after-init . which-key-mode))
+  :hook (after-init . which-key-mode)
+  :config (which-key-mode))
 
 (use-package htmlize :defer t)
 

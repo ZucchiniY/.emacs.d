@@ -45,7 +45,7 @@
 (require 'core-package)
 (require 'core-keybind)
 
-;; (require 'core-company)
+(require 'core-company)
 (require 'core-counsel)
 (require 'core-ui)
 (require 'core-treemacs)
@@ -58,6 +58,9 @@
 (require 'modules-dashboard)
 (require 'modules-magit)
 (require 'modules-projectile)
+
+;; lsp python
+(require 'modules-lsp-python)
 
 ;; 节日提醒
 (require 'modules-calendar)

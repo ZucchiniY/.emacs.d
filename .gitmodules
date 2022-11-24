@@ -8,8 +8,3 @@
 	url = https://ghproxy.com/https://github.com/domtronn/all-the-icons.el.git
 	branch = master
 	depth = 1
-[submodule "site-lisp/lsp-bridge"]
-	path = site-lisp/lsp-bridge
-	url = https://ghproxy.com/https://github.com/manateelazycat/lsp-bridge.git
-	depth = 1
-	branch = master
