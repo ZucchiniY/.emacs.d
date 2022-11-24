@@ -58,18 +58,12 @@
 (require 'modules-dashboard)
 (require 'modules-magit)
 (require 'modules-projectile)
-(require 'modules-lsp-bridge)
 
 ;; 节日提醒
 (require 'modules-calendar)
 
 ;; add ox-hugo
 (require 'modules-hugo)
-
-
-;; add ox-hugo
-(require 'modules-hugo)
-
 
 (provide 'init)
 ;;; init.el ends here
