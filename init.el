@@ -29,7 +29,12 @@
 ;; 初始化文件
 
 ;;; Code:
-
+;; upgrade emacs performance
+(setq gc-cons-threshold (* 100 1024 1024)
+      read-process-output-max (* 1024 1024)
+      company-idle-delay 0.0
+      company-minimum-prefix-length 1
+      create-lockfiles nil) 
 
 (defun update-load-path (&rest _)
   "Update `load-path'."
