@@ -159,7 +159,9 @@
                                (shell . t)
                                (dot . t)
                                (ditaa .t)
-                               (plantuml . t)))
+                               (plantuml . t)
+                               
+                               ))
 
   (use-package ob-ipython
     :if (executable-find "jupyter")     ; DO NOT remove
@@ -183,6 +185,13 @@
   :config
   (setq plantuml-jar-path (expand-file-name "extends/plantuml.jar" user-emacs-directory)
         plantuml-default-exec-mode 'jar))
+
+(use-package yaml-mode
+  :mode (("\\.yaml\\'" . yaml-mode)
+         ("\\.yml\\'" . yaml-mode)))
+
+(use-package toml-mode
+  :mode (("\\.toml\\'" . toml-mode)))
 
 (provide 'core-org)
 ;;; core-org.el ends here

@@ -124,6 +124,10 @@ leader key *SPC o*
 
 增加专门为 plantuml 所使用有配置。Plantuml 主要用来绘制流程图、思维导图等许多图例。
 
+**** yaml/toml
+
+增加一些文件编辑对应的引用包，用来编写笔记和配置文件
+
 *** org roam
 
 org-roam 工具调整到 core/ 下，作为常用的工具，一直启用。
