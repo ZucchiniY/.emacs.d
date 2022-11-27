@@ -11,7 +11,7 @@
 ;;; Code:
 (use-package general
   :defer 1
-  :commands general-override-states
+  :commands (general-override-states global-leader)
   :config
   (general-evil-setup t)
   (general-create-definer global-leader
@@ -56,6 +56,7 @@
      "0" 'winum-select-window-0-or-10
      ;; cfw::open-org-calendar
      "ov" 'cfw:open-org-calendar
+     "xo" 'xwidget-webkit-browse-url
     ))
 
 (use-package evil
