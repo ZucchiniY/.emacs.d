@@ -51,7 +51,7 @@ CHINESE-SIZE is the chinese font size."
       (dylan//set-monospaced-font "Iosevka Term" "Microsoft YaHei" 14 14)))
 
 (use-package doom-themes
-  :init
+  :custom
   (load-theme 'doom-one-light t)
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
@@ -64,7 +64,6 @@ CHINESE-SIZE is the chinese font size."
 (use-package doom-modeline
   :ensure t
   :hook (after-init . doom-modeline-mode))
-
 
 (use-package kaolin-themes
   :defer 1

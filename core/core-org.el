@@ -113,7 +113,7 @@
                             (sequence "TODO(t)" "WAITING(w)" "IMPORTANT(i)"
                                       "|" "DONE(d!)" "CANCELED(c@)"))
         org-todo-keyword-faces '(("TODO" . (:foreground "SpringGreen2" :weight bold))
-                                 ("CANCELED" . (:foreground "white" :background "DarkGrey"))
+                                 ("CANCELED" . (:foreground "white" ))
                                  ("IMPORTANT" . "orange red")
                                  ("WAITING" . "chocolate")
                                  ("DONE" . "ForestGreen")
@@ -192,6 +192,11 @@
 
 (use-package toml-mode
   :mode (("\\.toml\\'" . toml-mode)))
+
+(use-package org-preview-html
+  :config
+  (setq org-preview-html-refresh-configuration 'manual
+        org-preview-html-viewer 'xwidget))
 
 (provide 'core-org)
 ;;; core-org.el ends here
