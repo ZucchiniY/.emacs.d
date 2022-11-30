@@ -36,7 +36,7 @@
     ("melpa-stable" . "http://mirrors.ustc.edu.cn/elpa/melpa-stable/")))
 
 (setq user-full-name "Dylan Yang")
-(set-default 'truncate-lines t)
+(set-default 'truncate-lines nil)
 
 ;; config function keybind
 (when sys/winntp

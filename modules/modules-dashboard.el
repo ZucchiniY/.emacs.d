@@ -12,19 +12,23 @@
 (require 'core-variable)
 
 (use-package dashboard
-  :defer t
+  :ensure t
   :init
-  (dashboard-setup-startup-hook)
-  :config
-  (setq dashboard-set-heading-icons t)
-  (setq dashboard-set-file-icons t)
-  (setq dashboard-center-content t)
-  (setq dashboard-banner-logo-title "Welcome to Dylan's Emacs"
+  ;; :config
+  (setq dashboard-set-heading-icons t
+        dashboard-set-file-icons t
+        dashboard-set-init-info t
+        dashboard-center-content t
+        dashboard-banner-logo-title "Dylan's Emacs - Talk is cheap. Show me the code."
         dashboard-startup-banner (expand-file-name "logo.png" user-emacs-directory)
+        dashboard-projects-switch-function 'counsel-projectile-switch-project-by-name
         dashboard-items '((recents . 5)
                           (projects . 5)
-                          (agenda . 5)
-                          (bookmarks . 5))))
+                          ;; (agenda . 5)
+                          (bookmarks . 5)))
+
+  (dashboard-setup-startup-hook)
+  )
 
 (provide 'modules-dashboard)
 ;;; modules-dashboard.el ends here
