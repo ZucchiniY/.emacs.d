@@ -24,7 +24,7 @@
   :defines (org-roam-dailies-directory
             org-roam-dailies-capture-templates
             org-roam-capture-ref-templates)
-  :defer 1
+  :defer t
   :ensure t
   :diminish org-roam-mode
   :general

@@ -6,7 +6,6 @@
 ;; URL: https://github.com/zucchiniy/.emacs.d
 
 ;;; Commentary:
-;;
 
 ;;; Code:
 (use-package general
@@ -57,10 +56,11 @@
      ;; cfw::open-org-calendar
      "ov" 'cfw:open-org-calendar
      "xo" 'xwidget-webkit-browse-url
-    ))
+     ))
 
 (use-package evil
-  :defer 1
+  :defer t
+  :commands (evil-set-initial-state evil-ex-define-cmd)
   :hook (after-init . evil-mode)
   :init
   (setq evil-want-keybinding nil
@@ -78,13 +78,13 @@
   (define-key evil-normal-state-map "Y" (kbd "y$")))
 
 ;; add package evil-collection
-(use-package evil-collection
-  :defer 1
-  :after evil
-  :config
-  (evil-collection-init)
-  (setq forge-add-default-bindings nil)
-  :custom (evil-collection-setup-minibuffer t))
+;; (use-package evil-collection
+;;   :defer 1
+;;   :after evil
+;;   :config
+;;   (evil-collection-init)
+;;   (setq forge-add-default-bindings nil)
+;;   :custom (evil-collection-setup-minibuffer t))
 
 ;; gcc comments out a line
 ;; gc comments out the target of a motion

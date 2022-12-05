@@ -21,7 +21,6 @@
         dashboard-center-content t
         dashboard-banner-logo-title "Dylan's Emacs - Talk is cheap. Show me the code."
         dashboard-startup-banner (expand-file-name "logo.png" user-emacs-directory)
-        dashboard-projects-switch-function 'counsel-projectile-switch-project-by-name
         dashboard-items '((recents . 5)
                           (projects . 5)
                           ;; (agenda . 5)
