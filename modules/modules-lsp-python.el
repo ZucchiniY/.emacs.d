@@ -1,7 +1,7 @@
 ;;; config lsp mode
 (use-package lsp-mode
   :init
-  (setq lsp-keymap-prefix "SPC l")
+  ;; (setq lsp-keymap-prefix "SPC l")
   :hook ((python-mode . lsp-deferred)
          ;; (javascript-mode . lsp-deferred)
          ;; (typescript-mode .lsp-deferred)
