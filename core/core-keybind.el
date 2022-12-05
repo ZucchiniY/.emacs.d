@@ -59,7 +59,7 @@
      ))
 
 (use-package evil
-  :defer t
+  :defer 1
   :commands (evil-set-initial-state evil-ex-define-cmd)
   :hook (after-init . evil-mode)
   :init

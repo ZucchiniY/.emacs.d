@@ -34,11 +34,11 @@
                                   holiday-other-holidays)))
 
 (use-package calfw
-  :defer t
+  :defer 1
   :commands (cfw:open-calendar-buffer))
 
 (use-package calfw-org
-  :defer t
+  :defer 1
   :commands (cfw:open-org-calendar cfw:org-create-source)
   :config
   (setq cfw:org-face-agenda-item-foreground-color "#ecccc3"))
