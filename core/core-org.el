@@ -112,12 +112,13 @@
   (setq org-todo-keywords '(;; Baseline sequence
                             (sequence "TODO(t)" "WAITING(w)" "IMPORTANT(i)"
                                       "|" "DONE(d!)" "CANCELED(c@)"))
-        org-todo-keyword-faces '(("TODO" . (:foreground "SpringGreen2" :weight bold))
-                                 ("CANCELED" . (:foreground "#354863" ))
-                                 ("IMPORTANT" . "orange red")
-                                 ("WAITING" . "chocolate")
-                                 ("DONE" . "ForestGreen")
-                                 ))
+        ;; org-todo-keyword-faces '(("TODO" . (:foreground "SpringGreen2" :weight bold))
+        ;;                          ("CANCELED" . (:foreground "#354863" ))
+        ;;                          ("IMPORTANT" . "orange red")
+        ;;                          ("WAITING" . "chocolate")
+        ;;                          ("DONE" . "ForestGreen")
+        ;;                          )
+        )
 
   ;; org capture-templates
   (setq org-capture-templates

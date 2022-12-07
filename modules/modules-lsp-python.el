@@ -1,4 +1,7 @@
+;;; package --- Summary
+;;; Commentary:
 ;;; config lsp mode
+;;; Code:
 (use-package lsp-mode
   :init
   ;; (setq lsp-keymap-prefix "SPC l")
@@ -48,3 +51,4 @@
                          (lsp-deferred))))
 
 (provide 'modules-lsp-python)
+;;; modules-lsp-python.el ends here
