@@ -78,13 +78,17 @@
   (define-key evil-normal-state-map "Y" (kbd "y$")))
 
 ;; add package evil-collection
-;; (use-package evil-collection
-;;   :defer 1
-;;   :after evil
-;;   :config
-;;   (evil-collection-init)
-;;   (setq forge-add-default-bindings nil)
-;;   :custom (evil-collection-setup-minibuffer t))
+(use-package evil-collection
+  :defer 2
+  ;; :disabled
+  :after evil
+  :custom
+  (setq evil-collection-outline-bind-tab-p nil
+        evil-collection-setup-minibuffer t)
+  :config
+  (setq evil-collection-mode-list (delete 'company evil-collection-mode-list))
+  (evil-collection-init)
+  )
 
 ;; gcc comments out a line
 ;; gc comments out the target of a motion
