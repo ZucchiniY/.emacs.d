@@ -53,26 +53,27 @@
         org-roam-completion-everywhere t
         org-roam-dailies-directory "daily/"
         org-roam-dailies-capture-templates
-        '(("d" "Daily Journal" entry
-           "* TODO %^{Title} %^G\nSCHEDULED: %^T %?"
-           :target (file+head "%<%Y-%m-%d>.org"
-                              "#+title: %<%Y-%m-%d>\n")
-           :empty-lines 1
-           :unnarrowed t
-           :jump-to-captured t)
+        '(
           ("w" "Weekly Journal" entry
            "* TODO %^{Title} %^G\nSCHEDULED: %^T %?"
            :target (file+head "%<%Y-W%W>.org"
-                              "#+title: %<%Y-W%W>\n")
+                              "#+title: %<%Y 年第 %W 周>\n")
            :empty-lines 1
            :unnarrowed t
            :jump-to-captured t)
           ("m" "Monthly Journal" entry
            "* TODO %^{Title} %^G\nSCHEDULED: %^T %?"
            :target (file+head "%<%Y-%m>.org"
-                              "#+title: %<%Y 年%m 月>\n")
+                              "#+title: %<%Y 年 %m 月>\n")
            :empty-lines 1
            :unnarrowed t)
+          ("Q" "Quarter Journal" entry
+           "* TODO %^{Title} %^G\nSCHEDULED: %^T %?"
+           :target (file+head "%<%Y-Q%q>.org"
+                              "#+title: %<%Y 年 %q 季度>\n")
+           :empty-lines 1
+           :unnarrowed t
+           :jump-to-captured t)
           )
         org-roam-capture-templates
         '(("d" "default" plain "%?"
@@ -83,8 +84,8 @@
            :jump-to-captured t)
           ("r" "Reading List" entry
            "* %?"
-           :target (file+head "%<%Y 年>阅读清单.org"
-                              "#+title: %<%Y 年>阅读清单\n")
+           :target (file+head "%<%^{Year} 年>阅读清单.org"
+                              "#+title: %<%^{Year} 年>阅读清单\n")
            :empty-lines 1
            :unnarrowed t
            :jump-to-capture t)
