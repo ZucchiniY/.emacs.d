@@ -67,7 +67,7 @@
                               "#+title: %<%Y 年 %m 月>\n")
            :empty-lines 1
            :unnarrowed t)
-          ("Q" "Quarter Journal" entry
+          ("j" "Quarter Journal" entry
            "* TODO %^{Title} %^G\nSCHEDULED: %^T %?"
            :target (file+head "%<%Y-Q%q>.org"
                               "#+title: %<%Y 年 %q 季度>\n")
