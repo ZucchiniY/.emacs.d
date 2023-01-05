@@ -61,10 +61,19 @@
            :empty-lines 1
            :unnarrowed t
            :jump-to-captured t)
-          ("m" "Monthly Journal" entry
+          ("m" "Monthly Journal")
+          ("mk" "Monthly Journal key result" entry
            "* TODO %^{Title} %^G\nSCHEDULED: %^T %?"
-           :target (file+head "%<%Y-%m>.org"
-                              "#+title: %<%Y 年 %m 月>\n")
+           :target (file+head+olp "%<%Y-%m>.org"
+                                  "#+title: %<%Y 年 %m 月>\n"
+                                  ("关键任务"))
+           :empty-lines 1
+           :unnarrowed t)
+          ("mr" "Monthly Journal reading" table-line
+           "| %? |"
+           :target (file+head+olp "%<%Y-%m>.org"
+                              "#+title: %<%Y 年 %m 月>\n"
+                              ("阅读计划"))
            :empty-lines 1
            :unnarrowed t)
           ("j" "Quarter Journal" entry
