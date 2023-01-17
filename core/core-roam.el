@@ -55,9 +55,10 @@
         org-roam-dailies-capture-templates
         '(
           ("w" "Weekly Journal" entry
-           "* TODO %^{Title} %^G\nSCHEDULED: %^T %?"
-           :target (file+head "%<%Y-W%W>.org"
-                              "#+title: %<%Y 年第 %W 周>\n")
+           "** TODO %^{Title} %^G\nSCHEDULED: %^T %?"
+           :target (file+head+olp "%<%Y-W%W>.org"
+                                  "#+title: %<%Y 年第 %W 周>\n"
+                                  ("关键任务"))
            :empty-lines 1
            :unnarrowed t
            :jump-to-captured t)
