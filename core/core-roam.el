@@ -101,9 +101,10 @@
            :jump-to-capture t)
           )
         )
+  ;; 在 org-roam-node-find 时展示的方案
   (setq org-roam-node-display-template
         (concat "${title:*} "
-                (propertize "${tags:10}" 'face 'org-tag)))
+                (propertize "${tags:50}" 'face 'org-tag)))
   (org-roam-db-autosync-mode)
 
   (require 'org-roam-protocol))
