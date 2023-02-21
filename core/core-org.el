@@ -81,6 +81,8 @@
         org-agenda-include-diary t
         ;; 调整 org 中图片的大小
         org-image-actual-width nil
+        ;; 启用 #+bind:
+        org-export-allow-bind-keywords t
         )
   ;; 配置 clock table 中的 block 选项
         ;; 扩展 org-clock-clocktable-default-properties 参数
