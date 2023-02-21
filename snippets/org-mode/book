@@ -3,8 +3,8 @@
 # key: book
 # --
 
-#+BOOKNAME: ${1:book}
-#+AUTHOR: ${2:author}
-#+FINISH_DATE: `(format-time-string "%Y-%m-%d")`
+BOOKNAME: ${1:book}
+AUTHOR: ${2:author}
+FINISH_DATE: `(format-time-string "%Y-%m-%d")`
 
 $0
