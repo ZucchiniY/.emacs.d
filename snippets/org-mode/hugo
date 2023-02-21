@@ -5,6 +5,7 @@
 
 #+DATE: `(format-time-string "%Y-%m-%d %a")`
 #+HUGO_BASE_DIR: ~/workspace/blog/hugo-blog/
+#+EXPORT_FILE_NAME: $5
 #+HUGO_SECTION: $0
 #+HUGO_SERIES: $1
 #+HUGO_CATEGORIES: $2
