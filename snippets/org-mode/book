@@ -3,8 +3,9 @@
 # key: book
 # --
 
-BOOKNAME: ${1:book}
-AUTHOR: ${2:author}
-FINISH_DATE: `(format-time-string "%Y-%m-%d")`
+- 书名: ${1:book}
+- 作者: ${2:author}
+- 开始时间: `(format-time-string "%Y-%m-%d")`
+- 完成时间: `(format-time-string "%Y-%m-%d")`
 
-$0
+$3
