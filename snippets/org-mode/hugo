@@ -5,7 +5,7 @@
 
 #+DATE: `(format-time-string "%Y-%m-%d %a")`
 #+HUGO_BASE_DIR: ~/workspace/blog/hugo-blog/
-#+EXPORT_FILE_NAME: $5
+#+EXPORT_FILE_NAME:
 #+HUGO_SECTION: $0
 #+HUGO_SERIES: $1
 #+HUGO_CATEGORIES: $2
@@ -15,5 +15,3 @@
 #+HUGO_FRONT_MATTER_FORMAT: yaml
 #+HUGO_WEIGHT: auto
 #+HUGO_AUTO_SET_LASTMOD: true
-
-$4
