@@ -64,8 +64,8 @@
 (require 'modules-magit)
 (require 'modules-projectile)
 
-;; lsp python
-(require 'modules-lsp-python)
+;; lsp mode (python javascript typescript)
+(require 'modules-lsp)
 
 ;; 节日提醒
 (require 'modules-calendar)

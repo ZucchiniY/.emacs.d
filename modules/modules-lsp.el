@@ -6,8 +6,8 @@
   :init
   ;; (setq lsp-keymap-prefix "SPC l")
   :hook ((python-mode . lsp-deferred)
-         ;; (javascript-mode . lsp-deferred)
-         ;; (typescript-mode .lsp-deferred)
+         (javascript-mode . lsp-deferred)
+         (typescript-mode .lsp-deferred)
          (lsp-mode . lsp-enable-which-key-integration))
   :commands (lsp lsp-deferred))
 
@@ -16,15 +16,20 @@
   :after lsp-mode
   :commands (dap-debug dap-register-debug-template)
   :hook ((python-mode . dap-ui-mode)
-         (python-mode . dap-mode))
+         (python-mode . dap-mode)
+         (javascript-mode . dap-ui-mode)
+         (javascript-mode . dap-mode)
+         (typescript-mode . dap-ui-mode)
+         (typescript-mode . dap-mode)
+         )
   :custom
   (dap-auto-configure-mode)
   (dap-auto-configure-feature
    '(sessions locals breakpoints expressions tooltip))
   :config
   (require 'dap-python)
-  ;; (require 'dap-javascript)
-  ;; (require 'dap-typescript)
+  (require 'dap-javascript)
+  (require 'dap-typescript)
   (dap-register-debug-template
    "Python dap"
    (list :type "python"
@@ -34,9 +39,7 @@
          ;; :target-module (expand-file-name "")
          :request "launch"
          ;; :name "
-
-         )
-   )
+         ))
   )
 
 ;; treemacs and ivy
@@ -50,5 +53,5 @@
                          (require 'lsp-pyright)
                          (lsp-deferred))))
 
-(provide 'modules-lsp-python)
-;;; modules-lsp-python.el ends here
+(provide 'modules-lsp)
+;;; modules-lsp.el ends here
