@@ -73,6 +73,9 @@
 ;; add ox-hugo
 (require 'modules-hugo)
 
+;; web develop
+(require 'modules-web)
+
 (provide 'init)
 ;;; init.el ends here
 
