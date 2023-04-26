@@ -15,7 +15,8 @@
 (use-package org
   :defines (org-capture-templates
             org-plantuml-jar-path
-            org-ditaa-jar-path)
+            org-ditaa-jar-path
+            )
   :commands org-try-structure-completion
   :mode ("\\.\\(org\\|org_archive\\)$" . org-mode)
   :hook (org-indent-mode . (lambda() (diminish 'org-indent-mode)))
@@ -163,12 +164,18 @@
                                (dot . t)
                                (ditaa .t)
                                (plantuml . t)
-                               
+                               (mermaid . t)
                                ))
 
   (use-package ob-ipython
     :if (executable-find "jupyter")     ; DO NOT remove
     :init (cl-pushnew '(ipython . t) load-language-list))
+
+  ;; 新增 mermaid 配置
+  (use-package ob-mermaid
+    :config
+    (setq ob-mermaid-cli-path "/Users/dylan/.nvm/versions/node/v19.8.1/bin/mmdc")
+    )
 
   (org-babel-do-load-languages 'org-babel-load-languages
                                load-language-list)
@@ -195,6 +202,9 @@
 
 (use-package toml-mode
   :mode (("\\.toml\\'" . toml-mode)))
+
+(use-package mermaid-mode
+  :mode (("\\.mermaid\\'" . mermaid-mode)))
 
 (use-package org-preview-html
   :config
