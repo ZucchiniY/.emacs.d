@@ -52,7 +52,15 @@ CHINESE-SIZE is the chinese font size."
 
 (use-package doom-modeline
   :ensure t
-  :hook (after-init . doom-modeline-mode))
+  :hook (after-init . doom-modeline-mode)
+  :config
+  (setq doom-modeline-icon t
+        doom-modeline-major-mode-color-icon t
+        doom-modeline-major-mode-icon t
+        doom-modeline-buffer-state-icon t
+        doom-modeline-buffer-modification-icon t
+        doom-modeline-time-icon t)
+  )
 
 (use-package kaolin-themes
   :init

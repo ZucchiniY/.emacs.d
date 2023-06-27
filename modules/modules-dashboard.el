@@ -23,8 +23,16 @@
         dashboard-startup-banner (expand-file-name "logo.png" user-emacs-directory)
         dashboard-items '((recents . 5)
                           (projects . 5)
-                          ;; (agenda . 5)
                           (bookmarks . 5)))
+
+  (setq dashboard-icon-type 'all-the-icons)
+  
+  (setq dashboard-display-icons-p t
+        dashboard-set-navigator t
+        dashboard-set-footer nil)
+
+  (setq dashboard-week-agenda t
+        dashboard-filter-agenda-entry 'dashboard-no-filter-agenda)
 
   (dashboard-setup-startup-hook)
   )

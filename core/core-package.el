@@ -12,7 +12,7 @@
 ;; Set package archives and use-package.
 (require 'core-basis)
 
-(setq package-archives tuna-elpa)
+(setq package-archives ustc-elpa)
 
 ;; Initialize packages
 (unless (bound-and-true-p package--initialized)
@@ -45,7 +45,11 @@
 
 ;; add all-the-icons package
 (use-package all-the-icons
+  :if (display-graphic-p)
   :load-path "site-lisp/all-the-icons")
+
+;; add nerd icons
+(use-package nerd-icons)
 
 ;; use package-utils to update packages
 (use-package package-utils

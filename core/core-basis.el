@@ -24,7 +24,6 @@
 (defconst sys/mac-x-p
   (and (display-graphic-p) sys/macp))
 
-
 (defconst tuna-elpa
   '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
     ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")

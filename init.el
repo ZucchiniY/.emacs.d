@@ -65,7 +65,7 @@
 (require 'modules-projectile)
 
 ;; lsp mode (python javascript typescript)
-(require 'modules-lsp)
+;; (require 'modules-lsp)
 
 ;; 节日提醒
 (require 'modules-calendar)
