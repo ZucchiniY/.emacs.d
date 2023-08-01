@@ -66,6 +66,8 @@
 
 ;; lsp mode (python javascript typescript)
 ;; (require 'modules-lsp)
+;; 使用内置的 eglot 替代 lsp-mode
+(require 'modules-eglot)
 
 ;; 节日提醒
 (require 'modules-calendar)
