@@ -19,10 +19,12 @@
   (setq package-enable-at-startup nil)
   (package-initialize))
 
+;; emacs 29.1 update build-in package auto
+(setq package-install-upgrade-built-in t)
 ;; use package
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
+;; (unless (package-installed-p 'use-package)
+;;   (package-refresh-contents)
+;;   (package-install 'use-package))
 
 (eval-when-compile
   (require 'use-package))
