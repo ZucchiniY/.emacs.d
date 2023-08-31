@@ -197,7 +197,9 @@ leader key *SPC t*
 
 引入 calfw 包来展示相关的日历，除了具体的日期外，还可以增加展示 org-agenda 中的内容。
 
-*** lsp-mode + dap-mode + lsp-ui + lsp-language-server
+*** +lsp-mode + dap-mode + lsp-ui + lsp-language-server+
+
+不再使用 Emacs 作为开发平台，仅作为完全的笔记平台。
 
 使用 lsp-mode 作为程序补全的工具，主要使用 =Python= 、 =JavaScript/TypeScript= 开发项目。
 
@@ -213,4 +215,13 @@ leader key *SPC t*
 **** debug
 
 使用 dap-mode 对开发做测试和 debug 。
+
+* 字体配置
+
+由原本的 all-the-icons 和 Iosevka ss14 字体，修改为 Iosevka nerd 字体。
+
+#+begin_src shell
+  brew tap homebrew/cask-fonts
+  brew install font-hack-nerd-font
+#+end_src
 
