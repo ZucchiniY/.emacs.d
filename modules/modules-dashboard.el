@@ -25,7 +25,7 @@
                           (projects . 5)
                           (bookmarks . 5)))
 
-  (setq dashboard-icon-type 'all-the-icons)
+  (setq dashboard-icon-type 'nerd-icons)
   
   (setq dashboard-display-icons-p t
         dashboard-set-navigator t

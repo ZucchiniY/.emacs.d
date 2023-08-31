@@ -52,6 +52,7 @@ CHINESE-SIZE is the chinese font size."
 
 (use-package doom-modeline
   :ensure t
+  ;; :after (nerd-icons)
   :hook (after-init . doom-modeline-mode)
   :config
   (setq doom-modeline-icon t

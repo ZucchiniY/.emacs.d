@@ -46,9 +46,9 @@
       (quietly-read-abbrev-file)))
 
 ;; add all-the-icons package
-(use-package all-the-icons
-  :if (display-graphic-p)
-  :load-path "site-lisp/all-the-icons")
+;; (use-package all-the-icons
+;;   :if (display-graphic-p)
+;;   :load-path "site-lisp/all-the-icons")
 
 ;; add nerd icons
 (use-package nerd-icons)
