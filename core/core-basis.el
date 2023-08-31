@@ -27,12 +27,12 @@
 (defconst tuna-elpa
   '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
     ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-    ("no-gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/nongnu/")))
+    ("nongnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/nongnu/")))
 
 (defconst ustc-elpa
-  '(("gnu"   . "http://mirrors.ustc.edu.cn/elpa/gnu/")
-    ("melpa" . "http://mirrors.ustc.edu.cn/elpa/melpa/")
-    ("melpa-stable" . "http://mirrors.ustc.edu.cn/elpa/melpa-stable/")))
+  '(("gnu"   . "https://mirrors.ustc.edu.cn/elpa/gnu/")
+    ("melpa" . "https://mirrors.ustc.edu.cn/elpa/melpa/")
+    ("nongnu" . "http://mirrors.ustc.edu.cn/elpa/nongnu/")))
 
 (setq user-full-name "Dylan Yang")
 (set-default 'truncate-lines nil)

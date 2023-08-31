@@ -22,7 +22,7 @@
   :hook (org-indent-mode . (lambda() (diminish 'org-indent-mode)))
   :ensure org-contrib
   :after evil
-  :pin gnu
+  :pin nongnu
   :general
   (general-define-key
    :states 'normal
