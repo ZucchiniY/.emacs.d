@@ -220,6 +220,9 @@ leader key *SPC t*
 
 由原本的 all-the-icons 和 Iosevka ss14 字体，修改为 Iosevka nerd 字体。
 
+- 英文：Iosevka Nerd Font Mono 14
+- 中文：华文仿宋 14
+
 #+begin_src shell
   brew tap homebrew/cask-fonts
   brew install font-hack-nerd-font
