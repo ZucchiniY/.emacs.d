@@ -25,30 +25,11 @@
 (setq make-backup-files nil)
 (winner-mode t)
 
-(defun dylan//set-monospaced-font (english chinese english-size chinese-size)
-  "Zty//set-monospaced-font to configuration the font.
-ENGLISH is english font name
-CHINESE is chinese font name ENGLISH-SIZE is the english fond size
-CHINESE-SIZE is the chinese font size."
-  (set-face-attribute 'default nil
-                      :font (font-spec
-                             :name english
-                             :weight 'normal
-                             :slant 'normal
-                             :size english-size))
-  (dolist (charset '(kana han symbol cjk-misc bopomofo))
-    (set-fontset-font (frame-parameter nil 'font)
-                      charset
-                      (font-spec ;;:family chinese
-                       :name chinese
-                       :weight 'normal
-                       :slant 'normal
-                       :size chinese-size))))
 
 (if (display-graphic-p)
     (if (or sys/mac-x-p sys/linux-x-p)
         (dylan//set-monospaced-font "Iosevka Nerd Font Mono" "华文仿宋" 14 14)
-      (dylan//set-monospaced-font "Iosevka Term" "Microsoft YaHei" 14 14)))
+      (dylan//set-monospaced-font "Iosevka Nerd Font Mono" "Microsoft YaHei" 14 14)))
 
 (use-package doom-modeline
   :ensure t

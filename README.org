@@ -223,6 +223,10 @@ leader key *SPC t*
 - 英文：Iosevka Nerd Font Mono 14
 - 中文：华文仿宋 14
 
+
+- 英文：Iosevka Nerd Font Mono 14
+- 中文：微软雅黑 14
+
 #+begin_src shell
   brew tap homebrew/cask-fonts
   brew install font-hack-nerd-font
