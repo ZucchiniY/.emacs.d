@@ -26,10 +26,13 @@
 (winner-mode t)
 
 
-(if (display-graphic-p)
-    (if (or sys/mac-x-p sys/linux-x-p)
-        (dylan//set-monospaced-font "Iosevka Nerd Font Mono" "华文仿宋" 14 14)
-      (dylan//set-monospaced-font "Iosevka Nerd Font Mono" "Microsoft YaHei" 14 14)))
+(cond (sys/mac-x-p (dylan//set-monospaced-font "Iosevka Nerd Font Mono" "华文仿宋" 14 14))
+      (sys/linux-x-p (dylan//set-monospaced-font "Iosevka Nerd Font Mono" "HYZheFengSongChao" 14 14))
+      (sys/win-x-p (dylan//set-monospaced-font "Iosevka Nerd Font Mono" "Microsoft YaHei" 14 14)))
+
+;; (if (or sys/mac-x-p sys/linux-x-p)
+;;     (dylan//set-monospaced-font "Iosevka Nerd Font Mono" "华文仿宋" 14 14)
+;;   (dylan//set-monospaced-font "Iosevka Nerd Font Mono" "Microsoft YaHei" 14 14)))
 
 (use-package doom-modeline
   :ensure t
@@ -44,9 +47,16 @@
         doom-modeline-time-icon t)
   )
 
+(use-package catppuccin-theme
+  :init (load-theme 'catppuccin t t)
+  :config
+  ;; latte frappe macchiato mocha
+  (setq catppuccin-flavor 'latte)
+  (catppuccin-reload))
+
 (use-package kaolin-themes
   :init
-  (load-theme 'kaolin-mono-light t)
+  ;; (load-theme 'kaolin-mono-light t)
   :config
   (kaolin-treemacs-theme)
   )

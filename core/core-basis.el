@@ -19,6 +19,8 @@
 (defconst sys/macp
   (eq system-type 'darwin))
 
+(defconst sys/win-x-p
+  (and (display-graphic-p) sys/winntp))
 (defconst sys/linux-x-p
   (and (display-graphic-p) sys/linuxp))
 (defconst sys/mac-x-p
