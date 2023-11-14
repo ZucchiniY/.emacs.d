@@ -180,6 +180,10 @@
   (org-babel-do-load-languages 'org-babel-load-languages
                                load-language-list)
 
+  ;; org latex process
+  (setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"
+                                "xelatex -interaction nonstopmode %f"))
+
   ;; Preview
   (use-package org-preview-html
     :diminish org-preview-html-mode)
@@ -210,6 +214,10 @@
   :config
   (setq org-preview-html-refresh-configuration 'manual
         org-preview-html-viewer 'xwidget))
+
+(use-package org-fragtog
+  :after org
+  :hook (org-mode . org-fragtog-mode))
 
 (provide 'core-org)
 ;;; core-org.el ends here
