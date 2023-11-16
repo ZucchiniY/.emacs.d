@@ -3,7 +3,7 @@
 .mc-lists.el
 elpa/
 data/
-forge-database.sqlite
+forge-database*
 transient/
 .elfeed/
 custom.el
