@@ -45,9 +45,7 @@
 
 (use-package kaolin-themes
   :init
-  (load-theme 'kaolin-valley-light t)
-  :config
-  (kaolin-treemacs-theme))
+  (load-theme 'kaolin-valley-light t))
 
 ;; winum
 (use-package winum

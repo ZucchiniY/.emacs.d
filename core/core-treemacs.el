@@ -68,6 +68,10 @@
 (use-package treemacs-evil
   :after treemacs evil)
 
+(use-package treemacs-nerd-icons
+  :config
+  (treemacs-load-theme "nerd-icons"))
+
 (use-package treemacs-projectile
   :after treemacs projectile)
 
