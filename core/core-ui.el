@@ -45,7 +45,7 @@
 
 (use-package kaolin-themes
   :init
-  (load-theme 'kaolin-valley-light t))
+  (load-theme 'kaolin-bubblegum t))
 
 ;; winum
 (use-package winum
