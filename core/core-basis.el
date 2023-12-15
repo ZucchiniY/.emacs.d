@@ -91,7 +91,7 @@
 (global-set-key (kbd "M-s-<return>") 'toggle-frame-maximized)
 
 (defun dylan//set-monospaced-font (english chinese english-size chinese-size)
-  "dylan//set-monospaced-font to configuration the font.
+  "The dylan//set-monospaced-font to configuration the font.
 ENGLISH is english font name
 CHINESE is chinese font name ENGLISH-SIZE is the english fond size
 CHINESE-SIZE is the chinese font size."
