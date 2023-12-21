@@ -1,8 +1,8 @@
 [submodule "site-lisp/org-roam"]
 	path = site-lisp/org-roam
-	url = https://ghproxy.com/https://github.com/ZucchiniY/org-roam.git
+	url = https://mirror.ghproxy.com/https://github.com/ZucchiniY/org-roam.git
 	branch = goto-today
 	depth = 1
 [submodule "site-lisp/use-package"]
 	path = site-lisp/use-package
-	url = https://ghproxy.com/https://github.com/jwiegley/use-package.git
+	url = https://mirror.ghproxy.com/https://github.com/jwiegley/use-package.git
