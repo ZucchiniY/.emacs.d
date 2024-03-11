@@ -46,6 +46,7 @@
    "s" 'org-roam-db-sync
    "t" 'org-roam-tag-add
    "u" 'org-roam-ui-mode
+   "U" 'org-id-update-id-locations
    )
   :config
   (setq org-roam-directory (expand-file-name (concat org-directory "/roam"))
@@ -53,30 +54,11 @@
         org-roam-completion-everywhere t
         org-roam-dailies-directory "daily/"
         org-roam-dailies-capture-templates
-        '(
-          ("w" "Weekly Journal" entry
-           "** TODO %^{Title} %^G\nSCHEDULED: %^T %?"
-           :target (file+head+olp "%<%Y-W%W>.org"
-                                  "#+title: %<%Y 年第 %W 周>\n"
-                                  ("关键任务"))
+        '(("t" "Tasks" entry
+           "*** TODO %^{Title} %^G\nSCHEDULED: %^T %?"
+           :target (file+datetree "tasks.org" week)
            :empty-lines 1
-           :unnarrowed t
-           :jump-to-captured t)
-          ("m" "Monthly Journal" entry
-           "** TODO %^{Title} %^G\nSCHEDULED: %^T %?"
-           :target (file+head+olp "%<%Y-%m>.org"
-                                  "#+title: %<%Y 年 %m 月>\n"
-                                  ("关键任务"))
-           :empty-lines 1
-           :unnarrowed t)
-          ("j" "Quarter Journal" entry
-           "* TODO %^{Title} %^G\nSCHEDULED: %^T %?"
-           :target (file+head "%<%Y-Q%q>.org"
-                              "#+title: %<%Y 年 %q 季度>\n")
-           :empty-lines 1
-           :unnarrowed t
-           :jump-to-captured t)
-          )
+           :unnarrowed t))
         org-roam-capture-templates
         '(("d" "default" plain "%?"
            :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
