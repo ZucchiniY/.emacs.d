@@ -86,7 +86,7 @@
         ;; 启用 #+bind:
         org-export-allow-bind-keywords t
         ;; 设置归档位置
-        org-archive-location (format-time-string "%Y.org::datetree/*")
+        org-archive-location (format-time-string "%Y.org::datetree/")
         )
   ;; 配置 clock table 中的 block 选项
         ;; 扩展 org-clock-clocktable-default-properties 参数
