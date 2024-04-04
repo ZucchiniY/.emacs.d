@@ -46,6 +46,11 @@
 
 (update-load-path)
 
+(setq url-proxy-services
+      '(("no_proxy" . "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
+        ("http" . "127.0.0.1:20171")
+        ("https" . "127.0.0.1:20171")))
+
 (require 'core-basis)
 (require 'core-package)
 (require 'core-keybind)

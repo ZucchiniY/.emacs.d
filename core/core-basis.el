@@ -31,10 +31,12 @@
     ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
     ("nongnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/nongnu/")))
 
-(defconst ustc-elpa
-  '(("gnu"   . "https://mirrors.ustc.edu.cn/elpa/gnu/")
-    ("melpa" . "https://mirrors.ustc.edu.cn/elpa/melpa/")
-    ("nongnu" . "http://mirrors.ustc.edu.cn/elpa/nongnu/")))
+
+(defconst bfsu-elpa
+  '(("gnu"    . "http://mirrors.bfsu.edu.cn/elpa/gnu/")
+    ("nongnu" . "http://mirrors.bfsu.edu.cn/elpa/nongnu/")
+    ("melpa"  . "http://mirrors.bfsu.edu.cn/elpa/melpa/")
+    ("org"    . "http://mirrors.bfsu.edu.cn/elpa/org/")))
 
 (setq user-full-name "Dylan Yang")
 (set-default 'truncate-lines nil)
