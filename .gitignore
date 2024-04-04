@@ -37,3 +37,4 @@ org-roam.db
 undo-tree/
 org-persist/
 **/fonts.*
+eln-cache/
