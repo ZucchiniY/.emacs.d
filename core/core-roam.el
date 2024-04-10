@@ -13,7 +13,7 @@
 ;;
 ;; 利用 orgmode 非常强大的链接功能，配置 org-roam 构建笔记模板。
 
-;; recyle: 将 org-id 相关配置迁移到 core-rog.el 配置下
+;; recyle: 将 org-id 相关配置迁移到 core-org.el 配置下
 
 ;;; Code:
 (require 'core-org)
@@ -55,8 +55,8 @@
         org-roam-dailies-directory "daily/"
         org-roam-dailies-capture-templates
         '(("t" "Tasks" entry
-           "*** TODO %^{Title} %^G\nSCHEDULED: %^T %?"
-           :target (file+datetree "tasks.org" week)
+           "** TODO %^{Title} %^G\nSCHEDULED: %^T %?"
+           :target (file+olp "tasks.org" ("Tasks"))
            :empty-lines 1
            :unnarrowed t))
         org-roam-capture-templates

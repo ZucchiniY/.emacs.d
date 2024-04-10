@@ -12,7 +12,7 @@
 ;; Set package archives and use-package.
 (require 'core-basis)
 
-(setq package-archives bfsu-elpa)
+(setq package-archives tuna-elpa)
 
 ;; Initialize packages
 (unless (bound-and-true-p package--initialized)

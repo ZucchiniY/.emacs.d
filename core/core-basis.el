@@ -29,7 +29,8 @@
 (defconst tuna-elpa
   '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
     ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-    ("nongnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/nongnu/")))
+    ("nongnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/nongnu/")
+    ("org" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org")))
 
 
 (defconst bfsu-elpa
