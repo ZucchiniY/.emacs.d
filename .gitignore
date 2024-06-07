@@ -39,3 +39,4 @@ org-persist/
 **/fonts.*
 eln-cache/
 session.*
+tramp

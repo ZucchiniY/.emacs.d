@@ -20,7 +20,7 @@
   :commands org-try-structure-completion
   :mode ("\\.\\(org\\|org_archive\\)$" . org-mode)
   :hook (org-indent-mode . (lambda() (diminish 'org-indent-mode)))
-  :ensure org-contrib
+  :ensure org
   :after evil
   :pin gnu
   :general
