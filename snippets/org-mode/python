@@ -2,6 +2,6 @@
 # name: python
 # key: <pyt_
 # --
-#+begin_src python :results ${1:output} :preamble "# -*- coding: utf-8 -*-" :python python3 :exports ${2:both}
+#+begin_src python :results ${1:table} :session ${3:name} :preamble "# -*- coding: utf-8 -*-" :python python3 :exports ${2:both}
 $0
 #+end_src

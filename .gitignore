@@ -38,3 +38,4 @@ undo-tree/
 org-persist/
 **/fonts.*
 eln-cache/
+session.*
