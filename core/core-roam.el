@@ -58,21 +58,25 @@
            "** TODO %^{Title} %^G\nSCHEDULED: %^T %?"
            :target (file+olp "tasks.org" ("Tasks"))
            :empty-lines 1
+           :jump-to-capture t
            :unnarrowed t))
         org-roam-capture-templates
-        '(("d" "default" plain "%?"
+        '(("d" "default" entry
+           "%?"
            :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
-                              "#+title: ${title}")
+                                  "#+title: ${title}")
            :empty-lines 1
            :unnarrowed t
+           :prepend t
            :jump-to-captured t)
-          ("r" "Reading List" entry
-           "* %?"
-           :target (file+head "%<%^{Year} 年>阅读清单.org"
-                              "#+title: %<%^{Year} 年>阅读清单\n")
-           :empty-lines 1
+          ("r" "Reading List" table-line
+           "| %? |"
+           :target (file+head+olp "%<%^{Year} 年>阅读清单.org"
+                                  "#+title: %<%^{Year} 年>阅读清单\n"
+                                  ("读书"))
+           :jump-to-captured t
            :unnarrowed t
-           :jump-to-capture t)
+           )
           )
         )
   ;; 在 org-roam-node-find 时展示的方案
@@ -94,7 +98,14 @@
 
 ;; deft
 (use-package deft
-  :bind ("C-c n d" . deft)
+  ;; :bind ("C-c n d" . deft)
+  :general
+  (general-define-key
+   :states '(normal visual)
+   :keymaps 'override
+   :prefix "SPC n"
+   "d" 'deft
+   )
   :custom
   (deft-recursive t)
   (deft-use-filter-string-for-filename t)
