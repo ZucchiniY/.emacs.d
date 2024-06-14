@@ -12,7 +12,7 @@
 ;; Set package archives and use-package.
 (require 'core-basis)
 
-(setq package-archives tuna-elpa)
+(setq package-archives bfsu-elpa)
 
 ;; Initialize packages
 (unless (bound-and-true-p package--initialized)
@@ -52,7 +52,7 @@
 ;;   :load-path "site-lisp/all-the-icons")
 
 ;; add nerd icons
-(use-package all-the-icons-nerd-fonts)
+;; (use-package all-the-icons-nerd-fonts)
 
 ;; use package-utils to update packages
 (use-package package-utils

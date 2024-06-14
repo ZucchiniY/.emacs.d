@@ -34,10 +34,10 @@
 
 
 (defconst bfsu-elpa
-  '(("gnu"    . "http://mirrors.bfsu.edu.cn/elpa/gnu/")
-    ("nongnu" . "http://mirrors.bfsu.edu.cn/elpa/nongnu/")
-    ("melpa"  . "http://mirrors.bfsu.edu.cn/elpa/melpa/")
-    ("org"    . "http://mirrors.bfsu.edu.cn/elpa/org/")))
+  '(("gnu"    . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/gnu/")
+    ("nongnu" . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/nongnu/")
+    ("melpa"  . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/melpa/")
+    ("org"    . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/org/")))
 
 (setq user-full-name "Dylan Yang")
 (set-default 'truncate-lines nil)
