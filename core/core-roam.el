@@ -55,8 +55,9 @@
         org-roam-dailies-directory "daily/"
         org-roam-dailies-capture-templates
         '(("t" "Tasks" entry
-           "** TODO %^{Title} %^G\nSCHEDULED: %^T %?"
-           :target (file+olp "tasks.org" ("Tasks"))
+           "* TODO [#B] %^{Title} %^G\nSCHEDULED: %^T %?"
+           :target (file+head "tasks.org"
+                              "#+title: 待办任务清单")
            :empty-lines 1
            :jump-to-capture t
            :unnarrowed t))
@@ -64,7 +65,7 @@
         '(("d" "default" entry
            "%?"
            :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
-                                  "#+title: ${title}")
+                              "#+title: ${title}")
            :empty-lines 1
            :unnarrowed t
            :prepend t
