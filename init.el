@@ -83,6 +83,9 @@
 ;; web develop
 ;; (require 'modules-web)
 
+;; json/jsonl mode
+(require 'modules-json)
+
 (provide 'init)
 ;;; init.el ends here
 
