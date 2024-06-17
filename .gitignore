@@ -40,3 +40,4 @@ org-persist/
 eln-cache/
 session.*
 tramp
+**/flycheck_*
