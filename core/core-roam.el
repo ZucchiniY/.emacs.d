@@ -62,7 +62,7 @@
            :jump-to-capture t
            :unnarrowed t))
         org-roam-capture-templates
-        '(("d" "default" entry
+        '(("d" "default" plain
            "%?"
            :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
                               "#+title: ${title}")
