@@ -170,10 +170,6 @@
                                (mermaid . t)
                                ))
 
-  (use-package ob-ipython
-    :if (executable-find "jupyter")     ; DO NOT remove
-    :init (cl-pushnew '(ipython . t) load-language-list))
-
   ;; 新增 mermaid 配置
   (use-package ob-mermaid
     :config
