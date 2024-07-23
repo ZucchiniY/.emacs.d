@@ -49,6 +49,8 @@
    "U" 'org-id-update-id-locations
    )
   :config
+  ;; 解决 org-roam-ui 仅显示一个 Tag 问题
+  (setq org-roam-database-connector 'sqlite)
   (setq org-roam-directory (expand-file-name (concat org-directory "/roam"))
         org-roam-db-gc-threshold most-positive-fixnum
         org-roam-completion-everywhere t
