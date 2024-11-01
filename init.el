@@ -84,8 +84,7 @@
 ;; (require 'modules-web)
 
 ;; json/jsonl mode
-(require 'modules-json)
+;;(require 'modules-json)
 
 (provide 'init)
 ;;; init.el ends here
-
