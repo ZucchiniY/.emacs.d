@@ -72,14 +72,27 @@
            :unnarrowed t
            :prepend t
            :jump-to-captured t)
-          ("r" "Reading List" table-line
+          ("a" "areas")
+          ("ar" "reading")
+          ("arn" "Reading Note" plain
+           "#+filetags: %^g"
+           :target (file+head "areas/reading/%<%Y%m%d%H%M%S>-${slug}.org"
+                              "#+title: ${title}")
+           :empty-lines 1
+           :prepend t
+           :jump-to-captured t
+           :unnarrowed t
+           )
+          ("arl" "Reading List" table-line
            "| %? |"
-           :target (file+head+olp "%<%^{Year} 年>阅读清单.org"
-                                  "#+title: %<%^{Year} 年>阅读清单\n"
+           :target (file+head+olp "areas/reading/%<%^{Year}年>阅读清单.org"
+                                  "#+title: %<%^{Year}年>阅读清单\n"
                                   ("读书"))
            :jump-to-captured t
            :unnarrowed t
            )
+          ("p" "projects")
+          ("r" "resources")
           )
         )
   ;; 在 org-roam-node-find 时展示的方案

@@ -37,7 +37,7 @@
    "i" 'org-insert-subheading
    "o" 'org-set-tags-command
    "p" 'org-pomodoro
-   ;; "r" 'org-refile
+   "r" 'org-refile
    "s" 'org-schedule
    "t" 'org-todo
    "x" 'counsel-org-clock-context
@@ -87,6 +87,9 @@
         org-export-allow-bind-keywords t
         ;; 设置归档位置
         org-archive-location (format-time-string "%Y.org::datetree/")
+        ;; refile 使用路径
+        org-refile-use-outline-path 'file
+        org-outline-path-complete-in-steps t
         )
   ;; 配置 clock table 中的 block 选项
         ;; 扩展 org-clock-clocktable-default-properties 参数
