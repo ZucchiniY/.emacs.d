@@ -78,7 +78,7 @@
 (require 'modules-calendar)
 
 ;; add ox-hugo
-(require 'modules-hugo)
+;; (require 'modules-hugo)
 
 ;; web develop
 ;; (require 'modules-web)
