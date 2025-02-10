@@ -54,19 +54,19 @@
   (setq org-roam-directory (expand-file-name (concat org-directory "/roam"))
         org-roam-db-gc-threshold most-positive-fixnum
         org-roam-completion-everywhere t
-        org-roam-dailies-directory "daily/"
+        org-roam-dailies-directory "projects/"
         org-roam-dailies-capture-templates
         '(("t" "Tasks" entry
            "* TODO [#B] %^{Title} %^G\nSCHEDULED: %^T %?"
            :target (file+head "tasks.org"
-                              "#+title: 待办任务清单")
+                              "#+title: 收集箱")
            :empty-lines 1
            :jump-to-capture t
            :unnarrowed t)
           ("p" "Projects" entry
-           "* TODO [#B] %^{Title} %^G\nDEADLINE: %^T SCHEDULED: %^T\n%?"
-           :target (file+head "tasks.org"
-                              "#+title: 待办任务清单")
+           "* DOING [#B] %^{Title} %^G\nDEADLINE: %^T SCHEDULED: %^T\n%?"
+           :target (file+head "projects.org"
+                              "#+title: 项目清单")
            :empty-lines 1
            :jump-to-capture t
            :unnarrowed t)
@@ -81,30 +81,36 @@
            :prepend t
            :jump-to-captured t)
           ("a" "areas")
-          ("ag" "agility 敏捷")
           ("ad" "develop 开发" plain
-           "#+filetags: %^{Tags?|database|docker|ML|language}"
-           :target (file+head "areas/develop/%<%Y%m%d%H%M%S>-${slug}.org"
+           "#+filetags: %^{Tags?|database|docker|ML|language|agility}"
+           :target (file+head "areas/develop/%^{Tags?|database|docker|ML|language|agility}/%<%Y%m%d%H%M%S>-${slug}.org"
                               "#+title: ${title}")
            :empty-lines 1
            :prepend t
            :jump-to-captured t
            :unnarrowed t
            )
-          ("at" "Tools 工具")
-          ("ate" "Emacs 相关" plain
-           "#+filetags: %^{Tags?|emacs|systems}"
-           :target (file+head "areas/tools/%\\1/%<%Y%m%d%H%M%S>-${slug}.org"
+          ("at" "Tools 工具相关" plain
+           "#+filetags: %^{Tags|emacs|systems}"
+           :target (file+head "areas/tools/%^{Tags|emacs|systems}/%<%Y%m%d%H%M%S>-${slug}.org"
                               "#+title: ${title}")
            :empty-lines 1
            :prepend t
            :jump-to-captured t
            :unnarrowed t
            )
-
-          ("ats" "Tools 工具" plain
-           "#+filetags: %^{Tags?|emacs|systems}"
-           :target (file+head "areas/tools/%<%Y%m%d%H%M%S>-${slug}.org"
+          ("af" "financial 理财" plain
+           "#+filetags: %^{Tags|strategy}"
+           :target (file+head "areas/financial/%^{Tags|strategy}/%<%Y%m%d%H%M%S>-${slug}.org"
+                              "#+title: ${title}")
+           :empty-lines 1
+           :prepend t
+           :jump-to-captured t
+           :unnarrowed t
+           )
+          ("aw" "writing 写作" plain
+           "#+filetags: %^{tags|novel|material}"
+           :target (file+head "areas/writing/%^{Tags|novel|material}/%<%Y%m%d%H%M%S>-${slug}.org"
                               "#+title: ${title}")
            :empty-lines 1
            :prepend t
