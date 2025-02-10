@@ -62,7 +62,15 @@
                               "#+title: 待办任务清单")
            :empty-lines 1
            :jump-to-capture t
-           :unnarrowed t))
+           :unnarrowed t)
+          ("p" "Projects" entry
+           "* TODO [#B] %^{Title} %^G\nDEADLINE: %^T SCHEDULED: %^T\n%?"
+           :target (file+head "tasks.org"
+                              "#+title: 待办任务清单")
+           :empty-lines 1
+           :jump-to-capture t
+           :unnarrowed t)
+          )
         org-roam-capture-templates
         '(("d" "default" plain
            "%?"
@@ -73,9 +81,39 @@
            :prepend t
            :jump-to-captured t)
           ("a" "areas")
-          ("ar" "reading")
-          ("arn" "Reading Note" plain
-           "#+filetags: %^g"
+          ("ag" "agility 敏捷")
+          ("ad" "develop 开发" plain
+           "#+filetags: %^{Tags?|database|docker|ML|language}"
+           :target (file+head "areas/develop/%<%Y%m%d%H%M%S>-${slug}.org"
+                              "#+title: ${title}")
+           :empty-lines 1
+           :prepend t
+           :jump-to-captured t
+           :unnarrowed t
+           )
+          ("at" "Tools 工具")
+          ("ate" "Emacs 相关" plain
+           "#+filetags: %^{Tags?|emacs|systems}"
+           :target (file+head "areas/tools/%\\1/%<%Y%m%d%H%M%S>-${slug}.org"
+                              "#+title: ${title}")
+           :empty-lines 1
+           :prepend t
+           :jump-to-captured t
+           :unnarrowed t
+           )
+
+          ("ats" "Tools 工具" plain
+           "#+filetags: %^{Tags?|emacs|systems}"
+           :target (file+head "areas/tools/%<%Y%m%d%H%M%S>-${slug}.org"
+                              "#+title: ${title}")
+           :empty-lines 1
+           :prepend t
+           :jump-to-captured t
+           :unnarrowed t
+           )
+          ("ar" "Reading 阅读")
+          ("arn" "Reading Note 阅读笔记" plain
+           "#+filetags: %^{Tags?|book|blog}"
            :target (file+head "areas/reading/%<%Y%m%d%H%M%S>-${slug}.org"
                               "#+title: ${title}")
            :empty-lines 1
@@ -83,7 +121,7 @@
            :jump-to-captured t
            :unnarrowed t
            )
-          ("arl" "Reading List" table-line
+          ("arl" "Reading List 阅读清单" table-line
            "| %? |"
            :target (file+head+olp "areas/reading/%<%^{Year}年>阅读清单.org"
                                   "#+title: %<%^{Year}年>阅读清单\n"
@@ -91,8 +129,15 @@
            :jump-to-captured t
            :unnarrowed t
            )
-          ("p" "projects")
-          ("r" "resources")
+          ("r" "resources 感兴趣、个人提升" plain
+           "#+filetags: %^{Tags?|golang|javascript|rust}"
+           :target (file+head "resources/%<%Y%m%d%H%M%S>-${slug}.org"
+                              "#+title: ${title}")
+           :empty-lines 1
+           :prepend t
+           :jump-to-captured t
+           :unnarrowed t
+           )
           )
         )
   ;; 在 org-roam-node-find 时展示的方案
