@@ -56,7 +56,7 @@
   :config
   (setq org-directory "~/workspace/org"
         org-agenda-files (directory-files-recursively
-                          (expand-file-name "roam/daily/" org-directory) "\\.org$")
+                          (expand-file-name "roam/projects/" org-directory) "\\.org$")
         org-log-done 'time
         org-startup-indented t
         ;; org-startup-folded 文档默认只显示最顶层
@@ -144,6 +144,14 @@
            :empty-lines 1
            :jump-to-captured t)
            ))
+
+  ;; org-refile-targets 指定移动的文件
+  ;; org-refile-use-outlinne-path 'file 显示文件路径
+  ;; org-outline-path-complete-in-steps t 逐步选择目标位置
+  (setq org-refile-targets '((nil :maxlevel . 5)
+                             (org-agenda-files :maxlevel . 5))
+        org-refile-use-outline-path 'file
+        org-outline-path-complete-in-steps t)
 
   ;; More fancy UI
   (use-package org-bullets
