@@ -56,14 +56,14 @@
         org-roam-completion-everywhere t
         org-roam-dailies-directory "projects/"
         org-roam-dailies-capture-templates
-        '(("t" "Tasks" entry
+        '(("t" "临时任务" entry
            "* TODO [#B] %^{Title} %^G\nSCHEDULED: %^T %?"
            :target (file+head "tasks.org"
                               "#+title: 收集箱")
            :empty-lines 1
            :jump-to-capture t
            :unnarrowed t)
-          ("p" "Projects" entry
+          ("p" "项目" entry
            "* DOING [#B] %^{Title} %^G\nDEADLINE: %^T SCHEDULED: %^T\n%?"
            :target (file+head "projects.org"
                               "#+title: 项目清单")
@@ -72,16 +72,8 @@
            :unnarrowed t)
           )
         org-roam-capture-templates
-        '(("d" "default" plain
-           "%?"
-           :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
-                              "#+title: ${title}")
-           :empty-lines 1
-           :unnarrowed t
-           :prepend t
-           :jump-to-captured t)
-          ("a" "areas")
-          ("ad" "develop 开发" plain
+        '(("a" "领域")
+          ("ad" "开发" plain
            "#+filetags: %^{Tags?|database|docker|ML|language|agility}"
            :target (file+head "areas/develop/%^{Tags?|database|docker|ML|language|agility}/%<%Y%m%d%H%M%S>-${slug}.org"
                               "#+title: ${title}")
@@ -90,7 +82,7 @@
            :jump-to-captured t
            :unnarrowed t
            )
-          ("at" "Tools 工具相关" plain
+          ("at" "工具相关" plain
            "#+filetags: %^{Tags|emacs|systems}"
            :target (file+head "areas/tools/%^{Tags|emacs|systems}/%<%Y%m%d%H%M%S>-${slug}.org"
                               "#+title: ${title}")
@@ -99,27 +91,44 @@
            :jump-to-captured t
            :unnarrowed t
            )
-          ("af" "financial 理财" plain
-           "#+filetags: %^{Tags|strategy}"
-           :target (file+head "areas/financial/%^{Tags|strategy}/%<%Y%m%d%H%M%S>-${slug}.org"
+          ("af" "理财" plain
+           "#+filetags: %^{Tags|strategy|notes}"
+           :target (file+head "areas/financial/%^{Tags|strategy|notes}/%<%Y%m%d%H%M%S>-${slug}.org"
                               "#+title: ${title}")
            :empty-lines 1
            :prepend t
            :jump-to-captured t
            :unnarrowed t
            )
-          ("aw" "writing 写作" plain
-           "#+filetags: %^{tags|novel|material}"
-           :target (file+head "areas/writing/%^{Tags|novel|material}/%<%Y%m%d%H%M%S>-${slug}.org"
+          ("aw" "写作")
+          ("awn" "笔记" plain
+           "#+filetags: :novel:notes:"
+           :target (file+head "areas/writing/notes/%<%Y%m%d%H%M%S>-${slug}.org"
                               "#+title: ${title}")
            :empty-lines 1
            :prepend t
            :jump-to-captured t
            :unnarrowed t
            )
-          ("ar" "Reading 阅读")
-          ("arn" "Reading Note 阅读笔记" plain
-           "#+filetags: %^{Tags?|book|blog}"
+          ("awm" "素材" plain
+           "#+filetags: :novel:material:"
+           :target (file+head "areas/writing/material/%<%Y%m%d%H%M%S>-${slug}.org"
+                              "#+title: ${title}")
+           :empty-lines 1
+           :prepend t
+           :jump-to-captured t
+           :unnarrowed t
+           )
+          ("awn" "小说" table-line
+           "#+filetags: :novel:\n| %? |"
+           :target (file+head "areas/writing/novel/${slug}.org"
+                              "#+title: ${title}")
+           :jump-to-captured t
+           :unnarrowed t
+           )
+          ("ar" "阅读")
+          ("arn" "阅读笔记" plain
+           "#+filetags: :reading:notes:%^{Tags?|book|blog}"
            :target (file+head "areas/reading/%<%Y%m%d%H%M%S>-${slug}.org"
                               "#+title: ${title}")
            :empty-lines 1
@@ -127,7 +136,7 @@
            :jump-to-captured t
            :unnarrowed t
            )
-          ("arl" "Reading List 阅读清单" table-line
+          ("arl" "阅读清单" table-line
            "| %? |"
            :target (file+head+olp "areas/reading/%<%^{Year}年>阅读清单.org"
                                   "#+title: %<%^{Year}年>阅读清单\n"
@@ -135,8 +144,8 @@
            :jump-to-captured t
            :unnarrowed t
            )
-          ("r" "resources 感兴趣、个人提升" plain
-           "#+filetags: %^{Tags?|golang|javascript|rust}"
+          ("r" "资源" plain
+           "#+filetags: :resources:notes:%^{Tags?|golang|javascript|rust}"
            :target (file+head "resources/%<%Y%m%d%H%M%S>-${slug}.org"
                               "#+title: ${title}")
            :empty-lines 1

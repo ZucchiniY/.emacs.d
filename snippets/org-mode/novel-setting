@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: 小说设定
+# key: novel-set
+# --
+
+#+cover: 
+#+tags: 小说
+#+type: 世界观
+#+aliases: 
+#+status: 未完成
