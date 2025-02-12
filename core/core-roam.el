@@ -119,10 +119,11 @@
            :jump-to-captured t
            :unnarrowed t
            )
-          ("awn" "小说" table-line
-           "#+filetags: :novel:\n| %? |"
-           :target (file+head "areas/writing/novel/${slug}.org"
-                              "#+title: ${title}")
+          ("aws" "小说" table-line
+           "| %? | | |"
+           :target (file+head+olp "areas/writing/novel/${slug}.org"
+                                  "#+title: ${title}"
+                                  ("章节"))
            :jump-to-captured t
            :unnarrowed t
            )
