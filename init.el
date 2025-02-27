@@ -64,6 +64,8 @@
 ;; add org-roam config
 (require 'core-roam)
 
+;; add novelist tools to Creative novels
+(require 'modules-novel)
 ;; dashboard
 (require 'modules-dashboard)
 (require 'modules-magit)
