@@ -8,3 +8,8 @@
 	url = https://github.com/jwiegley/use-package.git
 	branch = master
 	depth = 1
+[submodule "site-lisp/org-novelist"]
+	path = site-lisp/org-novelist
+	url = https://github.com/ZucchiniY/org-novelist.git
+    branch = main
+    depth = 1
