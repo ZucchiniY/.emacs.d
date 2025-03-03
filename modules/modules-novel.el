@@ -34,6 +34,7 @@
   :ensure nil
   :load-path "site-lisp/org-novelist"
   :custom
+  (org-novelist-language-tag "zh-CN")
   (org-novelist-author "INTJ摸鱼小能手")
   (org-novelist-author-email "banshiliuli1990@sina.com")
   (org-novelist-automatic-referencing-p nil)

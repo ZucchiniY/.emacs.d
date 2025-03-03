@@ -4,8 +4,8 @@
 ;; Maintainer: Dylan Yang
 ;; Version: 1.0.1
 ;; Package-Requires: ( )
-;; Homepage: 
-;; Keywords: 
+;; Homepage:
+;; Keywords:
 
 
 ;; This file is not part of GNU Emacs
