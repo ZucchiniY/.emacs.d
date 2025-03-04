@@ -47,7 +47,7 @@
    "n" 'org-novelist-new-story ;; 新建小说
    "r" 'org-novelist-rename-story ;; 重命名小说
    "f" 'org-novelist-update-references ;; 更新参考
-   "l" 'org-novelist-link-to-stor ;; 关联现有小说
+   "l" 'org-novelist-link-to-story ;; 关联现有小说
    "u" 'org-novelist-unlink-from-story ;; 取消小说关联
    "cc" 'org-novelist-new-character ;; 新建角色
    "cr" 'org-novelist-rename-character ;; 更新角色
