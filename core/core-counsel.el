@@ -50,7 +50,10 @@
         ivy-height 10
         ivy-use-virtual-buffers t
         ivy-count-format "(%d/%d) "
-        ivy-on-del-error-function nil))
+        ivy-on-del-error-function nil)
+  (setq counsel-describe-function-function #'helpful-callable
+        counsel-describe-variable-function #'helpful-variable)
+       )
 
 (use-package counsel-org-clock
   :after (counsel org)
