@@ -33,15 +33,15 @@
 
 (use-package org-novelist
   :load-path "site-lisp/org-novelist"
-  :defines ()
   :defer 1
-  :ensure nil
-  :init
-  (setq org-novelist-language-tag "zh-CN"
+  ;; :ensure t
+  ;; :after (org org-roam)
+  :custom
+  (setq org-novelist-language-tag "zh-Hans"
         org-novelist-author "INTJ摸鱼小能手"
         org-novelist-author-email "banshiliuli1990@sina.com"
         org-novelist-automatic-referencing-p nil)
-  :diminish org-roam-mode
+  ;; :diminish org-novelist-mode
   :general
   (general-define-key
    :states '(normal visual)
