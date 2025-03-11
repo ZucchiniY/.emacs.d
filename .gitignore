@@ -41,3 +41,4 @@ eln-cache/
 session.*
 tramp
 **/flycheck_*
+*.~undo-tree~
