@@ -31,6 +31,13 @@
 (eval-when-compile
   (require 'use-package))
 
+;; add hydra package
+(use-package hydra
+  :ensure t)
+
+(use-package use-package-hydra
+  :ensure t)
+
 (setq use-package-always-ensure t)
 (setq use-package-always-defer t)
 (setq use-package-expand-minimally t)
@@ -46,14 +53,6 @@
   :config
   (if (file-exists-p abbrev-file-name)
       (quietly-read-abbrev-file)))
-
-;; add all-the-icons package
-;; (use-package all-the-icons
-;;   :if (display-graphic-p)
-;;   :load-path "site-lisp/all-the-icons")
-
-;; add nerd icons
-;; (use-package all-the-icons-nerd-fonts)
 
 ;; use package-utils to update packages
 (use-package package-utils
@@ -77,7 +76,30 @@
   :diminish yas-minor-mode
   :hook (after-init . yas-global-mode)
   :config
-  (use-package yasnippet-snippets))
+  (use-package yasnippet-snippets)
+  :bind (:map yas-minor-mode-map ("<f2>" . hydra-yas/body))
+  :hydra (hydra-yas (:color blue :hint nil)
+                    "
+              ^YASnippets^
+--------------------------------------------
+  Modes:    Load/Visit:    Actions:
+
+ _g_lobal  _d_irectory    _i_nsert
+ _m_inor   _f_ile         _t_ryout
+ _e_xtra   _l_ist         _n_ew
+         _a_ll
+"
+          ("d" yas-load-directory)
+          ("e" yas-activate-extra-mode)
+          ("i" yas-insert-snippet)
+          ("f" yas-visit-snippet-file :color blue)
+          ("n" yas-new-snippet)
+          ("t" yas-tryout-snippet)
+          ("l" yas-describe-tables)
+          ("g" yas/global-mode)
+          ("m" yas/minor-mode)
+          ("a" yas-reload-all)))
+
 
 (use-package expand-region
   :bind ("C-=" . er/expand-region))
