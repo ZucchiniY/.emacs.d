@@ -25,7 +25,6 @@
             org-roam-dailies-capture-templates
             org-roam-capture-ref-templates)
   :defer 1
-  ;; :ensure t
   :diminish org-roam-mode
   :general
   (general-define-key

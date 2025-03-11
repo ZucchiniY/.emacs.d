@@ -92,7 +92,7 @@
         org-outline-path-complete-in-steps t
         )
   ;; 配置 clock table 中的 block 选项
-        ;; 扩展 org-clock-clocktable-default-properties 参数
+  ;; 扩展 org-clock-clocktable-default-properties 参数
   (setq org-clock-clocktable-default-properties '(:scope agenda :maxlevel 2 :compact t :formula % :hidefiles t :fileskip0 t :tags t))
   (plist-put org-clock-clocktable-default-properties :block (format-time-string "%Y-W%V"))
   ;; 增加自动变成完成状态
