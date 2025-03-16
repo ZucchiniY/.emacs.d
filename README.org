@@ -149,7 +149,6 @@ org-roam 工具调整到 core/ 下，作为常用的工具，一直启用。
 - SPC n p :: org-roam-dailies-goto-previous-note 返回上一篇内容，如果是日则是上一天，周则是上一周
 - SPC n s :: org-roam-db-sync 刷新存储的关系，解决 =org-roam-ui-mode= 生成的关系图不同步问题
 
-
 **** org dailies
 
 使用快捷键 =SPC n j= 或者 =SPC n k= 后输入下面的模板编号，可以使用对应的模板。
@@ -164,11 +163,6 @@ org-roam 工具调整到 core/ 下，作为常用的工具，一直启用。
 - 计划任务 :: 在每个季度完成 OKR 的设计，按方向分为几类，然后按 OKR 将任务保存到月计划中。每个计划工作时，更新到周计划内，开始任务统计。
 - 阅读计划 :: 将需要阅读的书籍或者文章先放到月计划的阅读清单中，阅读完成之后，将清单更新到每年的阅读清单中。阅读计划主要包括书名、作者、完成时间、阅读渠道，如果有对应的笔记，则建立 roam 的链接。阅读渠道主要有微信读书、实体书、电子书三类。
 
-** modules
-*** Magit
-
-- SPC g g :: 启动 Magit
-           
 *** company
 
 - M-/ :: company-complete
@@ -184,6 +178,12 @@ leader key *SPC t*
 - t :: treemacs
 - b :: treemacs bookmark
 
+
+** modules
+*** magit
+
+- SPC g g :: 启动 Magit
+           
 *** projectile
 
 - SPC p :: projectile command map
@@ -215,6 +215,10 @@ leader key *SPC t*
 **** debug
 
 使用 dap-mode 对开发做测试和 debug 。
+
+*** org-novel
+
+使用其管理故事相关的内容，包换人物、物品、地点、章节等内容。
 
 * 字体配置
 
