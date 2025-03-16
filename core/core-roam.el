@@ -63,7 +63,7 @@
            :jump-to-capture t
            :unnarrowed t)
           ("p" "项目" entry
-           "* DOING [#B] %^{Title} %^G\nDEADLINE: %^T SCHEDULED: %^T\n%?"
+           "* TODO [#B] %^{Title} %^G\nDEADLINE: %^T SCHEDULED: %^T\n%?"
            :target (file+head "projects.org"
                               "#+title: 项目清单")
            :empty-lines 1
