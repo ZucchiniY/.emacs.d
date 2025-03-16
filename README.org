@@ -163,6 +163,43 @@ org-roam 工具调整到 core/ 下，作为常用的工具，一直启用。
 - 计划任务 :: 在每个季度完成 OKR 的设计，按方向分为几类，然后按 OKR 将任务保存到月计划中。每个计划工作时，更新到周计划内，开始任务统计。
 - 阅读计划 :: 将需要阅读的书籍或者文章先放到月计划的阅读清单中，阅读完成之后，将清单更新到每年的阅读清单中。阅读计划主要包括书名、作者、完成时间、阅读渠道，如果有对应的笔记，则建立 roam 的链接。阅读渠道主要有微信读书、实体书、电子书三类。
 
+**** org-roam 目录配置
+
+- archives :: 不直接记录，仅归档使用
+- projects :: 有明确计划时间的任务，通过 org-roam-dailies-capture-templates 进行维护
+  - tasks :: 不直接记录，通过 org-roam-dailies 进行记录，单次任务收集到 tasks 下
+  - projects :: 有明确的截止时间和计划的事项，系列任务收集到 projects 下
+  - 考虑下是否需要按年、月、日重新计划工作
+
+- areas :: 长期维持的领域
+  - develop :: 开发
+    - agility :: 敏捷
+    - database
+    - docker
+    - ML :: machine learning
+    - language
+      - python
+  - reading :: 阅读
+    - notes :: 笔记
+      - book :: 书
+      - blog :: 博客
+    - list :: 清单
+  - tools :: 工具
+    - emacs
+    - systems
+  - financial :: 理财
+    - strategy :: 策略
+  - writing :: 写作
+    - notes :: 知识点笔记
+    - material :: 写作的素材、灵光一现
+    - novel :: 小说本身
+      - 考虑使用 list 列表来编写每章的内容，然后再新建一篇小说
+      
+- resources :: 持续感兴趣的事，未来有帮助的事
+  - golang
+  - rust
+
+
 *** company
 
 - M-/ :: company-complete
