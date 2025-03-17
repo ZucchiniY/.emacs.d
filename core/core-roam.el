@@ -118,14 +118,6 @@
            :jump-to-captured t
            :unnarrowed t
            )
-          ("aws" "小说" table-line
-           "| %? | | |"
-           :target (file+head+olp "areas/writing/novel/${slug}.org"
-                                  "#+title: ${title}"
-                                  ("章节"))
-           :jump-to-captured t
-           :unnarrowed t
-           )
           ("ar" "阅读")
           ("arn" "阅读笔记" plain
            "#+filetags: :reading:notes:%^{Tags?|book|blog}"
