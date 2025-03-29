@@ -179,6 +179,7 @@
                                (ditaa .t)
                                (plantuml . t)
                                (mermaid . t)
+                               (ledger . t)
                                ))
 
   ;; (use-package ob-ipython

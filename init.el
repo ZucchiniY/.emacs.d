@@ -64,12 +64,13 @@
 ;; add org-roam config
 (require 'core-roam)
 
-;; add novelist tools to Creative novels
-(require 'modules-novel)
 ;; dashboard
 (require 'modules-dashboard)
 (require 'modules-magit)
 (require 'modules-projectile)
+
+;; add novelist tools to Creative novels
+(require 'modules-novel)
 
 ;; lsp mode (python javascript typescript)
 ;; (require 'modules-lsp)
@@ -78,6 +79,9 @@
 
 ;; 节日提醒
 (require 'modules-calendar)
+
+;; add ledger mode
+(require 'modules-ledger)               ;
 
 ;; add ox-hugo
 ;; (require 'modules-hugo)
