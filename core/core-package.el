@@ -22,9 +22,9 @@
 
 ;; use package
 ;; if emacs-version < 29.1 load use-package
-;; else load use-package from site-lisp/
+;; else load use-package from load-lisp/
 (if (version< emacs-version "29.1")
-    (push (expand-file-name "site-lisp/use-package" user-emacs-directory) load-path)
+    (push (expand-file-name "load-lisp/use-package" user-emacs-directory) load-path)
   ;; emacs 29.1 update build-in package auto
   (setq package-install-upgrade-built-in t))
 

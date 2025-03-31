@@ -20,7 +20,7 @@
 (require 'org-id)
 
 (use-package org-roam
-  :load-path "site-lisp/org-roam"
+  :load-path "load-lisp/org-roam"
   :defines (org-roam-dailies-directory
             org-roam-dailies-capture-templates
             org-roam-capture-ref-templates)

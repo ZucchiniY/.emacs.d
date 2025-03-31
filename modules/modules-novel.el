@@ -33,7 +33,7 @@
 (require 'core-roam)
 
 (use-package org-novelist
-  :load-path "site-lisp/org-novelist"
+  :load-path "load-lisp/org-novelist"
   :bind ("<f5>" . hydra-org-novelist/body)
   :defer 1
   :init

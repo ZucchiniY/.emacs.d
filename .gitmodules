@@ -1,15 +1,10 @@
-[submodule "site-lisp/org-roam"]
-	path = site-lisp/org-roam
+[submodule "load-lisp/org-roam"]
+	path = load-lisp/org-roam
 	url = https://github.com/ZucchiniY/org-roam.git
 	branch = goto-today
-	depth = 1
-[submodule "site-lisp/use-package"]
-	path = site-lisp/use-package
+[submodule "load-lisp/use-package"]
+	path = load-lisp/use-package
 	url = https://github.com/jwiegley/use-package.git
-	branch = master
-	depth = 1
-[submodule "site-lisp/org-novelist"]
-	path = site-lisp/org-novelist
+[submodule "load-lisp/org-novelist"]
+	path = load-lisp/org-novelist
 	url = https://github.com/ZucchiniY/org-novelist.git
-    branch = main
-    depth = 1
