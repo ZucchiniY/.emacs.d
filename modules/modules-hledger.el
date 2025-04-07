@@ -56,16 +56,21 @@
     (interactive)
     (hledger-backward-entry)
     (hledger-pulse-momentary-current-entry))
-  :bind (("C-c j" . hledger-run-command)
-         :map hledger-mode-map
-         ("C-c e" . hledger-jentry)
-         ("M-p" . hledger/prev-entry)
-         ("M-n" . hledger/next-entry))
+  :general
+  (general-define-key
+   :states '(normal visual)
+   :keymaps 'override
+   :prefix "SPC l"
+   "j" 'hledger-run-command
+   "e" 'hledger-jentry
+   "p" 'hledger/prev-entry
+   "n" 'hledger/next-entry)
   :init
   ;; Expanded account balances in the overall monthly report are
   ;; mostly noise for me and do not convey any meaningful information.
   (setq hledger-show-expanded-report nil)
   :config
+  (setq hledger-currency-string "¥")
   (setq hledger-jfile
       (expand-file-name (concat org-directory "/roam/areas/financial/family.hledger")))
   (add-hook 'hledger-view-mode-hook #'hl-line-mode)
@@ -89,8 +94,8 @@
               (add-to-list 'company-backends 'hledger-company))))
 
 (use-package hledger-input
-  :pin manual
-  :load-path "packages/rest/hledger-mode/"
+  ;; :pin manual
+  :load-path "load-lisp/hledger-mode"
   :bind (("C-c e" . hledger-capture)
          :map hledger-input-mode-map
          ("C-c C-b" . popup-balance-at-point))

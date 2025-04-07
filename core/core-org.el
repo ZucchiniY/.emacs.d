@@ -15,8 +15,7 @@
 (use-package org
   :defines (org-capture-templates
             org-plantuml-jar-path
-            org-ditaa-jar-path
-            )
+            org-ditaa-jar-path)
   :commands org-try-structure-completion
   :mode ("\\.\\(org\\|org_archive\\)$" . org-mode)
   :hook (org-indent-mode . (lambda() (diminish 'org-indent-mode)))
