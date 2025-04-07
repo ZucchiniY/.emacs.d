@@ -81,7 +81,7 @@
 (require 'modules-calendar)
 
 ;; add ledger mode
-(require 'modules-ledger)               ;
+(require 'modules-hledger)               ;
 
 ;; add ox-hugo
 ;; (require 'modules-hugo)

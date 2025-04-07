@@ -8,3 +8,6 @@
 [submodule "load-lisp/org-novelist"]
 	path = load-lisp/org-novelist
 	url = https://github.com/ZucchiniY/org-novelist.git
+[submodule "load-lisp/hledger-mode"]
+	path = load-lisp/hledger-mode
+	url = https://github.com/ZucchiniY/hledger-mode.git
