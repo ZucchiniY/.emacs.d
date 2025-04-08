@@ -41,13 +41,14 @@
    (ledger-report-links-in-register nil)
    (ledger-report-native-highlighting-arguments '("--color=always")))
   :config
+  (setq ledger-default-date-format "%Y-%m-%d")
   (setq ledger-reconcile-default-commodity "CNY")
-    (setq ledger-report-use-header-line t)
-    (setq ledger-report-use-native-highlighting t)
-    (setq ledger-report-auto-refresh-sticky-cursor t)
-    (setq ledger-report-use-strict t)
-    (setq ledger-highlight-xact-under-point nil)
-    (setq ledger-copy-transaction-insert-blank-line-after t)
+  (setq ledger-report-use-header-line t)
+  (setq ledger-report-use-native-highlighting t)
+  (setq ledger-report-auto-refresh-sticky-cursor t)
+  (setq ledger-report-use-strict t)
+  (setq ledger-highlight-xact-under-point nil)
+  (setq ledger-copy-transaction-insert-blank-line-after t)
   )
 
 (use-package hledger-mode
@@ -91,7 +92,7 @@
   :config
   (setq hledger-currency-string "¥")
   (setq hledger-jfile
-      (expand-file-name (concat org-directory "/roam/areas/financial/family.hledger")))
+      (expand-file-name (concat org-directory "/roam/areas/financial/main.hledger")))
   (add-hook 'hledger-view-mode-hook #'hl-line-mode)
   ;; (add-hook 'hledger-view-mode-hook #'center-text-for-reading)
 
