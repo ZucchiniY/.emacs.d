@@ -31,6 +31,25 @@
 ;;; Code:
 (require 'core-org)
 
+(use-package ledger-mode
+  :mode ("\\.hledger\\'" "\\.ledger\\'")
+  :hook ((hledger-mode . ledger-mode))
+  :custom
+  ((ledger-binary-path "hledger")
+   (ledger-mode-should-check-version nil)
+   (ledger-report-auto-width nil)
+   (ledger-report-links-in-register nil)
+   (ledger-report-native-highlighting-arguments '("--color=always")))
+  :config
+  (setq ledger-reconcile-default-commodity "CNY")
+    (setq ledger-report-use-header-line t)
+    (setq ledger-report-use-native-highlighting t)
+    (setq ledger-report-auto-refresh-sticky-cursor t)
+    (setq ledger-report-use-strict t)
+    (setq ledger-highlight-xact-under-point nil)
+    (setq ledger-copy-transaction-insert-blank-line-after t)
+  )
+
 (use-package hledger-mode
   :load-path "load-lisp/hledger-mode"
   :mode ("\\.hledger\\'" . hledger-mode)
@@ -116,6 +135,13 @@
             (lambda ()
               (make-local-variable 'company-idle-delay)
               (setq-local company-idle-delay 0.1))))
+
+(use-package flymake-hledger
+  :config
+  (progn
+    (setq flymake-hledger-command '("hledger" "--auto"))))
+
+(use-package company-ledger)
 
 (provide 'modules-hledger)
 ;;; modules-hledger.el ends here
