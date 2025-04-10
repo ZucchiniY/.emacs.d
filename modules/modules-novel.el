@@ -47,7 +47,7 @@
 ---------------------------------------------------------------------
 _n_: 新增故事 _c_: 新增角色 _p_: 新增地点 _s_: 新增物品 _a_: 新增章节
 _r_: 重命名   _d_: 重命名   _q_: 重命名   _t_: 重命名   _b_: 重命名
-_l_: 关联小说 _e_: 移除角色 _v_: 移除地点 _w_: 移除物品 _d_: 移除章节
+_l_: 关联小说 _e_: 移除角色 _v_: 移除地点 _w_: 移除物品 _g_: 移除章节
 _u_: 取消关联
 _f_: 更新参考
 "
@@ -67,7 +67,7 @@ _f_: 更新参考
                              ("w" org-novelist-destroy-prop) ;; 删除物品
                              ("a" org-novelist-new-chapter) ;; 新增章节
                              ("b" org-novelist-rename-chapter) ;; 重命名章节
-                             ("d" org-novelist-destroy-chapter) ;; 删除章节
+                             ("g" org-novelist-destroy-chapter) ;; 删除章节
                              )
   )
 
