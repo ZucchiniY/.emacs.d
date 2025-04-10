@@ -80,9 +80,6 @@
 ;; 节日提醒
 (require 'modules-calendar)
 
-;; add ledger mode
-(require 'modules-hledger)               ;
-
 ;; add ox-hugo
 ;; (require 'modules-hugo)
 
