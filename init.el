@@ -69,6 +69,7 @@
 (require 'modules-magit)
 (require 'modules-projectile)
 
+;; (require 'modules-treesit)
 ;; add novelist tools to Creative novels
 (require 'modules-novel)
 
