@@ -125,5 +125,7 @@
   (global-set-key (kbd "C-c C-d") #'helpful-at-point)
   (global-set-key (kbd "C-h F") #'helpful-function))
 
+(use-package markdown :ensure nil)
+
 (provide 'core-package)
 ;;; core-package.el ends here

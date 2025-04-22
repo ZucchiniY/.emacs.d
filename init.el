@@ -55,7 +55,7 @@
 (require 'core-package)
 (require 'core-keybind)
 
-(require 'core-company)
+;; (require 'core-company)
 (require 'core-counsel)
 (require 'core-ui)
 (require 'core-treemacs)
@@ -75,7 +75,7 @@
 
 ;; 使用 lsp-bridge 作为工具javascript typescript
 ;; (python rust)
-(require 'modules-lsp)
+;; (require 'modules-lsp)
 
 ;; 节日提醒
 (require 'modules-calendar)
