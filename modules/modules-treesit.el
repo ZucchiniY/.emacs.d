@@ -54,5 +54,9 @@
     :hook ((prog-mode . combobulate-mode))
     :load-path "load-lisp/combobulate"))
 
+(use-package treesit-auto
+  :hook (after-init . global-treesit-auto-mode)
+  :init (setq treesit-auto-install 'prompt))
+
 (provide 'modules-treesit)
 ;;; modules-treesit.el ends here

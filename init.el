@@ -80,6 +80,9 @@
 ;; 节日提醒
 (require 'modules-calendar)
 
+;; development configuration
+(require 'modules-rust)
+
 ;; add ox-hugo
 ;; (require 'modules-hugo)
 
