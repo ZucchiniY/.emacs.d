@@ -42,3 +42,5 @@ session.*
 tramp
 **/flycheck_*
 *.~undo-tree~
+tree-sitter/
+

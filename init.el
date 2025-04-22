@@ -68,24 +68,20 @@
 (require 'modules-dashboard)
 (require 'modules-magit)
 (require 'modules-projectile)
-
-;; (require 'modules-treesit)
+;; treesit 
+(require 'modules-treesit)
 ;; add novelist tools to Creative novels
 (require 'modules-novel)
 
-;; lsp mode (python javascript typescript)
-;; (require 'modules-lsp)
-;; 使用内置的 eglot 替代 lsp-mode
-;; (require 'modules-eglot)
+;; 使用 lsp-bridge 作为工具javascript typescript
+;; (python rust)
+(require 'modules-lsp)
 
 ;; 节日提醒
 (require 'modules-calendar)
 
 ;; add ox-hugo
 ;; (require 'modules-hugo)
-
-;; web develop
-;; (require 'modules-web)
 
 ;; json/jsonl mode
 ;;(require 'modules-json)

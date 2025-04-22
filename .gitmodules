@@ -8,3 +8,9 @@
 [submodule "load-lisp/org-novelist"]
 	path = load-lisp/org-novelist
 	url = https://github.com/ZucchiniY/org-novelist.git
+[submodule "load-lisp/combobulate"]
+	path = load-lisp/combobulate
+	url = https://github.com/ZucchiniY/combobulate.git
+[submodule "load-lisp/lsp-bridge"]
+	path = load-lisp/lsp-bridge
+	url = https://github.com/manateelazycat/lsp-bridge.git

@@ -234,24 +234,27 @@ leader key *SPC t*
 
 引入 calfw 包来展示相关的日历，除了具体的日期外，还可以增加展示 org-agenda 中的内容。
 
-*** +lsp-mode + dap-mode + lsp-ui + lsp-language-server+
+*** lsp-bridge
 
-不再使用 Emacs 作为开发平台，仅作为完全的笔记平台。
-
-使用 lsp-mode 作为程序补全的工具，主要使用 =Python= 、 =JavaScript/TypeScript= 开发项目。
+使用 lsp-bridge 作为代码补全，移除 lsp-mode/elgot 相关的配置。
 
 **** 开发语言后台
 
-目前仅使用 =pyright= 语言。后续增加前端相关配置。
+***** 已启用
 
-- Python :: =npm install -g pyright=
+- Python :: =pip install ruff=
+- rust :: =rustup component add rust-src rust-analyzer=
+
+***** 未启用
+
 - JavaScript/TypeScript :: =npm install -g typescript-language-server typescript=
   启动后台： =typescript-language-server --stdio=
 - HTML/CSS :: =npm install -g vscode-langservers-extracted=
 
-**** debug
 
-使用 dap-mode 对开发做测试和 debug 。
+*** treesit
+
+内置的代码跳转工具，需要使用启用相关的配置。
 
 *** org-novel
 
