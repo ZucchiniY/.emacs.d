@@ -32,19 +32,14 @@
   (require 'use-package))
 
 ;; add hydra package
-(use-package hydra
-  :ensure t)
+(use-package hydra)
+(use-package use-package-hydra)
 
-(use-package use-package-hydra
-  :ensure t)
 
 (setq use-package-always-ensure t)
 (setq use-package-always-defer t)
 (setq use-package-expand-minimally t)
 (setq use-package-enable-imenu-support t)
-
-(use-package diminish :defer t)
-(use-package bind-key :defer t)
 
 ;; abbrev-mode abbreviation file-name
 (use-package abbrev
@@ -116,7 +111,6 @@
   (recentf-mode t))
 
 (use-package helpful
-  :ensure t
   :config
   (global-set-key (kbd "C-h f") #'helpful-callable)
   (global-set-key (kbd "C-h v") #'helpful-variable)
@@ -125,7 +119,7 @@
   (global-set-key (kbd "C-c C-d") #'helpful-at-point)
   (global-set-key (kbd "C-h F") #'helpful-function))
 
-(use-package markdown :ensure nil)
+(use-package markdown-mode :ensure nil)
 
 (provide 'core-package)
 ;;; core-package.el ends here
