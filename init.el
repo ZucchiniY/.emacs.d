@@ -7,9 +7,6 @@
 ;; Homepage:
 ;; Keywords:
 
-
-;; This file is not part of GNU Emacs
-
 ;; This program is free software: you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation, either version 3 of the License, or
@@ -46,19 +43,14 @@
 
 (update-load-path)
 
-;; (setq url-proxy-services
-;;       '(("no_proxy" . "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
-;;         ("http" . "127.0.0.1:20171")
-;;         ("https" . "127.0.0.1:20171")))
-
 (require 'core-basis)
 (require 'core-package)
 (require 'core-keybind)
 
-;; (require 'core-company)
+(require 'core-company)
 (require 'core-counsel)
 (require 'core-ui)
-(require 'core-treemacs)
+;; (require 'core-treemacs)
 
 (require 'core-org)
 ;; add org-roam config
@@ -68,17 +60,18 @@
 (require 'modules-dashboard)
 (require 'modules-magit)
 (require 'modules-projectile)
+
+;; 节日提醒
+(require 'modules-calendar)
+
 ;; treesit 
 (require 'modules-treesit)
 ;; add novelist tools to Creative novels
 (require 'modules-novel)
 
-;; 使用 lsp-bridge 作为工具javascript typescript
+;; 使用 lspce 作为工具
 ;; (python rust)
-;; (require 'modules-lsp)
-
-;; 节日提醒
-(require 'modules-calendar)
+(require 'modules-lsp)
 
 ;; development configuration
 (require 'modules-rust)

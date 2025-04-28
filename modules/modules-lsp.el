@@ -3,15 +3,33 @@
 ;;; config lsp mode
 ;;; Code:
 ;; lsp-python
-(use-package lsp-bridge
-  :load-path "load-lisp/lsp-bridge"
-  :defer 5
-  :after (yasnippet markdown-mode)
+(use-package lspce
+  :load-path "load-lisp/lspce"
+  :hook ((rust-mode . lspce-mode)
+         (python-mode . lspce-mode))
   :config
-  (setq lsp-bridge-python-lsp-server "ruff")
-  :init
-  (global-lsp-bridge-mode)
-  (setq lsp-bridger-python-comand (expand-file-name (concat user-emacs-directory "load-lisp/lsp-bridge/.venv/bin/python"))))
+  (setq lspce-send-changed-idle-time 0.1
+        lspce-idle-delay 0.1)
+  (setq lspce-show-log-level-in-modeline t
+        lspce-eldoc-enable-hover nil
+        lspce-eldoc-enable-signature t)
+  (setq eldoc-idle-delay 0.1)
+  (add-hook 'lspce-mode-hook #'lspce-inlay-hints-mode)
+        
+  (lspce-set-log-file "~/.emacs.d/lspce.log")
+  (setq lspce-sever-programs `(
+                               ("rust" "rust-analyzer" "" lspce-ra-initializationOptionns)
+                               ;; ("rustic" "rust-analyzer" "" lspce-ra-initializationOptionns)
+                               ("python" "ruff" "")))
+  :general
+  (general-define-key
+   :states '(normal visual emacs)
+   :keymaps 'override
+   :prefix "SPC l"
+   "ld" 'xref-find-definitions
+   "lr" 'xref-find-references
+   "la" 'lspce-code-actions)
+   )
 
 (provide 'modules-lsp)
 ;;; modules-lsp.el ends here

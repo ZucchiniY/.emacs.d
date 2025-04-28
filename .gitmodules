@@ -11,3 +11,6 @@
 [submodule "load-lisp/combobulate"]
 	path = load-lisp/combobulate
 	url = https://github.com/ZucchiniY/combobulate.git
+[submodule "load-lisp/lspce"]
+	path = load-lisp/lspce
+	url = https://github.com/zbelial/lspce.git

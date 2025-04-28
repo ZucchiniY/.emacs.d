@@ -31,22 +31,22 @@
 ;;; Code:
 
 (use-package rust-mode
-  :mode ("\\.rs\\'" . rustic-mode)
+  :mode ("\\.rs\\'" . rust-mode)
   :init (setq rust-format-on-save t
               rust-mode-treesitter-derive t)
   :config
   (add-hook 'rust-mode-hook (lambda () (setq indent-tabs-mode nil)))
-  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
-  (add-hook 'rust-mode-hook #'lsp-bridge)
+  (add-hook 'flycheck-mode-hook 'flycheck-rust-setup)
   (define-derived-mode rustic-mode rust-mode "Rust"
     "Major mode for Rust code."))
 
-(use-package flycheck-rust :ensure t)
+(use-package flycheck-rust :ensure t
+  :config (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+
 (use-package toml-mode)
 (use-package cargo)
 (use-package ron-mode
   :mode ("\\.ron" . ron-mode))
-
 
 (provide 'modules-rust)
 
