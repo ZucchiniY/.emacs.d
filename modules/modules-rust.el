@@ -36,7 +36,7 @@
               rust-mode-treesitter-derive t)
   :config
   (add-hook 'rust-mode-hook (lambda () (setq indent-tabs-mode nil)))
-  (add-hook 'flycheck-mode-hook 'flycheck-rust-setup)
+  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
   (define-derived-mode rustic-mode rust-mode "Rust"
     "Major mode for Rust code."))
 

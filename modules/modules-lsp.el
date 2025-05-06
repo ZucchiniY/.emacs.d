@@ -18,7 +18,7 @@
         
   (lspce-set-log-file "~/.emacs.d/lspce.log")
   (setq lspce-sever-programs `(
-                               ("rust" "rust-analyzer" "" lspce-ra-initializationOptionns)
+                               ("rust" "rust-analyzer" "" lspce-ra-initializationOptions)
                                ;; ("rustic" "rust-analyzer" "" lspce-ra-initializationOptionns)
                                ("python" "ruff" "")))
   :general
@@ -26,9 +26,9 @@
    :states '(normal visual emacs)
    :keymaps 'override
    :prefix "SPC l"
-   "ld" 'xref-find-definitions
-   "lr" 'xref-find-references
-   "la" 'lspce-code-actions)
+   "d" 'xref-find-definitions
+   "r" 'xref-find-references
+   "a" 'lspce-code-actions)
    )
 
 (provide 'modules-lsp)
