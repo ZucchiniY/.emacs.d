@@ -43,9 +43,10 @@
 (use-package flycheck-rust :ensure t
   :config (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 
-(use-package toml-mode)
-(use-package cargo)
+(use-package toml-mode :ensure t)
+(use-package cargo :ensure t)
 (use-package ron-mode
+  :ensure t
   :mode ("\\.ron" . ron-mode))
 
 (provide 'modules-rust)

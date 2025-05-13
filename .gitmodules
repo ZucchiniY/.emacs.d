@@ -2,15 +2,9 @@
 	path = load-lisp/org-roam
 	url = https://github.com/ZucchiniY/org-roam.git
 	branch = goto-today
-[submodule "load-lisp/use-package"]
-	path = load-lisp/use-package
-	url = https://github.com/jwiegley/use-package.git
 [submodule "load-lisp/org-novelist"]
 	path = load-lisp/org-novelist
 	url = https://github.com/ZucchiniY/org-novelist.git
-[submodule "load-lisp/combobulate"]
-	path = load-lisp/combobulate
-	url = https://github.com/ZucchiniY/combobulate.git
 [submodule "load-lisp/lspce"]
 	path = load-lisp/lspce
 	url = https://github.com/zbelial/lspce.git
