@@ -12,7 +12,7 @@
 ;; Set package archives and use-package.
 (require 'core-basis)
 
-(setq package-archives tuna-elpa)
+(setq package-archives ustc-elpa)
 ;; (setq package-archives bfsu-elpa)
 
 ;; Initialize packages
@@ -32,8 +32,8 @@
   (require 'use-package))
 
 ;; add hydra package
-(use-package hydra)
-(use-package use-package-hydra)
+(use-package hydra :ensure t)
+(use-package use-package-hydra :ensure t)
 
 
 (setq use-package-always-ensure t)

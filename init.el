@@ -65,7 +65,7 @@
 (require 'modules-calendar)
 
 ;; treesit 
-(require 'modules-treesit)
+;; (require 'modules-treesit)
 ;; add novelist tools to Creative novels
 (require 'modules-novel)
 
