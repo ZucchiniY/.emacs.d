@@ -7,4 +7,5 @@
 	url = https://github.com/ZucchiniY/org-novelist.git
 [submodule "load-lisp/lspce"]
 	path = load-lisp/lspce
-	url = https://github.com/zbelial/lspce.git
+	url = https://github.com/ZucchiniY/lspce.git
+	branch = myfeature
