@@ -178,7 +178,7 @@
                                (ditaa .t)
                                (plantuml . t)
                                (mermaid . t)
-
+                              ; (rust . t)
                                ))
 
   ;; (use-package ob-ipython
