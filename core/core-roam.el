@@ -70,7 +70,7 @@
            :jump-to-capture t
            :unnarrowed t)
           ("h" "习惯" entry
-           "* TODO [#B] %^{Title} %^G\nSCHEDULED: %^T\n %? %^{STYLE}p"
+           "* TODO [#B] %^{Title}\nSCHEDULED: %^T\n %? %^{STYLE}p"
            :target (file+head "habits.org"
                               "#+title: 习惯清单")
            :empty-lines 1
