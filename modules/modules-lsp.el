@@ -20,7 +20,7 @@
   (setq lspce-sever-programs `(
                                ("rust" "rust-analyzer" "" lspce-ra-initializationOptions)
                                ;; ("rustic" "rust-analyzer" "" lspce-ra-initializationOptionns)
-                               ("python" "ruff" "")))
+                               ("python" "pylsp" "")))
   :general
   (general-define-key
    :states '(normal visual emacs)
