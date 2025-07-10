@@ -45,7 +45,7 @@
 
 (use-package kaolin-themes
   :init
-  (load-theme 'kaolin-breeze t))
+  (load-theme 'kaolin-mono-light t))
 
 ;; winum
 (use-package winum
