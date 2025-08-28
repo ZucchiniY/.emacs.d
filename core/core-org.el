@@ -233,5 +233,20 @@
   :after org
   :hook (org-mode . org-fragtog-mode))
 
+(use-package org-crypt
+  :ensure nil
+  :after org
+  :config
+  (org-crypt-use-before-save-magic)
+  (setq org-crypt-key "37ABDC94D3919CB677D1A9FE57F3F2CE5B8B53CA"
+        org-crypt-disable-auto-save t
+        org-tags-exclude-from-inheritance '("crypt"))
+  :bind
+  (:map org-mode-map
+        ("C-c e" . org-encrypt-entry)
+        ("C-c E" . org-encrypt-entries)
+        ("C-c d" . org-decrypt-entry)
+        ("C-c D" . org-decrypt-entries)))
+
 (provide 'core-org)
 ;;; core-org.el ends here
