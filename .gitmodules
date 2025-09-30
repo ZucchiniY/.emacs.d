@@ -9,3 +9,6 @@
 	path = load-lisp/lspce
 	url = https://github.com/ZucchiniY/lspce.git
 	branch = myfeature
+[submodule "load-lisp/ob-rust"]
+	path = load-lisp/ob-rust
+	url = https://ghfast.top/https://github.com/zweifisch/ob-rust.git

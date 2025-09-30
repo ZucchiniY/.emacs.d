@@ -178,8 +178,12 @@
                                (ditaa .t)
                                (plantuml . t)
                                (mermaid . t)
-                              ; (rust . t)
+                               (rust . t)
                                ))
+
+  (use-package ob-rust
+    :load-path "load-lisp/ob-rust"
+    :init (cl-pushnew '(rust . t) load-language-list))
 
   ;; (use-package ob-ipython
   ;;   :if (executable-find "jupyter")     ; DO NOT remove
