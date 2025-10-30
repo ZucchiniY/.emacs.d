@@ -271,8 +271,15 @@ leader key *SPC t*
 - 英文：Iosevka Nerd Font Mono 14
 - 中文：微软雅黑 14
 
+** MacOS
+
+可以使用 ~brew~ 命令安装
+
 #+begin_src shell
   brew tap homebrew/cask-fonts
   brew install font-hack-nerd-font
 #+end_src
 
+** Linux
+
+需要到 Nerd Font 官方网站上下在，然后按照 [[id:B0F6EDC8-EAFE-4476-B5C7-23FC5DF541DA][Linux 下安装字体]] 方法进行安装。

@@ -35,6 +35,8 @@
 (use-package hydra :ensure t)
 (use-package use-package-hydra :ensure t)
 
+;; add diminish
+(use-package diminish :ensure t)
 
 (setq use-package-always-ensure t)
 (setq use-package-always-defer t)
