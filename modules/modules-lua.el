@@ -11,7 +11,6 @@
   :ensure t
   :mode "\\.lua$"
   :defer t
-  :hook (lua-mode . set-company-backends-for-lua)
   )
 
 (provide 'modules-lua)
