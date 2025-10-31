@@ -44,11 +44,6 @@
         doom-modeline-time-icon t)
   )
 
-(use-package kaolin-themes
-  :ensure t
-  ;; :init (load-theme 'kaolin-galaxy t)
-  )
-
 (use-package modus-themes
   :ensure t
   :demand t)
