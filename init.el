@@ -82,5 +82,8 @@
 ;; json/jsonl mode
 ;;(require 'modules-json)
 
+;; lua mode
+(require 'modules-lua)
+
 (provide 'init)
 ;;; init.el ends here

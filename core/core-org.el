@@ -179,6 +179,7 @@
                                (plantuml . t)
                                (mermaid . t)
                                (rust . t)
+                               (lua . t)
                                ))
 
   (use-package ob-rust
