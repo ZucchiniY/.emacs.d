@@ -44,8 +44,31 @@
   )
 
 (use-package kaolin-themes
+  :ensure t
+  ;; :init (load-theme 'kaolin-galaxy t)
+  )
+
+(use-package modus-themes
+  :ensure t
+  :demand t)
+
+;; https://github.com/protesilaos/ef-themes
+(use-package ef-themes
+  :ensure t
+  :after modus-themes
   :init
-  (load-theme 'kaolin-mono-light t))
+  (load-theme 'ef-summer t)
+  ;; (ef-themes-take-over-modus-themes-mode 1)
+  :bind
+  (("<f5>" . modus-themes-rotate)
+   ("C-<f5>" . modus-themes-select)
+   ("M-<f5>" . modus-themes-load-random))
+  :config
+  (setq modus-themes-mixed-fonts t)
+  (setq modus-themes-italic-constructs t)
+
+  (modus-themes-load-theme 'ef-frost)
+ )
 
 ;; winum
 (use-package winum
