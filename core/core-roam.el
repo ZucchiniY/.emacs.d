@@ -106,6 +106,15 @@
            :jump-to-captured t
            :unnarrowed t
            )
+          ("ac" "书法" plain
+           "#+filetags: %^{Tags|calligraphy}"
+           :target (file+head "areas/craft/%^{Tags|calligraphy}/%<%Y%m%d%H%M%S>-${slug}.org"
+                              "#+title: ${title}")
+           :empty-lines 1
+           :prepend t
+           :jump-to-captured t
+           :unnarrowed t
+           )
           ("aw" "写作")
           ("awn" "笔记" plain
            "#+filetags: :novel:notes:"
