@@ -56,21 +56,21 @@
         org-roam-dailies-directory "projects/"
         org-roam-dailies-capture-templates
         '(("t" "临时任务" entry
-           "* TODO [#B] %^{Title} %^G\nSCHEDULED: %^T %?"
+           "* 未开始 [#B] %^{Title} %^G\nSCHEDULED: %^T %?"
            :target (file+head "tasks.org"
                               "#+title: 收集箱")
            :empty-lines 1
            :jump-to-capture t
            :unnarrowed t)
           ("p" "项目" entry
-           "* TODO [#B] %^{Title} %^G\nDEADLINE: %^T SCHEDULED: %^T\n%?"
+           "* 未开始 [#B] %^{Title} %^G\nDEADLINE: %^T SCHEDULED: %^T\n%?"
            :target (file+head "projects.org"
                               "#+title: 项目清单")
            :empty-lines 1
            :jump-to-capture t
            :unnarrowed t)
           ("h" "习惯" entry
-           "* TODO [#B] %^{Title}\nSCHEDULED: %^T\n %? %^{STYLE}p"
+           "* 未开始 [#B] %^{Title}\nSCHEDULED: %^T\n %? %^{STYLE}p"
            :target (file+head "habits.org"
                               "#+title: 习惯清单")
            :empty-lines 1
