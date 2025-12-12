@@ -98,7 +98,7 @@
   (defun org-summary-todo (n-done n-not-done)
     "Switch entry to DONE when all subentries are done, to TODO otherwise."
     (let (org-log-done org-log-states)   ; turn off logging
-      (org-todo (if (= n-not-done 0) "DONE" "TODO"))))
+      (org-todo (if (= n-not-done 0) "已完成" "未开始"))))
   (add-hook 'org-after-todo-statistics-hook #'org-summary-todo)
   ;; 加载一些 org modules
   (setq org-modules '(org-habit
@@ -117,15 +117,19 @@
   (add-hook 'org-mode-hook 'toggle-truncate-lines)
 
   ;; configurations org keywords' name and faces
-  (setq org-todo-keywords '(;; Baseline sequence
-                            (sequence "TODO(t)" "WAITING(w)" "IMPORTANT(i)"
-                                      "|" "DONE(d!)" "CANCELED(c@)"))
-        ;; org-todo-keyword-faces '(("TODO" . (:foreground "SpringGreen2" :weight bold))
-        ;;                          ("CANCELED" . (:foreground "#354863" ))
-        ;;                          ("IMPORTANT" . "orange red")
-        ;;                          ("WAITING" . "chocolate")
-        ;;                          ("DONE" . "ForestGreen")
-        ;;                          )
+  (setq org-todo-keywords
+        '((sequence "未开始(p!)" "进行中(t!)" "阻塞中(s!)"
+                    "|" "已完成(d!)" "已取消(a@/!)"))
+        org-todo-keyword-faces
+        '(("未开始" . (:foreground "red" :weight bold))
+          ("阻塞中" . (:foreground "red" :weight bold))
+          ("进行中" . (:foreground "orange" :weight bold))
+          ("已完成" . (:foreground "green" :weight bold))
+          ("已取消" . (:background "gray" :foreground "black"))
+          )
+        org-agenda-time-grid (quote (((daily today require-timed)
+                                      (300 600 900 1200 1500 1800 2100 2400)
+                                      "......" "----------------")))
         )
 
   ;; org capture-templates
@@ -133,7 +137,7 @@
         '(
           ("r" "Reading" entry
            (file+headline "~/workspace/org/tasks.org" "Reading")
-           "* TODO %^{book name}\n%t\n"
+           "* 未开始 %^{book name}\n%t\n"
            :clock-in t
            :clock-resume t
            :empty-lines 1)
