@@ -72,6 +72,8 @@
 (use-package undo-tree
   :ensure t
   :init (global-undo-tree-mode 1)
+  :config
+  (setq undo-tree-auto-save-history nil)
   :after hydra
   :bind ("<f6>" . hydra-undo-tree/body)
   :hydra (hydra-undo-tree (:hint nil)
