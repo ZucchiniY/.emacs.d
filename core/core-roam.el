@@ -21,10 +21,7 @@
 
 (use-package org-roam
   :load-path "load-lisp/org-roam"
-  :defines (org-roam-dailies-directory
-            org-roam-dailies-capture-templates
-            org-roam-capture-ref-templates)
-  :defer 1
+  :after org
   :diminish org-roam-mode
   :general
   (general-define-key
