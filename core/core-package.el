@@ -24,12 +24,11 @@
 ;; if emacs-version < 29.1 load use-package
 ;; else load use-package from load-lisp/
 (if (version< emacs-version "29.1")
-    (push (expand-file-name "load-lisp/use-package" user-emacs-directory) load-path)
+    '((push (expand-file-name "load-lisp/use-package" user-emacs-directory) load-path)
+      (eval-when-compile
+        (require 'use-package)))
   ;; emacs 29.1 update build-in package auto
   (setq package-install-upgrade-built-in t))
-
-(eval-when-compile
-  (require 'use-package))
 
 ;; add hydra package
 (use-package hydra :ensure t)
