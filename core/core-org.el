@@ -13,6 +13,7 @@
 
 ;;; Code:
 (use-package org
+  :demand t
   :defines (org-capture-templates
             org-plantuml-jar-path
             org-ditaa-jar-path)
@@ -204,8 +205,8 @@
                                load-language-list)
 
   ;; org latex process
-  (setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"
-                                "xelatex -interaction nonstopmode %f"))
+  ;; (setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"
+  ;;                               "xelatex -interaction nonstopmode %f"))
 
   ;; Preview
   (use-package org-preview-html
@@ -238,8 +239,12 @@
   :after org
   :defer 2
   :ensure t
-  :custom (org-typst-export-buffer-major-mode 'typst-ts-mode)
-  )
+  :custom (org-typst-export-buffer-major-mode 'typst-ts-mode))
+
+(use-package org-protocol
+  :after org
+  :ensure nil
+  :demand t)
 
 (provide 'core-org)
 ;;; core-org.el ends here

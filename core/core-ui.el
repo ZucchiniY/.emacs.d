@@ -26,7 +26,7 @@
 (winner-mode t)
 
 
-(cond (sys/mac-x-p (dylan//set-monospaced-font "Iosevka Nerd Font Mono" "华文仿宋" 14 14))
+(cond (sys/mac-x-p (dylan//set-monospaced-font "Iosevka NFM" "LXGW WenKai Mono Medium" 14 14))
       ;; (sys/linux-x-p (dylan//set-monospaced-font "Iosevka Nerd Font Mono" "Wenquanyi Micro Hei Mono" 18 18))
       (sys/linux-x-p (dylan//set-monospaced-font "Iosevka Nerd Font Mono" "LXGW WenKai Mono Medium" 18 18))
       (sys/win-x-p (dylan//set-monospaced-font "Iosevka Nerd Font Mono" "Microsoft YaHei" 14 14)))

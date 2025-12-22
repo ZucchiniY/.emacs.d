@@ -10,32 +10,9 @@
 ;; basis variables and basis configuration.
 
 ;;; Code:
-(defconst sys/winntp
-  (eq system-type 'windows-nt))
-
-(defconst sys/linuxp
-  (eq system-type 'gnu/linux))
-
-(defconst sys/macp
-  (eq system-type 'darwin))
-
-(defconst sys/win-x-p
-  (and (display-graphic-p) sys/winntp))
-(defconst sys/linux-x-p
-  (and (display-graphic-p) sys/linuxp))
-(defconst sys/mac-x-p
-  (and (display-graphic-p) sys/macp))
-
-(defconst tuna-elpa
-  '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-    ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-    ("nongnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/nongnu/")
-    ))
-
-(defconst ustc-elpa
-  '(("gnu" . "https://mirrors.ustc.edu.cn/elpa/gnu/")
-    ("melpa" . "https://mirrors.ustc.edu.cn/elpa/melpa/")
-    ("nongnu" . "https://mirrors.ustc.edu.cn/elpa/nongnu/")))
+(eval-when-compile
+  (require 'core-const)
+  (require 'core-custom))
 
 (setq user-full-name "Dylan Yang")
 (set-default 'truncate-lines nil)

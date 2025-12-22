@@ -10,14 +10,16 @@
 
 ;;; Code:
 (use-package smex
-  :defer 1
+  :demand t
   :commands (smex smex-major-mode-commands)
   :config (smex-initialize))
 
 (use-package ivy
-  :defer 1
+  :demand t
   :diminish ivy-mode
   :config
+  (setf ivy-re-builders-alist '((swiper . ivy--regex-plus)
+                                (t . ivy--regex-fuzzy)))
   (setq ivy-use-virtual-buffers t
         enable-recursive-minibuffers t)
   (ivy-mode 1))
@@ -28,7 +30,7 @@
   :config (setq search-default-mode nil))
 
 (use-package counsel
-  :defer 1
+  :demand t
   :after (ivy swiper)
   :init (counsel-mode 1)
   :diminish ivy-mode counsel-mode

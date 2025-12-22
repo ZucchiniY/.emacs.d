@@ -31,20 +31,29 @@
   (setq package-install-upgrade-built-in t))
 
 ;; add hydra package
-(use-package hydra :ensure t)
-(use-package use-package-hydra :ensure t)
+(use-package hydra
+  :demand t
+  :ensure t)
+(use-package use-package-hydra
+  :demand t
+  :ensure t)
 
 ;; add diminish
-(use-package diminish :ensure t)
+(use-package diminish :defer t :ensure t)
 
 (setq use-package-always-ensure t)
 (setq use-package-always-defer t)
 (setq use-package-expand-minimally t)
 (setq use-package-enable-imenu-support t)
 
+;; add use-package-verbos
+(setq use-package-verbose t
+      use-package-minimum-reported-time 0.1)
+
 ;; abbrev-mode abbreviation file-name
 (use-package abbrev
   :ensure nil
+  :defer t
   :diminish abbrev-mode
   :config
   (if (file-exists-p abbrev-file-name)
@@ -52,16 +61,19 @@
 
 ;; use package-utils to update packages
 (use-package package-utils
+  :defer t
   :init
   (defalias 'upgrade-packages 'package-utils-upgrade-all)
   (defalias 'upgrade-packages-and-restart 'package-utils-upgrade-all-and-restart))
 
 (use-package no-littering
+  :defer t
   :init
   (setq no-littering-etc-directory (expand-file-name "config/" user-emacs-directory)
         no-littering-var-directory (expand-file-name "data/" user-emacs-directory)))
 
 (use-package which-key
+  :defer t
   :diminish which-key-mode
   :hook (after-init . which-key-mode)
   :config (which-key-mode))
@@ -70,6 +82,7 @@
 
 (use-package undo-tree
   :ensure t
+  :defer t
   :init (global-undo-tree-mode 1)
   :config
   (setq undo-tree-auto-save-history nil)
@@ -87,6 +100,7 @@
 
 (use-package multiple-cursors
   :ensure t
+  :defer t
   :after hydra
   :bind
   ("<f7>" . hydra-multiple-cursors/body)
@@ -118,6 +132,7 @@ Up^^             Down^^           Miscellaneous           % 2(mc/num-cursors) cu
 		  ("q" nil)))
 
 (use-package yasnippet
+  :defer t
   :diminish yas-minor-mode
   :hook (after-init . yas-global-mode)
   :config
@@ -169,7 +184,7 @@ Up^^             Down^^           Miscellaneous           % 2(mc/num-cursors) cu
   (global-set-key (kbd "C-c C-d") #'helpful-at-point)
   (global-set-key (kbd "C-h F") #'helpful-function))
 
-(use-package markdown-mode :ensure nil)
+(use-package markdown-mode :ensure nil :defer t)
 
 (provide 'core-package)
 ;;; core-package.el ends here

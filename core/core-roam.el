@@ -19,9 +19,19 @@
 (require 'core-org)
 (require 'org-id)
 
+(use-package emacsql
+  :defer 1
+  :ensure t)
+
 (use-package org-roam
   :load-path "load-lisp/org-roam"
-  :after org
+  :after (org emacsql)
+  :defer 2
+  :commands (org-roam-dailies-capture-today
+             org-roam-dailies-goto-today
+             org-roam-dailies-directory
+             org-roam-dailies-goto-next-note
+             org-roam-dailies-goto-previous-note)
   :diminish org-roam-mode
   :general
   (general-define-key
@@ -44,9 +54,11 @@
    "u" 'org-roam-ui-mode
    "U" 'org-id-update-id-locations
    )
-  :config
+  :custom
   ;; 解决 org-roam-ui 仅显示一个 Tag 问题
-  (setq org-roam-database-connector 'sqlite-builtin)
+  (org-roam-database-connector 'sqlite-builtin)
+  :config
+  ;; (setq org-roam-database-connector 'sqlite-builtin)
   (setq org-roam-directory (expand-file-name (concat org-directory "/roam"))
         org-roam-db-gc-threshold most-positive-fixnum
         org-roam-completion-everywhere t
@@ -165,8 +177,27 @@
         (concat "${title:*} "
                 (propertize "${tags:50}" 'face 'org-tag)))
   (org-roam-db-autosync-mode)
+  )
 
-  (require 'org-roam-protocol))
+(use-package org-roam-dailies
+  :load-path "load-lisp/org-roam/extensions"
+  :demand t)
+
+(use-package org-roam-export
+  :load-path "load-lisp/org-roam/extensions"
+  :demand t)
+
+(use-package org-roam-graph
+  :load-path "load-lisp/org-roam/extensions"
+  :demand t)
+
+(use-package org-roam-overlay
+  :load-path "load-lisp/org-roam/extensions"
+  :demand t)
+
+(use-package org-roam-protocol
+  :load-path "load-lisp/org-roam/extensions"
+  :demand t)
 
 ;; org-roam-ui
 (use-package org-roam-ui
