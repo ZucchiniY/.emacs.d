@@ -33,6 +33,14 @@
       company-minimum-prefix-length 1
       create-lockfiles nil) 
 
+(let (
+      (gc-cons-threshold most-positive-fixnum)
+      (file-name-handler-alist nil))
+  (require 'benchmark-init-modes)
+  (require 'benchmark-init)
+  (benchmark-init/activate)
+  )
+
 (defun update-load-path (&rest _)
   "Update `load-path'."
   (push (expand-file-name "core" user-emacs-directory) load-path)
@@ -50,7 +58,7 @@
 (require 'core-company)
 (require 'core-counsel)
 (require 'core-ui)
-;; (require 'core-treemacs)
+(require 'core-treemacs)
 
 (require 'core-org)
 ;; add org-roam config

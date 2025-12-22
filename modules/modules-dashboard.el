@@ -9,7 +9,7 @@
 ;;
 
 ;;; Code:
-(require 'core-variable)
+(require 'core-const)
 
 (use-package dashboard
   :ensure t
@@ -19,7 +19,8 @@
         dashboard-set-file-icons t
         dashboard-center-content t
         dashboard-banner-logo-title "Dylan's Emacs - Talk is cheap. Show me the code."
-        dashboard-startup-banner (expand-file-name "logo.png" user-emacs-directory)
+        ;; dashboard-startup-banner (expand-file-name "logo.png" user-emacs-directory)
+        ;; dashboard-startup-banner 'official
         dashboard-items '((recents   . 5)
                           (projects  . 5)
                           (bookmarks . 5)

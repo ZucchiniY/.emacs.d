@@ -59,7 +59,7 @@
      ))
 
 (use-package evil
-  :defer 1
+  :demand t
   :commands (evil-set-initial-state evil-ex-define-cmd)
   :hook (after-init . evil-mode)
   :init
@@ -79,9 +79,8 @@
 
 ;; add package evil-collection
 (use-package evil-collection
-  :defer 2
-  ;; :disabled
-  :after evil
+  :demand t
+  :after (evil magit)
   :custom
   (setq evil-collection-outline-bind-tab-p nil
         evil-collection-setup-minibuffer t)

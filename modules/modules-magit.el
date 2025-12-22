@@ -46,7 +46,10 @@
   ;; Access Git forges from Magit
   ;; https://github.com/skeeto/emacsql#windows-issues
   (unless sys/winntp
-    (use-package forge :demand))
+    (use-package forge
+      :demand t
+      :after (magit emacsql)
+      ))
 
   ;; Show tasks
   (use-package magit-todos
