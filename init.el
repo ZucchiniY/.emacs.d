@@ -27,32 +27,56 @@
 
 ;;; Code:
 ;; upgrade emacs performance
-(setq gc-cons-threshold (* 100 1024 1024)
-      read-process-output-max (* 1024 1024)
-      company-idle-delay 0.0
-      company-minimum-prefix-length 1
-      create-lockfiles nil) 
+(setq gc-cons-threshold most-positive-fixnum)
 
-(let (
-      (gc-cons-threshold most-positive-fixnum)
-      (file-name-handler-alist nil))
-  (require 'benchmark-init-modes)
-  (require 'benchmark-init)
-  (benchmark-init/activate)
-  )
+;; Optimize `auto-mode-alist`
+(setq auto-mode-case-fold nil)
+
+(unless (or (daemonp) noninteractive init-file-debug)
+  ;; Temporarily suppress file-handler processing to speed up startup
+  (let ((default-handlers file-name-handler-alist))
+    (setq file-name-handler-alist nil)
+    ;; Recover handlers after startup
+    (add-hook 'emacs-startup-hook
+              (lambda ()
+                (setq file-name-handler-alist
+                      (delete-dups (append file-name-handler-alist default-handlers))))
+              101)))
+
+;;
+;; Config Load Path
+;;
 
 (defun update-load-path (&rest _)
   "Update `load-path'."
-  (push (expand-file-name "core" user-emacs-directory) load-path)
-  (push (expand-file-name "modules" user-emacs-directory) load-path))
-(advice-add #'package-initialize :after #'update-load-path)
+  (dolist (dir '("core" "modules" "load-lisp"))
+    (push (expand-file-name dir user-emacs-directory) load-path)))
 
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(defun add-subdirs-to-load-path (&rest _)
+  "Recursively add subdirs in 'load-lisp` to `load-path`."
+  (let ((default-directory (expand-file-name "load-lisp" user-emacs-directory)))
+    (normal-top-level-add-subdirs-to-load-path)))
+
+(advice-add #'package-initialize :after #'update-load-path)
+(advice-add #'package-initialize :after #'add-subdirs-to-load-path)
 
 (update-load-path)
 
-(require 'core-basis)
+;; add custom config
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+
+;; Requisites
+(require 'core-const)
+(require 'core-funcs)
+
+;; Packages
 (require 'core-package)
+
+;; Preferences
+(require 'core-basis)
+(require 'core-hydra)
+(require 'core-edit)
+
 (require 'core-keybind)
 
 (require 'core-company)
@@ -72,7 +96,7 @@
 ;; 节日提醒
 (require 'modules-calendar)
 
-;; treesit 
+;; treesit
 ;; (require 'modules-treesit)
 ;; add novelist tools to Creative novels
 (require 'modules-novel)

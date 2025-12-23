@@ -25,6 +25,10 @@
 (setq make-backup-files nil)
 (winner-mode t)
 
+;; 在 modeline/tabline/headerline 上显示 gc 信息，gc 次数 - gc 时间
+(setq-default
+   header-line-format
+   '("GC: " (:eval (number-to-string gcs-done)) " - " (:eval (number-to-string gc-elapsed)) "s"))
 
 (cond (sys/mac-x-p (dylan//set-monospaced-font "Iosevka NFM" "LXGW WenKai Mono Medium" 14 14))
       ;; (sys/linux-x-p (dylan//set-monospaced-font "Iosevka Nerd Font Mono" "Wenquanyi Micro Hei Mono" 18 18))
