@@ -26,10 +26,15 @@
 
 (defconst sys/win-x-p
   (and (display-graphic-p) sys/winntp))
+
 (defconst sys/linux-x-p
   (and (display-graphic-p) sys/linuxp))
+
 (defconst sys/mac-x-p
   (and (display-graphic-p) sys/macp))
+
+(defconst sys/mac-port-p
+  (eq window-system 'mac))
 
 (defconst tuna-elpa
   '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
