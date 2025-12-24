@@ -31,5 +31,5 @@
    "a" 'lspce-code-actions)
    )
 
-(provide 'modules-lsp)
-;;; modules-lsp.el ends here
+(provide 'init-lsp)
+;;; init-lsp.el ends here

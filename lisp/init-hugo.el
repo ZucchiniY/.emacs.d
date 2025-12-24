@@ -1,4 +1,4 @@
-;; modules-hugo.el --- Use org to write blog.	-*- lexical-binding: t -*-
+;; init-hugo.el --- Use org to write blog.	-*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019-2021 Dylan Yang
 
@@ -46,5 +46,5 @@
                    (function org-hugo-new-subtree-post-capture-template)))
     )
   )
-(provide 'modules-hugo)
-;;; modules-hugo.el ends here
+(provide 'init-hugo)
+;;; init-hugo.el ends here

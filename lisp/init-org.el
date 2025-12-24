@@ -1,4 +1,4 @@
-;;; core-org.el --- summary -*- lexical-binding: t -*-
+;;; init-org.el --- summary -*- lexical-binding: t -*-
 
 ;; Author: Dylan Yang
 ;; Maintainer: Dylan Yang
@@ -114,8 +114,8 @@
 
   ;; When the clock is running and Emacs is idle for more than this number of seconds, the clock will be clocked out automatically
   (org-clock-auto-clockout-insinuate)
-  
-  (add-hook 'org-mode-hook 'toggle-truncate-lines)
+
+  (add-hook 'org-mode-hook (lambda () (setq toggle-truncate-lines nil)))
 
   ;; configurations org keywords' name and faces
   (setq org-todo-keywords
@@ -246,5 +246,5 @@
   :ensure nil
   :demand t)
 
-(provide 'core-org)
-;;; core-org.el ends here
+(provide 'init-org)
+;;; init-org.el ends here

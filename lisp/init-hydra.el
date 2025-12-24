@@ -1,4 +1,4 @@
-;; core-hydra.el --- Define Package config.	-*- lexical-binding: t -*-
+;; init-hydra.el --- Define Package config.	-*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019-2021 Dylan Yang
 
@@ -91,5 +91,5 @@
         ("D" diff-hl-dired-mode "dired gutter" :toggle t))
         ))))
 
-(provide 'core-hydra)
-;;; core-hydra.el ends here
+(provide 'init-hydra)
+;;; init-hydra.el ends here

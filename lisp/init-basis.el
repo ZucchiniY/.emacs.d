@@ -1,4 +1,4 @@
-;; core-basis.el --- Define basis config.	-*- lexical-binding: t -*-
+;; init-basis.el --- Define basis config.	-*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019-2021 Dylan Yang
 
@@ -11,7 +11,7 @@
 
 ;;; Code:
 (eval-when-compile
-  (require 'core-const))
+  (require 'init-const))
 
 (setq user-full-name "Dylan Yang"
       user-mail-address "banshiliuli1990@sina.com")
@@ -246,5 +246,5 @@ CHINESE-SIZE is the chinese font size."
            ("C-x K"   . delete-this-file)
            ("C-c C-l" . reload-init-file))
 
-(provide 'core-basis)
-;;; core-basis.el ends here
+(provide 'init-basis)
+;;; init-basis.el ends here

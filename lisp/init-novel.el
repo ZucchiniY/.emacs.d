@@ -1,4 +1,4 @@
-;;; modules-novel.el --- summary -*- lexical-binding: t -*-
+;;; init-novel.el --- summary -*- lexical-binding: t -*-
 
 ;; Author: Dylan Yang
 ;; Maintainer: Dylan Yang
@@ -30,8 +30,8 @@
 
 ;;; Code:
 (eval-when-compile
-  (require 'core-org)
-  (require 'core-roam))
+  (require 'init-org)
+  (require 'init-roam))
 
 (use-package org-novelist
   :load-path "load-lisp/org-novelist"
@@ -67,5 +67,5 @@
      ("b" org-novelist-rename-chapter "重命名章节")
      ("g" org-novelist-destroy-chapter "删除章节")))))
 
-(provide 'modules-novel)
-;;; modules-novel.el ends here
+(provide 'init-novel)
+;;; init-novel.el ends here

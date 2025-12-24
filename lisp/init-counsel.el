@@ -1,4 +1,4 @@
-;; core-counsel.el --- config counsel and ivy , swiper.	-*- lexical-binding: t -*-
+;; init-counsel.el --- config counsel and ivy , swiper.	-*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019-2021 Dylan Yang
 
@@ -62,5 +62,5 @@
   :custom
   (counsel-org-clock-default-action 'counsel-org-clock-clock-dwim-action))
 
-(provide 'core-counsel)
-;;; core-counsel.el ends here
+(provide 'init-counsel)
+;;; init-counsel.el ends here

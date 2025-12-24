@@ -1,4 +1,4 @@
-;; core-package.el --- Define Package config.	-*- lexical-binding: t -*-
+;; init-package.el --- Define Package config.	-*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019-2021 Dylan Yang
 
@@ -11,7 +11,7 @@
 ;;; Code:
 ;; Set package archives and use-package.
 (eval-when-compile
-  (require 'core-const))
+  (require 'init-const))
 
 ;; (setq package-archives ustc-elpa)
 (setq package-archives tuna-elpa)
@@ -44,5 +44,5 @@
     (auto-package-update-hide-results t)
     :init (defalias 'package-upgrade-all #'auto-package-update-now)))
 
-(provide 'core-package)
-;;; core-package.el ends here
+(provide 'init-package)
+;;; init-package.el ends here

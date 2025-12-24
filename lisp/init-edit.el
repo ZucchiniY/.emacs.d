@@ -1,4 +1,4 @@
-;; core-edit.el --- Initialize editing configurations.	-*- lexical-binding: t -*-
+;; init-edit.el --- Initialize editing configurations.	-*- lexical-binding: t -*-
 
 ;; Copyright (C) 2006-2025 Vincent Zhang
 
@@ -30,8 +30,8 @@
 
 ;;; Code:
 (eval-when-compile
-  (require 'core-const)
-  (require 'core-funcs))
+  (require 'init-const)
+  (require 'init-funcs))
 
 (use-package which-key
   :diminish which-key-mode
@@ -122,5 +122,5 @@
 
 (use-package markdown-mode :ensure nil :defer t)
 
-(provide 'core-edit)
-;;; core-edit.el ends here
+(provide 'init-edit)
+;;; init-edit.el ends here

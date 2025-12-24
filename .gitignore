@@ -44,3 +44,5 @@ tramp
 *.~undo-tree~
 tree-sitter/
 session.*
+places
+history

@@ -1,4 +1,4 @@
-;; modules-dashboard.el --- config dashboard.	-*- lexical-binding: t -*-
+;; init-dashboard.el --- config dashboard.	-*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019-2021 Dylan Yang
 
@@ -9,7 +9,7 @@
 ;;
 
 ;;; Code:
-(require 'core-const)
+(require 'init-const)
 
 (use-package dashboard
   :ensure t
@@ -39,5 +39,5 @@
   (dashboard-setup-startup-hook)
   )
 
-(provide 'modules-dashboard)
-;;; modules-dashboard.el ends here
+(provide 'init-dashboard)
+;;; init-dashboard.el ends here

@@ -49,7 +49,7 @@
 
 (defun update-load-path (&rest _)
   "Update `load-path'."
-  (dolist (dir '("core" "modules" "load-lisp"))
+  (dolist (dir '("lisp" "load-lisp"))
     (push (expand-file-name dir user-emacs-directory) load-path)))
 
 (defun add-subdirs-to-load-path (&rest _)
@@ -66,56 +66,56 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
 ;; Requisites
-(require 'core-const)
-(require 'core-funcs)
+(require 'init-const)
+(require 'init-funcs)
 
 ;; Packages
-(require 'core-package)
+(require 'init-package)
 
 ;; Preferences
-(require 'core-basis)
-(require 'core-hydra)
-(require 'core-edit)
+(require 'init-basis)
+(require 'init-hydra)
+(require 'init-edit)
 
-(require 'core-keybind)
+(require 'init-keybind)
 
-(require 'core-company)
-(require 'core-counsel)
-(require 'core-ui)
-(require 'core-treemacs)
+(require 'init-company)
+(require 'init-counsel)
+(require 'init-ui)
+(require 'init-treemacs)
 
-(require 'core-org)
+(require 'init-org)
 ;; add org-roam config
-(require 'core-roam)
+(require 'init-roam)
 
 ;; dashboard
-(require 'modules-dashboard)
-(require 'modules-magit)
-(require 'modules-projectile)
+(require 'init-dashboard)
+(require 'init-magit)
+(require 'init-projectile)
 
 ;; 节日提醒
-(require 'modules-calendar)
+(require 'init-calendar)
 
 ;; treesit
-;; (require 'modules-treesit)
+;; (require 'init-treesit)
 ;; add novelist tools to Creative novels
-(require 'modules-novel)
+(require 'init-novel)
 
 ;; 使用 lspce 作为工具
 ;; (python rust)
-(require 'modules-lsp)
+(require 'init-lsp)
 
 ;; development configuration
-(require 'modules-rust)
+(require 'init-rust)
 
 ;; add ox-hugo
-;; (require 'modules-hugo)
+;; (require 'init-hugo)
 
 ;; json/jsonl mode
-;;(require 'modules-json)
+;;(require 'init-json)
 
 ;; lua mode
-(require 'modules-lua)
+(require 'init-lua)
 
 (provide 'init)
 ;;; init.el ends here

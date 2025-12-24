@@ -1,4 +1,4 @@
-;; core-company.el --- Define company config.	-*- lexical-binding: t -*-
+;; init-company.el --- Define company config.	-*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019-2021 Dylan Yang
 
@@ -44,6 +44,6 @@
         flycheck-emacs-lisp-load-path 'inherit)
   (flycheck-add-mode 'javascript-eslint 'web-mode))
 
-(provide 'core-company)
-;;; core-company.el ends here
+(provide 'init-company)
+;;; init-company.el ends here
 

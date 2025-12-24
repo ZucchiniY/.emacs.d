@@ -1,4 +1,4 @@
-;; core-treemacs.el --- use treemace.	-*- lexical-binding: t -*-
+;; init-treemacs.el --- use treemace.	-*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019-2021 Dylan Yang
 
@@ -82,5 +82,5 @@
 (use-package treemacs-magit
   :after treemacs magit)
 
-(provide 'core-treemacs)
-;;; core-treemacs.el ends here
+(provide 'init-treemacs)
+;;; init-treemacs.el ends here

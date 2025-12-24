@@ -1,4 +1,4 @@
-;; modules-treesit.el --- Define calendar.	-*- lexical-binding: t -*-
+;; init-treesit.el --- Define calendar.	-*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019-2025 Dylan Yang
 
@@ -58,5 +58,5 @@
   :hook (after-init . global-treesit-auto-mode)
   :init (setq treesit-auto-install 'prompt))
 
-(provide 'modules-treesit)
-;;; modules-treesit.el ends here
+(provide 'init-treesit)
+;;; init-treesit.el ends here

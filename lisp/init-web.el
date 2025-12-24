@@ -85,8 +85,8 @@
   (setq web-mode-code-indent-offset 2))
 
 ;; Adds node_modules/.bin directory to `exec_path'
-(use-package add-node-modules-path
-  :hook ((web-mode js-mode js2-mode) . add-node-modules-path))
+(use-package add-node-init-path
+  :hook ((web-mode js-mode js2-mode) . add-node-init-path))
 
 (use-package haml-mode)
 
@@ -103,5 +103,5 @@
       :defines company-backends
       :init (add-to-list 'company-backends 'company-restclient))))
 
-(provide 'modules-web)
-;;; modules-web.el ends here
+(provide 'init-web)
+;;; init-web.el ends here

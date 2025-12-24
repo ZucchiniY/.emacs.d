@@ -1,4 +1,4 @@
-;; modules-calendar.el --- Define calendar.	-*- lexical-binding: t -*-
+;; init-calendar.el --- Define calendar.	-*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019-2021 Dylan Yang
 
@@ -46,5 +46,5 @@
 (use-package calfw-cal
   :ensure t)
 
-(provide 'modules-calendar)
-;;; modules-calendar.el ends here
+(provide 'init-calendar)
+;;; init-calendar.el ends here

@@ -1,4 +1,4 @@
-;;; core-funcs.el --- summary -*- lexical-binding: t -*-
+;;; init-funcs.el --- summary -*- lexical-binding: t -*-
 
 ;; Author: Dylan Yang
 ;; Maintainer: Dylan Yang
@@ -27,7 +27,7 @@
 (require 'cl-lib)
 
 (eval-when-compile
-  (require 'core-const))
+  (require 'init-const))
 
 
 ;; File and buffer
@@ -128,5 +128,5 @@
          (or (featurep 'nerd-icons)
 	   (require 'nerd-icons nil t)))
 
-(provide 'core-funcs)
-;;; core-funcs.el ends here
+(provide 'init-funcs)
+;;; init-funcs.el ends here

@@ -37,5 +37,5 @@
                          (require 'lsp-pyright)
                          (lsp))))
 
-(provide 'modules-eglot)
-;;; modules-eglot.el ends here
+(provide 'init-eglot)
+;;; init-eglot.el ends here

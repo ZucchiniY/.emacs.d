@@ -214,7 +214,6 @@ leader key *SPC t*
 - t :: treemacs
 - b :: treemacs bookmark
 
-
 ** modules
 *** magit
 
