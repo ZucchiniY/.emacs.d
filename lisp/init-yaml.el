@@ -1,4 +1,4 @@
-;;; modules-yaml.el --- summary -*- lexical-binding: t -*-
+;;; init-yaml.el --- summary -*- lexical-binding: t -*-
 
 ;; Author: Dylan Yang
 ;; Maintainer: Dylan Yang
@@ -13,6 +13,6 @@
   :mode (("\\.yaml\\'" . yaml-mode)
          ("\\.yml\\'" . yaml-mode)))
 
-(provide 'modules-yaml)
+(provide 'init-yaml)
 
-;;; modules-yaml.el ends here
+;;; init-yaml.el ends here

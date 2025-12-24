@@ -1,4 +1,4 @@
-;; core-keybind.el --- config evil and evil keybind.	-*- lexical-binding: t -*-
+;; init-keybind.el --- config evil and evil keybind.	-*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019-2021 Dylan Yang
 
@@ -125,6 +125,6 @@
   :diminish evil-mc-extras-mode
   :init (global-evil-mc-extras-mode 1))
 
-(provide 'core-keybind)
-;;; core-keybind.el ends here
+(provide 'init-keybind)
+;;; init-keybind.el ends here
 

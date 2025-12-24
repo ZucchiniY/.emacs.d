@@ -1,4 +1,4 @@
-;; core-const.el --- Define basis variable.	-*- lexical-binding: t -*-
+;; init-const.el --- Define basis variable.	-*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019-2021 Dylan Yang
 
@@ -47,5 +47,5 @@
     ("melpa" . "https://mirrors.ustc.edu.cn/elpa/melpa/")
     ("nongnu" . "https://mirrors.ustc.edu.cn/elpa/nongnu/")))
 
-(provide 'core-const)
-;;; core-const.el ends here
+(provide 'init-const)
+;;; init-const.el ends here

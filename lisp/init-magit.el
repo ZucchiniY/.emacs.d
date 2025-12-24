@@ -1,4 +1,4 @@
-;;; modules-magit.el --- summary -*- lexical-binding: t -*-
+;;; init-magit.el --- summary -*- lexical-binding: t -*-
 
 ;; Author: Dylan Yang
 ;; Maintainer: Dylan Yang
@@ -73,6 +73,6 @@
 ;; (use-package gitconfig-mode)
 ;; (use-package gitignore-mode)
 
-(provide 'modules-magit)
+(provide 'init-magit)
 
-;;; modules-magit.el ends here
+;;; init-magit.el ends here

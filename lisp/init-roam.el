@@ -1,4 +1,4 @@
-;;; core-roam.el --- summary -*- lexical-binding: t -*-
+;;; init-roam.el --- summary -*- lexical-binding: t -*-
 
 ;; Author: Dylan Yang
 ;; Maintainer: Dylan Yang
@@ -13,10 +13,10 @@
 ;;
 ;; 利用 orgmode 非常强大的链接功能，配置 org-roam 构建笔记模板。
 
-;; recyle: 将 org-id 相关配置迁移到 core-org.el 配置下
+;; recyle: 将 org-id 相关配置迁移到 init-org.el 配置下
 
 ;;; Code:
-(require 'core-org)
+(require 'init-org)
 (require 'org-id)
 
 (use-package emacsql
@@ -224,5 +224,5 @@
   (deft-default-extension "org")
   (deft-directory org-roam-directory))
 
-(provide 'core-roam)
-;;; core-roam.el ends here
+(provide 'init-roam)
+;;; init-roam.el ends here

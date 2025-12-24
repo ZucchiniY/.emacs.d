@@ -1,4 +1,4 @@
-;; modules-json.el --- Use org to write blog.	-*- lexical-binding: t -*-
+;; init-json.el --- Use org to write blog.	-*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019-2024 Dylan Yang
 
@@ -14,5 +14,5 @@
   :mode (("\\.json\\'" . json-mode)
          ("\\.jsonl\\'" . json-mode)))
 
-(provide 'modules-json)
-;;; modules-json.el ends here
+(provide 'init-json)
+;;; init-json.el ends here

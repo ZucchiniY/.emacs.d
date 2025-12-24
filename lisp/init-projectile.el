@@ -1,4 +1,4 @@
-;;; modules-projectile.el --- summary -*- lexical-binding: t -*-
+;;; init-projectile.el --- summary -*- lexical-binding: t -*-
 
 ;; Author: Dylan Yang
 ;; Maintainer: Dylan Yang
@@ -30,6 +30,6 @@
     "p/" 'counsel-projectile-grep
     "SPC" 'counsel-projectile-find-file))
 
-(provide 'modules-projectile)
+(provide 'init-projectile)
 
-;;; modules-projectile.el ends here
+;;; init-projectile.el ends here

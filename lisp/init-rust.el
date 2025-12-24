@@ -1,4 +1,4 @@
-;;; modules-rust.el --- summary -*- lexical-binding: t -*-
+;;; init-rust.el --- summary -*- lexical-binding: t -*-
 
 ;; Author: Dylan Yang
 ;; Maintainer: Dylan Yang
@@ -49,6 +49,6 @@
   :ensure t
   :mode ("\\.ron" . ron-mode))
 
-(provide 'modules-rust)
+(provide 'init-rust)
 
-;;; modules-rust.el ends here
+;;; init-rust.el ends here

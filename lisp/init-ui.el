@@ -1,4 +1,4 @@
-;; core-ui.el --- Define ui config.	-*- lexical-binding: t -*-
+;; init-ui.el --- Define ui config.	-*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019-2021 Dylan Yang
 
@@ -10,7 +10,7 @@
 
 ;;; Code:
 ;; 隐藏滚动条、菜单栏
-(require 'core-basis)
+(require 'init-basis)
 
 (unless sys/winntp
   (menu-bar-mode -1))
@@ -74,5 +74,5 @@
 (use-package winum
   :config (winum-mode))
 
-(provide 'core-ui)
-;;; core-ui.el ends here
+(provide 'init-ui)
+;;; init-ui.el ends here
