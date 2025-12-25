@@ -68,54 +68,61 @@
 ;; Requisites
 (require 'init-const)
 (require 'init-funcs)
+(require 'init-custom)
 
 ;; Packages
 (require 'init-package)
 
 ;; Preferences
-(require 'init-basis)
+(require 'init-base)
 (require 'init-hydra)
-(require 'init-edit)
 
-(require 'init-keybind)
-
-(require 'init-company)
-(require 'init-counsel)
 (require 'init-ui)
-(require 'init-treemacs)
+(require 'init-edit)
+(require 'init-completion)
+(require 'init-snippet)
+(require 'init-keybind) ;; evil keybind
 
-(require 'init-org)
-;; add org-roam config
-(require 'init-roam)
-
-;; dashboard
+;; (require 'init-bookmark)
+;; (require 'init-calendar)
 (require 'init-dashboard)
-(require 'init-magit)
-(require 'init-projectile)
+;; (require 'init-dired)
+;; (require 'init-highlight)
+;; (require 'init-ibuffer)
+;; (require 'init-kill-ring)
+;; (require 'init-workspace)
+;; (require 'init-window)
+;; (require 'init-treemacs)
 
-;; 节日提醒
-(require 'init-calendar)
+;; ;; Notes and Diary
+(require 'init-org)
+(require 'init-roam)  ;; use org-roam to organize notes
+(require 'init-novel) ;; use org-novelist to writing novel
+(require 'init-markdown) ;; with markdown file
 
-;; treesit
-;; (require 'init-treesit)
-;; add novelist tools to Creative novels
-(require 'init-novel)
+;; ;; Reading rss
+;; (require 'init-reader)
 
-;; 使用 lspce 作为工具
-;; (python rust)
-(require 'init-lsp)
+;; (require 'init-utils)
 
-;; development configuration
-(require 'init-rust)
+;; ;; Programming
+;; (require 'init-vcs)
+;; (require 'init-check)
+;; (require 'init-lsp) ;; use lspce replace lsp
 
-;; add ox-hugo
-;; (require 'init-hugo)
 
-;; json/jsonl mode
-;;(require 'init-json)
+;; shell and eshell
+;; (require 'init-shell)
+;; (require 'init-eshell)
 
-;; lua mode
-(require 'init-lua)
+;; Development language
+;; (require 'init-prog)
+;; (require 'init-elisp)
+;; (require 'init-c)
+;; (require 'init-rust)
+;; (require 'init-python)
+;; (require 'init-web)
+;; (require 'init-lua) ;; lua mode
 
 (provide 'init)
 ;;; init.el ends here
