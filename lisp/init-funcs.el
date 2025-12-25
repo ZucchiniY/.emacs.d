@@ -29,6 +29,10 @@
 (eval-when-compile
   (require 'init-const))
 
+;; Font
+(defun font-available-p (font-name)
+  "Check if font with FONT-NAME is available."
+  (find-font (font-spec :name font-name)))
 
 ;; File and buffer
 (defun delete-this-file ()
@@ -60,6 +64,14 @@
   (revert-buffer-with-coding-system coding-system)
   (set-buffer-file-coding-system 'utf-8)
   (save-buffer))
+
+(defun dylan-treesit-available-p ()
+  "Check whether tree-sitter is available.
+
+Native tree-sitter is introduced since 29.1."
+  (and dylan-tree-sitter
+       (fboundp 'treesit-available-p)
+       (treesit-available-p)))
 
 (defun save-buffer-gbk-as-utf8 ()
   "Revert a buffer with GBK and save as UTF-8."
@@ -127,6 +139,15 @@
   "Return non-nil if icons are displayable."
          (or (featurep 'nerd-icons)
 	   (require 'nerd-icons nil t)))
+
+(defun too-long-file-p ()
+  "Check whether the file is too long.
+
+Returns non-nil if the buffer size exceeds 500,000 bytes or has more than 10,000
+lines."
+  (or (> (buffer-size) 500000)
+      (and (fboundp 'buffer-line-statistics)
+           (> (car (buffer-line-statistics)) 10000))))
 
 (provide 'init-funcs)
 ;;; init-funcs.el ends here

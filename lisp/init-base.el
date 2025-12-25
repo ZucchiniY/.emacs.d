@@ -1,4 +1,4 @@
-;; init-basis.el --- Define basis config.	-*- lexical-binding: t -*-
+;; init-base.el --- Define basis config.	-*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019-2021 Dylan Yang
 
@@ -246,5 +246,5 @@ CHINESE-SIZE is the chinese font size."
            ("C-x K"   . delete-this-file)
            ("C-c C-l" . reload-init-file))
 
-(provide 'init-basis)
-;;; init-basis.el ends here
+(provide 'init-base)
+;;; init-base.el ends here
