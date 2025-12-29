@@ -76,7 +76,7 @@
 ;; Preferences
 (require 'init-base)
 (require 'init-hydra)
-(require 'init-general) ;; evil keybind
+(require 'init-general) ;; evil and general
 
 (require 'init-ui)
 (require 'init-edit)
@@ -100,13 +100,10 @@
 (require 'init-novel) ;; use org-novelist to writing novel
 (require 'init-markdown) ;; with markdown file
 
-;; ;; Reading rss
-;; (require 'init-reader)
-
 (require 'init-utils)
 
 ;; ;; Programming
-;; (require 'init-vcs)
+(require 'init-vcs)
 ;; (require 'init-check)
 ;; (require 'init-lsp) ;; use lspce replace lsp
 
