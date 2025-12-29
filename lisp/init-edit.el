@@ -1,9 +1,8 @@
 ;; init-edit.el --- Initialize editing configurations.	-*- lexical-binding: t -*-
 
-;; Copyright (C) 2006-2025 Vincent Zhang
 
-;; Author: Vincent Zhang <seagle0128@gmail.com>
-;; URL: https://github.com/seagle0128/.emacs.d
+;; Author: Dylan Yang
+;; URL: https://github.com/zucchiniy/.emacs.d
 
 ;; This file is not part of GNU Emacs.
 ;;

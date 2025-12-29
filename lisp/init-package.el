@@ -30,6 +30,9 @@
       use-package-expand-minimally t
       use-package-enable-imenu-support t)
 
+;; check loaded package and M-x use-package-report
+(setq use-package-compute-statistics t)
+
 ;; add diminish
 (use-package diminish)
 

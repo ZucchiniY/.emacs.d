@@ -76,12 +76,12 @@
 ;; Preferences
 (require 'init-base)
 (require 'init-hydra)
+(require 'init-general) ;; evil keybind
 
 (require 'init-ui)
 (require 'init-edit)
 (require 'init-completion)
 (require 'init-snippet)
-(require 'init-keybind) ;; evil keybind
 
 ;; (require 'init-bookmark)
 ;; (require 'init-calendar)
@@ -103,7 +103,7 @@
 ;; ;; Reading rss
 ;; (require 'init-reader)
 
-;; (require 'init-utils)
+(require 'init-utils)
 
 ;; ;; Programming
 ;; (require 'init-vcs)

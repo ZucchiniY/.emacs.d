@@ -1,10 +1,9 @@
 ;;; init-org.el --- summary -*- lexical-binding: t -*-
 
-;; Author: Dylan Yang
-;; Maintainer: Dylan Yang
-;; Version: 1.1.0
-;; Package-Requires: ()
-;; Homepage: https://github.com/zucchiniy/.emacs.d/
+;; Copyright (C) 2019-2026 Dylan Yang
+
+;; Author: Dylan Yang <banshiliuli1990@sina.com>
+;; URL: https://github.com/zucchiniy/.emacs.d
 
 ;;; Commentary:
 
@@ -12,8 +11,10 @@
 ;; commentary
 
 ;;; Code:
+(eval-when-compile
+  (require 'init-keybind))
+
 (use-package org
-  :demand t
   :defines (org-capture-templates
             org-plantuml-jar-path
             org-ditaa-jar-path)
@@ -21,7 +22,6 @@
   :mode ("\\.\\(org\\|org_archive\\)$" . org-mode)
   :hook (org-indent-mode . (lambda() (diminish 'org-indent-mode)))
   :ensure org
-  :after evil
   :pin gnu
   :general
   (general-define-key
@@ -147,7 +147,7 @@
            "* %?\nEntered on %U\n %i\n"
            :empty-lines 1
            :jump-to-captured t)
-           ))
+          ))
 
   ;; org-refile-targets 指定移动的文件
   ;; org-refile-use-outlinne-path 'file 显示文件路径
@@ -188,6 +188,8 @@
                                ))
 
   (use-package ob-rust
+    :defer t
+    :after org
     :load-path "load-lisp/ob-rust"
     :init (cl-pushnew '(rust . t) load-language-list))
 
@@ -197,6 +199,8 @@
 
   ;; 新增 mermaid 配置
   (use-package ob-mermaid
+    :after org
+    :defer t
     :config
     (setq ob-mermaid-cli-path "/Users/dylan/.nvm/versions/node/v19.8.1/bin/mmdc")
     )
@@ -210,6 +214,8 @@
 
   ;; Preview
   (use-package org-preview-html
+    :defer t
+    :after org
     :diminish org-preview-html-mode)
 
   ;; Pomodoro
@@ -238,13 +244,7 @@
   :commands (org-typst-export-to-typst)
   :after org
   :defer 2
-  :ensure t
   :custom (org-typst-export-buffer-major-mode 'typst-ts-mode))
-
-(use-package org-protocol
-  :after org
-  :ensure nil
-  :demand t)
 
 (provide 'init-org)
 ;;; init-org.el ends here

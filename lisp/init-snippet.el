@@ -1,7 +1,5 @@
 ;; init-snippet.el --- Initialize snippet configurations.	-*- lexical-binding: t -*-
 
-;; Copyright (C) 2006-2025 Vincent Zhang
-
 ;; Author: Dylan Yang
 ;; URL: https://github.com/zucchiniy/.emacs.d
 
