@@ -338,7 +338,7 @@
   :diminish hs-minor-mode
   :pretty-hydra
   ((:title (pretty-hydra-title "HideShow" 'octicon "nf-oct-fold")
-    :color amaranth :quit-key ("q" "C-g"))
+           :color amaranth :quit-key ("q" "C-g"))
    ("Fold"
     (("t" hs-toggle-all "toggle all")
      ("a" hs-show-all "show all")
@@ -360,8 +360,8 @@
      ("M-<" beginning-of-buffer "⭶")
      ("M->" end-of-buffer "⭸"))))
   :bind (:map hs-minor-mode-map
-         ("C-~" . hideshow-hydra/body)
-         ("C-S-<escape>" . hideshow-hydra/body))
+              ("C-~" . hideshow-hydra/body)
+              ("C-S-<escape>" . hideshow-hydra/body))
   :hook (prog-mode . hs-minor-mode)
   :config
   ;; More functions
@@ -420,10 +420,9 @@
   (use-package xclip
     :hook (after-init . xclip-mode)
     :config
-    ;; HACK: fix bug in xclip-mode on WSL
+    ;; fix bug in xclip-mode on WSL
     (when (eq xclip-method 'powershell)
       (setq xclip-program "powershell.exe"))
-
     ;; @see https://github.com/microsoft/wslg/issues/15#issuecomment-1796195663
     (when (eq xclip-method 'wl-copy)
       (set-clipboard-coding-system 'gbk) ; for wsl
