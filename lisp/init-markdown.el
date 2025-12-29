@@ -42,9 +42,10 @@
   :config
   (add-to-list 'markdown-code-lang-modes '("mermaid" . mermaid-mode))
 
-  (with-no-warnings
-    (advice-add #'markdown--command-map-prompt :override $'ignore)
-    (advice-add #'markdown--style-map-prompt :override $'ignore)))
+  ;; (with-no-warnings
+  ;;   (advice-add #'markdown--command-map-prompt :override $'ignore)
+  ;;   (advice-add #'markdown--style-map-prompt :override $'ignore))
+  )
 
 
 ;; Table of contents

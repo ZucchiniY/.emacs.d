@@ -105,7 +105,7 @@
 ;; ;; Programming
 (require 'init-vcs)
 ;; (require 'init-check)
-;; (require 'init-lsp) ;; use lspce replace lsp
+(require 'init-lsp) ;; use lspce replace lsp
 
 
 ;; shell and eshell
