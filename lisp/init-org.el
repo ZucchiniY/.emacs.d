@@ -12,7 +12,7 @@
 
 ;;; Code:
 (eval-when-compile
-  (require 'init-keybind))
+  (require 'init-general))
 
 (use-package org
   :defines (org-capture-templates

@@ -181,23 +181,23 @@
 
 (use-package org-roam-dailies
   :load-path "load-lisp/org-roam/extensions"
-  :demand t)
+  :defer t)
 
 (use-package org-roam-export
   :load-path "load-lisp/org-roam/extensions"
-  :demand t)
+  :defer t)
 
 (use-package org-roam-graph
   :load-path "load-lisp/org-roam/extensions"
-  :demand t)
+  :defer t)
 
 (use-package org-roam-overlay
   :load-path "load-lisp/org-roam/extensions"
-  :demand t)
+  :defer t)
 
 (use-package org-roam-protocol
   :load-path "load-lisp/org-roam/extensions"
-  :demand t)
+  :defer t)
 
 ;; org-roam-ui
 ;; (use-package org-roam-ui
