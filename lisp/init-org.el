@@ -8,7 +8,6 @@
 ;;; Commentary:
 
 ;; org configurations
-;; commentary
 
 ;;; Code:
 (eval-when-compile

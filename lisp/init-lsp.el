@@ -6,7 +6,7 @@
 (use-package lspce
   :load-path "load-lisp/lspce"
   :hook ((rust-mode . lspce-mode)
-         ;; (c-mode . lspce-mode)
+         (c-mode. lspce-mode)
          (python-mode . lspce-mode))
   :config
   (progn
@@ -24,7 +24,7 @@
             ("C" "clangd" "--all-scopes-completion --clang-tidy --enable-config --header-insertion-decorators=0")
             ("typescript" "deno" "" lspce-deno-initializationOptions)
             ("javascript" "deno" "" lspce-deno-initializationOptions)
-            ("python" "pylsp" "" lspce-pylsp-initializationOptions)))
+            ("python" "ruff" "" lspce-ruff-initializationOptions)))
     :general
     (general-define-key
      :states '(normal visual emacs)

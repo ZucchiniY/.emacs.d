@@ -37,6 +37,8 @@
 
   ;; 增加单个块中从进程中读取的数据量, 默认为4kb
   (setq read-process-output-max #x100000)
+  ;; 默认占用的栈大小为 1600 ，调整为 16000
+  (setq max-lisp-eval-depth 16000)
   ;; 不要 ping 域名
   (setq ffap-machine-p-known 'reject))
 

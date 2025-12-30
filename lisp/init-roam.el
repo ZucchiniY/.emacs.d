@@ -27,11 +27,11 @@
   :load-path "load-lisp/org-roam"
   :after (org emacsql)
   :defer 2
-  :commands (org-roam-dailies-capture-today
-             org-roam-dailies-goto-today
-             org-roam-dailies-directory
-             org-roam-dailies-goto-next-note
-             org-roam-dailies-goto-previous-note)
+  ;; :commands (org-roam-dailies-capture-today
+  ;;            org-roam-dailies-goto-today
+  ;;            org-roam-dailies-directory
+  ;;            org-roam-dailies-goto-next-note
+  ;;            org-roam-dailies-goto-previous-note)
   :diminish org-roam-mode
   :general
   (general-define-key
@@ -43,15 +43,15 @@
    "f" 'org-roam-node-find
    "g" 'org-id-get-create
    "i" 'org-roam-node-insert
-   "j" 'org-roam-dailies-capture-today
-   "k" 'org-roam-dailies-goto-today
+   ;; "j" 'org-roam-dailies-capture-today
+   ;; "k" 'org-roam-dailies-goto-today
    "l" 'org-roam-buffer-toggle
-   "n" 'org-roam-dailies-goto-next-note
-   "p" 'org-roam-dailies-goto-previous-note
+   ;; "n" 'org-roam-dailies-goto-next-note
+   ;; "p" 'org-roam-dailies-goto-previous-note
    "r" 'org-roam-ref-add
    "s" 'org-roam-db-sync
    "t" 'org-roam-tag-add
-   "u" 'org-roam-ui-mode
+   ;; "u" 'org-roam-ui-mode
    "U" 'org-id-update-id-locations
    )
   :custom
@@ -181,7 +181,19 @@
 
 (use-package org-roam-dailies
   :load-path "load-lisp/org-roam/extensions"
-  :defer t)
+  :after (org emacsql)
+  :defer 2
+  :general
+  (general-define-key
+   :states '(normal visual)
+   :keymaps 'override
+   :prefix "SPC d"
+   "j" 'org-roam-dailies-capture-today
+   "k" 'org-roam-dailies-goto-today
+   "n" 'org-roam-dailies-goto-next-note
+   "p" 'org-roam-dailies-goto-previous-note
+   "t" 'org-roam-dailies-capture-today
+   ))
 
 (use-package org-roam-export
   :load-path "load-lisp/org-roam/extensions"
