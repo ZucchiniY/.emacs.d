@@ -51,7 +51,9 @@
         gcmh-high-cons-threshold #x1000000))
 
 ;; SET UTF-8 as the default coding system
-(set-language-environment 'Chinese-GB)
+(when (fboundp 'set-charset-priority)
+  (set-charset-priority 'unicode))
+(set-language-environment "UTF-8")
 (prefer-coding-system 'utf-8)
 (setq coding-system-for-read 'utf-8
       coding-system-for-write 'utf-8)
@@ -59,6 +61,7 @@
 ;; 设置键盘输入时的编码
 (set-keyboard-coding-system 'utf-8)
 (set-selection-coding-system 'utf-8)
+(set-next-selection-coding-system 'utf-8)
 ;; 设置文件默认保存的编码
 (set-buffer-file-coding-system 'utf-8)
 (setq-default buffer-file-coding-system 'utf-8)
@@ -77,9 +80,9 @@
 
 (defun dylan//set-monospaced-font (english chinese english-size chinese-size)
   "The dylan//set-monospaced-font to configuration the font.
-ENGLISH is english font name
-CHINESE is chinese font name ENGLISH-SIZE is the english fond size
-CHINESE-SIZE is the chinese font size."
+  ENGLISH is english font name
+  CHINESE is chinese font name ENGLISH-SIZE is the english fond size
+  CHINESE-SIZE is the chinese font size."
   (set-face-attribute 'default nil
                       :font (font-spec
                              :name english
@@ -94,6 +97,13 @@ CHINESE-SIZE is the chinese font size."
                        :weight 'normal
                        :slant 'normal
                        :size chinese-size))))
+
+;; Environment
+(when dylan-use-exec-path-from-shell
+  (use-package exec-path-from-shell
+    :commands exec-path-from-shell-initialize
+    :custom (exec-path-from-shell-arguments '("-l"))
+    :init (exec-path-from-shell-initialize)))
 
 (use-package saveplace
   :hook (after-init . save-place-mode))
