@@ -1,33 +1,13 @@
 ;;; init-rust.el --- summary -*- lexical-binding: t -*-
 
-;; Author: Dylan Yang
-;; Maintainer: Dylan Yang
-;; Version: 0.1.0
-;; Package-Requires: (rust-analyzer)
-;; Homepage: homepage
-;; Keywords: keywords
+;; Copyright (C) 2019-2026 Dylan Yang
 
-
-;; This file is not part of GNU Emacs
-
-;; This program is free software: you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation, either version 3 of the License, or
-;; (at your option) any later version.
-
-;; This program is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;; GNU General Public License for more details.
-
-;; You should have received a copy of the GNU General Public License
-;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
+;; Author: Dylan Yang <banshiliuli1990@sina.com>
+;; URL: https://github.com/zucchiniy/.emacs.d
 
 ;;; Commentary:
-
-;; commentary
-
+;;
+;; rust configuration
 ;;; Code:
 
 (use-package rust-mode
@@ -36,17 +16,13 @@
               rust-mode-treesitter-derive t)
   :config
   (add-hook 'rust-mode-hook (lambda () (setq indent-tabs-mode nil)))
-  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
   (define-derived-mode rustic-mode rust-mode "Rust"
     "Major mode for Rust code."))
 
-(use-package flycheck-rust :ensure t
-  :config (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
-
-(use-package toml-mode :ensure t)
-(use-package cargo :ensure t)
+(use-package toml-mode :defer t)
+(use-package cargo :defer t)
 (use-package ron-mode
-  :ensure t
+  :defer t
   :mode ("\\.ron" . ron-mode))
 
 (provide 'init-rust)

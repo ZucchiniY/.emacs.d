@@ -97,7 +97,7 @@
 ;; ;; Notes and Diary
 (require 'init-org)
 (require 'init-roam)  ;; use org-roam to organize notes
-(require 'init-novel) ;; use org-novelist to writing novel
+;; (require 'init-novel) ;; use org-novelist to writing novel :BUG 程序会不停的报错 `'Ignoring unknown mode ‘org-novelist-mode’`
 (require 'init-markdown) ;; with markdown file
 
 (require 'init-utils)
@@ -105,8 +105,7 @@
 ;; ;; Programming
 (require 'init-vcs)
 ;; (require 'init-check)
-(require 'init-lsp) ;; use lspce replace lsp
-
+(require 'init-lsp) ;; use lspce replace lsp :BUG: 报错栈超用，修改为使用 eglot 进行补全
 
 ;; shell and eshell
 ;; (require 'init-shell)
@@ -116,8 +115,8 @@
 ;; (require 'init-prog)
 ;; (require 'init-elisp)
 ;; (require 'init-c)
-;; (require 'init-rust)
-;; (require 'init-python)
+(require 'init-rust)
+(require 'init-python)
 ;; (require 'init-web)
 ;; (require 'init-lua) ;; lua mode
 
