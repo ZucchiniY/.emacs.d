@@ -35,7 +35,12 @@
 
 (use-package org-novelist
   :load-path "load-lisp/org-novelist"
-  :bind ("<f5>" . org-novelist-hydra/body)
+  :general
+  (general-define-key
+   :states 'normal
+   :keymaps 'override
+   :prefix "SPC s"
+   "h" 'org-novelist-hydra/body)
   :init
   (setq org-novelist-language-tag "zh-Hans"
         org-novelist-author "INTJ摸鱼小能手"
@@ -60,8 +65,8 @@
      ("v" org-novelist-destroy-place "删除地点"))
     "物品"
     (("s" org-novelist-new-prop "新增物品")
-    ("t" org-novelist-rename-prop "重命名物品")
-    ("w" org-novelist-destroy-prop "删除物品"))
+     ("t" org-novelist-rename-prop "重命名物品")
+     ("w" org-novelist-destroy-prop "删除物品"))
     "章节"
     (("a" org-novelist-new-chapter "新增章节")
      ("b" org-novelist-rename-chapter "重命名章节")
