@@ -1,61 +1,60 @@
 ;; init-treemacs.el --- use treemace.	-*- lexical-binding: t -*-
 
-;; Copyright (C) 2019-2021 Dylan Yang
+;; Copyright (C) 2019-2026 Dylan Yang
 
 ;; Author: Dylan Yang <banshiliuli1990@sina.com>
 ;; URL: https://github.com/zucchiniy/.emacs.d
 
 ;;; Commentary:
 ;;
+;; Treemace configuration
+;; A tree layout file explorer.
 
 ;;; Code:
+(eval-when-compile
+  (require 'init-custom))
+
 (use-package treemacs
+  :commands (treemacs-follow-mode
+             treemacs-filewatch-mode
+             treemacs-git-mode)
+  :custom-face
+  (cfrs-border-color ((t (:inherit posframe-border))))
   :defer 2
   :config
-  (progn
-    (setq treemacs-collapse-dirs                 (if (executable-find "python") 3 0)
-          treemacs-deferred-git-apply-delay      0.5
-          treemacs-display-in-side-window        t
-          treemacs-file-event-delay              5000 treemacs-file-follow-delay             0.2
-          treemacs-follow-after-init             t
-          treemacs-git-command-pipe              ""
-          treemacs-goto-tag-strategy             'refetch-index
-          treemacs-indentation                   2
-          treemacs-indentation-string            " "
-          treemacs-is-never-other-window         nil
-          treemacs-max-git-entries               5000
-          treemacs-no-png-images                 nil
-          treemacs-no-delete-other-windows       t
-          treemacs-project-follow-cleanup        nil
-          treemacs-persist-file                  (expand-file-name ".cache/treemacs-persist" user-emacs-directory)
-          treemacs-recenter-distance             0.1
-          treemacs-recenter-after-file-follow    nil
-          treemacs-recenter-after-tag-follow     nil
-          treemacs-recenter-after-project-jump   'always
-          treemacs-recenter-after-project-expand 'on-distance
-          treemacs-show-cursor                   nil
-          treemacs-show-hidden-files             t
-          treemacs-silent-filewatch              nil
-          treemacs-silent-refresh                nil
-          treemacs-sorting                       'alphabetic-desc
-          treemacs-space-between-root-nodes      t
-          treemacs-tag-follow-cleanup            t
-          treemacs-tag-follow-delay              1.5
-          treemacs-width                         35)
+  (setq treemacs-collapse-dirs           (if treemacs-python-executable 3 0)
+        treemacs-missing-project-action  'remove
+        treemacs-user-mode-line-format   'none
+        treemacs-sorting                 'alphabetic-asc
+        treemacs-follow-after-init       t
+        treemacs-width                   30
+        treemacs-no-png-images           (not dylan-icon))
 
-    ;; The default width and height of the icons is 22 pixels. If you are
-    ;; using a Hi-DPI display, uncomment this to double the icon size.
-    ;;(treemacs-resize-icons 44)
+  (treemacs-follow-mode t)
+  (treemacs-filewatch-mode t)
+  (pcase (cons (not (null (executable-find "git")))
+               (not (null (executable-find "python3"))))
+    (`(t . t)
+     (treemacs-git-mode 'deferred))
+    (`(t . _)
+     (treemacs-git-mode 'simple)))
 
-    (treemacs-follow-mode t)
-    (treemacs-filewatch-mode t)
-    (treemacs-fringe-indicator-mode t)
-    (pcase (cons (not (null (executable-find "git")))
-                 (not (null (executable-find "python3"))))
-      (`(t . t)
-       (treemacs-git-mode 'deferred))
-      (`(t . _)
-       (treemacs-git-mode 'simple))))
+  (use-package treemacs-nerd-icons
+    :demand t
+    :functions treemacs-load-theme
+    :config (treemacs-load-theme "nerd-icons"))
+
+  (use-package treemacs-magit
+    :hook ((magit-post-commit
+            git-commit-post-finish
+            magit-post-stage
+            magit-post-unstage)
+           . treemacs-magit--schedule-update))
+
+  (use-package treemacs-tab-bar
+    :demand t
+    :functions treemacs-set-scope-type
+    :config (treemacs-set-scope-type 'Tabs))
   :general
   (general-define-key
    :states 'normal
@@ -63,24 +62,11 @@
    :prefix "SPC t"
    "t" 'treemacs
    "b" 'treemacs-bookmark
-   "c" 'treemacs-select-window))
-
-(use-package treemacs-evil
-  :after treemacs evil)
-
-(use-package treemacs-nerd-icons
-  :config
-  (treemacs-load-theme "nerd-icons"))
-
-(use-package treemacs-projectile
-  :after treemacs projectile)
-
-(use-package treemacs-icons-dired
-  :after treemacs dired
-  :config (treemacs-icons-dired-mode))
-
-(use-package treemacs-magit
-  :after treemacs magit)
+   "s" 'treemacs-select-window
+   "a" 'treemacs-delete-other-windows
+   "f" 'treemacs-find-file
+   "o" 'treemacs-find-tag
+   ))
 
 (provide 'init-treemacs)
 ;;; init-treemacs.el ends here
