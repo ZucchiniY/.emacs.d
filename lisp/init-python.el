@@ -16,8 +16,16 @@
                                    (get-process "Python"))))
 
   :init
-  (setq python-chell-completion-native-enable nil)
+  (setq python-indent-offset 4
+        python-chell-completion-native-enable nil)
   :config
+  ;; Type checker & language server: `ty'
+  (with-eval-after-load 'eglot
+    (add-to-list 'eglot-server-programs
+                 '((python-ts-mode python-mode)
+                   . ("ty" "server"))))
+
+  ;; Linter & formatter: `ruff'
   (when (executable-find "ruff")
     (use-package flymake-ruff
       :hook (python-base-mode . flymake-ruff-mode)))

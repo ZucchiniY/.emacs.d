@@ -18,7 +18,6 @@
   (add-hook 'rust-mode-hook (lambda () (setq indent-tabs-mode nil)))
   (define-derived-mode rustic-mode rust-mode "Rust"
     "Major mode for Rust code."))
-
 (use-package toml-mode :defer t)
 (use-package cargo :defer t)
 (use-package ron-mode

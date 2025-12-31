@@ -83,13 +83,11 @@
 (require 'init-completion)
 (require 'init-snippet)
 
-;; (require 'init-bookmark)
-;; (require 'init-calendar)
+(require 'init-calendar)
 (require 'init-dashboard)
-;; (require 'init-dired)
-;; (require 'init-highlight)
-;; (require 'init-ibuffer)
-;; (require 'init-kill-ring)
+;; (require 'init-highlight) ;; FIXED BUG
+(require 'init-ibuffer)
+(require 'init-kill-ring)
 ;; (require 'init-workspace)
 ;; (require 'init-window)
 ;; (require 'init-treemacs)
@@ -97,28 +95,29 @@
 ;; ;; Notes and Diary
 (require 'init-org)
 (require 'init-roam)  ;; use org-roam to organize notes
-;; (require 'init-novel) ;; use org-novelist to writing novel :BUG 程序会不停的报错 `'Ignoring unknown mode ‘org-novelist-mode’`
+(require 'init-novel) ;; use org-novelist to writing novel
 (require 'init-markdown) ;; with markdown file
 
 (require 'init-utils)
 
 ;; ;; Programming
 (require 'init-vcs)
-;; (require 'init-check)
-(require 'init-lsp) ;; use lspce replace lsp :BUG: 报错栈超用，修改为使用 eglot 进行补全
-
-;; shell and eshell
-;; (require 'init-shell)
-;; (require 'init-eshell)
+(require 'init-check)
+(require 'init-lsp) ;; use eglot, elgot-booster and emacs-lisp-booster
 
 ;; Development language
-;; (require 'init-prog)
-;; (require 'init-elisp)
-;; (require 'init-c)
+(require 'init-c)
 (require 'init-rust)
 (require 'init-python)
-;; (require 'init-web)
-;; (require 'init-lua) ;; lua mode
+;; (require 'init-web) ;; :FIXED have bug
+
+;; Not Need
+;; (require 'init-bookmark)
+;; (require 'init-prog)
+;; (require 'init-elisp)
+;; (require 'init-shell)
+;; (require 'init-eshell)
+;; (require 'init-dired)
 
 (provide 'init)
 ;;; init.el ends here
