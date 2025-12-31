@@ -53,7 +53,7 @@
     (push (expand-file-name dir user-emacs-directory) load-path)))
 
 (defun add-subdirs-to-load-path (&rest _)
-  "Recursively add subdirs in 'load-lisp` to `load-path`."
+  "Recursively add subdirs in `load-lisp' to `load-path'."
   (let ((default-directory (expand-file-name "load-lisp" user-emacs-directory)))
     (normal-top-level-add-subdirs-to-load-path)))
 
@@ -88,9 +88,9 @@
 ;; (require 'init-highlight) ;; FIXED BUG
 (require 'init-ibuffer)
 (require 'init-kill-ring)
-;; (require 'init-workspace)
+(require 'init-workspace)
 ;; (require 'init-window)
-;; (require 'init-treemacs)
+(require 'init-treemacs)
 
 ;; ;; Notes and Diary
 (require 'init-org)
