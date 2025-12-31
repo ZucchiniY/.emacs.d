@@ -5,10 +5,6 @@
 [submodule "load-lisp/org-novelist"]
 	path = load-lisp/org-novelist
 	url = https://github.com/ZucchiniY/org-novelist.git
-[submodule "load-lisp/lspce"]
-	path = load-lisp/lspce
-	url = https://github.com/ZucchiniY/lspce.git
-	branch = myfeature
 [submodule "load-lisp/ob-rust"]
 	path = load-lisp/ob-rust
 	url = https://ghfast.top/https://github.com/zweifisch/ob-rust.git
