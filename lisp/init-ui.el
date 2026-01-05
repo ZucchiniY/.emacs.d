@@ -76,19 +76,20 @@
 ;; https://github.com/protesilaos/ef-themes
 (use-package ef-themes
   :ensure t
-  :after modus-themes
+  ;; :after modus-themes
   :init
-  (load-theme 'ef-summer t)
+  (load-theme 'ef-bio t)
   ;; (ef-themes-take-over-modus-themes-mode 1)
-  :bind
-  (("<f5>" . modus-themes-rotate)
-   ("C-<f5>" . modus-themes-select)
-   ("M-<f5>" . modus-themes-load-random))
+  ;; :bind
+  ;; (("<f5>" . modus-themes-rotate)
+  ;;  ("C-<f5>" . modus-themes-select)
+  ;;  ("M-<f5>" . modus-themes-load-random))
   :config
-  (setq modus-themes-mixed-fonts t)
-  (setq modus-themes-italic-constructs t)
+  ;; (setq modus-themes-mixed-fonts t)
+  ;; (setq modus-themes-italic-constructs t)
 
-  (modus-themes-load-theme 'ef-frost))
+  ;; (modus-themes-load-theme 'ef-frost)
+  )
 
 (use-package doom-modeline
   :after (nerd-icons)
