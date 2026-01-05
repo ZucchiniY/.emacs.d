@@ -14,6 +14,13 @@
   (require 'init-const)
   (require 'init-custom))
 
+;; 隐藏菜单和工具栏
+(setq-default tool-bar-always-show-default nil)
+(when (display-graphic-p)
+  (tool-bar-mode -1)
+  (menu-bar-mode -1)
+  (scroll-bar-mode -1))
+
 (setq idle-update-delay 1.0)
 
 (setq-default cursor-in-non-selected-windows nil)
