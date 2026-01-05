@@ -9,6 +9,7 @@
 ;;
 ;; Modern completion configuration.
 ;; delete company and use Corfu/Consult to completion.
+;; https://github.com/AboutEmacs/consult/blob/main/README_zh.org
 
 ;;; Code:
 (eval-when-compile
@@ -59,19 +60,19 @@
   :commands (consult-narrow-help)
   :functions (list-colors-duplicates consult-colors--web-list)
   :bind (;; C-c bindings in `mode-specific-map'
-         ("C-c M-x" . consult-mode-command)
+         ("C-c M-x" . consult-mode-command) ;; 运行当前 mode 命令，可以通过 l/g/m 对应的本地、全局、主要模式
          ("C-c h"   . consult-history)
-         ("C-c k"   . consult-kmacro)
-         ("C-c i"   . consult-info)
-         ("C-c r"   . consult-ripgrep)
-         ("C-c T"   . consult-theme)
-         ("C-."     . consult-imenu)
+         ("C-c k"   . consult-kmacro) ;; 宏列表中选择宏并执行
+         ("C-c i"   . consult-info)   ;; 从 info 页面中进行全文搜索
+         ("C-c r"   . consult-ripgrep) ;; 使用 ripgrep 进行搜索
+         ("C-c T"   . consult-theme)  ;; 选择主题并禁用所有当前启用的主题
+         ("C-."     . consult-imenu)  ;; 跳转到当前项目缓冲区中的 Imenu
 
-         ("C-c c e" . consult-colors-emacs)
-         ("C-c c w" . consult-colors-web)
-         ("C-c c f" . describe-face)
-         ("C-c c l" . find-library)
-         ("C-c c t" . consult-theme)
+         ("C-c c e" . consult-colors-emacs) ;; 查看 Emacs 可用颜色
+         ("C-c c w" . consult-colors-web) ;; 查看 Web 可用颜色
+         ("C-c c f" . describe-face) ;; 查看当前样式属性
+         ("C-c c l" . find-library) ;; 中转到对应的库文件
+         ("C-c c t" . consult-theme) ;; 选择主题
 
          ([remap Info-search]        . consult-info)
          ([remap isearch-forward]    . consult-line)
