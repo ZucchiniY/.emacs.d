@@ -79,45 +79,44 @@
          ([remap recentf-open-files] . consult-recent-file)
 
          ;; C-x bindings in `ctl-x-map'
-         ("C-x M-:" . consult-complex-command)     ;; orig. repeat-complex-command
-         ("C-x b"   . consult-buffer)              ;; orig. switch-to-buffer
-         ("C-x 4 b" . consult-buffer-other-window) ;; orig. switch-to-buffer-other-window
-         ("C-x 5 b" . consult-buffer-other-frame)  ;; orig. switch-to-buffer-other-frame
-         ("C-x r b" . consult-bookmark)            ;; orig. bookmark-jump
-         ("C-x p b" . consult-project-buffer)      ;; orig. project-switch-to-buffer
+         ("C-x M-:" . consult-complex-command)     ;; 从 `command-history' 中选择命令
+         ("C-x b"   . consult-buffer)              ;; 快速切换 buffer
+         ("C-x 4 b" . consult-buffer-other-window) ;; 快速切换 window
+         ("C-x 5 b" . consult-buffer-other-frame)  ;; 快速切换 frame
+         ("C-x r b" . consult-bookmark)            ;; 选择或者创建书签
+         ("C-x p b" . consult-project-buffer)      ;; 选择切换到 project
          ;; Custom M-# bindings for fast register access
-         ("M-#"     . consult-register-load)
-         ("M-'"     . consult-register-store)      ;; orig. abbrev-prefix-mark (unrelated)
-         ("C-M-#"   . consult-register)
+         ("M-#"     . consult-register-load)       ;; 快速加载寄存器
+         ("M-'"     . consult-register-store)      ;; 根据当前上下文快速存储到寄存器
+         ("C-M-#"   . consult-register)            ;; 从寄存器列表中选择，可以快速缩小类型和位置
          ;; Other custom bindings
-         ("M-y"     . consult-yank-pop)            ;; orig. yank-pop
+         ("M-y"     . consult-yank-pop)            ;; 快速使用 yank-pop
          ;; M-g bindings in `goto-map'
-         ("M-g e"   . consult-compile-error)
-         ("M-g f"   . consult-flymake)
-         ("M-g g"   . consult-goto-line)           ;; orig. goto-line
-         ("M-g M-g" . consult-goto-line)           ;; orig. goto-line
-         ("M-g o"   . consult-outline)             ;; Alternative: consult-org-heading
-         ("M-g m"   . consult-mark)
-         ("M-g k"   . consult-global-mark)
-         ("M-g i"   . consult-imenu)
-         ("M-g I"   . consult-imenu-multi)
+         ("M-g e"   . consult-compile-error)       ;; 跳转到编译缓冲区的编译错误
+         ("M-g f"   . consult-flymake)             ;; 跳转到 Flymake 的诊断
+         ("M-g g"   . consult-goto-line)           ;; 跳转到行号，支持实时预览
+         ("M-g o"   . consult-outline)             ;; 跳转到大纲标题，Alternative: consult-org-heading
+         ("M-g m"   . consult-mark)                ;; 跳转到 mark-ring 中的标记，支持预览和递归
+         ("M-g k"   . consult-global-mark)         ;; 跳转到 global-mark-ring 中的标记，支持预览和递归
+         ("M-g i"   . consult-imenu)               ;; 跳转到当前缓冲区的 imenu，支持预览、递归、缩小
+         ("M-g I"   . consult-imenu-multi)         ;; 跳转到项目缓冲区的 imenu，支持预览、递归和缩小
          ;; M-s bindings in `search-map'
-         ("M-s d"   . consult-find)
-         ("M-s D"   . consult-locate)
-         ("M-s g"   . consult-grep)
-         ("M-s G"   . consult-git-grep)
-         ("M-s r"   . consult-ripgrep)
-         ("M-s l"   . consult-line)
-         ("M-s L"   . consult-line-multi)
-         ("M-s k"   . consult-keep-lines)
-         ("M-s u"   . consult-focus-lines)
+         ("M-s d"   . consult-find)                ;; 通过路径与正则表达式查找文件
+         ("M-s D"   . consult-locate)              ;; 在 locate 中进行搜索
+         ("M-s g"   . consult-grep)                ;; 在文件中正则搜索文件，使用 grep
+         ("M-s G"   . consult-git-grep)            ;; 在 git 仓库中搜索文件进行搜索
+         ("M-s r"   . consult-ripgrep)             ;; 在文件中正则搜索文件，使用 ripgrep
+         ("M-s l"   . consult-line)                ;; 在缓冲区中搜索行
+         ("M-s L"   . consult-line-multi)          ;; 多个缓冲区中进行搜索
+         ("M-s k"   . consult-keep-lines)          ;; 当前缓冲区中搜索行
+         ("M-s u"   . consult-focus-lines)         ;; 在缓冲区中搜索然后聚焦到搜索到的内容
          ;; Isearch integration
-         ("M-s e"   . consult-isearch-history)
+         ("M-s e"   . consult-isearch-history)     ;; 从 Isearch 中进行搜索
          :map isearch-mode-map
-         ("M-e"     . consult-isearch-history)      ;; orig. isearch-edit-string
-         ("M-s e"   . consult-isearch-history)      ;; orig. isearch-edit-string
-         ("M-s l"   . consult-line)                 ;; needed by consult-line to detect isearch
-         ("M-s L"   . consult-line-multi)           ;; needed by consult-line to detect isearch
+         ("M-e"   . consult-isearch-history)       ;; 从 Isearch 中进行搜索
+         ("M-s e"   . consult-isearch-history)     ;; 从 Isearch 中进行搜索
+         ("M-s l"   . consult-line)                ;; 从缓冲区中进行搜索
+         ("M-s L"   . consult-line-multi)          ;; 从多个缓冲区中进行搜索
 
          ;; Minibuffer history
          :map minibuffer-local-map
@@ -211,16 +210,16 @@ value of the selected COLOR."
 
 (use-package consult-dir
   :ensure t
-  :bind (("C-x C-d" . consult-dir)
+  :bind (("C-x C-d" . consult-dir)  ;; 选择目录进行跳转
          :map minibuffer-local-completion-map
-         ("C-x C-d" . consult-dir)
-         ("C-x C-j" . consult-dir-jump-file)))
+         ("C-x C-d" . consult-dir)  ;; 选择目录进行跳转
+         ("C-x C-j" . consult-dir-jump-file))) ;; 打开当前目录并选择文件跳转
 
 (use-package consult-flyspell
-  :bind ("M-g s" . consult-flyspell))
+  :bind ("M-g s" . consult-flyspell)) ;; 显示当前拼写错误
 
 (use-package consult-yasnippet
-  :bind ("M-g y" . consult-yasnippet))
+  :bind ("M-g y" . consult-yasnippet)) ;; 展开 yasnippet 模板
 
 (use-package embark
   :commands embark-prefix-help-command
@@ -387,4 +386,4 @@ targets."
   (advice-add 'pcomplete-completions-at-point :around #'cape-wrap-silent))
 
 (provide 'init-completion)
-;;; init-company.el ends here
+;;; init-completion.el ends here
