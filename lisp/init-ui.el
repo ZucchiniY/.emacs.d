@@ -33,10 +33,10 @@
       frame-resize-pixelwise t)
 
 (setq initial-frame-alist '((top . 0.5)
-			    (left . 0.5)
-			    (width . 0.7)
-			    (height . 0.85)
-			    (fullscreen)))
+			                (left . 0.5)
+			                (width . 0.7)
+			                (height . 0.85)
+			                (fullscreen)))
 
 (setq fancy-splath-image dylan-logo)
 
@@ -65,8 +65,8 @@
 
 ;; 在 modeline/tabline/headerline 上显示 gc 信息，gc 次数 - gc 时间
 (setq-default
-   header-line-format
-   '("GC: " (:eval (number-to-string gcs-done)) " - " (:eval (number-to-string gc-elapsed)) "s"))
+ header-line-format
+ '("GC: " (:eval (number-to-string gcs-done)) " - " (:eval (number-to-string gc-elapsed)) "s"))
 
 (cond (sys/mac-x-p (dylan//set-monospaced-font "Iosevka NFM" "LXGW WenKai Mono Medium" 14 14))
       ;; (sys/linux-x-p (dylan//set-monospaced-font "Iosevka Nerd Font Mono" "Wenquanyi Micro Hei Mono" 18 18))
@@ -75,24 +75,41 @@
 
 ;; https://github.com/protesilaos/ef-themes
 (use-package modus-themes
+  :init
+  (modus-themes-include-derivatives-mode 1)
   :config
-  (setq modus-themes-mixed-fonts t)
-  (setq modus-themes-italic-constructs t))
+  (setq modus-themes-to-toggle '(modus-operandi modus-vivendi)
+        modus-themes-to-rotate modus-themes-items
+        modus-themes-variable-pitch-ui t
+        modus-themes-italic-constructs t
+        modus-themes-bold-constructs t
+        modus-themes-completions '((t . (bold)))
+        modus-themes-prompts '(bold)
+        modus-themes-headings
+        '((agenda-structure . (variable-pitch light 2.2))
+          (agenda-date . (variable-pitch regular 1.3))
+          (t . (regular 1.15))))
+
+  (setq modus-themes-common-palette-overrides nil)
+  )
 
 (use-package ef-themes
+  :after modus-themes
   :init
   (ef-themes-take-over-modus-themes-mode 1)
   :config
-  (modus-themes-load-theme 'ef-frost))
+  (setq modus-themes-italic-constructs t)
+  )
 
 (use-package circadian
-  :ensure t
-  :config
-  (setq calendar-latitude 39.54
-        calendar-longitude 116.25)
-  (setq circadian-themes '((:sunrise . el-frost)
-                           (:sunset . el-bio)))
-  (circadian-setup))
+  :after ef-themes
+  :commands circadian-setup
+  :custom (circadian-themes dylan-auto-themes)
+  :init
+  (setq calendar-latitude 39.54)
+  (setq calendar-longitude 116.25)
+  (circadian-setup)
+  )
 
 (use-package doom-modeline
   :after (nerd-icons)

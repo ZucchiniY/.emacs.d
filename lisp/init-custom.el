@@ -3,31 +3,12 @@
 ;; Author: Dylan Yang
 ;; URL: https://github.com/zucchiniy/.emacs.d
 
-;; This file is not part of GNU Emacs.
-;;
-;; This program is free software; you can redistribute it and/or
-;; modify it under the terms of the GNU General Public License as
-;; published by the Free Software Foundation; either version 3, or
-;; (at your option) any later version.
-;;
-;; This program is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-;; General Public License for more details.
-;;
-;; You should have received a copy of the GNU General Public License
-;; along with this program; see the file COPYING.  If not, write to
-;; the Free Software Foundation, Inc., 51 Franklin Street, Fifth
-;; Floor, Boston, MA 02110-1301, USA.
-;;
-
 ;;; Commentary:
 ;;
 ;; Customization.
 ;;
 
 ;;; Code:
-
 (eval-when-compile
   (require 'package))
 
@@ -119,6 +100,19 @@ Native tree-sitter is introduced in 29."
   "Enable Chinese calendar or not."
   :group 'dylan
   :type 'boolean)
+
+(defcustom dylan-auto-themes '(("8:00"  . ef-summer)
+				               ("19:00" . ef-winter))
+  "List of themes mapped to the time they should be loaded.
+
+The keywords `:sunrise' and `:sunset' can be used for the time
+if the option `calendar-latitude' and option `calendar-longitude' are set.
+For example:
+  \\='((:sunrise . tango)
+    (:sunset  . tanggo-dark))"
+  :group 'dylan
+  :type '(alist :key-type (string :tag "Time")
+                :value-type (symbol :tag "Theme")))
 
 ;; Load `custom-file'
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
