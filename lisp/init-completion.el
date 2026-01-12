@@ -59,69 +59,51 @@
   :autoload (consult--read consult--customize-put)
   :commands (consult-narrow-help)
   :functions (list-colors-duplicates consult-colors--web-list)
-  :bind (;; C-c bindings in `mode-specific-map'
-         ("C-c M-x" . consult-mode-command) ;; 运行当前 mode 命令，可以通过 l/g/m 对应的本地、全局、主要模式
-         ("C-c h"   . consult-history)
-         ("C-c k"   . consult-kmacro) ;; 宏列表中选择宏并执行
-         ("C-c i"   . consult-info)   ;; 从 info 页面中进行全文搜索
-         ("C-c r"   . consult-ripgrep) ;; 使用 ripgrep 进行搜索
-         ("C-c T"   . consult-theme)  ;; 选择主题并禁用所有当前启用的主题
-         ("C-."     . consult-imenu)  ;; 跳转到当前项目缓冲区中的 Imenu
-
-         ("C-c c e" . consult-colors-emacs) ;; 查看 Emacs 可用颜色
-         ("C-c c w" . consult-colors-web) ;; 查看 Web 可用颜色
-         ("C-c c f" . describe-face) ;; 查看当前样式属性
-         ("C-c c l" . find-library) ;; 中转到对应的库文件
-         ("C-c c t" . consult-theme) ;; 选择主题
-
-         ([remap Info-search]        . consult-info)
+  :general
+  (general-define-key
+   :states '(normal visual)
+   :keymaps 'override
+   :prefix "SPC c"
+   "bb"  'consult-buffer
+   "bo"  'consult-buffer-other-window
+   "bp"   'consult-project-buffer
+   "ce"  'consult-colors-emacs
+   "cw"  'consult-colors-web
+   "cf"  'describe-face
+   "cl"  'find-library
+   "ec"   'consult-compile-error
+   "ef"   'consult-flymake
+   "ff"   'consult-find
+   "fg"   'consult-git-grep
+   "fl"   'consult-locate
+   "fr"   'consult-ripgrep
+   "fo"   'consult-outline
+   "gg"   'consult-grep
+   "gh"   'consult-history
+   "gi"   'consult-info
+   "ii"   'consult-imenu
+   "ih"   'consult-isearch-history
+   "im"   'consult-imenu-multi
+   "k"   'consult-kmacro
+   "lf"  'consult-focus-lines
+   "lg"  'consult-goto-line
+   "lk"  'consult-keep-lines
+   "ll"  'consult-line
+   "lm"  'consult-line-multi
+   "mb"   'consult-bookmark
+   "mm"   'consult-mark
+   "rl"   'consult-register-load
+   "rr"   'consult-register
+   "rs"   'consult-register-store
+   "t"   'consult-theme
+   "x"   'consult-mode-command
+   "y"   'consult-yank-pop
+   ":"   'consult-complex-command
+   )
+  :bind (([remap Info-search]        . consult-info)
          ([remap isearch-forward]    . consult-line)
          ([remap recentf-open-files] . consult-recent-file)
-
-         ;; C-x bindings in `ctl-x-map'
-         ("C-x M-:" . consult-complex-command)     ;; 从 `command-history' 中选择命令
-         ("C-x b"   . consult-buffer)              ;; 快速切换 buffer
-         ("C-x 4 b" . consult-buffer-other-window) ;; 快速切换 window
-         ("C-x 5 b" . consult-buffer-other-frame)  ;; 快速切换 frame
-         ("C-x r b" . consult-bookmark)            ;; 选择或者创建书签
-         ("C-x p b" . consult-project-buffer)      ;; 选择切换到 project
-         ;; Custom M-# bindings for fast register access
-         ("M-#"     . consult-register-load)       ;; 快速加载寄存器
-         ("M-'"     . consult-register-store)      ;; 根据当前上下文快速存储到寄存器
-         ("C-M-#"   . consult-register)            ;; 从寄存器列表中选择，可以快速缩小类型和位置
-         ;; Other custom bindings
-         ("M-y"     . consult-yank-pop)            ;; 快速使用 yank-pop
-         ;; M-g bindings in `goto-map'
-         ("M-g e"   . consult-compile-error)       ;; 跳转到编译缓冲区的编译错误
-         ("M-g f"   . consult-flymake)             ;; 跳转到 Flymake 的诊断
-         ("M-g g"   . consult-goto-line)           ;; 跳转到行号，支持实时预览
-         ("M-g o"   . consult-outline)             ;; 跳转到大纲标题，Alternative: consult-org-heading
-         ("M-g m"   . consult-mark)                ;; 跳转到 mark-ring 中的标记，支持预览和递归
-         ("M-g k"   . consult-global-mark)         ;; 跳转到 global-mark-ring 中的标记，支持预览和递归
-         ("M-g i"   . consult-imenu)               ;; 跳转到当前缓冲区的 imenu，支持预览、递归、缩小
-         ("M-g I"   . consult-imenu-multi)         ;; 跳转到项目缓冲区的 imenu，支持预览、递归和缩小
-         ;; M-s bindings in `search-map'
-         ("M-s d"   . consult-find)                ;; 通过路径与正则表达式查找文件
-         ("M-s D"   . consult-locate)              ;; 在 locate 中进行搜索
-         ("M-s g"   . consult-grep)                ;; 在文件中正则搜索文件，使用 grep
-         ("M-s G"   . consult-git-grep)            ;; 在 git 仓库中搜索文件进行搜索
-         ("M-s r"   . consult-ripgrep)             ;; 在文件中正则搜索文件，使用 ripgrep
-         ("M-s l"   . consult-line)                ;; 在缓冲区中搜索行
-         ("M-s L"   . consult-line-multi)          ;; 多个缓冲区中进行搜索
-         ("M-s k"   . consult-keep-lines)          ;; 当前缓冲区中搜索行
-         ("M-s u"   . consult-focus-lines)         ;; 在缓冲区中搜索然后聚焦到搜索到的内容
-         ;; Isearch integration
-         ("M-s e"   . consult-isearch-history)     ;; 从 Isearch 中进行搜索
-         :map isearch-mode-map
-         ("M-e"   . consult-isearch-history)       ;; 从 Isearch 中进行搜索
-         ("M-s e"   . consult-isearch-history)     ;; 从 Isearch 中进行搜索
-         ("M-s l"   . consult-line)                ;; 从缓冲区中进行搜索
-         ("M-s L"   . consult-line-multi)          ;; 从多个缓冲区中进行搜索
-
-         ;; Minibuffer history
-         :map minibuffer-local-map
-         ("M-s" . consult-history)                  ;; orig. next-matching-history-element
-         ("M-r" . consult-history))                 ;; orig. previous-matching-history-element
+         )                 ;; orig. previous-matching-history-element
 
   ;; Enable automatic preview at point in the *Completions* buffer. This is
   ;; relevant when you use the default completion UI.
