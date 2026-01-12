@@ -33,6 +33,68 @@
 
 删除一些长时间未使用、非基础的配置，同时调整一些配置代码的位置，整合一些配置文件中的内容。
 
+** lisp
+
+所有配置文件，不再区分 core 和 modules 拆分。
+
+*** consult
+
+  (global-define-key
+   :states 'normal
+   :keymaps 'override
+   :prefix "SPC c"
+   "M-x" 'consult-mode-command
+   "h"   'consult-history
+   "k"   'consult-kmacro
+   "i"   'consult-info
+   "r"   'consult-ripgrep
+   "t"   'consult-theme
+   "ce"  'consult-colors-emacs
+   "cw"  'consult-colors-web
+   "cf"  'describe-face
+   "cl"  'find-library
+   )
+  (global-define-key
+   :states 'normal
+   :keymaps 'override
+   :prefix "SPC x"
+   ":"   'consult-complex-command
+   "b"   'consult-buffer
+   "bo"  'consult-buffer-other-window
+   "m"   'consult-bookmark
+   "p"   'consult-project-buffer
+   )
+  (global-define-key
+   :states 'normal
+   :keymaps 'override
+   :prefix "SPC m"
+   "#"   'consult-register-load
+   "'"   'consult-register-store
+   "r"   'consult-register
+   "y"   'consult-yank-pop
+   "e"   'consult-compile-error
+   "f"   'consult-flymake
+   "g"   'consult-goto-line
+   "o"   'consult-outline
+   "m"   'consult-mark
+   "i"   'consult-imenu
+   "I"   'consult-imenu-multi
+   )
+  (global-define-key
+   :states 'normal
+   :keymaps 'override
+   :prefix "SPC f"
+   "f"   'consult-find
+   "F"   'consult-locate
+   "g"   'consult-grep
+   "r"   'consult-git-grep
+   "l"   'consult-line
+   "L"   'consult-line-multi
+   "k"   'consult-keep-lines
+   "c"   'consult-focus-lines
+   "i"   'consult-isearch-history
+   )
+
 ** core
 
 此配置下主要是一些必须的设置、工具配置和许多个人比较喜欢使用的工具。
