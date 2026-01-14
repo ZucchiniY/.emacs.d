@@ -29,7 +29,6 @@ extends/mspyls/
 extends/Python-Language-Server-osx-x64.0.5.45.nupkg
 extends/plantuml.jar
 extends/ditaa0_9.jar
-librime/
 auto-save-list/
 .dap-breakpoints
 recentf~
@@ -46,3 +45,5 @@ tree-sitter/
 session.*
 places
 history
+projects
+tabsession.el
