@@ -98,8 +98,8 @@
            :unnarrowed t
            )
           ("at" "工具相关" plain
-           "#+filetags: %^{Tags|emacs|systems}"
-           :target (file+head "areas/tools/%^{Tags|emacs|systems}/%<%Y%m%d%H%M%S>-${slug}.org"
+           "#+filetags: %^{Tags|emacs|notes|systems}"
+           :target (file+head "areas/tools/%^{Tags|emacs|notes|systems}/%<%Y%m%d%H%M%S>-${slug}.org"
                               "#+title: ${title}")
            :empty-lines 1
            :prepend t
