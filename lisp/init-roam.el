@@ -35,7 +35,7 @@
   :diminish org-roam-mode
   :general
   (general-define-key
-   :states '(normal visual)
+   :states '(normal visual emacs)
    :keymaps 'override
    :prefix "SPC n"
    "a" 'org-roam-alias-add
@@ -185,7 +185,7 @@
   :defer 2
   :general
   (general-define-key
-   :states '(normal visual)
+   :states '(normal visual emacs)
    :keymaps 'override
    :prefix "SPC d"
    "j" 'org-roam-dailies-capture-today
@@ -225,7 +225,7 @@
   ;; :bind ("C-c n d" . deft)
   :general
   (general-define-key
-   :states '(normal visual)
+   :states '(normal visual emacs)
    :keymaps 'override
    :prefix "SPC n"
    "d" 'deft
