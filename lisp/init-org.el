@@ -24,7 +24,7 @@
   :pin gnu
   :general
   (general-define-key
-   :states 'normal
+   :states '(normal visual emacs)
    :keymaps 'override
    :prefix "SPC o"
    "a" 'org-agenda
