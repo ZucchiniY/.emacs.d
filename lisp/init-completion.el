@@ -192,16 +192,33 @@ value of the selected COLOR."
 
 (use-package consult-dir
   :ensure t
-  :bind (("C-x C-d" . consult-dir)  ;; 选择目录进行跳转
-         :map minibuffer-local-completion-map
-         ("C-x C-d" . consult-dir)  ;; 选择目录进行跳转
-         ("C-x C-j" . consult-dir-jump-file))) ;; 打开当前目录并选择文件跳转
+  :general
+  (global-leader
+    :states '(normal visual motion)
+    "xd" 'consult-dir  ;; 选择目录进行跳转
+    "xj" 'consult-dir-jump-file ;; 打开当前目录并选择文件跳转
+    )
+  ;; :bind (("C-x C-d" . consult-dir)  ;; 选择目录进行跳转
+  ;;        :map minibuffer-local-completion-map
+  ;;        ("C-x C-d" . consult-dir)  ;; 选择目录进行跳转
+  ;;        ("C-x C-j" . consult-dir-jump-file)) ;; 打开当前目录并选择文件跳转
+  )
 
 (use-package consult-flyspell
-  :bind ("M-g s" . consult-flyspell)) ;; 显示当前拼写错误
+  :general
+  (global-leader
+    :states '(normal emacs visual)
+    "s" 'consult-flyspell)
+  ;; :bind ("M-g s" . consult-flyspell)
+  ) ;; 显示当前拼写错误
 
 (use-package consult-yasnippet
-  :bind ("M-g y" . consult-yasnippet)) ;; 展开 yasnippet 模板
+  :general
+  (global-leader
+    :states 'insert
+    "y" 'consult-yasnippet)
+  ;; :bind ("M-g y" . consult-yasnippet)
+  ) ;; 展开 yasnippet 模板
 
 (use-package embark
   :commands embark-prefix-help-command
