@@ -96,15 +96,12 @@
     :keymaps 'override)
   (global-leader
     ;; files keybinds
-    "fs" 'save-buffer
-    "fd" 'dired
+    ;; "fs" 'save-buffer
+    ;; "fd" 'dired
     ;; buffer keybinds
-    "bq" 'kill-buffer
+    ;; "bq" 'kill-buffer
     ;; quite emacs
     "qq" 'save-buffers-kill-emacs
-    ;; winner
-    "wu" 'winner-undo
-    "wr" 'winner-redo
     ;; window keybinds
     "wo" 'other-window
     "wv" 'split-window-vertically
@@ -115,19 +112,8 @@
     "wj" 'evil-window-down
     "wq" 'delete-window
     "wa" 'delete-other-windows
-    ;; windows select
-    "1" 'winum-select-window-1
-    "2" 'winum-select-window-2
-    "3" 'winum-select-window-3
-    "4" 'winum-select-window-4
-    "5" 'winum-select-window-5
-    "6" 'winum-select-window-6
-    "7" 'winum-select-window-7
-    "8" 'winum-select-window-8
-    "9" 'winum-select-window-9
-    "0" 'winum-select-window-0-or-10
     ;; cfw::open-org-calendar
-    "ov" 'cfw:open-org-calendar
+    ;; "ov" 'cfw:open-org-calendar
     ;; "xo" 'xwidget-webkit-browse-url
     ))
 
