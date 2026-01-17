@@ -61,46 +61,70 @@
   :functions (list-colors-duplicates consult-colors--web-list)
   :general
   (general-define-key
-   :states '(normal visual)
-   :keymaps 'override
+   :states 'normal
    :prefix "SPC c"
-   "bb"  'consult-buffer
-   "bo"  'consult-buffer-other-window
-   "bp"   'consult-project-buffer
-   "ce"  'consult-colors-emacs
-   "cw"  'consult-colors-web
-   "cf"  'describe-face
-   "cl"  'find-library
-   "ec"   'consult-compile-error
-   "ef"   'consult-flymake
-   "ff"   'consult-find
-   "fg"   'consult-git-grep
-   "fl"   'consult-locate
-   "fr"   'consult-ripgrep
-   "fo"   'consult-outline
-   "gg"   'consult-grep
-   "gh"   'consult-history
-   "gi"   'consult-info
-   "ii"   'consult-imenu
-   "ih"   'consult-isearch-history
-   "im"   'consult-imenu-multi
-   "k"   'consult-kmacro
-   "lf"  'consult-focus-lines
-   "lg"  'consult-goto-line
-   "lk"  'consult-keep-lines
-   "ll"  'consult-line
-   "lm"  'consult-line-multi
-   "mb"   'consult-bookmark
-   "mm"   'consult-mark
-   "rl"   'consult-register-load
-   "rr"   'consult-register
-   "rs"   'consult-register-store
+   "M-x" 'consult-mode-command
+   "h"   'consult-history
+   "i"   'consult-info
+   "r"   'consult-ripgrep
    "t"   'consult-theme
-   "x"   'consult-mode-command
-   "y"   'consult-yank-pop
-   ":"   'consult-complex-command
+   "m"   'consult-imenu
+   "M"   'consult-imenu-multi
+   "M-:" 'consult-complex-command
    )
-  :bind (([remap Info-search]        . consult-info)
+  (general-define-key
+   :states 'normal
+   :prefix "SPC b"
+   "b"   'consult-buffer
+   "o"   'consult-buffer-other-window
+   )
+  (general-define-key
+   :states 'normal
+   :prefix "SPC m"
+   "b"   'consult-bookmark
+   "m"   'consult-mark
+   "g"   'consult-global-mark
+   )
+  (general-define-key
+   :states 'normal
+   :prefix "SPC p"
+   "b" 'consult-project-buffer
+   )
+  (general-define-key
+   :states 'normal
+   :prefix "SPC r"
+   "r" 'consult-register
+   "l" 'consult-register-load
+   "s" 'consult-register-store
+   )
+  (general-define-key
+   :states 'normal
+   :prefix "SPC j"
+   "e" 'consult-compile-error
+   "f" 'consult-flymake
+   "l" 'consult-goto-line
+   "o" 'consult-outline
+   )
+  (general-define-key
+   :states 'normal
+   :prefix "SPC f"
+   "d" 'consult-find
+   "D" 'consult-locate
+   "g" 'consult-grep
+   "G" 'consult-git-grep
+   "r" 'consult-ripgrep
+   "l" 'consult-line
+   "L" 'consult-line-multi
+   "k" 'consult-keep-lines
+   "f" 'consult-focus-lines
+   "i" 'consult-isearch-history
+   )
+  :bind (("C-c c e" . consult-colors-emacs)
+         ("C-c c w" . consult-colors-webb)
+         ("C-c c f" . describe-face)
+         ("C-c c l" . find-library)
+         ("M-y" . consult-yank-pop)
+         ([remap Info-search]        . consult-info)
          ([remap isearch-forward]    . consult-line)
          ([remap recentf-open-files] . consult-recent-file)
          )                 ;; orig. previous-matching-history-element
@@ -193,11 +217,12 @@ value of the selected COLOR."
 (use-package consult-dir
   :ensure t
   :general
-  (global-leader
-    :states '(normal visual motion)
-    "xd" 'consult-dir  ;; 选择目录进行跳转
-    "xj" 'consult-dir-jump-file ;; 打开当前目录并选择文件跳转
-    )
+  (general-define-key
+   :states 'normal
+   :prefix "SPC c"
+   "d" 'consult-dir
+   ;; "j" 'consult-dir-jump-file
+   )
   ;; :bind (("C-x C-d" . consult-dir)  ;; 选择目录进行跳转
   ;;        :map minibuffer-local-completion-map
   ;;        ("C-x C-d" . consult-dir)  ;; 选择目录进行跳转
@@ -206,18 +231,15 @@ value of the selected COLOR."
 
 (use-package consult-flyspell
   :general
-  (global-leader
-    :states '(normal emacs visual)
-    "s" 'consult-flyspell)
+  (general-define-key
+   :states 'normal
+   :prefix "SPC c"
+   "s" 'consult-flyspell)
   ;; :bind ("M-g s" . consult-flyspell)
   ) ;; 显示当前拼写错误
 
 (use-package consult-yasnippet
-  :general
-  (global-leader
-    :states 'insert
-    "y" 'consult-yasnippet)
-  ;; :bind ("M-g y" . consult-yasnippet)
+  :bind ("M-g y" . consult-yasnippet)
   ) ;; 展开 yasnippet 模板
 
 (use-package embark
