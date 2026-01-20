@@ -119,7 +119,7 @@
   ;; configurations org keywords' name and faces
   (setq org-todo-keywords
         '((sequence "未开始(p!)" "进行中(t!)" "阻塞中(s!)"
-                    "|" "已完成(d!)" "已取消(a@/!)"))
+                    "|" "已完成(d!)" "已取消(c@/!)"))
         org-todo-keyword-faces
         '(("未开始" . (:foreground "red" :weight bold))
           ("阻塞中" . (:foreground "red" :weight bold))
@@ -135,17 +135,18 @@
   ;; org capture-templates
   (setq org-capture-templates
         '(
-          ("r" "Reading" entry
-           (file+headline "~/workspace/org/tasks.org" "Reading")
+          ("t" "收集箱" entry
+           "* 未开始 [#B] %^{Title} %^G\nSCHEDULED: %^T %?"
+           :target (file+headline "roam/tasks.org" "任务")
+           :empty-lines 1
+           :jump-to-capture t
+           :unnarrowed t)
+          ("r" "阅读任务" entry
+           (file+headline "roam/tasks.org" "阅读")
            "* 未开始 %^{book name}\n%t\n"
            :clock-in t
            :clock-resume t
            :empty-lines 1)
-          ("e" "Emotion Notes" entry
-           (file+olp+datetree "~/workspace/org/roam/daily/Emotion.org")
-           "* %?\nEntered on %U\n %i\n"
-           :empty-lines 1
-           :jump-to-captured t)
           ))
 
   ;; org-refile-targets 指定移动的文件
