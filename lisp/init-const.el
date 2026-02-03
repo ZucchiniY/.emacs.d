@@ -47,5 +47,6 @@
     ("melpa" . "https://mirrors.ustc.edu.cn/elpa/melpa/")
     ("nongnu" . "https://mirrors.ustc.edu.cn/elpa/nongnu/")))
 
+(setq lexical-binding t)
 (provide 'init-const)
 ;;; init-const.el ends here

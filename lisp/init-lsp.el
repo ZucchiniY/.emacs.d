@@ -1,8 +1,14 @@
-;;; package --- Summary
+;;; init-org.el --- summary -*- lexical-binding: t -*-
+
+;; Copyright (C) 2019-2026 Dylan Yang
+
+;; Author: Dylan Yang <banshiliuli1990@sina.com>
+
+;; URL: https://github.com/zucchiniy/.emacs.d
 ;;; Commentary:
-;;; config lsp mode
+;; config lsp mode
+
 ;;; Code:
-;; lsp-python
 (use-package eglot
   :hook ((prog-mode . (lambda ()
                         (unless (derived-mode-p
