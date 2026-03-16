@@ -117,8 +117,8 @@
            )
           ("a" "领域")
           ("ad" "开发" plain
-           "#+filetags: %^{Tags?|database|docker|ML|language|agility}"
-           :target (file+head "areas/develop/%^{Tags?|database|docker|ML|language|agility}/%<%Y%m%d%H%M%S>-${slug}.org"
+           "#+category: develop\n#+filetags: %^{Tags?|database|docker|ML|language|agility}\n%?"
+           :target (file+head "areas/%<%Y%m%d%H%M%S>-${slug}.org"
                               "#+title: ${title}")
            :empty-lines 1
            :prepend t
@@ -126,8 +126,8 @@
            :unnarrowed t
            )
           ("at" "工具相关" plain
-           "#+filetags: %^{Tags|emacs|notes|systems}"
-           :target (file+head "areas/tools/%^{Tags|emacs|notes|systems}/%<%Y%m%d%H%M%S>-${slug}.org"
+           "#+category: tools\n#+filetags: %^{Tags|emacs|notes|systems}"
+           :target (file+head "areas/%<%Y%m%d%H%M%S>-${slug}.org"
                               "#+title: ${title}")
            :empty-lines 1
            :prepend t
@@ -181,16 +181,8 @@
            :jump-to-captured t
            :unnarrowed t
            )
-          ("arl" "阅读清单" table-line
-           "| %? |"
-           :target (file+head+olp "areas/reading/%<%^{Year}年>阅读清单.org"
-                                  "#+title: %<%^{Year}年>阅读清单\n"
-                                  ("读书"))
-           :jump-to-captured t
-           :unnarrowed t
-           )
           ("r" "资源" plain
-           "#+filetags: :resources:notes:%^{Tags?|golang|javascript|rust}"
+           "#+category: resources\n#+filetags: %^{Tags?|golang|javascript|rust}"
            :target (file+head "resources/%<%Y%m%d%H%M%S>-${slug}.org"
                               "#+title: ${title}")
            :empty-lines 1
