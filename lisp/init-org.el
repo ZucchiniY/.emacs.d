@@ -136,10 +136,10 @@
   (setq org-capture-templates
         '(
           ("t" "收集箱" entry
+           (file "roam/projects/tasks.org")
            "* 未开始 [#B] %^{Title} %^G\nSCHEDULED: %^T %?"
-           :target (file+headline "roam/tasks.org" "任务")
            :empty-lines 1
-           :jump-to-capture t
+           :jump-to-captured t
            :unnarrowed t)
           ("r" "阅读任务" entry
            (file+headline "roam/tasks.org" "阅读")
