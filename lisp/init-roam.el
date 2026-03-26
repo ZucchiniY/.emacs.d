@@ -55,46 +55,24 @@
         org-roam-dailies-directory "projects/"
         org-roam-dailies-capture-templates
         '(("d" "daily" entry
-           "* %?"
+           "* TodoList\n* Review\n%?"
            :target (file+head "%<%Y-%m-%d>.org"
                               "#+title: %<%Y-%m-%d>\n")
-           :jump-to-capture t
+           :jump-to-captured t
            :unnarrowed t)
           ("w" "weekly" entry
-           "* %?"
+           "* Weekly Review\n%?"
            :target (file+head "%<%Y-W%W>.org"
                               "#+title: %<%Y-W%W>\n")
-           :jump-to-capture t
+           :jump-to-captured t
            :unnarrowed t)
           ("m" "monthly" entry
-           "* %?"
+           "* Monthly\n%?"
            :target (file+head "%<%Y-%m>.org"
                               "#+title: %<%Y-%m>\n")
-           :jump-to-capture t
+           :jump-to-captured t
            :unnarrowed t)
           )
-        ;; '(("t" "临时任务" entry
-        ;;    "* 未开始 [#B] %^{Title} %^G\nSCHEDULED: %^T %?"
-        ;;    :target (file+head "tasks.org"
-        ;;                       "#+title: 收集箱")
-        ;;    :empty-lines 1
-        ;;    :jump-to-capture t
-        ;;    :unnarrowed t)
-        ;;   ("p" "项目" entry
-        ;;    "* 未开始 [#B] %^{Title} %^G\nDEADLINE: %^T SCHEDULED: %^T\n%?"
-        ;;    :target (file+head "projects.org"
-        ;;                       "#+title: 项目清单")
-        ;;    :empty-lines 1
-        ;;    :jump-to-capture t
-        ;;    :unnarrowed t)
-        ;;   ("h" "习惯" entry
-        ;;    "* 未开始 [#B] %^{Title}\nSCHEDULED: %^T\n %? %^{STYLE}p"
-        ;;    :target (file+head "habits.org"
-        ;;                       "#+title: 习惯清单")
-        ;;    :empty-lines 1
-        ;;    :jump-to-capture t
-        ;;    :unnarrowed t)
-        ;;   )
         org-roam-capture-templates
         '(("p" "项目")
           ("po" "OKR" plain
@@ -115,66 +93,9 @@
            :jump-to-captured t
            :unnarrowed t
            )
-          ("a" "领域")
-          ("ad" "开发" plain
-           "#+category: develop\n#+filetags: %^{Tags?|database|docker|ML|language|agility}\n%?"
+          ("a" "领域" plain
+           "#+filetags:\n%?"
            :target (file+head "areas/%<%Y%m%d%H%M%S>-${slug}.org"
-                              "#+title: ${title}")
-           :empty-lines 1
-           :prepend t
-           :jump-to-captured t
-           :unnarrowed t
-           )
-          ("at" "工具相关" plain
-           "#+category: tools\n#+filetags: %^{Tags|emacs|notes|systems}"
-           :target (file+head "areas/%<%Y%m%d%H%M%S>-${slug}.org"
-                              "#+title: ${title}")
-           :empty-lines 1
-           :prepend t
-           :jump-to-captured t
-           :unnarrowed t
-           )
-          ("af" "理财" plain
-           "#+filetags: %^{Tags|strategy|notes}"
-           :target (file+head "areas/financial/%^{Tags|strategy|notes}/%<%Y%m%d%H%M%S>-${slug}.org"
-                              "#+title: ${title}")
-           :empty-lines 1
-           :prepend t
-           :jump-to-captured t
-           :unnarrowed t
-           )
-          ("ac" "书法" plain
-           "#+filetags: %^{Tags|calligraphy}"
-           :target (file+head "areas/craft/%^{Tags|calligraphy}/%<%Y%m%d%H%M%S>-${slug}.org"
-                              "#+title: ${title}")
-           :empty-lines 1
-           :prepend t
-           :jump-to-captured t
-           :unnarrowed t
-           )
-          ("aw" "写作")
-          ("awn" "笔记" plain
-           "#+filetags: :novel:notes:"
-           :target (file+head "areas/writing/notes/%<%Y%m%d%H%M%S>-${slug}.org"
-                              "#+title: ${title}")
-           :empty-lines 1
-           :prepend t
-           :jump-to-captured t
-           :unnarrowed t
-           )
-          ("awm" "素材" plain
-           "#+filetags: :novel:material:"
-           :target (file+head "areas/writing/material/%<%Y%m%d%H%M%S>-${slug}.org"
-                              "#+title: ${title}")
-           :empty-lines 1
-           :prepend t
-           :jump-to-captured t
-           :unnarrowed t
-           )
-          ("ar" "阅读")
-          ("arn" "阅读笔记" plain
-           "#+filetags: :reading:notes:%^{Tags?|book|blog}"
-           :target (file+head "areas/reading/%<%Y%m%d%H%M%S>-${slug}.org"
                               "#+title: ${title}")
            :empty-lines 1
            :prepend t
@@ -182,7 +103,7 @@
            :unnarrowed t
            )
           ("r" "资源" plain
-           "#+category: resources\n#+filetags: %^{Tags?|golang|javascript|rust}"
+           "#+filetags:\n%?"
            :target (file+head "resources/%<%Y%m%d%H%M%S>-${slug}.org"
                               "#+title: ${title}")
            :empty-lines 1
@@ -230,19 +151,8 @@
 (use-package org-roam-protocol
   :load-path "load-lisp/org-roam/extensions"
   :defer t)
-
-;; org-roam-ui
-;; (use-package org-roam-ui
-;;   :after org-roam
-;;   :config
-;;   (setq org-roam-ui-sync-theme t
-;;         org-roam-ui-follow t
-;;         org-roam-ui-update-on-save t
-;;         org-roam-ui-open-on-start t))
-
 ;; deft
 (use-package deft
-  ;; :bind ("C-c n d" . deft)
   :general
   (general-define-key
    :states '(normal visual emacs)
