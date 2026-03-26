@@ -31,15 +31,12 @@
    "b" 'org-switchb
    "c" 'org-capture
    "e" 'org-deadline
-   "g" 'counsel-org-clock-goto
-   "h" 'counsel-org-clock-history
    "i" 'org-insert-subheading
    "o" 'org-set-tags-command
    "p" 'org-pomodoro
    "r" 'org-refile
    "s" 'org-schedule
    "t" 'org-todo
-   "x" 'counsel-org-clock-context
    "A" 'org-archive-subtree
    "E" 'org-export-dispatch
    "R" 'org-clock-report
@@ -47,7 +44,6 @@
    ;; clock start and stop
    "." 'org-clock-in
    "," 'org-clock-out
-   ;; "$" 'org-archive-subtree
    "&" 'org-mark-ring-goto
    "!" 'org-time-stamp-inactive
    "`" 'org-time-stamp
@@ -85,7 +81,7 @@
         ;; 启用 #+bind:
         org-export-allow-bind-keywords t
         ;; 设置归档位置
-        org-archive-location (format-time-string "%Y.org::datetree/")
+        org-archive-location (expand-file-name (format-time-string "%Y.org::datetree/") (expand-file-name "roam/archives" org-directory))
         ;; refile 使用路径
         org-refile-use-outline-path 'file
         org-outline-path-complete-in-steps t
