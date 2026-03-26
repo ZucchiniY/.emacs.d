@@ -42,6 +42,9 @@
   ;; 不要 ping 域名
   (setq ffap-machine-p-known 'reject))
 
+;; 显示 error 以上错误
+(setq warning-minimum-level :error)
+
 ;; Garbage Collector Magic hack
 (use-package gcmh
   :diminish
