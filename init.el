@@ -103,12 +103,12 @@
 ;; ;; Programming
 (require 'init-vcs)
 (require 'init-check)
-(require 'init-lsp) ;; use eglot, elgot-booster and emacs-lisp-booster
+;; (require 'init-lsp) ;; use eglot, elgot-booster and emacs-lisp-booster
 
 ;; Development language
-(require 'init-c)
-(require 'init-rust)
-(require 'init-python)
+;; (require 'init-c)
+;; (require 'init-rust)
+;; (require 'init-python)
 ;; (require 'init-web) ;; :FIXED have bug
 
 ;; Not Need
