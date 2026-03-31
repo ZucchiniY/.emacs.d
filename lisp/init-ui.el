@@ -40,6 +40,9 @@
 
 (setq fancy-splath-image dylan-logo)
 
+;; 设置成透明窗口
+(set-frame-parameter nil 'alpha '(95 . 100))
+
 (setq frame-title-format '("Dylan's Emacs - %b")
       icon-title-fromat frame-title-format)
 

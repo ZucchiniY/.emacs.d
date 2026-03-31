@@ -101,8 +101,8 @@ Native tree-sitter is introduced in 29."
   :group 'dylan
   :type 'boolean)
 
-(defcustom dylan-auto-themes '(("8:00"  . ef-summer)
-				               ("19:00" . ef-winter))
+(defcustom dylan-auto-themes '(("8:00"  . ef-elea-light)
+				               ("19:00" . ef-elea-dark))
   "List of themes mapped to the time they should be loaded.
 
 The keywords `:sunrise' and `:sunset' can be used for the time
