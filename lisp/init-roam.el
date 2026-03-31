@@ -75,21 +75,19 @@
           )
         org-roam-capture-templates
         '(("p" "项目")
-          ("po" "OKR" plain
-           "* [#A] %{Title} &?"
+          ("po" "OKR" checkitem
+           "- [ ] %?"
            :target (file+head "projects/%<%Y>OKR.org"
                               "#+title: %<%Y>OKR")
            :empty-lines 1
-           :prepend t
            :jump-to-captured t
            :unnarrowed t
            )
           ("pi" "收集箱" plain
-           "* [#A] %{Title} &?"
+           "* [#b] %{title} &?"
            :target (file+head "projects/%<%Y>Inboxs.org"
                               "#+title: %<%Y>收集箱")
            :empty-lines 1
-           :prepend t
            :jump-to-captured t
            :unnarrowed t
            )
@@ -98,7 +96,6 @@
            :target (file+head "areas/%<%Y%m%d%H%M%S>-${slug}.org"
                               "#+title: ${title}")
            :empty-lines 1
-           :prepend t
            :jump-to-captured t
            :unnarrowed t
            )
@@ -107,7 +104,6 @@
            :target (file+head "resources/%<%Y%m%d%H%M%S>-${slug}.org"
                               "#+title: ${title}")
            :empty-lines 1
-           :prepend t
            :jump-to-captured t
            :unnarrowed t
            )

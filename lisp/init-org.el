@@ -131,17 +131,15 @@
   ;; org capture-templates
   (setq org-capture-templates
         '(
-          ("t" "收集箱" entry
+          ("t" "待办清单" entry
            (file "roam/projects/tasks.org")
-           "* 未开始 [#B] %^{Title} %^G\nSCHEDULED: %^T %?"
+           "* 未开始 [#B] %^{title} %^G\nSCHEDULED: %^T %?"
            :empty-lines 1
            :jump-to-captured t
            :unnarrowed t)
-          ("r" "阅读任务" entry
-           (file+headline "roam/tasks.org" "阅读")
-           "* 未开始 %^{book name}\n%t\n"
-           :clock-in t
-           :clock-resume t
+          ("r" "学习任务" entry
+           (file+headline "roam/projects/studies.org" "学习清单")
+           "* 未开始 %^{name}\nSCHEDULED: %^T %?"
            :empty-lines 1)
           ))
 
