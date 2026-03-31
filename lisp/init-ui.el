@@ -93,6 +93,14 @@
   (setq modus-themes-common-palette-overrides nil)
   )
 
+(use-package ef-themes
+  :after modus-themes
+  :init
+  (ef-themes-take-over-modus-themes-mode 1)
+  :config
+  (setq modus-themes-italic-constructs t)
+  )
+
 (use-package circadian
   :after ef-themes
   :commands circadian-setup
