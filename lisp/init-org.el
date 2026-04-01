@@ -31,6 +31,7 @@
    "b" 'org-switchb
    "c" 'org-capture
    "e" 'org-deadline
+   "g" 'org-clock-goto
    "i" 'org-insert-subheading
    "o" 'org-set-tags-command
    "p" 'org-pomodoro
