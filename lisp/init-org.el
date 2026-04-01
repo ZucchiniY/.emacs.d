@@ -137,9 +137,13 @@
            :empty-lines 1
            :jump-to-captured t
            :unnarrowed t)
-          ("r" "学习任务" entry
+          ("s" "学习任务" entry
            (file+headline "roam/projects/studies.org" "学习清单")
-           "* 未开始 %^{name}\nSCHEDULED: %^T %?"
+           "* 未开始 %^{name}\nSCHEDULED: %^t %?"
+           :empty-lines 1)
+          ("r" "阅读清单" entry
+           (file+headline "roam/projects/studies.org" "阅读清单")
+           "* 未开始 %^{name}\nSCHEDULED: %^t %?"
            :empty-lines 1)
           ))
 
