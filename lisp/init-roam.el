@@ -39,7 +39,8 @@
    "g" 'org-id-get-create
    "i" 'org-roam-node-insert
    "l" 'org-roam-buffer-toggle
-   "r" 'org-roam-ref-add
+   "R" 'org-roam-ref-add
+   "r" 'org-roam-refilg
    "s" 'org-roam-db-sync
    "t" 'org-roam-tag-add
    "U" 'org-id-update-id-locations
