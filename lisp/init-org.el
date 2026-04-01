@@ -69,6 +69,7 @@
         ;; `^' 和 `_' 是否转义，如果是 t 就转，nil 不转，{} 就 a_{a} 才转
         org-use-sub-superscripts '{}
         org-log-into-drawer 'LOGBOOK
+        org-clock-into-drawer 'PROPERTIES
         org-agenda-skip-deadline-if-done t
         ;; nil 表示显示完整链接，t 则显示链接名称
         org-link-descriptive t
@@ -89,7 +90,7 @@
         )
   ;; 配置 clock table 中的 block 选项
   ;; 扩展 org-clock-clocktable-default-properties 参数
-  (setq org-clock-clocktable-default-properties '(:scope agenda :maxlevel 2 :compact t :formula % :hidefiles t :fileskip0 t :tags t))
+  (setq org-clock-clocktable-default-properties '(:scope agenda-with-archives :maxlevel 2 :compact t :formula % :hidefiles t :fileskip0 t :tags t))
   (plist-put org-clock-clocktable-default-properties :block (format-time-string "%Y-W%V"))
   ;; 增加自动变成完成状态
   (defun org-summary-todo (n-done n-not-done)
