@@ -34,7 +34,7 @@
 (setq use-package-compute-statistics t)
 
 ;; add diminish
-(use-package diminish)
+(use-package diminish :ensure t)
 
 ;; update GPG keyring for GNU ELPA
 (use-package gnu-elpa-keyring-update)
