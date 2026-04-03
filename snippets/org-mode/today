@@ -1,0 +1,34 @@
+# -*- mode: snippet -*-
+# name: today-template
+# key: <to
+# --
+#+BEGIN: clocktable :scope agenda-with-archives :maxlevel 2 :compact t :formula % :hidefiles t :fileskip0 t :tags t :block `(format-time-string "%Y-%m-%d")`
+#+END:
+
+* 今日待办
+
+
+* 目标回顾
+
+- 目标是什么 ::
+- 目的是什么 ::
+- 计划是什么 ::
+
+* 结果评估
+
+- 目标是否达成 ::
+- 目标是否完成 ::
+- 有无突发情况 ::
+
+* 原因分析
+
+- 完成的关键因素 ::
+- 未完成的客观原因 ::
+- 未完成的主观原因 ::
+
+* 经验总结
+
+- 需要保持的，好的方法、好的习惯、好的想法 ::
+- 需要提升的，优化做事流程、改进做事方法、改进工具使用 ::
+- 需要开始的，未完成的、计划完成的 ::
+- 需要停止的，错误的方法、错误的习惯、不好的行为 ::
