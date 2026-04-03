@@ -2,7 +2,7 @@
 # name: today-template
 # key: <to
 # --
-#+BEGIN: clocktable :scope agenda-with-archives :maxlevel 2 :compact t :formula % :hidefiles t :fileskip0 t :tags t :block `(format-time-string "%Y-%m-%d")`
+#+BEGIN: clocktable :scope agenda-with-archives :maxlevel 5 :compact t :formula % :hidefiles t :fileskip0 t :tags t :block `(format-time-string "%Y-%m-%d")`
 #+END:
 
 * 今日待办
