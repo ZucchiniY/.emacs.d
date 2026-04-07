@@ -1,0 +1,27 @@
+# -*- mode: snippet -*-
+# name: this-month
+# key: <month
+# --
+#+BEGIN: clocktable :scope agenda-with-archives :maxlevel 5 :compact t :formula % :hidefiles t :fileskip0 t :tags t :block `(format-time-string "%Y-%m")`
+#+END:
+
+* 本月回顾
+
+- 本月的目标 ::
+
+* 结果评估
+
+- 目标是否达成 ::
+
+* 原因分析
+
+- 完成的关键因素 ::
+- 未完成的客观原因 ::
+- 未完成的主观原因 ::
+
+* 经验总结
+
+- 需要保持的，好的方法、好的习惯、好的想法 ::
+- 需要提升的，优化做事流程、改进做事方法、改进工具使用 ::
+- 需要开始的，未完成的、计划完成的 ::
+- 需要停止的，错误的方法、错误的习惯、不好的行为 ::
