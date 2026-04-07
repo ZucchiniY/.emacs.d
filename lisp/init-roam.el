@@ -63,8 +63,8 @@
            :unnarrowed t)
           ("w" "weekly" entry
            "* Weekly Review\n%?"
-           :target (file+head "%<%Y-W%W>.org"
-                              "#+title: %<%Y-W%W>\n")
+           :target (file+head "%<%Y-W%U>.org"
+                              "#+title: %<%Y-W%U>\n")
            :jump-to-captured t
            :unnarrowed t)
           ("m" "monthly" entry
@@ -79,7 +79,7 @@
           ("po" "OKR" checkitem
            "- [ ] %?"
            :target (file+head "projects/%<%Y>OKR.org"
-                              "#+title: %<%Y>OKR")
+                              "#+title: %<%Y>年OKR")
            :empty-lines 1
            :jump-to-captured t
            :unnarrowed t
@@ -93,18 +93,16 @@
            :unnarrowed t
            )
           ("a" "领域" plain
-           "#+filetags:\n%?"
+           "#+create_date: %<%Y-%m-%d %a>\n#+update_date: %<%Y-%m-%d %a>\n#+category:\n#+filetags:%?"
            :target (file+head "areas/%<%Y%m%d%H%M%S>-${slug}.org"
                               "#+title: ${title}")
-           :empty-lines 1
            :jump-to-captured t
            :unnarrowed t
            )
           ("r" "资源" plain
-           "#+filetags:\n%?"
+           "#+create_date: %<%Y-%m-%d %a>\n#+update_date: %<%Y-%m-%d %a>\n#+category:\n#+filetags:%?"
            :target (file+head "resources/%<%Y%m%d%H%M%S>-${slug}.org"
                               "#+title: ${title}")
-           :empty-lines 1
            :jump-to-captured t
            :unnarrowed t
            )
