@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: today-template
-# key: <tod
+# key: <today
 # --
 #+BEGIN: clocktable :scope agenda-with-archives :maxlevel 5 :compact t :formula % :hidefiles t :fileskip0 t :tags t :block `(format-time-string "%Y-%m-%d")`
 #+END:
@@ -10,13 +10,10 @@
 * 目标回顾
 
 - 目标是什么 ::
-- 目的是什么 ::
-- 计划是什么 ::
 
 * 结果评估
 
 - 目标是否达成 ::
-- 目标是否完成 ::
 - 有无突发情况 ::
 
 * 原因分析
