@@ -56,21 +56,27 @@
         org-roam-dailies-directory "projects/"
         org-roam-dailies-capture-templates
         '(("d" "daily" entry
-           "* TodoList\n* Review\n%?"
-           :target (file+head "%<%Y-%m-%d>.org"
-                              "#+title: %<%Y-%m-%d>\n")
+           "** %? \nSCHEDULED: %T"
+           :target (file+head+olp "%<%Y-%m-%d>.org"
+                                  "#+title: %<%Y-%m-%d>"
+                                  ("今日任务"))
+           :empty-lines 1
            :jump-to-captured t
            :unnarrowed t)
           ("w" "weekly" entry
-           "* Weekly Review\n%?"
-           :target (file+head "%<%Y-W%U>.org"
-                              "#+title: %<%Y-W%U>\n")
+           "** %? \nSCHEDULED: %T\n"
+           :target (file+head+olp "%<%Y-W%U>.org"
+                                  "#+title: %<%Y-W%U>"
+                                  ("本周任务"))
+           :empty-lines 1
            :jump-to-captured t
            :unnarrowed t)
           ("m" "monthly" entry
-           "* Monthly\n%?"
-           :target (file+head "%<%Y-%m>.org"
-                              "#+title: %<%Y-%m>\n")
+           "** %? \nSCHEDULED: %T"
+           :target (file+head+olp "%<%Y-%m>.org"
+                                  "#+title: %<%Y-%m>"
+                                  ("本月任务"))
+           :empty-lines 1
            :jump-to-captured t
            :unnarrowed t)
           )
