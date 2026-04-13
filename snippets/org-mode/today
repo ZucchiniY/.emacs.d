@@ -5,7 +5,7 @@
 #+BEGIN: clocktable :scope agenda-with-archives :maxlevel 5 :compact t :formula % :hidefiles t :fileskip0 t :tags t :block `(format-time-string "%Y-%m-%d")`
 #+END:
 
-* 今日待办
+* 今日任务
 
 * 目标回顾
 
