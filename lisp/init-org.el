@@ -33,7 +33,6 @@
    "g" 'org-clock-goto
    "i" 'org-insert-subheading
    "o" 'org-set-tags-command
-   "p" 'org-pomodoro
    "r" 'org-refile
    "s" 'org-schedule
    "t" 'org-todo
@@ -55,7 +54,7 @@
         org-log-done 'time
         org-startup-indented t
         ;; org-startup-folded 文档默认只显示最顶层
-        org-startup-folded 'show2levels
+        org-startup-folded 'show5levels
         org-pretty-entities t
         ;; 不经意的编辑了一些不可见内容的时候，可以帮助我们发现这些编辑的内容
         ;; org-hide-emphasis-markers t => 不显示相关的标示符号，显示经过优化的样式
@@ -63,8 +62,6 @@
         org-catch-invisible-edits 'smart
         org-agenda-text-search-extra-files nil ;'agenda-archives
         org-agenda-skip-scheduled-if-done nil
-        org-plantuml-jar-path (expand-file-name "extends/plantuml.jar" user-emacs-directory)
-        org-ditaa-jar-path (expand-file-name "extends/ditaa0_9.jar" user-emacs-directory)
         ;; `^' 和 `_' 是否转义，如果是 t 就转，nil 不转，{} 就 a_{a} 才转
         org-use-sub-superscripts '{}
         org-log-into-drawer 'LOGBOOK
@@ -122,8 +119,7 @@
           ("阻塞中" . (:foreground "red" :weight bold))
           ("进行中" . (:foreground "orange" :weight bold))
           ("已完成" . (:foreground "green" :weight bold))
-          ("已取消" . (:background "gray" :foreground "black"))
-          )
+          ("已取消" . (:background "gray" :foreground "black")))
         org-agenda-time-grid '((daily today require-timed)
                                (600 800 1000 1200 1400 1600 1800 2000 2200 2400)
                                "......" "----------------")
@@ -133,13 +129,13 @@
         org-agenda-start-with-log-mode "only" ;; 打开时展示日志，与 org-agenda-log-mode-items 配置一致
         )
   (setq org-agenda-custom-commands
-               '("r" "Daily Agenda Review"
-                 ((agenda "" ((org-agenda-overriding-header "今日记录")
-                              (org-agenda-span 'day)
-                              (org-agenda-show-log 'clockcheck)
-                              (org-agenda-start-with-log-mode nil)
-                              (org-agenda-log-mode-items '(clock))
-                              (org-agenda-clockreport-mode nil))))))
+        '(("r" "Daily Agenda"
+           ((agenda "" ((org-agenda-overriding-header "今日记录")
+                        (org-agenda-span 'day)
+                        (org-agenda-show-log 'clockcheck)
+                        (org-agenda-start-with-log-mode nil)
+                        (org-agenda-log-mode-items '(clock))
+                        (org-agenda-clockreport-mode nil)))))))
 
   ;; org capture-templates
   (setq org-capture-templates
@@ -164,15 +160,9 @@
   ;; org-refile-use-outlinne-path 'file 显示文件路径
   ;; org-outline-path-complete-in-steps t 逐步选择目标位置
   (setq org-refile-targets '((nil :maxlevel . 5)
-                             ;;
                              (org-agenda-files :maxlevel . 5))
         org-refile-use-outline-path 'file
         org-outline-path-complete-in-steps t)
-
-  ;; More fancy UI
-  (use-package org-bullets
-    :hook (org-mode . org-bullets-mode)
-    :config (setq org-bullets-bullet-list '("☯" "☢" "♠" "♣" "♥" "♦")))
 
   ;; 替换对应的标记
   ;; 该段正则的意思是 “以 0 个或者多个空格开头，紧接着一个 ‘-’ ，紧接着是一个空格”
@@ -186,77 +176,21 @@
         org-src-tab-acts-natively t)
 
   (defvar load-language-list '((emacs-lisp . t)
-                               (python . t)
-                               (js . t)
-                               (css . t)
-                               (sass . t)
                                (shell . t)
-                               (dot . t)
-                               (ditaa .t)
-                               (plantuml . t)
-                               (mermaid . t)
-                               (rust . t)
-                               (lua . t)
                                ))
 
-  (use-package ob-rust
-    :defer t
-    :after org
-    :load-path "load-lisp/ob-rust"
-    :init (cl-pushnew '(rust . t) load-language-list))
-
-  ;; (use-package ob-ipython
-  ;;   :if (executable-find "jupyter")     ; DO NOT remove
-  ;;   :init (cl-pushnew '(ipython . t) load-language-list))
-
-  ;; 新增 mermaid 配置
-  (use-package ob-mermaid
-    :after org
-    :defer t
-    :config
-    (setq ob-mermaid-cli-path "/Users/dylan/.nvm/versions/node/v19.8.1/bin/mmdc")
-    )
 
   (org-babel-do-load-languages 'org-babel-load-languages
                                load-language-list)
 
-  ;; org latex process
-  ;; (setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"
-  ;;                               "xelatex -interaction nonstopmode %f"))
+  )
 
-  ;; Preview
-  (use-package org-preview-html
-    :defer t
-    :after org
-    :diminish org-preview-html-mode)
-
-  ;; Pomodoro
-  (use-package org-pomodoro
-    :after org-agenda
-    :config (setq org-pomodoro-long-break-length 15)))
-
-(use-package plantuml-mode
-  :mode ("\\.plantuml\\'" . plantuml-mode)
-  :defer t
-  :config
-  (setq plantuml-jar-path (expand-file-name "extends/plantuml.jar" user-emacs-directory)
-        plantuml-default-exec-mode 'jar))
-
-(use-package yaml-mode
-  :mode (("\\.yaml\\'" . yaml-mode)
-         ("\\.yml\\'" . yaml-mode)))
-
-(use-package toml-mode
-  :mode (("\\.toml\\'" . toml-mode)))
-
-(use-package mermaid-mode
-  :mode (("\\.mermaid\\'" . mermaid-mode)))
-
-(use-package ox-typst
-  :commands (org-typst-export-to-typst)
+(use-package org-superstar
   :after org
-  :defer 2
-  :custom (org-typst-export-buffer-major-mode 'typst-ts-mode))
+  :hook (org-mode . org-superstar-mode)
+  :init
+  (setq org-superstar-headline-bullets-list '("⒈" "⒉" "⒊" "⒋" "⒌")
+        org-ellipsis "⋯"))
 
 (provide 'init-org)
 ;;; init-org.el ends here

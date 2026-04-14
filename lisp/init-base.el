@@ -76,30 +76,6 @@
 (when sys/winntp
   (define-coding-system-alias 'cp65001 'utf-8))
 
-(defun dylan//set-monospaced-font (english chinese english-size chinese-size)
-  "The dylan//set-monospaced-font to configuration the font.
-  ENGLISH is english font name
-  CHINESE is chinese font name ENGLISH-SIZE is the english fond size
-  CHINESE-SIZE is the chinese font size."
-  (set-face-attribute 'default nil
-                      :font (font-spec
-                             :name english
-                             :weight 'normal
-                             :slant 'normal
-                             :size english-size))
-  (dolist (charset '(kana han symbol cjk-misc bopomofo))
-    (set-fontset-font (frame-parameter nil 'font)
-                      charset
-                      (font-spec ;;:family chinese
-                       :name chinese
-                       :weight 'normal
-                       :slant 'normal
-                       :size chinese-size))))
-
-;; Environment
-;; 手动设置 PATH 环境变量（如果需要）
-;; (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
-
 ;; Enable saveplace
 (save-place-mode 1)
 

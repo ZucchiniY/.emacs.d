@@ -11,7 +11,9 @@
 ;;; Code:
 ;; 隐藏滚动条、菜单栏
 (eval-when-compile
-  (require 'init-const))
+  (require 'init-const)
+  (require 'init-funcs)
+  )
 
 ;; 隐藏菜单和工具栏
 (setq-default tool-bar-always-show-default nil)
@@ -37,7 +39,7 @@
 			                (height . 0.85)))
 
 ;; 设置成透明窗口
-(set-frame-parameter nil 'alpha '(95 . 100))
+(set-frame-parameter nil 'alpha '(90 . 100))
 
 (setq frame-title-format '("Dylan's Emacs - %b")
       icon-title-format frame-title-format)
@@ -63,7 +65,7 @@
  header-line-format
  '("GC: " (:eval (number-to-string gcs-done)) " - " (:eval (number-to-string gc-elapsed)) "s"))
 
-(cond (sys/mac-x-p (dylan//set-monospaced-font "Iosevka NFM" "LXGW WenKai Mono Medium" 14 14))
+(cond (sys/mac-x-p (dylan//set-monospaced-font "IosevkaTerm NFM" "LXGW WenKai Mono GB Screen" 16 16))
       ;; (sys/linux-x-p (dylan//set-monospaced-font "Iosevka Nerd Font Mono" "Wenquanyi Micro Hei Mono" 18 18))
       (sys/linux-x-p (dylan//set-monospaced-font "Iosevka Nerd Font Mono" "LXGW WenKai Mono Medium" 18 18))
       (sys/win-x-p (dylan//set-monospaced-font "Iosevka Nerd Font Mono" "Microsoft YaHei" 14 14)))
