@@ -32,11 +32,6 @@
   (setq magit-todos-nice (if (executable-find "nice") t nil))
   (magit-todos-mode 1))
 
-;; Walk through git revisions of a file
-(use-package git-timemachine
-  :bind (:map vc-prefix-map
-              ("t" . git-timemachine)))
-
 (provide 'init-vcs)
 
 ;;; init-vcs.el ends here
