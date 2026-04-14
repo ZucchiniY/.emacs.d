@@ -19,13 +19,10 @@
 (require 'init-org)
 (require 'org-id)
 
-(use-package emacsql
-  :defer 1
-  :ensure t)
-
+;; 配置 org-roam
 (use-package org-roam
   :load-path "load-lisp/org-roam"
-  :after (org emacsql)
+  :after (org)
   :defer 2
   :diminish org-roam-mode
   :general
@@ -40,16 +37,14 @@
    "i" 'org-roam-node-insert
    "l" 'org-roam-buffer-toggle
    "R" 'org-roam-ref-add
-   "r" 'org-roam-refilg
+   "r" 'org-roam-refile
    "s" 'org-roam-db-sync
    "t" 'org-roam-tag-add
    "U" 'org-id-update-id-locations
    )
   :custom
-  ;; 解决 org-roam-ui 仅显示一个 Tag 问题
   (org-roam-database-connector 'sqlite-builtin)
   :config
-  ;; (setq org-roam-database-connector 'sqlite-builtin)
   (setq org-roam-directory (expand-file-name (concat org-directory "/roam"))
         org-roam-db-gc-threshold most-positive-fixnum
         org-roam-completion-everywhere t
@@ -98,32 +93,18 @@
            :jump-to-captured t
            :unnarrowed t
            )
-          ("a" "领域" plain
-           "#+create_date: %<%Y-%m-%d %a>\n#+update_date: %<%Y-%m-%d %a>\n#+category:\n#+filetags:%?"
-           :target (file+head "areas/%<%Y%m%d%H%M%S>-${slug}.org"
-                              "#+title: ${title}")
-           :jump-to-captured t
-           :unnarrowed t
-           )
-          ("r" "资源" plain
-           "#+create_date: %<%Y-%m-%d %a>\n#+update_date: %<%Y-%m-%d %a>\n#+category:\n#+filetags:%?"
-           :target (file+head "resources/%<%Y%m%d%H%M%S>-${slug}.org"
-                              "#+title: ${title}")
-           :jump-to-captured t
-           :unnarrowed t
-           )
           )
         )
-  ;; 在 org-roam-node-find 时展示的方案
   (setq org-roam-node-display-template
         (concat "${title:*} "
                 (propertize "${tags:50}" 'face 'org-tag)))
   (org-roam-db-autosync-mode)
   )
 
+;; 配置 org-roam-dailies
 (use-package org-roam-dailies
   :load-path "load-lisp/org-roam/extensions"
-  :after (org emacsql)
+  :after (org)
   :defer 2
   :general
   (general-define-key
@@ -137,6 +118,7 @@
    "t" 'org-roam-dailies-capture-today
    ))
 
+;; 加载必要的 org-roam 扩展
 (use-package org-roam-export
   :load-path "load-lisp/org-roam/extensions"
   :defer t)
@@ -145,27 +127,9 @@
   :load-path "load-lisp/org-roam/extensions"
   :defer t)
 
-(use-package org-roam-overlay
-  :load-path "load-lisp/org-roam/extensions"
-  :defer t)
-
 (use-package org-roam-protocol
   :load-path "load-lisp/org-roam/extensions"
   :defer t)
-;; deft
-(use-package deft
-  :general
-  (general-define-key
-   :states '(normal visual emacs)
-   :keymaps 'override
-   :prefix "SPC n"
-   "d" 'deft
-   )
-  :custom
-  (deft-recursive t)
-  (deft-use-filter-string-for-filename t)
-  (deft-default-extension "org")
-  (deft-directory org-roam-directory))
 
 (provide 'init-roam)
 ;;; init-roam.el ends here
