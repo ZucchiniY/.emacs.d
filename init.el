@@ -66,5 +66,11 @@
 (require 'init-org)
 (require 'init-roam)  ;; use org-roam to organize notes
 
+;; Version Control
+(require 'init-vcs)  ;; magit configuration
+
+;; Dashboard
+(require 'init-dashboard)  ;; dashboard configuration
+
 (provide 'init)
 ;;; init.el ends here
