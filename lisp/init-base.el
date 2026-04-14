@@ -16,44 +16,37 @@
 (setq user-full-name "Dylan Yang"
       user-mail-address "banshiliuli1990@sina.com")
 
-(with-no-warnings
-  ;; Key Modifiers
-  (cond
-   (sys/winntp
-    (setq w32-lwindow-modifier 'super ; left windows key
-          w32-apps-modifier 'hyper)   ; menu/app key
-    (w32-register-hot-key [s-t]))
-   (sys/mac-port-p
-    (setq mac-option-modifier 'meta
-          mac-command-modifier 'super)
-    (bind-keys ([(super a)] . mark-whole-buffer)
-               ([(super c)] . kill-ring-save)
-               ([(super l)] . goto-line)
-               ([(super q)] . save-buffer-kill-emacs)
-               ([(super s)] . save-buffer)
-               ([(super v)] . yank)
-               ([(super w)] . delete-frame)
-               ([(super z)] . undo))))
+;; Key Modifiers
+(cond
+ (sys/winntp
+  (setq w32-lwindow-modifier 'super ; left windows key
+        w32-apps-modifier 'hyper)   ; menu/app key
+  (w32-register-hot-key [s-t]))
+ (sys/mac-port-p
+  (setq mac-option-modifier 'meta
+        mac-command-modifier 'super)
+  (global-set-key [(super a)] 'mark-whole-buffer)
+  (global-set-key [(super c)] 'kill-ring-save)
+  (global-set-key [(super l)] 'goto-line)
+  (global-set-key [(super q)] 'save-buffers-kill-emacs)
+  (global-set-key [(super s)] 'save-buffer)
+  (global-set-key [(super v)] 'yank)
+  (global-set-key [(super w)] 'delete-frame)
+  (global-set-key [(super z)] 'undo)))
 
-  ;; 增加单个块中从进程中读取的数据量, 默认为4kb
-  (setq read-process-output-max #x100000)
-  ;; 默认占用的栈大小为 1600 ，调整为 16000
-  (setq max-lisp-eval-depth 16000)
-  ;; 不要 ping 域名
-  (setq ffap-machine-p-known 'reject))
+;; 增加单个块中从进程中读取的数据量, 默认为4kb
+(setq read-process-output-max #x100000)
+;; 默认占用的栈大小为 1600 ，调整为 16000
+(setq max-lisp-eval-depth 16000)
+;; 不要 ping 域名
+(setq ffap-machine-p-known 'reject)
 
 ;; 显示 error 以上错误
 (setq warning-minimum-level :error)
 
-;; Garbage Collector Magic hack
-(use-package gcmh
-  :diminish
-  :ensure t
-  :hook (emacs-startup . gcmh-mode)
-  :init
-  (setq gcmh-idle-delay 'auto
-        gcmh-auto-idle-delay-factor 10
-        gcmh-high-cons-threshold #x1000000))
+;; Garbage Collector settings
+(setq gc-cons-threshold #x1000000
+      gc-cons-percentage 0.1)
 
 ;; SET UTF-8 as the default coding system
 (when (fboundp 'set-charset-priority)
@@ -104,83 +97,59 @@
                        :size chinese-size))))
 
 ;; Environment
-(when dylan-use-exec-path-from-shell
-  (use-package exec-path-from-shell
-    :commands exec-path-from-shell-initialize
-    :custom (exec-path-from-shell-arguments '("-l"))
-    :init (exec-path-from-shell-initialize)))
+;; 手动设置 PATH 环境变量（如果需要）
+;; (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
 
-(use-package saveplace
-  :hook (after-init . save-place-mode))
+;; Enable saveplace
+(save-place-mode 1)
 
-(use-package recentf
-  :bind (("C-x C-r" . recentf-open-files))
-  :hook (after-init . recentf-mode)
-  :init (setq recentf-max-saved-items 300
-              recentf-exclude
-              '("\\.?cache" ".cask" "url" "COMMIT_EDITMSG\\'" "bookmarks"
-                "\\.\\(?:gz\\|gif\\|svg\\|png\\|jpe?g\\|bmp\\|xpm\\)$"
-                "\\.?ido\\.last$" "\\.revive$" "/G?TAGS$" "/.elfeed/"
-                "^/tmp/" "^/var/folders/.+$" "^/ssh:" "/persp-confs/"
-                (lambda (file) (file-in-directory-p file package-user-dir))))
-  :config
-  (push (expand-file-name recentf-save-file) recentf-exclude)
-  (add-to-list 'recentf-filename-handlers #'abbreviate-file-name))
+;; Enable recentf
+(recentf-mode 1)
+(setq recentf-max-saved-items 300
+      recentf-exclude
+      '("\\.?cache" ".cask" "url" "COMMIT_EDITMSG\\'" "bookmarks"
+        "\\.\\(?:gz\\|gif\\|svg\\|png\\|jpe?g\\|bmp\\|xpm\\)$"
+        "\\.?ido\\.last$" "\\.revive$" "/G?TAGS$" "/.elfeed/"
+        "^/tmp/" "^/var/folders/.+$" "^/ssh:" "/persp-confs/"
+        (lambda (file) (file-in-directory-p file package-user-dir)))
+      recentf-save-file (expand-file-name "recentf" user-emacs-directory))
+(push (expand-file-name recentf-save-file) recentf-exclude)
+(add-to-list 'recentf-filename-handlers #'abbreviate-file-name)
+(global-set-key (kbd "C-x C-r") 'recentf-open-files)
 
-(use-package savehist
-  :hook (after-init . savehist-mode)
-  :init (setq enable-recursive-minibuffers t
-              history-length 1000
-              savehist-additional-variables '(mark-ring
-                                              global-mark-ring
-                                              search-ring
-                                              regexp-search-ring
-                                              extended-command-history)
-              savehist-autosave-interval 300))
+;; Enable savehist
+(savehist-mode 1)
+(setq enable-recursive-minibuffers t
+      history-length 1000
+      savehist-additional-variables '(mark-ring
+                                      global-mark-ring
+                                      search-ring
+                                      regexp-search-ring
+                                      extended-command-history)
+      savehist-autosave-interval 300)
 
-(use-package simple
-  :diminish visual-line-mode
-  :ensure nil
-  :hook ((after-init . size-indication-mode)
-         (text-mode . visual-line-mode)
-         ((prog-mode markdown-mode conf-mode) . enable-trailing-whitespace))
-  :init
-  (setq column-number-mode t
-        line-number-mode t
-        kill-whole-line t               ; Kill line including '\n'
-        line-move-visual nil
-        track-eol t                     ; Keep cursor at end of lines. Require line-move-visual is nil.
-        set-mark-command-repeat-pop t)  ; Repeating C-SPC after popping mark pops it again
+;; Enable size indication mode
+(size-indication-mode 1)
 
-  ;; Visualize TAB, (HARD) SPACE, NEWLINE
-  (setq-default show-trailing-whitespace nil) ; Don't show trailing whitespace by default
-  (defun enable-trailing-whitespace ()
-    "Show trailing spaces and delete on saving."
-    (setq show-trailing-whitespace t)
-    (add-hook 'before-save-hook #'delete-trailing-whitespace nil t))
- ;; Prettify the process list
-  (with-no-warnings
-    (defun my-list-processes--prettify ()
-      "Prettify process list."
-      (when-let* ((entries tabulated-list-entries))
-        (setq tabulated-list-entries nil)
-        (dolist (p (process-list))
-          (when-let* ((val (cadr (assoc p entries)))
-                      (name (aref val 0))
-                      (pid (aref val 1))
-                      (status (aref val 2))
-                      (status (list status
-                                    'face
-                                    (if (memq status '(stop exit closed failed))
-                                        'error
-                                      'success)))
-                      (buf-label (aref val 3))
-                      (tty (list (aref val 4) 'face 'font-lock-doc-face))
-                      (thread (list (aref val 5) 'face 'font-lock-doc-face))
-                      (cmd (list (aref val 6) 'face 'completions-annotations)))
-            (push (list p (vector name pid status buf-label tty thread cmd))
-		          tabulated-list-entries)))))
-    (advice-add #'list-processes--refresh :after #'my-list-processes--prettify)))
+;; Basic settings
+(setq column-number-mode t
+      line-number-mode t
+      kill-whole-line t               ; Kill line including '\n'
+      line-move-visual nil
+      track-eol t                     ; Keep cursor at end of lines. Require line-move-visual is nil.
+      set-mark-command-repeat-pop t)  ; Repeating C-SPC after popping mark pops it again
+
+;; Visualize TAB, (HARD) SPACE, NEWLINE
+(setq-default show-trailing-whitespace nil) ; Don't show trailing whitespace by default
+(defun enable-trailing-whitespace ()
+  "Show trailing spaces and delete on saving."
+  (setq show-trailing-whitespace t)
+  (add-hook 'before-save-hook #'delete-trailing-whitespace nil t))
+
+;; Enable visual line mode for text mode
+(add-hook 'text-mode-hook 'visual-line-mode)
+;; Enable trailing whitespace for prog modes
+(add-hook 'prog-mode-hook 'enable-trailing-whitespace)
 
 ;; misc
 (if (boundp 'use-short-answers)
@@ -205,61 +174,19 @@
       word-wrap-by-category t)
 
 ;; Asynchronous processing
-(use-package async
-  :diminish (async-bytecomp-package-mode dired-async-mode)
-  :functions (async-bytecomp-package-mode dired-async-mode)
-  :init
-  (unless sys/winntp
-    (async-bytecomp-package-mode 1))
-  (dired-async-mode 1))
+;; 保留默认的异步处理设置
 
 ;; Frame
 (when (display-graphic-p)
-  ;; Frame maximized on startup
-  (add-hook 'window-setup-hook t)
-
   ;; Frame fullscreen
-  (bind-key "M-s-<return>" #'toggle-frame-maximized)
-  (bind-key "S-s-<return>" #'toggle-frame-fullscreen)
-  (and sys/mac-x-p (bind-key "C-s-f" #'toggle-frame-fullscreen))
-
-  ;; Frame transparence
-  (use-package transwin
-    :bind (("C-M-9" . transwin-inc)
-           ("C-M-8" . transwin-dec)
-           ("C-M-7" . transwin-toggle))
-    :init
-    (when sys/linux-x-p
-      (setq transwin-parameter-alpha 'alpha-background))))
-
-;; Child frame
-(use-package posframe
-  :hook (after-load-theme . posframe-delete-all)
-  :init
-  (defface posframe-border
-    `((t (:inherit region)))
-    "Face used by the `posframe' border."
-    :group 'posframe)
-  (defvar posframe-border-width 2
-    "Default posframe border width.")
-  :config
-  (with-no-warnings
-    (defun my-posframe--prettify-frame (&rest _)
-      (set-face-background 'fringe nil posframe--frame))
-    (advice-add #'posframe--create-posframe :after #'my-posframe--prettify-frame)
-
-    (defun posframe-poshandler-frame-center-near-bottom (info)
-      (cons (/ (- (plist-get info :parent-frame-width)
-                  (plist-get info :posframe-width))
-               2)
-            (/ (+ (plist-get info :parent-frame-height)
-                  (* 2 (plist-get info :font-height)))
-               2)))))
+  (global-set-key (kbd "M-s-<return>") #'toggle-frame-maximized)
+  (global-set-key (kbd "S-s-<return>") #'toggle-frame-fullscreen)
+  (and sys/mac-x-p (global-set-key (kbd "C-s-f") #'toggle-frame-fullscreen)))
 
 ;; Global keybindings
-(bind-keys ("s-r"     . revert-buffer-quick)
-           ("C-x K"   . delete-this-file)
-           ("C-c C-l" . reload-init-file))
+(global-set-key (kbd "s-r") #'revert-buffer-quick)
+(global-set-key (kbd "C-x K") #'delete-this-file)
+(global-set-key (kbd "C-c C-l") #'reload-init-file)
 
 (provide 'init-base)
 ;;; init-base.el ends here
