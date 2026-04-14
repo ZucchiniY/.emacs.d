@@ -16,28 +16,27 @@
 (use-package dashboard
     :diminish dashboard-mode
     :general
-    (global-leader
-      "d d" 'open-dashboard
-      "d h" 'browse-homepage
-      "d r" 'restore-session
-      "d s" 'find-custom-file
-      "d u" 'update-config-and-packages)
     (general-define-key
       :states '(normal visual emacs)
-      :keymaps 'dashboard-mode-map
-      "H" 'browse-homepage
-      "R" 'restore-session
-      "S" 'find-custom-file
-      "U" 'update-config-and-packages
+      :keymaps 'override
+      :prefix "SPC d"
+      "h" 'browse-homepage
+      "r" 'restore-session
+      "s" 'find-custom-file
+      "u" 'update-config-and-packages
       "q" 'quit-dashboard)
     :hook (dashboard-mode . (lambda () (setq-local frame-title-format nil)))
     :init
+    (dashboard-setup-startup-hook)
     (setq dashboard-banner-logo-title "Dylan's Emacs - Talk is cheap. Show me the code."
-          dashboard-startup-banner (or dylan-logo 'official)
-          dashboard-page-separator "\n\f\n"
-          dashboard-projects-backend 'project-el
-          dashboard-path-style 'truncate-middle
-          dashboard-path-max-length 60
+          dashboard-startup-banner (expand-file-name
+                                    (if (display-graphic-p) "logo.png"
+                                      "banner.txt")
+                                    user-emacs-directory)
+      ;;    dashboard-page-separator "\n\f\n"
+;;          dashboard-projects-backend 'project-el
+  ;;        dashboard-path-style 'truncate-middle
+    ;;      dashboard-path-max-length 60
           dashboard-center-content t
           dashboard-vertically-center-content t
           dastboard-show-shortcuts nil
@@ -56,14 +55,24 @@
                                       dashboard-insert-items
                                       dashboard-insert-newline
                                       dashboard-insert-footer)
-          dashboard-display-icons-p #'icons-displayable-p
-          dashboard-set-file-icons dylan-icon
-          dashboard-set-heading-icons dylan-icon
+          dashboard-navigation-cycle t
+          dashboard-display-icons-p t
+          dashboard-icon-type 'nerd-icons
+          dashboard-set-file-icons t
+          dashboard-set-heading-icons t
           dashboard-heading-icons '((recents   . "nf-oct-history")
                                     (bookmarks . "nf-oct-bookmark")
                                     (agenda    . "nf-oct-calendar")
                                     (projects  . "nf-oct-briefcase")
-                                    (registers . "nf-oct-database"))))
+                                    (registers . "nf-oct-database"))
+          dashboard-item-shortcuts '((recents . "r")
+                                     (bookmarks ."m")
+                                     (projects . "p")
+                                     (agenda . "a")
+                                     (registers . "e"))
+          dashboard-week-agenda t
+          )
+    )
 
 (provide 'init-dashboard)
 ;;; init-dashboard.el ends here
