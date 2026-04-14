@@ -15,8 +15,7 @@
 
 (use-package org
   :defines (org-capture-templates
-            org-plantuml-jar-path
-            org-ditaa-jar-path)
+)
   :commands org-try-structure-completion
   :mode ("\\.\\(org\\|org_archive\\)$" . org-mode)
   :hook (org-indent-mode . (lambda() (diminish 'org-indent-mode)))
@@ -125,10 +124,22 @@
           ("已完成" . (:foreground "green" :weight bold))
           ("已取消" . (:background "gray" :foreground "black"))
           )
-        org-agenda-time-grid (quote (((daily today require-timed)
-                                      (300 600 900 1200 1500 1800 2100 2400)
-                                      "......" "----------------")))
+        org-agenda-time-grid '((daily today require-timed)
+                               (600 800 1000 1200 1400 1600 1800 2000 2200 2400)
+                               "......" "----------------")
+        ;; agenda log
+        org-agenda-log-mode-items '(clock) ;; 仅查看 时间
+        org-agenda-log-mode-add-notes nil ;; 不添加笔记
+        org-agenda-start-with-log-mode "only" ;; 打开时展示日志，与 org-agenda-log-mode-items 配置一致
         )
+  (setq org-agenda-custom-commands
+               '("r" "Daily Agenda Review"
+                 ((agenda "" ((org-agenda-overriding-header "今日记录")
+                              (org-agenda-span 'day)
+                              (org-agenda-show-log 'clockcheck)
+                              (org-agenda-start-with-log-mode nil)
+                              (org-agenda-log-mode-items '(clock))
+                              (org-agenda-clockreport-mode nil))))))
 
   ;; org capture-templates
   (setq org-capture-templates
@@ -153,6 +164,7 @@
   ;; org-refile-use-outlinne-path 'file 显示文件路径
   ;; org-outline-path-complete-in-steps t 逐步选择目标位置
   (setq org-refile-targets '((nil :maxlevel . 5)
+                             ;;
                              (org-agenda-files :maxlevel . 5))
         org-refile-use-outline-path 'file
         org-outline-path-complete-in-steps t)
