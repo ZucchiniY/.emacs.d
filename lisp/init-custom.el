@@ -72,11 +72,7 @@ If using emacs-plus with path ejection, set to nil."
   :group 'dylan
   :type 'boolean)
 
-(defcustom dylan-dashboard (not (daemonp))
-  "Display dashboard at startup or not.
-If Non-nil, use dashboard, otherwise will restore previous session."
-  :group 'dylan
-  :type 'boolean)
+
 
 (defcustom dylan-tree-sitter t
   "Enable tree-sitter or not.

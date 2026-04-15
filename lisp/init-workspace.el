@@ -17,18 +17,18 @@
 
 (use-package tabspaces
   :functions tabspaces-mode
-  :hook (after-init . (lambda() (unless dylan-dashboard (tabspaces-mode t))))
+  :hook (after-init . (lambda() (tabspaces-mode t)))
   :custom
   (tab-bar-show nil)
 
   (tabspaces-use-filtered-buffers-as-default t)
   (tabspaces-default-tab "Default")
   (tabspaces-remove-to-default t)
-  (tabspaces-include-buffers '("*scratch*" "*Messages*"))
-  (tabspaces-exclude-buffers '("*eat*" "*vterm*" "*shell*" "*eshell*"))
+  (tabspaces-include-buffers '(*scratch* *Messages*))
+  (tabspaces-exclude-buffers '(*eat* *vterm* *shell* *eshell*))
   ;; sessions
   (tabspaces-session t)
-  (tabspaces-session-auto-restore (not dylan-dashboard))
+  (tabspaces-session-auto-restore t)
   :config
   (with-no-warnings
     ;; Filter Buffers for Consult-Buffer
