@@ -45,7 +45,7 @@
 			                (height . 0.85)))
 
 ;; 设置成透明窗口
-(set-frame-parameter nil 'alpha '(90 . 100))
+(set-frame-parameter nil 'alpha '(95 . 100))
 
 (setq frame-title-format '("Dylan's Emacs - %b")
       icon-title-format frame-title-format)

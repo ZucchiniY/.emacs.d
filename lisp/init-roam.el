@@ -93,6 +93,20 @@
            :jump-to-captured t
            :unnarrowed t
            )
+          ("a" "领域" plain
+           "#+create_date: %<%Y-%m-%d %a>\n#+update_date: %<%Y-%m-%d %a>\n#+category:\n#+filetags:%?"
+           :target (file+head "areas/%<%Y%m%d%H%M%S>-${slug}.org"
+                              "#+title: ${title}")
+           :jump-to-captured t
+           :unnarrowed t
+           )
+          ("r" "资源" plain
+           "#+create_date: %<%Y-%m-%d %a>\n#+update_date: %<%Y-%m-%d %a>\n#+category:\n#+filetags:%?"
+           :target (file+head "resources/%<%Y%m%d%H%M%S>-${slug}.org"
+                              "#+title: ${title}")
+           :jump-to-captured t
+           :unnarrowed t
+           )
           )
         )
   (setq org-roam-node-display-template
