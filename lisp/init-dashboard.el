@@ -19,7 +19,7 @@
   (general-define-key
     :states '(normal visual emacs)
     :keymaps 'override
-    :prefix "SPC d"
+    :prefix "SPC D"
     "h" 'browse-homepage
     "r" 'restore-session
     "s" 'find-custom-file

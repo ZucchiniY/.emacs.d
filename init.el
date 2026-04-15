@@ -62,15 +62,18 @@
 
 (require 'init-ui)
 
+;; Dashboard
+(require 'init-dashboard)  ;; dashboard configuration
+
+;; Completions
+(require 'init-completion)
+
 ;; Notes and Diary
 (require 'init-org)
 (require 'init-roam)  ;; use org-roam to organize notes
 
 ;; Version Control
 (require 'init-vcs)  ;; magit configuration
-
-;; Dashboard
-(require 'init-dashboard)  ;; dashboard configuration
 
 ;; Snippets
 (require 'init-snippet)  ;; snippet configuration

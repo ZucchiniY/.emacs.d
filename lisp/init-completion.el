@@ -198,11 +198,11 @@ value of the selected COLOR."
    "b" 'embark-bindings     ;; 显示绑定
    )
   :bind (
-         ("s-.'"   . embark-act)
-         ("C-s-.'" . embark-act)
+         ("s-."   . embark-act)
+         ("C-s-." . embark-act)
          ([remap describe-bindings] . embark-bindings)
          :map minibuffer-local-map
-         ("M-.'" . my-embark-preview)
+         ("M-." . my-embark-preview)
          )
   :init
   ;; 可选：使用 completing-read 界面替换按键帮助
@@ -219,9 +219,9 @@ value of the selected COLOR."
 
   ;; 隐藏 Embark 实时/补全缓冲区的模式行
   (add-to-list 'display-buffer-alist
-               '(("\\`\\*Embark Collect \\(Live\\|Completions\\\\)\\*""
+               '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
                  nil
-                 (window-parameters (mode-line-format . none)))))
+                 (window-parameters (mode-line-format . none))))
 
   (with-no-warnings
     (with-eval-after-load 'which-key
@@ -357,19 +357,7 @@ which-key 帮助信息将显示当前目标的类型和值，
   ;; 在编程模式中启用括号补全
   (prog-mode . electric-pair-mode)
   ;; 在 Org 模式中启用括号补全
-  (org-mode . electric-pair-mode)
-  :config
-  ;; 配置括号补全的行为
-  (setq electric-pair-pairs '(;; 基本括号
-                              (?' . ?')
-                              (?) . ?")
-                              (?\` . ?\`)
-                              (?[ . ?])
-                              (?{ . ?}))
-        electric-pair-inhibit-predicate
-        (lambda (c) (if (char-equal c ?")
-                       (not (in-string-p))
-                     t)))
+  (org-mode . electric-pair-mode))
 
 ;; 基本配置
 (use-package emacs
