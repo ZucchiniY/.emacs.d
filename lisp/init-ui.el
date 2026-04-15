@@ -15,6 +15,12 @@
   (require 'init-funcs)
   )
 
+;; Nerd Icons
+(use-package nerd-icons
+  :demand t
+  :custom
+  (nerd-icons-font-family "IosevkaTerm NFM"))
+
 ;; 隐藏菜单和工具栏
 (setq-default tool-bar-always-show-default nil)
 (when (display-graphic-p)
@@ -77,7 +83,7 @@
 (setq mode-line-format
       '((:eval (if (buffer-modified-p) "*" ""))
         " %b "
-        (:eval (if (buffer-read-only-p) "%R" ""))
+        (:eval (if buffer-read-only "%R" ""))
         " %-12.12f "
         "%m"))
 
