@@ -72,5 +72,8 @@
 ;; Dashboard
 (require 'init-dashboard)  ;; dashboard configuration
 
+;; Snippets
+(require 'init-snippet)  ;; snippet configuration
+
 (provide 'init)
 ;;; init.el ends here

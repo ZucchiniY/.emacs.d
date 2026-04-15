@@ -1,4 +1,4 @@
-;; init-completion.el --- Define company config.	-*- lexical-binding: t -*-
+;; init-completion.el --- Define completion config.	-*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019-2021 Dylan Yang
 
@@ -8,22 +8,23 @@
 ;;; Commentary:
 ;;
 ;; Modern completion configuration.
-;; delete company and use Corfu/Consult to completion.
+;; Use Corfu/Consult for completion.
 ;; https://github.com/AboutEmacs/consult/blob/main/README_zh.org
 
 ;;; Code:
 (eval-when-compile
   (require 'init-const))
 
-;; Optionally use the `orderless' completion style.
+;; 无顺序的补全样式
 (use-package orderless
   :custom
   (completion-styles '(orderless basic))
   (completion-category-defaults nil)
-  (completion-category-overrides '((file (styles basic partial-completion))))
+  (completion-category-overrides '((file (styles basic partial-completion))
+                                  (org-roam-node (styles orderless))))
   (orderless-component-separator #'orderless-escapable-split-on-space))
 
-;; VERTical Interactive COmpletion
+;; 垂直交互式补全
 (use-package vertico
   :custom (vertico-count 15)
   :bind (:map vertico-map
@@ -33,25 +34,11 @@
   :hook ((after-init . vertico-mode)
          (rfn-eshadow-update-overlay . vertico-directory-tidy)))
 
-;; Display vertico in the child frame
-(use-package vertico-posframe
-  :functions posframe-poshandler-frame-center-near-bottom
-  :hook (vertico-mode . vertico-posframe-mode)
-  :init (setq vertico-posframe-poshandler
-              #'posframe-poshandler-frame-center-near-bottom
-              vertico-posframe-parameters
-              '((left-fringe  . 8)
-                (right-fringe . 8))))
-
-;; Enrich existing commands with completion annotations
+;; 为现有命令添加补全注释
 (use-package marginalia
   :hook (after-init . marginalia-mode))
 
-;; Add icons to completion candidates
-(use-package nerd-icons-completion
-  :hook (marginalia-mode . nerd-icons-completion-marginalia-setup))
-
-;; Consulting completing-read
+;; 提供各种咨询功能
 (use-package consult
   :defines (xref-show-xrefs-function xref-show-definitions-function)
   :defines shr-color-html-colors-alist
@@ -62,62 +49,55 @@
   :general
   (general-define-key
    :states 'normal
-   :prefix "SPC c"
-   "M-x" 'consult-mode-command
-   "h"   'consult-history
-   "i"   'consult-info
-   "r"   'consult-ripgrep
-   "t"   'consult-theme
-   "m"   'consult-imenu
-   "M"   'consult-imenu-multi
-   "M-:" 'consult-complex-command
+   :prefix "SPC c" ;; 补全相关功能前缀
+   :doc "补全相关功能"
+   "M-x" 'consult-mode-command     ;; 命令执行
+   "h"   'consult-history          ;; 历史记录
+   "i"   'consult-info             ;; 信息查询
+   "r"   'consult-ripgrep          ;; 正则搜索
+   "t"   'consult-theme            ;; 主题选择
+   "m"   'consult-imenu            ;; 跳转到函数/变量
+   "M"   'consult-imenu-multi      ;; 多文件跳转到函数/变量
+   "M-:" 'consult-complex-command  ;; 复杂命令
+   "d"   'consult-dir              ;; 目录选择
+   "s"   'consult-flyspell         ;; 拼写错误
+   "f"   'consult-find             ;; 文件查找
+   "l"   'consult-line             ;; 行查找
+   "g"   'consult-grep             ;; 内容搜索
+   "G"   'consult-git-grep         ;; Git内容搜索
+   "k"   'consult-keep-lines       ;; 保留匹配行
+   "F"   'consult-focus-lines      ;; 聚焦匹配行
+   "I"   'consult-isearch-history  ;; 搜索历史
    )
   (general-define-key
    :states 'normal
-   :prefix "SPC b"
-   "b"   'consult-buffer
-   "o"   'consult-buffer-other-window
+   :prefix "SPC b" ;; 缓冲区相关前缀
+   :doc "缓冲区相关功能"
+   "b"   'consult-buffer            ;; 缓冲区选择
+   "o"   'consult-buffer-other-window ;; 新窗口打开缓冲区
    )
   (general-define-key
    :states 'normal
-   :prefix "SPC m"
-   "b"   'consult-bookmark
-   "m"   'consult-mark
-   "g"   'consult-global-mark
+   :prefix "SPC p" ;; 项目相关前缀
+   :doc "项目相关功能"
+   "b" 'consult-project-buffer     ;; 项目缓冲区
    )
   (general-define-key
    :states 'normal
-   :prefix "SPC p"
-   "b" 'consult-project-buffer
+   :prefix "SPC r" ;; 寄存器相关前缀
+   :doc "寄存器相关功能"
+   "r" 'consult-register           ;; 寄存器选择
+   "l" 'consult-register-load      ;; 加载寄存器
+   "s" 'consult-register-store     ;; 存储到寄存器
    )
   (general-define-key
    :states 'normal
-   :prefix "SPC r"
-   "r" 'consult-register
-   "l" 'consult-register-load
-   "s" 'consult-register-store
-   )
-  (general-define-key
-   :states 'normal
-   :prefix "SPC j"
-   "e" 'consult-compile-error
-   "f" 'consult-flymake
-   "l" 'consult-goto-line
-   "o" 'consult-outline
-   )
-  (general-define-key
-   :states 'normal
-   :prefix "SPC f"
-   "d" 'consult-find
-   "D" 'consult-locate
-   "g" 'consult-grep
-   "G" 'consult-git-grep
-   "r" 'consult-ripgrep
-   "l" 'consult-line
-   "L" 'consult-line-multi
-   "k" 'consult-keep-lines
-   "f" 'consult-focus-lines
-   "i" 'consult-isearch-history
+   :prefix "SPC j" ;; 跳转相关前缀
+   :doc "跳转相关功能"
+   "e" 'consult-compile-error      ;; 编译错误
+   "f" 'consult-flymake           ;; Flymake错误
+   "l" 'consult-goto-line         ;; 跳转到行
+   "o" 'consult-outline           ;; 大纲跳转
    )
   :bind (("C-c c e" . consult-colors-emacs)
          ("C-c c w" . consult-colors-webb)
@@ -127,22 +107,18 @@
          ([remap Info-search]        . consult-info)
          ([remap isearch-forward]    . consult-line)
          ([remap recentf-open-files] . consult-recent-file)
-         )                 ;; orig. previous-matching-history-element
+         )
 
-  ;; Enable automatic preview at point in the *Completions* buffer. This is
-  ;; relevant when you use the default completion UI.
+  ;; Enable automatic preview at point in the *Completions* buffer.
   :hook (completion-list-mode . consult-preview-at-point-mode)
 
   ;; The :init configuration is always executed (Not lazy)
   :init
-  ;; Optionally configure the register formatting. This improves the register
-  ;; preview for `consult-register', `consult-register-load',
-  ;; `consult-register-store' and the Emacs built-ins.
+  ;; Optionally configure the register formatting.
   (setq register-preview-delay 0.5
         register-preview-function #'consult-register-format)
 
   ;; Optionally tweak the register preview window.
-  ;; This adds thin lines, sorting and hides the mode line of the window.
   (advice-add #'register-preview :override #'consult-register-window)
 
   ;; Use Consult to select xref locations with preview
@@ -191,10 +167,7 @@ value of the selected COLOR."
                           :history '(:input consult-colors-history))))
     (insert color))
   :config
-  ;; Optionally configure preview. The default value
-  ;; is 'any, such that any key triggers the preview.
-  ;; (setq consult-preview-key 'any)
-  ;; (setq consult-preview-key '("S-<down>" "S-<up>"))
+  ;; Optionally configure preview.
   (setq consult-preview-key nil)
   ;; For some commands and buffer sources it is useful to configure the
   ;; :preview-key on a per-command basis using the `consult-customize' macro.
@@ -207,82 +180,62 @@ value of the selected COLOR."
    :preview-key '(:debounce 0.5 any))
 
   ;; Optionally configure the narrowing key.
-  ;; Both < and C-+ work reasonably well.
   (setq consult-narrow-key "<") ;; "C-+"
 
   ;; Optionally make narrowing help available in the minibuffer.
-  ;; You may want to use `embark-prefix-help-command' or which-key instead.
   (define-key consult-narrow-map (vconcat consult-narrow-key "?") #'consult-narrow-help))
 
-(use-package consult-dir
-  :ensure t
-  :general
-  (general-define-key
-   :states 'normal
-   :prefix "SPC c"
-   "d" 'consult-dir
-   ;; "j" 'consult-dir-jump-file
-   )
-  ;; :bind (("C-x C-d" . consult-dir)  ;; 选择目录进行跳转
-  ;;        :map minibuffer-local-completion-map
-  ;;        ("C-x C-d" . consult-dir)  ;; 选择目录进行跳转
-  ;;        ("C-x C-j" . consult-dir-jump-file)) ;; 打开当前目录并选择文件跳转
-  )
-
-(use-package consult-flyspell
-  :general
-  (general-define-key
-   :states 'normal
-   :prefix "SPC c"
-   "s" 'consult-flyspell)
-  ;; :bind ("M-g s" . consult-flyspell)
-  ) ;; 显示当前拼写错误
-
-(use-package consult-yasnippet
-  :bind ("M-g y" . consult-yasnippet)
-  ) ;; 展开 yasnippet 模板
-
+;; 增强 minibuffer 操作功能
 (use-package embark
   :commands embark-prefix-help-command
-  :bind (("s-."   . embark-act)
-         ("C-s-." . embark-act)
-         ("M-."   . embark-dwim)        ; overrides `xref-find-definitions'
+  :general
+  (general-define-key
+   :states 'normal
+   :prefix "SPC e" ;; Embark 相关功能前缀
+   :doc "Embark 相关功能"
+   "a" 'embark-act          ;; 对当前目标执行操作
+   "d" 'embark-dwim         ;; 智能执行操作
+   "b" 'embark-bindings     ;; 显示绑定
+   )
+  :bind (
+         ("s-.'"   . embark-act)
+         ("C-s-.'" . embark-act)
          ([remap describe-bindings] . embark-bindings)
          :map minibuffer-local-map
-         ("M-." . my-embark-preview))
+         ("M-.'" . my-embark-preview)
+         )
   :init
-  ;; Optionally replace the key help with a completing-read interface
+  ;; 可选：使用 completing-read 界面替换按键帮助
   (setq prefix-help-command #'embark-prefix-help-command)
   :config
-  ;; Manual preview for non-Consult commands using Embark
+  ;; 为非 Consult 命令提供手动预览功能
   (defun my-embark-preview ()
-    "Previews candidate in vertico buffer, unless it's a consult command."
+    "在 vertico 缓冲区中预览候选项，除非是 consult 命令。"
     (interactive)
     (unless (bound-and-true-p consult--preview-function)
       (save-selected-window
         (let ((embark-quit-after-action nil))
           (embark-dwim)))))
 
-  ;; Hide the mode line of the Embark live/completions buffers
+  ;; 隐藏 Embark 实时/补全缓冲区的模式行
   (add-to-list 'display-buffer-alist
-               '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
+               '(("\\`\\*Embark Collect \\(Live\\|Completions\\\\)\\*""
                  nil
-                 (window-parameters (mode-line-format . none))))
+                 (window-parameters (mode-line-format . none)))))
 
   (with-no-warnings
     (with-eval-after-load 'which-key
       (defun embark-which-key-indicator ()
-        "An embark indicator that displays keymaps using which-key.
-The which-key help message will show the type and value of the
-current target followed by an ellipsis if there are further
-targets."
+        "使用 which-key 显示 keymaps 的 embark 指示器。
+which-key 帮助信息将显示当前目标的类型和值，
+如果有更多目标，则显示省略号。"
         (lambda (&optional keymap targets prefix)
           (if (null keymap)
               (which-key--hide-popup-ignore-command)
             (which-key--show-keymap
              (if (eq (plist-get (car targets) :type) 'embark-become)
-                 "Become"
-               (format "Act on %s '%s'%s"
+                 "变为"
+               (format "对 %s '%s'%s 执行操作"
                        (plist-get (car targets) :type)
                        (embark--truncate-target (plist-get (car targets) :target))
                        (if (cdr targets) "…" "")))
@@ -300,7 +253,7 @@ targets."
               embark-isearch-highlight-indicator))
 
       (defun embark-hide-which-key-indicator (fn &rest args)
-        "Hide the which-key indicator immediately when using the completing-read prompter."
+        "在使用 completing-read 提示器时立即隐藏 which-key 指示器。"
         (which-key--hide-popup-ignore-command)
         (let ((embark-indicators
                (remq #'embark-which-key-indicator embark-indicators)))
@@ -309,41 +262,38 @@ targets."
       (advice-add #'embark-completing-read-prompter
                   :around #'embark-hide-which-key-indicator))))
 
+;; Embark 与 Consult 集成
 (use-package embark-consult
   :bind (:map minibuffer-mode-map
               ("C-c C-o" . embark-export))
   :hook (embark-collect-mode . consult-preview-at-point-mode))
 
-;; Auto completion
+;; 自动补全
 (use-package corfu
   :autoload (corfu-quit consult-completion-in-region)
   :functions (persistent-scratch-save corfu-move-to-minibuffer)
   :custom
-  (corfu-auto t)
-  (corfu-auto-prefix 2)
+  (corfu-auto nil) ;; 禁用自动补全，仅在按下 M-Tab 时触发
   (corfu-count 12)
   (corfu-preview-current nil)
   (corfu-on-exact-match nil)
-  (corfu-auto-delay 0.2)
-  (corfu-popupinfo-delay '(0.4 . 0.2))
   (global-corfu-modes '((not erc-mode
                              circe-mode
                              help-mode
                              gud-mode
                              vterm-mode)
                         t))
-  :custom-face
-  (corfu-border ((t (:inherit region :background unspecified))))
-  :bind ("M-/" . completion-at-point)
+  :bind (
+         ("M-/" . completion-at-point) ;; 绑定 M-/ 触发补全
+         ("TAB" . completion-at-point) ;; 绑定 Tab 触发补全
+         :map corfu-map
+         ("M-m" . corfu-move-to-minibuffer) ;; 移动补全到 minibuffer
+         )
   :hook ((after-init . global-corfu-mode)
-         (global-corfu-mode . corfu-popupinfo-mode)
          (global-corfu-mode . corfu-history-mode))
   :config
-  ;;Quit completion before saving
   (add-hook 'before-save-hook #'corfu-quit)
   (advice-add #'persistent-scratch-save :before #'corfu-quit)
-
-  ;; Move completions to minibuffer
   (defun corfu-move-to-minibuffer ()
     (interactive)
     (pcase completion-in-region--data
@@ -351,48 +301,95 @@ targets."
        (let ((completion-extra-properties extras)
              completion-cycle-threshold completion-cycling)
          (consult-completion-in-region beg end table pred)))))
-  (keymap-set corfu-map "M-m" #'corfu-move-to-minibuffer)
   (add-to-list 'corfu-continue-commands #'corfu-move-to-minibuffer))
 
 (unless (or (display-graphic-p) (featurep 'tty-child-frames))
   (use-package corfu-terminal
     :hook (global-corfu-mode . corfu-terminal-mode)))
 
-;; A few more useful configurations...
+;; 为补全添加图标支持
+(use-package nerd-icons-completion
+  :after corfu
+  :hook (corfu-mode . nerd-icons-completion-mode)
+  :config
+  (setq nerd-icons-completion-iconify-all t))
+
+;; 目录补全增强
+(use-package consult-dir
+  :ensure t
+  :general
+  (general-define-key
+   :states 'normal
+   :prefix "SPC c"
+   :doc "补全相关功能"
+   "d" 'consult-dir              ;; 目录选择
+   )
+  )
+
+;; 拼写错误补全
+(use-package consult-flyspell
+  :general
+  (general-define-key
+   :states 'normal
+   :prefix "SPC c"
+   :doc "补全相关功能"
+   "s" 'consult-flyspell         ;; 拼写错误
+   )
+  )
+
+;; 代码片段补全
+(use-package consult-yasnippet
+  :general
+  (general-define-key
+   :states 'normal
+   :prefix "SPC c"
+   :doc "补全相关功能"
+   "y" 'consult-yasnippet        ;; 代码片段补全
+   )
+  )
+
+;; 括号补全配置
+;; 仅在特定文件类型的 hook 中启用
 (use-package emacs
   :custom
-  ;; TAB cycle if there are only few candidates
-  ;; (completion-cycle-threshold 3)
+  (electric-pair-mode nil) ;; 全局禁用
+  :hook
+  ;; 在编程模式中启用括号补全
+  (prog-mode . electric-pair-mode)
+  ;; 在 Org 模式中启用括号补全
+  (org-mode . electric-pair-mode)
+  :config
+  ;; 配置括号补全的行为
+  (setq electric-pair-pairs '(;; 基本括号
+                              (?' . ?')
+                              (?) . ?")
+                              (?\` . ?\`)
+                              (?[ . ?])
+                              (?{ . ?}))
+        electric-pair-inhibit-predicate
+        (lambda (c) (if (char-equal c ?")
+                       (not (in-string-p))
+                     t)))
 
-  ;; Enable indentation+completion using the TAB key.
-  ;; `completion-at-point' is often bound to M-TAB.
+;; 基本配置
+(use-package emacs
+  :custom
+  ;; 启用 TAB 补全
   (tab-always-indent 'complete)
-
-  ;; Emacs 30 and newer: Disable Ispell completion function. As an alternative,
-  ;; try `cape-dict'.
+  ;; Emacs 30+：禁用 Ispell 补全
   (text-mode-ispell-word-completion nil)
-
-  ;; Emacs 28 and newer: Hide commands in M-x which do not apply to the current
-  ;; mode.  Corfu commands are hidden, since they are not used via M-x. This
-  ;; setting is useful beyond Corfu.
+  ;; Emacs 28+：在 M-x 中隐藏不适用的命令
   (read-extended-command-predicate #'command-completion-default-include-p))
 
-(use-package nerd-icons-corfu
-  :autoload nerd-icons-corfu-formatter
-  :after corfu
-  :init (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
-
-;; Add extensions
+;; 补全增强
 (use-package cape
   :commands (cape-file cape-elisp-block cape-keyword)
   :autoload (cape-wrap-noninterruptible cape-wrap-nonexclusive cape-wrap-buster)
   :autoload (cape-wrap-silent)
   :init
-  ;; (add-to-list 'completion-at-point-functions #'cape-dabbrev)
   (add-to-list 'completion-at-point-functions #'cape-file)
   (add-to-list 'completion-at-point-functions #'cape-elisp-block)
   (add-to-list 'completion-at-point-functions #'cape-keyword)
-  ;; (add-to-list 'completion-at-point-functions #'cape-abbrev)
 
   ;; Make these capfs composable.
   (advice-add 'lsp-completion-at-point :around #'cape-wrap-noninterruptible)
@@ -403,7 +400,6 @@ targets."
   (advice-add 'pcomplete-completions-at-point :around #'cape-wrap-nonexclusive)
 
   ;; Sanitize the `pcomplete-completions-at-point' Capf.
-  ;; The Capf has undesired side effects on Emacs 28.
   (advice-add 'pcomplete-completions-at-point :around #'cape-wrap-silent))
 
 (provide 'init-completion)
