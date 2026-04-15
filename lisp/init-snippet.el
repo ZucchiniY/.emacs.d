@@ -32,23 +32,23 @@
 (use-package yasnippet
   :diminish yas-minor-mode
   :hook (after-init . yas-global-mode)
-  :bind ("C-c y" . yasnippet-hydra/body)
-  :pretty-hydra
-  ((:title (pretty-hydra-title "YASnippets" 'faicon "nf-fa-tripadvisor")
-           :color amaranth :quit-key ("q" "C-g"))
-   ("Modes"
-    (("g" yas/global-mode "global")
-     ("m" yas/minor-mode "minor")
-     ("e" yas-activate-extra-mode "extra"))
-    "Load/Visit"
-    (("d" yas-load-directory "load directory")
-     ("f" yas-visit-snippet-file :color blue "visit snippet file")
-     ("l" yas-describe-tables "describe tables"))
-    "Actions"
-    (("i" yas-insert-snippet "insert snippet")
-     ("n" yas-new-snippet "new snippet")
-     ("t" yas-tryout-snippet "tryout snippet")
-     ("a" yas-reload-all "reload all")))))
+  :general
+  (general-define-key
+   :states 'normal
+   :prefix "SPC y" ;; 代码片段相关功能前缀
+   :doc "代码片段相关功能"
+   "g" 'yas/global-mode        ;; 全局模式
+   "m" 'yas/minor-mode         ;; 局部模式
+   "e" 'yas-activate-extra-mode ;; 激活额外模式
+   "d" 'yas-load-directory     ;; 加载目录
+   "f" 'yas-visit-snippet-file ;; 访问片段文件
+   "l" 'yas-describe-tables    ;; 描述表格
+   "i" 'yas-insert-snippet     ;; 插入片段
+   "n" 'yas-new-snippet        ;; 新建片段
+   "t" 'yas-tryout-snippet     ;; 尝试片段
+   "a" 'yas-reload-all         ;; 重新加载所有
+   )
+  )
 
 (use-package yasnippet-snippets)
 
