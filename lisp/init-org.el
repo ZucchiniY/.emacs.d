@@ -85,9 +85,6 @@
         org-outline-path-complete-in-steps t
         )
   ;; 配置 clock table 中的 block 选项
-  ;; 扩展 org-clock-clocktable-default-properties 参数
-  (setq org-clock-clocktable-default-properties '(:scope agenda-with-archives :maxlevel 5 :filetitle t :compact t :formula % :hidefiles t :fileskip0 t :tags t))
-  (plist-put org-clock-clocktable-default-properties :block (format-time-string "%Y-W%V"))
   ;; 增加自动变成完成状态
   (defun org-summary-todo (n-done n-not-done)
     "Switch entry to DONE when all subentries are done, to TODO otherwise."
@@ -124,20 +121,32 @@
                                (600 800 1000 1200 1400 1600 1800 2000 2200 2400)
                                "......" "----------------")
         ;; agenda log
-        org-agenda-log-mode-items '(clock) ;; 仅查看 时间
+        org-agenda-log-mode-items '(clock) ;; 仅查看时间
         org-agenda-log-mode-add-notes nil ;; 不添加笔记
         org-agenda-start-with-log-mode "only" ;; 打开时展示日志，与 org-agenda-log-mode-items 配置一致
         )
+  ;; 扩展 org-clock-clocktable-default-properties 参数
+  (setq org-clock-clocktable-default-properties
+        '(:scope agenda-with-archives
+                 :maxlevel 5
+                 :filetitle t
+                 :compact t
+                 :formula %
+                 :hidefiles t
+                 :fileskip0 t
+                 :tags t))
+  (plist-put org-clock-clocktable-default-properties :block (format-time-string "%Y-W%V"))
   (setq org-agenda-custom-commands
         '(("r" "Daily Agenda"
            ((agenda "" ((org-agenda-overriding-header "今日记录")
                         (org-agenda-archives-mode t)
                         (org-agenda-span 'day)
-                        (org-agenda-show-log 'clockcheck)
+                        ;; (org-agenda-show-log 'only)
+                        (org-agenda-todo-list nil)
                         (org-agenda-start-with-log-mode t)
+                        ;; (org-agenda-use-time-grid t)
                         (org-agenda-log-mode-items '(clock))
                         (org-agenda-clockreport-mode nil)))))))
-
   ;; org capture-templates
   (setq org-capture-templates
         '(
