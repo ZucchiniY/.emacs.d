@@ -134,7 +134,7 @@
                         (org-agenda-archives-mode t)
                         (org-agenda-span 'day)
                         (org-agenda-show-log 'clockcheck)
-                        (org-agenda-start-with-log-mode nil)
+                        (org-agenda-start-with-log-mode t)
                         (org-agenda-log-mode-items '(clock))
                         (org-agenda-clockreport-mode nil)))))))
 
@@ -149,11 +149,20 @@
            :unnarrowed t)
           ("s" "学习任务" entry
            (file+headline "roam/projects/studies.org" "学习清单")
-           "* 未开始 %^{name}\nSCHEDULED: %^t %?"
+           "** 未开始 %^{name}\nSCHEDULED: %^t %?"
            :empty-lines 1)
           ("r" "阅读清单" entry
            (file+headline "roam/projects/studies.org" "阅读清单")
-           "* 未开始 %^{name}\nSCHEDULED: %^t %?"
+           "** 未开始 %^{name}\nSCHEDULED: %^t %?"
+           :empty-lines 1)
+          ("h" "习惯与固定杂项")
+          ("hh" "习惯" entry
+           (file+headline "roam/projects/habits.org" "习惯")
+           "** %^{name}\nSCHEDULED: %^t\n:PROPERTIES:\n:STYLE: habit\n:END:\n%?"
+           :empty-lines 1)
+          ("hm" "固定周期" entry
+           (file+headline "roam/projects/habits.org" "杂项")
+           "** %^{name}\nSCHEDULED: %^t\n%?"
            :empty-lines 1)
           ))
 
