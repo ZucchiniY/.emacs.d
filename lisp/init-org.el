@@ -131,6 +131,7 @@
   (setq org-agenda-custom-commands
         '(("r" "Daily Agenda"
            ((agenda "" ((org-agenda-overriding-header "今日记录")
+                        (org-agenda-archives-mode t)
                         (org-agenda-span 'day)
                         (org-agenda-show-log 'clockcheck)
                         (org-agenda-start-with-log-mode nil)
