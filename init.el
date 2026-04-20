@@ -78,5 +78,8 @@
 ;; Snippets
 (require 'init-snippet)  ;; snippet configuration
 
+;; Utilities
+(require 'init-utils)  ;; utility configurations
+
 (provide 'init)
 ;;; init.el ends here
