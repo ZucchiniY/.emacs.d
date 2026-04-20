@@ -33,291 +33,32 @@
 
 删除一些长时间未使用、非基础的配置，同时调整一些配置代码的位置，整合一些配置文件中的内容。
 
+| prefix | mode              |
+|--------+-------------------|
+| SPC D  | dashboard         |
+| SPC b  | consult 缓冲区    |
+| SPC c  | consult 补全      |
+| SPC d  | org roam dailies  |
+| SPC e  | embark 灵活操作   |
+| SPC g  | magit             |
+| SPC j  | consult 跳转      |
+| SPC l  | olivetti 写作模式 |
+| SPC n  | org roam          |
+| SPC o  | org               |
+| SPC p  | consult 项目      |
+| SPC q  | 退出              |
+| SPC r  | consult 寄存器    |
+| SPC w  | window            |
+| SPC y  | yasnippet         |
+| SPC z  | ztree 文本文件树  |
+
 ** lisp
 
 所有配置文件，不再区分 core 和 modules 拆分。
 
-*** consult
+** load-lisp
 
-  (global-define-key
-   :states 'normal
-   :keymaps 'override
-   :prefix "SPC c"
-   "M-x" 'consult-mode-command
-   "h"   'consult-history
-   "k"   'consult-kmacro
-   "i"   'consult-info
-   "r"   'consult-ripgrep
-   "t"   'consult-theme
-   "ce"  'consult-colors-emacs
-   "cw"  'consult-colors-web
-   "cf"  'describe-face
-   "cl"  'find-library
-   )
-  (global-define-key
-   :states 'normal
-   :keymaps 'override
-   :prefix "SPC x"
-   ":"   'consult-complex-command
-   "b"   'consult-buffer
-   "bo"  'consult-buffer-other-window
-   "m"   'consult-bookmark
-   "p"   'consult-project-buffer
-   )
-  (global-define-key
-   :states 'normal
-   :keymaps 'override
-   :prefix "SPC m"
-   "#"   'consult-register-load
-   "'"   'consult-register-store
-   "r"   'consult-register
-   "y"   'consult-yank-pop
-   "e"   'consult-compile-error
-   "f"   'consult-flymake
-   "g"   'consult-goto-line
-   "o"   'consult-outline
-   "m"   'consult-mark
-   "i"   'consult-imenu
-   "I"   'consult-imenu-multi
-   )
-  (global-define-key
-   :states 'normal
-   :keymaps 'override
-   :prefix "SPC f"
-   "f"   'consult-find
-   "F"   'consult-locate
-   "g"   'consult-grep
-   "r"   'consult-git-grep
-   "l"   'consult-line
-   "L"   'consult-line-multi
-   "k"   'consult-keep-lines
-   "c"   'consult-focus-lines
-   "i"   'consult-isearch-history
-   )
-
-** core
-
-此配置下主要是一些必须的设置、工具配置和许多个人比较喜欢使用的工具。
-
-*** basis
-
-将常量从 =core-basis= 中拆分出来，然后拆分出 =core-custom= 和 =core-const= ， =core-basis= 仅用来配置公共变量和基础设置的内容。
-
-- M-S-<return> :: toggle-frame-fullscreen 全屏界面
-- M-s-<return> :: toggle-frame-maximized 最大化窗口
-- C-= :: er/expand-region 扩展选择区域
-
-*** package
-
-配置 use-package 包，并增加一些基础包引入，同时将 general 调整到此配置下，用来配置基础的快捷键。
-
-*** keybind
-
-合并 evil 和 general 配置方案。
-
-使用 =general= 定义 *leader key* =[SPC]= 。
-
-- fs :: save-buffer
-- fd :: dired
-
-- bq :: kill-buffer
-- qq :: save-buffers-kill-emacs
-- wq :: delete-window
-
-- wu :: winner-undo
-- wr :: winner-redo
-  
-- wo :: other-window
-- wv :: split-window-vertically
-- w- :: split-window-horizontally
-- wl :: evil-window-right
-- wh :: evil-window-left
-- wk :: evil-window-up
-- wj :: evil-window-down
-- wa :: delete-other-windows
-
-- 1~0 :: winum-select-window-[1~0]
-
-- ov :: cfw:open-org-calendar
-
-*** counsel
-
-leader key *SPC* 
-
-- : :: counsel-M-x
-- sS :: swiper-all
-- ss :: swiper
-- ff :: counsel-find-file
-- fr :: counsel-recentf
-- bb :: counsel-switch-buffer
-- cg :: counsel-git-grep
-- cr :: counsel-rg
-
-*** org mode
-
-增加引用最新版本的 org mode，不再是使用 Emacs 自带的版本。
-
-leader key *SPC o* 
-
-- a :: 打开 agenda
-- b :: 在 org buffer 间切换
-- c :: 启动 org-capture
-- d :: 在当前位置插入子标题
-- e :: org-deadline
-# - g :: org-clock-goto
-- h :: counsel-org-clock-history
-- o :: 设置 org 的标签
-- p :: org-pomodoro
-# - r :: org-refile
-- s :: org-schedule
-- t :: 设置 TODO 状态
-- x :: counsel-org-clock-context
-- E :: org-export-dispatch
-- R :: org-clock-report
-- C-o :: org-open-at-point 打开当前位置的链接
-- . :: org-clock-in
-- , :: org-clock-out
-# - $ :: org-archive-subtree
-- & :: org-mark-ring-goto ，从链接跳转回原来的位置
-- ` :: org-time-stamp，插入一个「激活」时间戳，可在 Agengda 中看到
-- ! :: org-time-stamp-inactive，插入一个「非激活」时间戳
-
-**** plantuml
-
-增加专门为 plantuml 所使用有配置。Plantuml 主要用来绘制流程图、思维导图等许多图例。
-
-**** yaml/toml
-
-增加一些文件编辑对应的引用包，用来编写笔记和配置文件
-
-*** org roam
-
-org-roam 工具调整到 core/ 下，作为常用的工具，一直启用。
-
-使用 Org Roam 进行任务规划、记录笔记等内容，替换部分 org capture 的内容。
-
-- SPC n l :: org-roam-buffer-toggle 查看对应的反向链接的文章
-- SPC n f :: org-roam-node-find 查找所有 roam 中的文件，可以查看文章的标题（title）和 Alias 的内容
-- SPC n g :: org-roam-ui-mode 打开查看生成的文章关系网
-- SPC n i :: org-roam-node-insert 将某段内容更新为关联关系
-- SPC n c :: org-roam-capture 新增文件或者继续插入内容
-- SPC n r :: org-roam-ref-add 增加对应的参考
-- SPC n a :: org-roam-alias-add 增加别名
-- SPC o g :: org-id-get-create 增加 Org ID
-- SPC n t :: org-roam-tag-add 增加标签
-- SPC n j :: org-roam-dailies-capture-today 新增本日、本周、本月对应的内容，用来增加任务单
-- SPC n k :: org-roam-dailies-goto-today 跳转到本日、本周、本月的文件
-- SPC n n :: org-roam-dailies-goto-next-note 跳转到下一篇内容，如果是日则是下一天，周则是下一周
-- SPC n p :: org-roam-dailies-goto-previous-note 返回上一篇内容，如果是日则是上一天，周则是上一周
-- SPC n s :: org-roam-db-sync 刷新存储的关系，解决 =org-roam-ui-mode= 生成的关系图不同步问题
-
-**** org dailies
-
-使用快捷键 =SPC n j= 或者 =SPC n k= 后输入下面的模板编号，可以使用对应的模板。
-
-- w :: 周计划
-- m :: 月计划，阅读清单
-- j :: 季度 OKR
-
-月计划主要分为 2 类，一类是 *关键任务* 主要指需要完成的任务和工作；另一类是 *阅读计划* 主要是针对每类任务，需要阅读的文章或者书籍。
-
-
-- 计划任务 :: 在每个季度完成 OKR 的设计，按方向分为几类，然后按 OKR 将任务保存到月计划中。每个计划工作时，更新到周计划内，开始任务统计。
-- 阅读计划 :: 将需要阅读的书籍或者文章先放到月计划的阅读清单中，阅读完成之后，将清单更新到每年的阅读清单中。阅读计划主要包括书名、作者、完成时间、阅读渠道，如果有对应的笔记，则建立 roam 的链接。阅读渠道主要有微信读书、实体书、电子书三类。
-
-**** org-roam 目录配置
-
-- archives :: 不直接记录，仅归档使用
-- projects :: 有明确计划时间的任务，通过 org-roam-dailies-capture-templates 进行维护
-  - tasks :: 不直接记录，通过 org-roam-dailies 进行记录，单次任务收集到 tasks 下
-  - projects :: 有明确的截止时间和计划的事项，系列任务收集到 projects 下
-  - 考虑下是否需要按年、月、日重新计划工作
-
-- areas :: 长期维持的领域
-  - develop :: 开发
-    - agility :: 敏捷
-    - database
-    - docker
-    - ML :: machine learning
-    - language
-      - python
-  - reading :: 阅读
-    - notes :: 笔记
-      - book :: 书
-      - blog :: 博客
-    - list :: 清单
-  - tools :: 工具
-    - emacs
-    - systems
-  - financial :: 理财
-    - strategy :: 策略
-  - writing :: 写作
-    - notes :: 知识点笔记
-    - material :: 写作的素材、灵光一现
-    - novel :: 小说本身
-      - 考虑使用 list 列表来编写每章的内容，然后再新建一篇小说
-      
-- resources :: 持续感兴趣的事，未来有帮助的事
-  - golang
-  - rust
-
-*** company
-
-- M-/ :: company-complete
-- C-p :: company-select-previous
-- C-n :: company-select-next
-- <tab> :: company-complete-common-or-cycle
-
-*** treemacs
-
-leader key *SPC t*
-
-- c :: treemacs select window
-- t :: treemacs
-- b :: treemacs bookmark
-
-** modules
-*** magit
-
-- SPC g g :: 启动 Magit
-           
-*** projectile
-
-- SPC p :: projectile command map
-- SPC p p :: counsel-projectile-switch-project
-- SPC p / :: counsel-projectile-grep
-- SPC SPC :: counsel-projectile-find-file
-
-*** calendar + cal-china-x + calfw
-
-使用 Calendar 和 cal-china-x 来设置需要提醒的日期，防止自己忘记。
-
-引入 calfw 包来展示相关的日历，除了具体的日期外，还可以增加展示 org-agenda 中的内容。
-
-*** lsp-bridge
-
-使用 lsp-bridge 作为代码补全，移除 lsp-mode/elgot 相关的配置。
-
-**** 开发语言后台
-
-***** 已启用
-
-- Python :: =pip install ruff=
-- rust :: =rustup component add rust-src rust-analyzer=
-
-***** 未启用
-
-- JavaScript/TypeScript :: =npm install -g typescript-language-server typescript=
-  启动后台： =typescript-language-server --stdio=
-- HTML/CSS :: =npm install -g vscode-langservers-extracted=
-
-*** treesit
-
-内置的代码跳转工具，需要使用启用相关的配置。
-
-*** org-novel
-
-使用其管理故事相关的内容，包换人物、物品、地点、章节等内容。
+加载的子项目，或者是自己编写的工具包。
 
 * 字体配置
 
