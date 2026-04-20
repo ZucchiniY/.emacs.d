@@ -121,9 +121,9 @@
                                (600 800 1000 1200 1400 1600 1800 2000 2200 2400)
                                "......" "----------------")
         ;; agenda log
-        org-agenda-log-mode-items '(clock) ;; 仅查看时间
+        org-agenda-log-mode-items '(clock clockcheck) ;; 仅查看时间
         org-agenda-log-mode-add-notes nil ;; 不添加笔记
-        org-agenda-start-with-log-mode "only" ;; 打开时展示日志，与 org-agenda-log-mode-items 配置一致
+        org-agenda-start-with-log-mode '(clock clockcheck) ;; "only" ;; 打开时展示日志，与 org-agenda-log-mode-items 配置一致
         )
   ;; 扩展 org-clock-clocktable-default-properties 参数
   (setq org-clock-clocktable-default-properties
@@ -136,16 +136,20 @@
                  :fileskip0 t
                  :tags t))
   (plist-put org-clock-clocktable-default-properties :block (format-time-string "%Y-W%V"))
+  (setq org-agenda-clock-consistency-checks
+        '(:max-duration "4:00"
+                        :min-duration "0"
+                        :max-gap "0:05"
+                        :gap-ok-around ("12:00")))
   (setq org-agenda-custom-commands
         '(("r" "Daily Agenda"
            ((agenda "" ((org-agenda-overriding-header "今日记录")
                         (org-agenda-archives-mode t)
                         (org-agenda-span 'day)
                         ;; (org-agenda-show-log 'only)
-                        (org-agenda-todo-list nil)
                         (org-agenda-start-with-log-mode t)
-                        ;; (org-agenda-use-time-grid t)
-                        (org-agenda-log-mode-items '(clock))
+                        (org-agenda-use-time-grid t)
+                        (org-agenda-log-mode-items '(clock clockcheck))
                         (org-agenda-clockreport-mode nil)))))))
   ;; org capture-templates
   (setq org-capture-templates
@@ -170,8 +174,8 @@
            "** %^{name}\nSCHEDULED: %^t\n:PROPERTIES:\n:STYLE: habit\n:END:\n%?"
            :empty-lines 1)
           ("hm" "固定周期" entry
-           (file+headline "roam/projects/habits.org" "杂项")
-           "** %^{name}\nSCHEDULED: %^t\n%?"
+           (file+headline "roam/projects/miscs.org" "杂项")
+           "** %^{name}\n%^t\n%?"
            :empty-lines 1)
           ))
 
