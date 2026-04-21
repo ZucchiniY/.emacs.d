@@ -78,12 +78,6 @@
    )
   (general-define-key
    :states 'normal
-   :prefix "SPC p" ;; 项目相关前缀
-   :doc "项目相关功能"
-   "b" 'consult-project-buffer     ;; 项目缓冲区
-   )
-  (general-define-key
-   :states 'normal
    :prefix "SPC r" ;; 寄存器相关前缀
    :doc "寄存器相关功能"
    "r" 'consult-register           ;; 寄存器选择
