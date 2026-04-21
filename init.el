@@ -81,5 +81,8 @@
 ;; Utilities
 (require 'init-utils)  ;; utility configurations
 
+;; Workspace & Project Management
+(require 'init-workspace)  ;; workspace and project management configurations
+
 (provide 'init)
 ;;; init.el ends here

@@ -33,24 +33,25 @@
 
 删除一些长时间未使用、非基础的配置，同时调整一些配置代码的位置，整合一些配置文件中的内容。
 
-| prefix | mode              |
-|--------+-------------------|
-| SPC D  | dashboard         |
-| SPC b  | consult 缓冲区    |
-| SPC c  | consult 补全      |
-| SPC d  | org roam dailies  |
-| SPC e  | embark 灵活操作   |
-| SPC g  | magit             |
-| SPC j  | consult 跳转      |
-| SPC l  | olivetti 写作模式 |
-| SPC n  | org roam          |
-| SPC o  | org               |
-| SPC p  | consult 项目      |
-| SPC q  | 退出              |
-| SPC r  | consult 寄存器    |
-| SPC w  | window            |
-| SPC y  | yasnippet         |
-| SPC z  | ztree 文本文件树  |
+| prefix | mode                  |
+|--------+-----------------------|
+| SPC D  | dashboard             |
+| SPC b  | consult 缓冲区        |
+| SPC c  | consult 补全          |
+| SPC d  | org roam dailies      |
+| SPC e  | embark 灵活操作       |
+| SPC g  | magit                 |
+| SPC j  | consult 跳转          |
+| SPC l  | olivetti 写作模式     |
+| SPC n  | org roam              |
+| SPC o  | org                   |
+| SPC p  | consult 项目          |
+|        | projectile + tabspace |
+| SPC q  | emacs quit            |
+| SPC r  | consult 寄存器        |
+| SPC w  | window                |
+| SPC y  | yasnippet             |
+| SPC z  | ztree 文本文件树      |
 
 ** lisp
 
