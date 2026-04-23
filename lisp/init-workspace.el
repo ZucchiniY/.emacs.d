@@ -80,7 +80,7 @@
         '(projectile-root-local
           projectile-root-bottom-up
           projectile-root-top-down
-          projectile-root-top-down-recording))
+          projectile-root-top-down-recurring))
   ;; 用于识别项目根目录的标记文件
   (setq projectile-project-root-files '(".git" ".projectile" ".hg" ".fslckout" ".bzr" "_darcs"))
   ;; 启用项目文件缓存，加速文件查找

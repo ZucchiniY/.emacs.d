@@ -123,7 +123,7 @@
         ;; agenda log
         org-agenda-log-mode-items '(clock clockcheck) ;; 仅查看时间
         org-agenda-log-mode-add-notes nil ;; 不添加笔记
-        org-agenda-start-with-log-mode '(clock clockcheck) ;; "only" ;; 打开时展示日志，与 org-agenda-log-mode-items 配置一致
+        org-agenda-start-with-log-mode t ;; "only" ;; 打开时展示日志，与 org-agenda-log-mode-items 配置一致
         )
   ;; 扩展 org-clock-clocktable-default-properties 参数
   (setq org-clock-clocktable-default-properties
@@ -145,8 +145,9 @@
         '(("r" "Daily Agenda"
            ((agenda "" ((org-agenda-overriding-header "今日记录")
                         (org-agenda-archives-mode t)
+                        ;; (org-agenda-check-clock-gap t)
                         (org-agenda-span 'day)
-                        ;; (org-agenda-show-log 'only)
+                        (org-agenda-show-log t)
                         (org-agenda-start-with-log-mode t)
                         (org-agenda-use-time-grid t)
                         (org-agenda-log-mode-items '(clock clockcheck))
