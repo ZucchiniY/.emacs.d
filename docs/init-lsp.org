@@ -1,0 +1,42 @@
+#+title: init-lsp.el 文件分析
+
+init-lsp.el 文件是一个 Emacs 配置文件，主要用于设置和管理 LSP (Language Server Protocol) 相关功能。该文件主要使用 Emacs 内置的 Eglot 作为 LSP 客户端，并通过一系列配置来优化 LSP 体验。
+
+* Eglot 配置
+
+配置了多种编程语言的自动 LSP 连接：
+通用编程模式（排除了一些特殊模式如 emacs-lisp-mode、lisp-mode 等）
+标记语言：markdown-mode、yaml-mode、yaml-ts-mode
+C/C++ 相关：c-ts-mode、c-mode、c++-mode、c++-ts-mode、c-or-c++-mode、c-or-c++-ts-mode
+Python：python-mode、python-ts-mode
+Rust：rust-mode、rust-ts-mode
+
+** Eglot 参数设置：
+
+~eglot-autoshutdown t~ :: 当没有缓冲区使用时自动关闭 LSP 服务器
+~eglot-events-buffer-size 0~ :: 禁用事件缓冲区，减少内存使用
+~eglot-send-changes-idle-time 0.5~ :: 设置发送更改的空闲时间为 0.5 秒
+
+将 flymake 添加到 eglot-stay-out-of 列表，避免 Eglot 与 Flymake 冲突
+启动时自动执行 eglot-ensure 确保 LSP 服务启动
+
+** 快捷键配置
+定义了一组以 SPC e 为前缀的快捷键：
+
+SPC e d：查找定义（使用 xref-find-definitions）
+SPC e r：重命名符号
+SPC e h：显示文档
+SPC e R：重新连接 LSP 服务器
+SPC e f：格式化代码
+SPC e ca：显示所有代码操作
+SPC e cq：快速修复代码问题
+SPC e ci：内联代码操作
+SPC e cr：重写代码
+SPC e co：组织导入
+
+** 性能优化
+使用 eglot-booster 加速 Eglot 的性能
+配置为使用内置的 Eglot（:ensure nil）
+
+* 备选方案 lspce
+文件中注释掉了 lspce 的配置，这似乎是另一个 LSP 客户端实现，可能是为了未来可能的切换或比较。
