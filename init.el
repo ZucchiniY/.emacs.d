@@ -84,5 +84,8 @@
 ;; Workspace & Project Management
 (require 'init-workspace)  ;; workspace and project management configurations
 
+;; Calendar
+(require 'init-calendar)
+
 (provide 'init)
 ;;; init.el ends here
