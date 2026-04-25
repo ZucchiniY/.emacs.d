@@ -21,7 +21,7 @@
 
 ;; 配置 org-roam
 (use-package org-roam
-  :load-path "load-lisp/org-roam"
+  ;; :load-path "load-lisp/org-roam"
   :after (org)
   :defer 2
   :diminish org-roam-mode

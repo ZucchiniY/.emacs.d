@@ -72,8 +72,7 @@
  '("GC: " (:eval (number-to-string gcs-done)) " - " (:eval (number-to-string gc-elapsed)) "s"))
 
 (cond (sys/mac-x-p (dylan//set-monospaced-font "IosevkaTerm NFM" "LXGW WenKai Mono GB Screen" 16 16))
-      ;; (sys/linux-x-p (dylan//set-monospaced-font "Iosevka Nerd Font Mono" "Wenquanyi Micro Hei Mono" 18 18))
-      (sys/linux-x-p (dylan//set-monospaced-font "Iosevka Nerd Font Mono" "LXGW WenKai Mono Medium" 18 18))
+      (sys/linux-x-p (dylan//set-monospaced-font "IosevkaTerm NFM" "LXGW WenKai Mono GB Screen" 18 18))
       (sys/win-x-p (dylan//set-monospaced-font "Iosevka Nerd Font Mono" "Microsoft YaHei" 14 14)))
 
 ;; 启用默认主题
