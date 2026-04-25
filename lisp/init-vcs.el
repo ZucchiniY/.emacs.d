@@ -11,6 +11,8 @@
 (eval-when-compile
   (require 'init-const))
 
+(setq package-install-upgrade-built-in t)
+
 (use-package magit
   :init
   (setq magit-diff-refine-hunk t
