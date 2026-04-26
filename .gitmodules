@@ -1,7 +1,3 @@
-[submodule "load-lisp/org-roam"]
-	path = load-lisp/org-roam
-	url = https://github.com/ZucchiniY/org-roam.git
-	branch = myfe
 [submodule "load-lisp/org-novelist"]
 	path = load-lisp/org-novelist
 	url = https://github.com/ZucchiniY/org-novelist.git
