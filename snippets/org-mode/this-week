@@ -2,7 +2,7 @@
 # name: weekly template
 # key: <week
 # --
-#+BEGIN: clocktable :scope agenda-with-archives :maxlevel 5 :compact t :formula % :hidefiles t :fileskip0 t :tags t :block `(format-time-string "%Y-W%V")`
+#+BEGIN: clocktable :scope agenda-with-archives :maxlevel 5 :compact t :formula % :hidefiles t :fileskip0 t :tags t :block `(format-time-string "%G-W%V")`
 #+END:
 
 *明确具体、可衡量、可实现、相关、有截止时间*

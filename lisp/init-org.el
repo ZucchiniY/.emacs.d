@@ -132,6 +132,7 @@
         org-agenda-start-with-log-mode t ;; "only" ;; 打开时展示日志，与 org-agenda-log-mode-items 配置一致
         ;; agenda start
         org-agenda-start-on-weekday 1
+        org-extend-today-until 2
         )
   ;; 扩展 org-clock-clocktable-default-properties 参数
   (setq org-clock-clocktable-default-properties
@@ -143,7 +144,7 @@
                  :hidefiles t
                  :fileskip0 t
                  :tags t))
-  (plist-put org-clock-clocktable-default-properties :block (format-time-string "%Y-W%V"))
+  (plist-put org-clock-clocktable-default-properties :block (format-time-string "%G-W%V"))
   (setq org-agenda-clock-consistency-checks
         '(:max-duration "4:00"
                         :min-duration "0"
