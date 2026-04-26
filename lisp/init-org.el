@@ -94,6 +94,12 @@
   ;; 加载一些 org modules
   (setq org-modules '(org-habit
                       org-id))
+  ;; org-habit 相关配置
+  (setq org-habit-show-habits-only-for-today t ;; 只在今天显示习惯
+        org-habit-graph-column 50   ;; 调整进度图表在右侧显示位置
+        org-habit-preceding-days 21 ;; 只显示过去三周的历史
+        org-habit-following-days 7  ;; 预测显示未来一周的情况
+        )
 
   ;; org-id 相关配置
   (setq org-id-track-globally t)
@@ -124,6 +130,8 @@
         org-agenda-log-mode-items '(clock clockcheck) ;; 仅查看时间
         org-agenda-log-mode-add-notes nil ;; 不添加笔记
         org-agenda-start-with-log-mode t ;; "only" ;; 打开时展示日志，与 org-agenda-log-mode-items 配置一致
+        ;; agenda start
+        org-agenda-start-on-weekday 1
         )
   ;; 扩展 org-clock-clocktable-default-properties 参数
   (setq org-clock-clocktable-default-properties
@@ -172,7 +180,7 @@
           ("h" "习惯与固定杂项")
           ("hh" "习惯" entry
            (file+headline "roam/projects/habits.org" "习惯")
-           "** %^{name}\nSCHEDULED: %^t\n:PROPERTIES:\n:STYLE: habit\n:END:\n%?"
+           "** %^{name}\nSCHEDULED: <%<%Y-%m-%d %a> .+1d/3d>\n:PROPERTIES:\n:STYLE: habit\n:END:\n%?"
            :empty-lines 1)
           ("hm" "固定周期" entry
            (file+headline "roam/projects/miscs.org" "杂项")
@@ -205,9 +213,7 @@
 
 
   (org-babel-do-load-languages 'org-babel-load-languages
-                               load-language-list)
-
-  )
+                               load-language-list))
 
 (use-package org-superstar
   :after org

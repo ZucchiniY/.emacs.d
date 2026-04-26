@@ -43,5 +43,9 @@
                                   cal-china-x-general-holidays
                                   holiday-other-holidays)))
 
+(use-package calendar
+  :config
+  (setq calendar-week-start-day 1))
+
 (provide 'init-calendar)
 ;;; init-calendar.el ends here

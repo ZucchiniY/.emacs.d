@@ -17,15 +17,15 @@
 
 - 笔记 :: 用来记录自己要做什么，在做什么，做过什么的地方
 - 计划 :: 记录自己的工作或者一些生活上的思考
-- 博客 :: 将遇到的问题的解决方法做成笔记，发布到 GitHub 上
-- 开发 :: 主要写 Rust、Python、Web ，使用 lspce 进行自动补全
+- 开发 :: 主要写 Rust、Python、Web
 
 再经过一段时间的使用之后，对于我来说，最需要的 package 就是：
 
-- Org Mode :: 记笔记，做计划，写博客 (配合 ox-hugo) ，等所有的内容，都可以使用。
+- Org Mode+Org Roam :: 做记录、记笔记，快捷笔记方式，用来更好的规划自己的任务。从这一刻起，真正将 Emacs 用为自己的工具。
+- projectile+project+tabspaces :: 项目快速切换，修改配置、开发工具时使用都非常频繁。
 - Magit :: 开发的时候做代码管理，可以说是非常好用的一个功能，几乎是 Emacs 神器。
-- Org Roam :: 快捷笔记方式，用来更好的规划自己的任务。从这一刻起，真正将 Emacs 用为自己的工具。
-- projectile :: 项目快速切换，修改配置、开发工具时使用都非常频繁。
+- evil+general :: 用来管理快捷键方式，主要使用 vim 的快捷键方案，配合 which-key 搭建完整的使用流程
+- orderless+vertico+consult+marginalia :: 补全和提示工具组，用来在使用时进行自动的提示，特别是乱序补全，配合 org-roam 检索笔记简直是飞起。 
 
 所以在这次从头开始的配置中，第一个需要的就是 Org Mode + Org Roam + Magit。
 
