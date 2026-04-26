@@ -281,6 +281,10 @@ which-key 帮助信息将显示当前目标的类型和值，
          ("M-/" . completion-at-point) ;; 绑定 M-/ 触发补全
          ("TAB" . completion-at-point) ;; 绑定 Tab 触发补全
          :map corfu-map
+         ("TAB" . corfu-next)
+         ([tab] . corfu-next)
+         ("S-TAB" . corfu-previous)
+         ([backtab] . corfu-previous)
          ("M-m" . corfu-move-to-minibuffer) ;; 移动补全到 minibuffer
          )
   :hook ((after-init . global-corfu-mode)
