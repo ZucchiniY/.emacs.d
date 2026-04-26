@@ -50,18 +50,11 @@
         org-roam-completion-everywhere t
         org-roam-dailies-directory "projects/"
         org-roam-dailies-capture-templates
-        '(("d" "daily" entry
-           "** %? \nSCHEDULED: %T"
-           :target (file+head+olp "%<%Y-%m-%d>.org"
-                                  "#+title: %<%Y-%m-%d>"
-                                  ("今日任务"))
-           :empty-lines 1
-           :jump-to-captured t
-           :unnarrowed t)
+        '(
           ("w" "weekly" entry
            "** %? \nSCHEDULED: %T\n"
-           :target (file+head+olp "%<%Y-W%U>.org"
-                                  "#+title: %<%Y-W%U>"
+           :target (file+head+olp "%<%Y-W%W>.org"
+                                  "#+title: %<%Y-W%W>"
                                   ("本周任务"))
            :empty-lines 1
            :jump-to-captured t
