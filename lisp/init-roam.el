@@ -53,8 +53,8 @@
         '(
           ("w" "weekly" entry
            "** %? \nSCHEDULED: %T\n"
-           :target (file+head+olp "%<%Y-W%W>.org"
-                                  "#+title: %<%Y-W%W>"
+           :target (file+head+olp "%<%G-W%V>.org"
+                                  "#+title: %<%G-W%V>"
                                   ("本周任务"))
            :empty-lines 1
            :jump-to-captured t
