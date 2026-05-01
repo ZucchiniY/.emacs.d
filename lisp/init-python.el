@@ -1,31 +1,28 @@
-;;; init-python.el --- summary -*- lexical-binding: t -*-
-
-;; Copyright (C) 2019-2026 Dylan Yang
-
-;; Author: Dylan Yang <banshiliuli1990@sina.com>
-;; URL: https://github.com/zucchiniy/.emacs.d
-
-;;; Commentary:
+;;; init-python.el --- Python configuration
 ;;
-;; python configuration
+;; Python 开发环境配置
+;; 使用 ruff server (Rust 实现) 作为 LSP 服务器
+;;
+;; 安装步骤：
+;; 1. 安装 ruff: pip install ruff
+;;
+
 ;;; Code:
 (use-package python
   :functions exec-path-from-shell-copy-env
   :hook (inferior-python-mode . (lambda ()
                                   (process-query-on-exit-flag
                                    (get-process "Python"))))
-
   :init
   (setq python-indent-offset 4
-        python-chell-completion-native-enable nil)
+        python-indent-guess-indent-offset nil)
   :config
-  ;; Type checker & language server: `ty'
+  ;; 使用 ruff server 作为 Python LSP 后端
   (with-eval-after-load 'eglot
     (add-to-list 'eglot-server-programs
                  '((python-ts-mode python-mode)
-                   . ("ty" "server"))))
-
-  ;; Linter & formatter: `ruff'
+                   . ("ruff" "server"))))
+  ;; 使用 ruff 作为 linter 和 formatter
   (when (executable-find "ruff")
     (use-package flymake-ruff
       :hook (python-base-mode . flymake-ruff-mode)))
@@ -37,5 +34,4 @@
   )
 
 (provide 'init-python)
-
 ;;; init-python.el ends here

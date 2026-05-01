@@ -1,12 +1,16 @@
-;;; init-org.el --- summary -*- lexical-binding: t -*-
-
-;; Copyright (C) 2019-2026 Dylan Yang
-
-;; Author: Dylan Yang <banshiliuli1990@sina.com>
-
-;; URL: https://github.com/zucchiniy/.emacs.d
-;;; Commentary:
-;; config lsp mode
+;;; init-lsp.el --- LSP configuration
+;;
+;; 使用 Eglot 作为 LSP 客户端
+;; 语言服务器后端：
+;; - Rust: rust-analyzer
+;; - Python: ruff server
+;; - JavaScript/TypeScript: deno lsp
+;;
+;; 配置说明：
+;; - eglot-autoshutdown t: 空闲时自动关闭 LSP 服务器
+;; - eglot-events-buffer-size 0: 禁用事件缓冲区以节省内存
+;; - eglot-send-changes-idle-time 0.5: 0.5秒后发送变更
+;;
 
 ;;; Code:
 (use-package eglot
@@ -21,7 +25,8 @@
          ((c++-mode c++-ts-mode) . eglot-ensure)
          ((c-or-c++-mode c-or-c++-ts-mode) . eglot-ensure)
          ((python-mode python-ts-mode) . eglot-ensure)
-         ((rust-mode rust-ts-mode) . eglot-ensure))
+         ((rust-mode rust-ts-mode) . eglot-ensure)
+         ((js-mode js-ts-mode typescript-mode typescript-ts-mode) . eglot-ensure))
   :init
   (setq eglot-autoshutdown t
         eglot-events-buffer-size 0
@@ -48,42 +53,11 @@
    )
   )
 
-;; use emacs-lsp-boost to speed up eglot
+;; 加速 eglot
 (use-package eglot-booster
-  :ensure nil ;; use built-in eglot
+  :ensure nil
   :after eglot
   :config (eglot-booster-mode))
-;; (use-package lspce
-;;   :load-path "load-lisp/lspce"
-;;   :hook ((rust-mode . lspce-mode)
-;;          (c-mode. lspce-mode)
-;;          (python-mode . lspce-mode))
-;;   :config
-;;   (progn
-;;     (setq lspce-send-changed-idle-time 0.1
-;;           lspce-idle-delay 0.1)
-;;     (setq lspce-show-log-level-in-modeline t
-;;           lspce-eldoc-enable-hover nil
-;;           lspce-eldoc-enable-signature t)
-;;     (setq eldoc-idle-delay 0.1)
-;;     ;; (add-hook 'lspce-mode-hook #'lspce-inlay-hints-mode)
-;;     (lspce-set-log-file "~/.emacs.d/lspce.log")
-;;     (lspce-enable-logging)
-;;     (setq lspce-sever-programs
-;;           `(("rust" "rust-analyzer" "" lspce-ra-initializationOptions)
-;;             ("C" "clangd" "--all-scopes-completion --clang-tidy --enable-config --header-insertion-decorators=0")
-;;             ("typescript" "deno" "" lspce-deno-initializationOptions)
-;;             ("javascript" "deno" "" lspce-deno-initializationOptions)
-;;             ("python" "ruff" "" lspce-ruff-initializationOptions)))
-;;     :general
-;;     (general-define-key
-;;      :states '(normal visual emacs)
-;;      :keymaps 'override
-;;      :prefix "SPC l"
-;;      "d" 'xref-find-definitions
-;;      "r" 'xref-find-references
-;;      "a" 'lspce-code-actions)
-;;     ))
 
 (provide 'init-lsp)
 ;;; init-lsp.el ends here

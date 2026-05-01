@@ -68,6 +68,14 @@
 ;; Completions
 (require 'init-completion)
 
+;; LSP
+(require 'init-lsp)  ;; LSP configuration
+
+;; Programming languages
+(require 'init-rust)   ;; Rust configuration
+(require 'init-python) ;; Python configuration
+(require 'init-deno)   ;; JavaScript/TypeScript configuration
+
 ;; Notes and Diary
 (require 'init-org)
 (require 'init-roam)  ;; use org-roam to organize notes
@@ -77,6 +85,9 @@
 
 ;; Snippets
 (require 'init-snippet)  ;; snippet configuration
+
+;; Hydra
+(require 'init-hydra)  ;; hydra configuration
 
 ;; Utilities
 (require 'init-utils)  ;; utility configurations

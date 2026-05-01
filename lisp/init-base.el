@@ -149,8 +149,8 @@
       sentence-end-double-space nil
       word-wrap-by-category t)
 
-;; Asynchronous processing
-;; 保留默认的异步处理设置
+;; 禁用第三方包的废弃警告
+(setq byte-compile-warnings '(not obsolete))
 
 ;; Frame
 (when (display-graphic-p)
