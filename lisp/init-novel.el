@@ -35,12 +35,7 @@
 
 (use-package org-novelist
   :load-path "load-lisp/org-novelist"
-  :general
-  (general-define-key
-   :states 'normal
-   :keymaps 'override
-   :prefix "SPC s"
-   "h" 'org-novelist-hydra/body)
+  :bind ("<f5>" . org-novelist-hydra/body)
   :init
   (setq org-novelist-language-tag "zh-Hans"
         org-novelist-author "INTJ摸鱼小能手"
