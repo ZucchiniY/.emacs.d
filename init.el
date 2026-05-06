@@ -75,6 +75,7 @@
 (require 'init-rust)   ;; Rust configuration
 (require 'init-python) ;; Python configuration
 (require 'init-deno)   ;; JavaScript/TypeScript configuration
+(require 'init-dart)   ;; Dart configuration
 
 ;; Notes and Diary
 (require 'init-org)

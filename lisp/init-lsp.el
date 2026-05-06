@@ -5,6 +5,7 @@
 ;; - Rust: rust-analyzer
 ;; - Python: ruff server
 ;; - JavaScript/TypeScript: deno lsp
+;; - Dart: dart analysis-server
 ;;
 ;; 配置说明：
 ;; - eglot-autoshutdown t: 空闲时自动关闭 LSP 服务器
@@ -26,7 +27,8 @@
          ((c-or-c++-mode c-or-c++-ts-mode) . eglot-ensure)
          ((python-mode python-ts-mode) . eglot-ensure)
          ((rust-mode rust-ts-mode) . eglot-ensure)
-         ((js-mode js-ts-mode typescript-mode typescript-ts-mode) . eglot-ensure))
+         ((js-mode js-ts-mode typescript-mode typescript-ts-mode) . eglot-ensure)
+         ((dart-mode) . eglot-ensure))
   :init
   (setq eglot-autoshutdown t
         eglot-events-buffer-size 0
