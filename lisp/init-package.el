@@ -39,6 +39,15 @@
 ;; update GPG keyring for GNU ELPA
 (use-package gnu-elpa-keyring-update)
 
+;; Fix PATH environment variable on macOS GUI
+(use-package exec-path-from-shell
+  :defer nil
+  :init
+  (setq exec-path-from-shell-check-startup-files nil)
+  :config
+  (exec-path-from-shell-initialize)
+  (exec-path-from-shell-copy-env "PATH"))
+
 (unless (fboundp 'package-upgrade-all)
   (use-package auto-package-update
     :autoload auto-package-update-now

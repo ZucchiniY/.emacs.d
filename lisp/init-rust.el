@@ -29,5 +29,9 @@
   :defer t
   :mode ("\\.ron\\'" . ron-mode))
 
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs
+               '((rust-mode rust-ts-mode) . ("rust-analyzer"))))
+
 (provide 'init-rust)
 ;;; init-rust.el ends here
