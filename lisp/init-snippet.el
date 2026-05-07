@@ -37,8 +37,8 @@
    :states 'normal
    :prefix "SPC y" ;; 代码片段相关功能前缀
    :doc "代码片段相关功能"
-   "g" 'yas/global-mode        ;; 全局模式
-   "m" 'yas/minor-mode         ;; 局部模式
+   "g" 'yas-global-mode        ;; 全局模式
+   "m" 'yas-minor-mode         ;; 局部模式
    "e" 'yas-activate-extra-mode ;; 激活额外模式
    "d" 'yas-load-directory     ;; 加载目录
    "f" 'yas-visit-snippet-file ;; 访问片段文件
