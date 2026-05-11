@@ -5,115 +5,27 @@
 
 ;;; Commentary:
 ;;
-;; Customization.
+;; Minimal customizations that are actually used.
 ;;
 
 ;;; Code:
-(eval-when-compile
-  (require 'package))
-
-(defgroup dylan nil
-  "Dylan Emacs customization."
-  :group 'convenience
-  :link '(url-link :tag "Homepage" "https://github.com/zucchiniy/.emacs.d"))
-
-(defcustom dylan-logo (expand-file-name
-                         (if (display-graphic-p) "logo.png" "banner.txt")
-                         user-emacs-directory)
-  "Set Dylan logo. nil means official logo."
-  :group 'dylan
-  :type 'string)
-
-(defcustom dylan-full-name user-full-name
-  "Set user full name."
-  :group 'dylan
-  :type 'string)
-
-(defcustom dylan-mail-address user-mail-address
-  "Set user email address."
-  :group 'dylan
-  :type 'string)
-
-(defcustom dylan-org-directory (expand-file-name "~/org")
-  "Set org directory."
-  :group 'dylan
-  :type 'string)
-
-(defcustom dylan-org-roam-directory (expand-file-name "roam")
-  "Set org roam directory."
-  :group 'dylan
-  :type 'string)
-
-(defcustom dylan-server t
-  "Enable `server-mode' or not."
-  :group 'dylan
-  :type 'boolean)
-
-(defcustom dylan-use-exec-path-from-shell
-  (or (memq window-system '(mac ns x)) (daemonp))
-  "Use `exec-path-from-shell' or not.
-If using emacs-plus with path ejection, set to nil."
-  :group 'dylan
-  :type 'boolean)
 
 (defcustom dylan-icon t
   "Display icons or not."
   :group 'dylan
   :type 'boolean)
 
-(defcustom dylan-completion-style 'childframe
-  "Completion display style."
-  :group 'dylan
-  :type '(choice (const :tag "Minibuffer" minibuffer)
-                 (const :tag "Child Frame" childframe)))
-
-(defcustom dylan-frame-maximized-on-startup nil
-  "Maximize frame on startup or not."
-  :group 'dylan
-  :type 'boolean)
-
-
-
 (defcustom dylan-tree-sitter t
-  "Enable tree-sitter or not.
-Native tree-sitter is introduced in 29."
-  :group 'dylan
-  :type 'boolean)
-
-(defcustom dylan-lsp-format-on-save nil
-  "Auto format buffers on save."
-  :group 'dylan
-  :type 'boolean)
-
-(defcustom dylan-lsp-format-on-save-ignore-modes
-  '(c-mode c++-mode python-mode markdown-mode)
-  "The modes that don't auto format and organize imports while saving the buffers.
-`prog-mode' means ignoring all derived modes."
-  :group 'dylan
-  :type '(repeat (symbol :tag "Major-Mode")))
-
-(defcustom dylan-chinese-calendar nil
-  "Enable Chinese calendar or not."
+  "Enable tree-sitter or not."
   :group 'dylan
   :type 'boolean)
 
 (defcustom dylan-auto-themes '(("8:00"  . ef-elea-light)
-				               ("19:00" . ef-elea-dark))
-  "List of themes mapped to the time they should be loaded.
-
-The keywords `:sunrise' and `:sunset' can be used for the time
-if the option `calendar-latitude' and option `calendar-longitude' are set.
-For example:
-  \\='((:sunrise . tango)
-    (:sunset  . tanggo-dark))"
+                                ("19:00" . ef-elea-dark))
+  "List of themes mapped to the time they should be loaded."
   :group 'dylan
   :type '(alist :key-type (string :tag "Time")
                 :value-type (symbol :tag "Theme")))
 
-;; Load `custom-file'
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-
 (provide 'init-custom)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-custom.el ends here
