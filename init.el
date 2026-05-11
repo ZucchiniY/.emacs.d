@@ -98,7 +98,6 @@
 (require 'init-python)  ;; Python configuration
 (require 'init-deno)    ;; JavaScript/TypeScript configuration
 (require 'init-svelte)  ;; Svelte configuration
-;; (require 'init-dart)    ;; Dart configuration
 
 
 (provide 'init)
