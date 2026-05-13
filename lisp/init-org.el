@@ -14,8 +14,7 @@
   (require 'init-general))
 
 (use-package org
-  :defines (org-capture-templates
-)
+  :defines (org-capture-templates)
   :commands org-try-structure-completion
   :mode ("\\.\\(org\\|org_archive\\)$" . org-mode)
   :hook (org-indent-mode . (lambda() (diminish 'org-indent-mode)))
@@ -48,6 +47,7 @@
    "`" 'org-time-stamp
    )
   :config
+  (add-hook 'org-mode-hook #'org-num-mode)
   (setq org-directory "~/workspace/org"
         org-agenda-files (directory-files-recursively
                           (expand-file-name "roam/projects/" org-directory) "\\.org$")
@@ -211,8 +211,6 @@
   (defvar load-language-list '((emacs-lisp . t)
                                (shell . t)
                                ))
-
-
   (org-babel-do-load-languages 'org-babel-load-languages
                                load-language-list))
 
@@ -220,8 +218,12 @@
   :after org
   :hook (org-mode . org-superstar-mode)
   :init
-  (setq org-superstar-headline-bullets-list '("⒈" "⒉" "⒊" "⒋" "⒌")
-        org-ellipsis "⋯"))
+  (setq org-superstar-item-bullet-alist
+        '((?* . ?•)      ; 一级列表用实心圆
+          (?+ . ?◦)      ; 二级列表用空心圆
+          (?- . ?▪)))    ; 三级列表用方块
+  (setq org-ellipsis "⋯")
+  )
 
 (provide 'init-org)
 ;;; init-org.el ends here
