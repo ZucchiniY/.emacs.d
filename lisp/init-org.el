@@ -48,6 +48,7 @@
    )
   :config
   (add-hook 'org-mode-hook #'org-num-mode)
+  (setq org-num-face '(:height 1.0 inherit org-num))
   (setq org-directory "~/workspace/org"
         org-agenda-files (directory-files-recursively
                           (expand-file-name "roam/projects/" org-directory) "\\.org$")
@@ -197,12 +198,6 @@
         org-refile-use-outline-path 'file
         org-outline-path-complete-in-steps t)
 
-  ;; 替换对应的标记
-  ;; 该段正则的意思是 “以 0 个或者多个空格开头，紧接着一个 ‘-’ ，紧接着是一个空格”
-  ;; 将配置上面的情况的 “-” 替换为 “•”
-  (font-lock-add-keywords 'org-mode
-                          '(("^ *\\([-]\\) "
-                             (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
   ;; Babel
   (setq org-confirm-babel-evaluate nil
         org-src-fontify-natively t
@@ -222,7 +217,8 @@
         '((?* . ?•)      ; 一级列表用实心圆
           (?+ . ?◦)      ; 二级列表用空心圆
           (?- . ?▪)))    ; 三级列表用方块
-  (setq org-ellipsis "⋯")
+  (setq org-ellipsis "⋯"
+        org-superstar-headline-bullets-list '("\u200b"))
   )
 
 (provide 'init-org)
