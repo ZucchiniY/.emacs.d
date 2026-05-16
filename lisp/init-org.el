@@ -50,8 +50,8 @@
   (add-hook 'org-mode-hook #'org-num-mode)
   (setq org-num-face '(:height 1.0 inherit org-num))
   (setq org-directory "~/workspace/org"
-        org-agenda-files (directory-files-recursively
-                          (expand-file-name "roam/projects/" org-directory) "\\.org$")
+        org-agenda-files (file-expand-wildcards
+                          (expand-file-name "ces-*.org" org-directory))
         org-log-done 'time
         org-startup-indented t
         ;; org-startup-folded 文档默认只显示最顶层
@@ -80,7 +80,7 @@
         ;; 启用 #+bind:
         org-export-allow-bind-keywords t
         ;; 设置归档位置
-        org-archive-location (expand-file-name (format-time-string "%Y.org::datetree/") (expand-file-name "roam/archives" org-directory))
+        org-archive-location (expand-file-name (format-time-string "%ces-Y.org::datetree/") (expand-file-name "archives" org-directory))
         ;; refile 使用路径
         org-refile-use-outline-path 'file
         org-outline-path-complete-in-steps t
@@ -90,7 +90,7 @@
   (defun org-summary-todo (n-done n-not-done)
     "Switch entry to DONE when all subentries are done, to TODO otherwise."
     (let (org-log-done org-log-states)   ; turn off logging
-      (org-todo (if (= n-not-done 0) "已完成" "未开始"))))
+      (org-todo (if (= n-not-done 0) "DONE" "SOMEDAY" "MAYBE"))))
   (add-hook 'org-after-todo-statistics-hook #'org-summary-todo)
   ;; 加载一些 org modules
   (setq org-modules '(org-habit
@@ -116,14 +116,18 @@
 
   ;; configurations org keywords' name and faces
   (setq org-todo-keywords
-        '((sequence "未开始(p!)" "进行中(t!)" "阻塞中(s!)"
-                    "|" "已完成(d!)" "已取消(c@/!)"))
+        '((sequence "TODO(t)" "NEXT(n)" "WAIT(w@/!)"
+                    "|" "DONE(d!)" "CANCELLED(c@)")
+          (type "SOMEDAY(s)" "|" "MAYBE(m)"))
         org-todo-keyword-faces
-        '(("未开始" . (:foreground "red" :weight bold))
-          ("阻塞中" . (:foreground "red" :weight bold))
-          ("进行中" . (:foreground "orange" :weight bold))
-          ("已完成" . (:foreground "green" :weight bold))
-          ("已取消" . (:background "gray" :foreground "black")))
+        '(("TODO" . (:foreground "red" :weight bold))
+          ("WAIT" . (:foreground "red" :weight bold))
+          ("NEXT" . (:foreground "orange" :weight bold))
+          ("DONE" . (:foreground "green" :weight bold))
+          ("CANCELLED" . (:background "gray" :foreground "black"))
+          ("SOMEDAY" . (:foreground "#FF9A3D"))
+          ("MAYBE" . (:foreground "#FFC635"))
+          )
         org-agenda-time-grid '((daily today require-timed)
                                (600 800 1000 1200 1400 1600 1800 2000 2200 2400)
                                "......" "----------------")
@@ -165,29 +169,39 @@
   ;; org capture-templates
   (setq org-capture-templates
         '(
-          ("t" "待办清单" entry
-           (file "roam/projects/tasks.org")
-           "* 未开始 [#B] %^{title} %^G\nSCHEDULED: %^T %?"
+          ("t" "CES 任务"
+           entry (file+headline "ces-logs.org" "Active Tasks")
+           "* TODO [#B] %^{title} %^G\nSCHEDULED: %^T\n:PROPERTIES:\n:KR_REF: %^{KR|K1-Rust|K2-Writing|K3-Body|K4-Dev|K5-Learn}\n:SET_POINT: %^{设定点}\n:PV_ACTUAL: \n:ERROR: \n:ADJUST: \n:END:\n%?"
            :empty-lines 1
            :jump-to-captured t
-           :unnarrowed t)
-          ("s" "学习任务" entry
-           (file+headline "roam/projects/studies.org" "学习清单")
-           "** 未开始 %^{name}\nSCHEDULED: %^t %?"
+           )
+          ("t" "CES 学习/阅读"
+           entry (file+headline "ces-logs.org" "Learning & Reading")
+           "* TODO %^{name} %^G\nSCHEDULED: %^t\n:PROPERTIES:\n:KR_REF: K5-Learn\n:SET_POINT: 完成本章/本节\n:PV_ACTUAL: \n:ERROR: \n:ADJUST: \n:END:\n%?"
+           :empty-lines 1
+           :jump-to-captured t
+           )
+          ("r" "CES 复盘"
+           entry (file+olp+datetree "ces-logs.org" "Reviews")
+           "* 闭环复盘 %t\n  - 偏差分析 :: \n  - 参数调优 ::\n  - 下一步 Setpoint 微调 :: \n  %?"
+           :time-prompt t
+           :empty-lines 1
+           )
+          ("s" "降级 -> someday.org"
+           entry (file "somdeday.org")
+           "* SOMEDAY %^{标题}\n  %U\n  %?"
+           :time-prompt t
+           :empty-lines 1
+           )
+          ("d" "闪念 -> distractions.org"
+           entry (file "distractions.org")
+           "%i%?\n %U"
            :empty-lines 1)
-          ("r" "阅读清单" entry
-           (file+headline "roam/projects/studies.org" "阅读清单")
-           "** 未开始 %^{name}\nSCHEDULED: %^t %?"
-           :empty-lines 1)
-          ("h" "习惯与固定杂项")
-          ("hh" "习惯" entry
-           (file+headline "roam/projects/habits.org" "习惯")
-           "** %^{name}\nSCHEDULED: <%<%Y-%m-%d %a> .+1d/3d>\n:PROPERTIES:\n:STYLE: habit\n:END:\n%?"
-           :empty-lines 1)
-          ("hm" "固定周期" entry
-           (file+headline "roam/projects/miscs.org" "杂项")
-           "** %^{name}\n%^t\n%?"
-           :empty-lines 1)
+          ("m" "杂项任务"
+           entry (file+headline "ces-logs.org" "Miscs")
+           "** TODO %^{name}\n%^t\n%?"
+           :empty-lines 1
+           )
           ))
 
   ;; org-refile-targets 指定移动的文件
