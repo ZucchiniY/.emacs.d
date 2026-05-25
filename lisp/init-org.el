@@ -64,7 +64,7 @@
         org-agenda-text-search-extra-files nil ;'agenda-archives
         org-agenda-skip-scheduled-if-done nil
         ;; `^' 和 `_' 是否转义，如果是 t 就转，nil 不转，{} 就 a_{a} 才转
-        org-use-sub-superscripts '{}
+        org-use-sub-superscripts nil ;;'{}
         org-log-into-drawer t
         org-clock-into-drawer "LOGBOOK"
         org-agenda-skip-deadline-if-done t
@@ -169,15 +169,21 @@
   ;; org capture-templates
   (setq org-capture-templates
         '(
-          ("t" "CES 任务"
+          ("t" "CES 目标"
            entry (file+headline "ces-logs.org" "Active Tasks")
-           "* TODO [#B] %^{title} %^G\nSCHEDULED: %^T\n:PROPERTIES:\n:KR_REF: %^{KR|K1-Rust|K2-Writing|K3-Body|K4-Dev|K5-Learn}\n:SET_POINT: %^{设定点}\n:PV_ACTUAL: \n:ERROR: \n:ADJUST: \n:END:\n%?"
+           (file "templates/ces-setpoint.org")
            :empty-lines 1
            :jump-to-captured t
            )
-          ("t" "CES 学习/阅读"
+          ("t" "CES KR"
+           entry (file+headline "ces-logs.org" "Active Tasks")
+           (file "templates/ces-activate.org")
+           :empty-lines 1
+           :jump-to-captured t
+           )
+          ("t" "CES 任务"
            entry (file+headline "ces-logs.org" "Learning & Reading")
-           "* TODO %^{name} %^G\nSCHEDULED: %^t\n:PROPERTIES:\n:KR_REF: K5-Learn\n:SET_POINT: 完成本章/本节\n:PV_ACTUAL: \n:ERROR: \n:ADJUST: \n:END:\n%?"
+           (file "templates/ces-activate.org")
            :empty-lines 1
            :jump-to-captured t
            )
@@ -189,6 +195,7 @@
            )
           ("s" "降级 -> someday.org"
            entry (file "somdeday.org")
+           (file "templates/ces-someday.org")
            "* SOMEDAY %^{标题}\n  %U\n  %?"
            :time-prompt t
            :empty-lines 1
@@ -197,9 +204,9 @@
            entry (file "distractions.org")
            "%i%?\n %U"
            :empty-lines 1)
-          ("m" "杂项任务"
-           entry (file+headline "ces-logs.org" "Miscs")
-           "** TODO %^{name}\n%^t\n%?"
+          ("b" "固定时间块"
+           entry (file+headline "ces-logs.org" "Time Blocks")
+           "* %^{name}\n%^t\n%?"
            :empty-lines 1
            )
           ))
